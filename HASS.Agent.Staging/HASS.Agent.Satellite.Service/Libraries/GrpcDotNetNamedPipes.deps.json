@@ -1,0 +1,90 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "GrpcDotNetNamedPipes/1.4.4": {
+        "dependencies": {
+          "Google.Protobuf": "3.14.0",
+          "Grpc.Core.Api": "2.33.1",
+          "Grpc.Tools": "2.33.1",
+          "System.Memory": "4.5.4"
+        },
+        "runtime": {
+          "GrpcDotNetNamedPipes.dll": {}
+        }
+      },
+      "Google.Protobuf/3.14.0": {
+        "dependencies": {
+          "System.Memory": "4.5.4",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.14.0.0",
+            "fileVersion": "3.14.0.0"
+          }
+        }
+      },
+      "Grpc.Core.Api/2.33.1": {
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Core.Api.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.33.1.0"
+          }
+        }
+      },
+      "Grpc.Tools/2.33.1": {},
+      "System.Memory/4.5.4": {},
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {}
+    }
+  },
+  "libraries": {
+    "GrpcDotNetNamedPipes/1.4.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Protobuf/3.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9AkodyGNmLI+wJJPbwpWLmh4BMHoXDQ9+8qvDPhQQi/BNsleqKMBn3OlyLwC6CALwan2kc5+Cenb8fJSITX3nQ==",
+      "path": "google.protobuf/3.14.0",
+      "hashPath": "google.protobuf.3.14.0.nupkg.sha512"
+    },
+    "Grpc.Core.Api/2.33.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5uRHXXy0xJaiatd2b542jKemTkC5wR/27d2wVBBl0J5Nf/ubfZlrfCAX/hdQuLHoLPRnuYmf9iG2uXZfT2230w==",
+      "path": "grpc.core.api/2.33.1",
+      "hashPath": "grpc.core.api.2.33.1.nupkg.sha512"
+    },
+    "Grpc.Tools/2.33.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jQgIvvcH/Gsggx+SXI1wDTLDdObf2H7RWptZhnafUrQk9hc/v0WhrBEEO8CSOevtI7stnWSWBb77wXUgcLyeHA==",
+      "path": "grpc.tools/2.33.1",
+      "hashPath": "grpc.tools.2.33.1.nupkg.sha512"
+    },
+    "System.Memory/4.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "path": "system.memory/4.5.4",
+      "hashPath": "system.memory.4.5.4.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    }
+  }
+}
