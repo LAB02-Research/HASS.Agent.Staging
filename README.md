@@ -17,7 +17,7 @@ This project contains the latest (beta) code of all three parts of the HASS.Agen
 
 <br/>
 
-It's purpose is to more easily develop beta releases, as the shared library will be instantly compiled and referenced.
+Its purpose is to more easily develop beta releases, as the shared library will be instantly compiled and referenced.
 
 Note: make sure any regular instance of HASS.Agent is shut down. If you're just planning to tinker with HASS.Agent, you can leave the regular service active, otherwise turn it off as well as the named pipe will be in use. Start the service with elevated privileges.
 
