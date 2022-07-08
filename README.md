@@ -29,10 +29,10 @@ The base of all tickets is HASS.Agent's YouTrack page:
 
 [HASS.Agent YouTrack Dashboard](https://lab02research.youtrack.cloud)
 
-Please let me know that you're working on a ticket (you can use the discussions page of this repo), to avoid double work.
+Let me know that you're working on a ticket (you can use the discussions page of this repo), to avoid double work.
+
+Documentation available here: [https://hassagent.readthedocs.io/en/latest/development/introduction/](https://hassagent.readthedocs.io/en/latest/development/introduction/)
 
 ----
-
-Look at the structure of the code to get an idea of how things are done. I'll create a more extensive guide later, for now just discuss your tickets to get relevant pointers. 
 
 Thanks! If you need more info, please join on [Discord](https://discord.gg/nMvqzwrVBU).
