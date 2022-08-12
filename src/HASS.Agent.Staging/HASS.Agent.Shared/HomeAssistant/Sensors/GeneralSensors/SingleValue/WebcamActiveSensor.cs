@@ -19,6 +19,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return IsWebcamInUse() ? "ON" : "OFF";
         }
 
+        public override string GetAttributes() => string.Empty;
+
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
             if (Variables.MqttManager == null) return null;
@@ -32,7 +34,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{Name}/state",
-                Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability"
+                Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability",
+                Icon = "mdi:webcam"
             });
         }
         

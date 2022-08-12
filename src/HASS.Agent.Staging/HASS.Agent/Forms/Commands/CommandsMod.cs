@@ -1,4 +1,5 @@
-﻿using Syncfusion.Windows.Forms;
+﻿using System.IO;
+using Syncfusion.Windows.Forms;
 using System.Text;
 using HASS.Agent.Commands;
 using HASS.Agent.Forms.Commands.CommandConfig;
@@ -186,6 +187,10 @@ namespace HASS.Agent.Forms.Commands
                 case CommandType.WebViewCommand:
                     TbSetting.Text = Command.Command;
                     break;
+
+                case CommandType.SetVolumeCommand:
+                    TbSetting.Text = Command.Command;
+                    break;
             }
 
             CbRunAsLowIntegrity.CheckState = Command.RunAsLowIntegrity ? CheckState.Checked : CheckState.Unchecked;
@@ -357,6 +362,31 @@ namespace HASS.Agent.Forms.Commands
                     Command.Command = procName;
                     break;
 
+                case CommandType.SetVolumeCommand:
+                    var volume = TbSetting.Text.Trim();
+                    if (string.IsNullOrEmpty(volume))
+                    {
+                        var q = MessageBoxAdv.Show(Languages.CommandsMod_MessageBox_Action2, Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (q != DialogResult.Yes)
+                        {
+                            ActiveControl = TbSetting;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        var volParsed = int.TryParse(volume, out var vol);
+                        if (!volParsed || vol is < 0 or > 100)
+                        {
+                            MessageBoxAdv.Show(Languages.CommandsMod_BtnStore_MessageBox10, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ActiveControl = TbSetting;
+                            return;
+                        }
+                        volume = vol.ToString();
+                    }
+                    Command.Command = volume;
+                    break;
+
                 case CommandType.WebViewCommand:
                     var webview = TbSetting.Text.Trim();
                     if (string.IsNullOrEmpty(webview))
@@ -479,6 +509,10 @@ namespace HASS.Agent.Forms.Commands
 
                 case CommandType.WebViewCommand:
                     SetWebViewUi();
+                    break;
+
+                case CommandType.SetVolumeCommand:
+                    SetVolumeUi();
                     break;
 
                 default:
@@ -639,6 +673,23 @@ namespace HASS.Agent.Forms.Commands
                 SetEmptyGui();
 
                 LblSetting.Text = "process";
+                LblSetting.Visible = true;
+
+                TbSetting.Text = string.Empty;
+                TbSetting.Visible = true;
+            }));
+        }
+
+        /// <summary>
+        /// Change the UI to a 'setvolume' type
+        /// </summary>
+        private void SetVolumeUi()
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                SetEmptyGui();
+
+                LblSetting.Text = "volume (between 0 and 100)";
                 LblSetting.Visible = true;
 
                 TbSetting.Text = string.Empty;

@@ -61,11 +61,11 @@ namespace HASS.Agent.Shared.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to config.
+        ///   Looks up a localized string similar to No URL has been set! Please configure the webview through Configuration -&gt; Tray Icon..
         /// </summary>
-        internal static string CommandsMod_LblSetting {
+        internal static string Main_NotifyIcon_MouseClick_MessageBox1 {
             get {
-                return ResourceManager.GetString("CommandsMod_LblSetting", resourceCulture);
+                return ResourceManager.GetString("Main_NotifyIcon_MouseClick_MessageBox1", resourceCulture);
             }
         }
         

@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using Serilog;
 
-namespace HASS.Agent.Shared.Functions
+namespace HASS.Agent.Shared.Managers
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal static class ProcessManager

@@ -34,6 +34,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
         public override string GetState() => (DateTime.Now - TimeSpan.FromMilliseconds(GetTickCount64())).ToTimeZoneString();
 
+        public override string GetAttributes() => string.Empty;
+
         [DllImport("kernel32")]
         private static extern ulong GetTickCount64();
     }

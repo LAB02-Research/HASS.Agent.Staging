@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using HASS.Agent.Shared.Enums;
-using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Models.HomeAssistant;
 using Serilog;
 
@@ -29,8 +29,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
 
             if (string.IsNullOrWhiteSpace(Command))
             {
-                Log.Warning("[COMMAND] Unable to launch command '{name}', it's configured as action-only", Name);
-
+                Log.Warning("[CUSTOMCOMMAND] [{name}] Unable to launch command, it's configured as action-only", Name);
                 State = "OFF";
                 return;
             }
@@ -40,12 +39,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             {
                 var executed = CommandLineManager.ExecuteHeadless(Command);
 
-                if (!executed)
-                {
-                    Log.Error("[COMMAND] Launching command '{name}' failed", Name);
-                    State = "FAILED";
-                    return;
-                }
+                if (!executed) Log.Error("[CUSTOMCOMMAND] [{name}] Launching command failed", Name);
             }
 
             State = "OFF";
@@ -65,12 +59,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
                     ? CommandLineManager.Execute(Command, action)
                     : CommandLineManager.ExecuteHeadless(action);
 
-                if (!executed)
-                {
-                    Log.Error("[COMMAND] Launching command '{name}' with action '{action}' failed", Name, action);
-                    State = "FAILED";
-                    return;
-                }
+                if (!executed) Log.Error("[CUSTOMCOMMAND] [{name}] Launching command with action '{action}' failed", Name, action);
             }
 
             State = "OFF";

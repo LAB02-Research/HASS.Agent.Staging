@@ -9,10 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using HASS.Agent.Shared.Functions;
 using Serilog;
+#pragma warning disable CS0169
 
 namespace HASS.Agent.Functions
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMember.Local")]
+    [SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Local")]
     internal static class ServiceHelper
     {
         private const uint SERVICE_NO_CHANGE = 0xFFFFFFFF;

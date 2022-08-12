@@ -26,5 +26,6 @@ namespace HASS.Agent.Shared.Mqtt
         string MqttDiscoveryPrefix();
         DeviceConfigModel GetDeviceConfigModel();
         void ReloadConfiguration();
+        bool UseRetainFlag();
     }
 }

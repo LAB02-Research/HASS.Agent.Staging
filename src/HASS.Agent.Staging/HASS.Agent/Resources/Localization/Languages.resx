@@ -834,7 +834,7 @@ please configure an executor or your command won't run</value>
 		<value>{0} only!</value>
 	</data>
 	<data name="CommandsMod_LblMqttTopic_MessageBox1" xml:space="preserve">
-		<value>The MQTT manager hasn't been setup properly, make sure you've configured MQTT and restarted afterwards.</value>
+		<value>The MQTT manager hasn't been configured properly, or hasn't yet completed its startup.</value>
 	</data>
 	<data name="QuickActions_CheckHassManager_MessageBox1" xml:space="preserve">
 		<value>Unable to fetch your entities because of missing config, please enter the required values in the config screen.</value>
@@ -1227,7 +1227,7 @@ Can for instance be used to determine whether to send notifications or TTS messa
 		<value>Provides a bool value based on whether the webcam is currently being used.</value>
 	</data>
 	<data name="SensorsManager_WindowsUpdatesSensorsDescription" xml:space="preserve">
-		<value>Provides a sensor with the amount of pending driver updates and a sensor with the amount of pending software updates.
+		<value>Provides a sensor with the amount of pending driver updates, a sensor with the amount of pending software updates, a sensor containing all pending driver updates information (title, kb article id's, hidden, type and categories) and a sensor containing the same for pending software updates.
 
 This is a costly request, so the recommended interval is 15 minutes (900 seconds). But it's capped at 10 minutes, if you provide a lower value, you'll get the last known list.</value>
 	</data>
@@ -1859,7 +1859,7 @@ Enter '0' to keep them permanently.</value>
 	</data>
 	<data name="ConfigLogging_LblInfo1" xml:space="preserve">
 		<value>Extended logging provides more verbose and in-depth logging, in case the default logging isn't
-sufficient.Please note that enabling this can cause the logfiles to grow large, and should only be
+sufficient. Please note that enabling this can cause the logfiles to grow large, and should only be
 used when you suspect something's wrong with HASS.Agent itself or when asked by the
 developers.</value>
 	</data>
@@ -2884,5 +2884,134 @@ Note: you disabled sanitation, so make sure your device name is accepted by Home
 	</data>
 	<data name="NotifierManager_Initialize_MessageBox1" xml:space="preserve">
 		<value />
+	</data>
+	<data name="SensorType_PrintersSensors" xml:space="preserve">
+		<value>Printers</value>
+	</data>
+	<data name="Main_NotifyIcon_MouseClick_MessageBox1" xml:space="preserve">
+		<value>No URL has been set! Please configure the webview through Configuration -&gt; Tray Icon.</value>
+	</data>
+	<data name="CommandType_MonitorSleepCommand" xml:space="preserve">
+		<value>MonitorSleep</value>
+	</data>
+	<data name="CommandType_MonitorWakeCommand" xml:space="preserve">
+		<value>MonitorWake</value>
+	</data>
+	<data name="MonitorPowerEvent_PowerOn" xml:space="preserve">
+		<value>PowerOn</value>
+	</data>
+	<data name="MonitorPowerEvent_PowerOff" xml:space="preserve">
+		<value>PowerOff</value>
+	</data>
+	<data name="MonitorPowerEvent_Dimmed" xml:space="preserve">
+		<value>Dimmed</value>
+	</data>
+	<data name="MonitorPowerEvent_Unknown" xml:space="preserve">
+		<value>Unknown</value>
+	</data>
+	<data name="SensorType_MonitorPowerStateSensor" xml:space="preserve">
+		<value>MonitorPowerState</value>
+	</data>
+	<data name="SensorType_PowershellSensor" xml:space="preserve">
+		<value>PowershellSensor</value>
+	</data>
+	<data name="SensorsMod_LblSetting1_Powershell" xml:space="preserve">
+		<value>powershell command or script</value>
+	</data>
+	<data name="SensorsMod_SensorsMod_BtnTest_Powershell" xml:space="preserve">
+		<value>test command or script</value>
+	</data>
+	<data name="SensorsMod_TestPowershell_MessageBox2" xml:space="preserve">
+		<value>Test succesfully executed, result value:
+
+{0}</value>
+	</data>
+	<data name="SensorsMod_TestPowershell_MessageBox1" xml:space="preserve">
+		<value>Enter a command or script first</value>
+	</data>
+	<data name="SensorsMod_TestPowershell_MessageBox3" xml:space="preserve">
+		<value>The test failed to execute:
+
+{0}
+
+Do you want to open the logs folder?</value>
+	</data>
+	<data name="CommandType_SetVolumeCommand" xml:space="preserve">
+		<value>SetVolume</value>
+	</data>
+	<data name="CommandsMod_BtnStore_MessageBox10" xml:space="preserve">
+		<value>Please enter a value between 0 and 100 as the desired volume level.</value>
+	</data>
+	<data name="CommandsMod_MessageBox_Action2" xml:space="preserve">
+		<value>If you don't enter a volume value, you can only use this entity with an 'action' value through Home Assistant. Running it as-is won't do anything.
+
+Are you sure you want this?</value>
+	</data>
+	<data name="WindowState_Maximized" xml:space="preserve">
+		<value>Maximized</value>
+	</data>
+	<data name="WindowState_Minimized" xml:space="preserve">
+		<value>Minimized</value>
+	</data>
+	<data name="WindowState_Normal" xml:space="preserve">
+		<value>Normal</value>
+	</data>
+	<data name="WindowState_Unknown" xml:space="preserve">
+		<value>Unknown</value>
+	</data>
+	<data name="WindowState_Hidden" xml:space="preserve">
+		<value>Hidden</value>
+	</data>
+	<data name="SensorType_WindowStateSensor" xml:space="preserve">
+		<value>WindowState</value>
+	</data>
+	<data name="CommandsManager_MonitorSleepCommandDescription" xml:space="preserve">
+		<value>Puts all monitors in sleep (low power) mode.</value>
+	</data>
+	<data name="CommandsManager_MonitorWakeCommandDescription" xml:space="preserve">
+		<value>Tries to wake up all monitors by simulating a 'arrow up' keypress.</value>
+	</data>
+	<data name="CommandsManager_SetVolumeCommandDescription" xml:space="preserve">
+		<value>Sets the volume of the current default audiodevice to the specified level.</value>
+	</data>
+	<data name="SensorsManager_GeoLocationSensorDescription" xml:space="preserve">
+		<value>Returns your current latitude, longitude and altitude as a comma-seperated value.
+
+Make sure Windows' location services are enabled!
+
+Depending on your Windows version, this can be found in the new control panel -&gt; 'privacy and security' -&gt; 'location'.</value>
+	</data>
+	<data name="SensorsManager_MonitorPowerStateSensorDescription" xml:space="preserve">
+		<value>Provides the last monitor power state change:
+
+Dimmed, PowerOff, PowerOn and Unkown.</value>
+	</data>
+	<data name="SensorsManager_PowershellSensorDescription" xml:space="preserve">
+		<value>Returns the result of the provided Powershell command or script.
+
+Converts the outcome to text.</value>
+	</data>
+	<data name="SensorsManager_PrintersSensorsDescription" xml:space="preserve">
+		<value>Provides information about all installed printers and their queues.</value>
+	</data>
+	<data name="SensorsManager_WindowStateSensorDescription" xml:space="preserve">
+		<value>Provides the current state of the process' window:
+
+Hidden, Maximized, Minimized, Normal and Unknown.</value>
+	</data>
+	<data name="ConfigHomeAssistantApi_BtnTestApi_Testing" xml:space="preserve">
+		<value>testing ..</value>
+	</data>
+	<data name="SensorType_WebcamProcessSensor" xml:space="preserve">
+		<value>WebcamProcess</value>
+	</data>
+	<data name="SensorType_MicrophoneProcessSensor" xml:space="preserve">
+		<value>MicrophoneProcess</value>
+	</data>
+	<data name="SensorsManager_WebcamProcessSensorDescription" xml:space="preserve">
+		<value>Provides the name of the process that's currently using the webcam.</value>
+	</data>
+	<data name="SensorsManager_MicrophoneProcessSensorDescription" xml:space="preserve">
+		<value>Provides the name of the process that's currently using the microphone.</value>
 	</data>
 </root>

@@ -1,4 +1,4 @@
-﻿using HASS.Agent.Shared.Functions;
+﻿using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Models.HomeAssistant;
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
@@ -29,5 +29,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
         }
 
         public override string GetState() => SharedSystemStateManager.LastSystemStateEvent.ToString();
+
+        public override string GetAttributes() => string.Empty;
     }
 }

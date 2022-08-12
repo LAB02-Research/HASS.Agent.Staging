@@ -61,6 +61,14 @@ namespace HASS.Agent.Shared.Enums
         [EnumMember(Value = "MediaVolumeUpCommand")]
         MediaVolumeUpCommand,
 
+        [LocalizedDescription("CommandType_MonitorSleepCommand", typeof(Languages))]
+        [EnumMember(Value = "MonitorSleepCommand")]
+        MonitorSleepCommand,
+
+        [LocalizedDescription("CommandType_MonitorWakeCommand", typeof(Languages))]
+        [EnumMember(Value = "MonitorWakeCommand")]
+        MonitorWakeCommand,
+
         [LocalizedDescription("CommandType_MultipleKeysCommand", typeof(Languages))]
         [EnumMember(Value = "MultipleKeysCommand")]
         MultipleKeysCommand,
@@ -80,6 +88,10 @@ namespace HASS.Agent.Shared.Enums
         [LocalizedDescription("CommandType_SendWindowToFrontCommand", typeof(Languages))]
         [EnumMember(Value = "SendWindowToFrontCommand")]
         SendWindowToFrontCommand,
+
+        [LocalizedDescription("CommandType_SetVolumeCommand", typeof(Languages))]
+        [EnumMember(Value = "SetVolumeCommand")]
+        SetVolumeCommand,
 
         [LocalizedDescription("CommandType_ShutdownCommand", typeof(Languages))]
         [EnumMember(Value = "ShutdownCommand")]

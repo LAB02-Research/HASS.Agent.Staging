@@ -1,4 +1,5 @@
-﻿using HASS.Agent.Commands;
+﻿using System.IO;
+using HASS.Agent.Commands;
 using HASS.Agent.Enums;
 using HASS.Agent.Models.Config;
 using HASS.Agent.Models.Internal;

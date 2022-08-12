@@ -12,8 +12,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue.Data
         private readonly string _icon;
 
         private bool _value = false;
+        private string _attributes = string.Empty;
 
-        public DataTypeBoolSensor(int? updateInterval, string name, string id, string deviceClass, string icon, string multiValueSensorName) : base(name, updateInterval ?? 30, id)
+        public DataTypeBoolSensor(int? updateInterval, string name, string id, string deviceClass, string icon, string multiValueSensorName, bool useAttributes = false) : base(name, updateInterval ?? 30, id, useAttributes)
         {
             TopicName = multiValueSensorName;
 
@@ -41,6 +42,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue.Data
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/availability"
             };
 
+            if (UseAttributes) model.Json_attributes_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{TopicName}/{ObjectId}/attributes";
+
             if (!string.IsNullOrWhiteSpace(_deviceClass)) model.Device_class = _deviceClass;
             if (!string.IsNullOrWhiteSpace(_icon)) model.Icon = _icon;
 
@@ -48,7 +51,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue.Data
         }
 
         public void SetState(bool value) => _value = value;
+        public void SetAttributes(string value) => _attributes = string.IsNullOrWhiteSpace(value) ? "{}" : value;
 
         public override string GetState() => _value.ToString(CultureInfo.CurrentCulture);
+        public override string GetAttributes() => _attributes;
     }
 }

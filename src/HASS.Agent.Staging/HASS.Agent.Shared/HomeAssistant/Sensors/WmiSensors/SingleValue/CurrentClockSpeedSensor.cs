@@ -52,7 +52,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.WmiSensors.SingleValue
             }
             catch (Exception ex)
             {
-                Log.Error("[WMI] Error getting current clockspeed: {msg}", ex.Message);
+                Log.Error("[CURRENTCLOCKSPEED] [{name}] Error getting current clockspeed: {msg}", Name, ex.Message);
                 return "0";
             }
         }

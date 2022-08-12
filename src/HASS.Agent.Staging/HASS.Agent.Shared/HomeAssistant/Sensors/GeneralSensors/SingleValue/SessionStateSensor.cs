@@ -29,5 +29,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
         }
 
         public override string GetState() => SessionInfo.GetActiveSessionLockState().ToString();
+
+        public override string GetAttributes() => string.Empty;
     }
 }

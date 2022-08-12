@@ -1,6 +1,7 @@
-﻿using System.ServiceProcess;
+﻿using System.IO;
+using System.ServiceProcess;
 using HASS.Agent.Functions;
-using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using Microsoft.Win32;
 using Serilog;
 using TimeoutException = System.ServiceProcess.TimeoutException;

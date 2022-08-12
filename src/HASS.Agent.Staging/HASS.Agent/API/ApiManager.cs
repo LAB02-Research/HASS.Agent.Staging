@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Net.Http;
 using System.Text;
 using Grapevine;
 using HASS.Agent.Resources.Localization;
 using HASS.Agent.Shared.Enums;
 using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using Serilog;
 
 #pragma warning disable CA1416 // Validate platform compatibility

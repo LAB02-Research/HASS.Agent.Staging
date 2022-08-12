@@ -52,12 +52,12 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
 
                 var autoDiscoConfig = GetAutoDiscoveryConfig();
                 if (autoDiscoConfig == null) return;
-
+                
                 var message = new MqttApplicationMessageBuilder()
                     .WithTopic(autoDiscoConfig.State_topic)
                     .WithPayload(state)
                     .WithExactlyOnceQoS()
-                    .WithRetainFlag()
+                    .WithRetainFlag(Variables.MqttManager.UseRetainFlag())
                     .Build();
 
                 await Variables.MqttManager.PublishAsync(message);

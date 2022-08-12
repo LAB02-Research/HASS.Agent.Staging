@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue.DataTypes;
 using HASS.Agent.Shared.Models.HomeAssistant;
+using HASS.Agent.Shared.Models.Internal;
+using Newtonsoft.Json;
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 {
@@ -28,16 +30,16 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             // lowercase and safe name of the multivalue sensor
             var parentSensorSafeName = SharedHelperFunctions.GetSafeValue(Name);
 
-            // fetch the latest battery state
-            var displayInfo = Screen.AllScreens;
+            // fetch the latest display infos
+            var displays = Screen.AllScreens;
 
             // prepare the data
             var primaryDisplayStr = string.Empty;
-            var primaryDisplay = displayInfo.FirstOrDefault(x => x.Primary);
-            if (primaryDisplay != null) primaryDisplayStr = primaryDisplay.DeviceName;
+            var primaryDisplay = displays.FirstOrDefault(x => x.Primary);
+            if (primaryDisplay != null) primaryDisplayStr = primaryDisplay.DeviceName.Split('\\').Last();
 
             // display count sensor
-            var displayCount = displayInfo.Length;
+            var displayCount = displays.Length;
 
             var displayCountId = $"{parentSensorSafeName}_display_count";
             var displayCountSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Display Count", displayCountId, string.Empty, "mdi:monitor", string.Empty, Name);
@@ -51,48 +53,44 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
             // primary display sensor
             var primaryDisplayId = $"{parentSensorSafeName}_primary_display";
-            var primaryDisplaySensor = new DataTypeStringSensor(_updateInterval, $"{Name} Primay Display", primaryDisplayId, string.Empty, "mdi:monitor", string.Empty, Name);
+            var primaryDisplaySensor = new DataTypeStringSensor(_updateInterval, $"{Name} Primary Display", primaryDisplayId, string.Empty, "mdi:monitor", string.Empty, Name);
             primaryDisplaySensor.SetState(primaryDisplayStr);
 
             if (!Sensors.ContainsKey(primaryDisplayId)) Sensors.Add(primaryDisplayId, primaryDisplaySensor);
             else Sensors[primaryDisplayId] = primaryDisplaySensor;
 
             // process all monitors
-            foreach (var display in displayInfo)
+            foreach (var display in displays)
             {
                 // id
                 var id = SharedHelperFunctions.GetSafeValue(display.DeviceName);
                 if (string.IsNullOrWhiteSpace(id)) continue;
 
-                // name
-                var name = display.DeviceName;
+                // name, remove the backslashes
+                var name = display.DeviceName.Split('\\').Last();
 
-                var nameId = $"{parentSensorSafeName}_{id}_name";
-                var nameSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {name} Name", nameId, string.Empty, "mdi:monitor", string.Empty, Name);
-                nameSensor.SetState(name);
+                // prepare the info
+                var displayInfo = new DisplayInfo();
+                displayInfo.Name = name;
+                displayInfo.Resolution = $"{display.Bounds.Width}x{display.Bounds.Height}";
+                displayInfo.Width = display.Bounds.Width;
+                displayInfo.Height = display.Bounds.Height;
+                displayInfo.BitsPerPixel = display.BitsPerPixel;
+                displayInfo.PrimaryDisplay = displayInfo.PrimaryDisplay;
+                displayInfo.WorkingArea = $"{display.WorkingArea.Width}x{display.WorkingArea.Height}";
+                displayInfo.WorkingAreaWidth = display.WorkingArea.Width;
+                displayInfo.WorkingAreaHeight = display.WorkingArea.Height;
 
-                if (!Sensors.ContainsKey(nameId)) Sensors.Add(nameId, nameSensor);
-                else Sensors[nameId] = nameSensor;
+                // process the sensor
+                var info = JsonConvert.SerializeObject(displayInfo, Formatting.Indented);
+                var displayInfoId = $"{parentSensorSafeName}_{id}";
+                var displayInfoSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {name}", displayInfoId, string.Empty, "mdi:monitor", string.Empty, Name, true);
 
-                // resolution
-                var resolution = $"{display.Bounds.Width}x{display.Bounds.Height}";
+                displayInfoSensor.SetState(name);
+                displayInfoSensor.SetAttributes(info);
 
-                var resolutionId = $"{parentSensorSafeName}_{id}_resolution";
-                var resolutionSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {name} Resolution", resolutionId, string.Empty, "mdi:monitor", string.Empty, Name);
-                resolutionSensor.SetState(resolution);
-
-                if (!Sensors.ContainsKey(resolutionId)) Sensors.Add(resolutionId, resolutionSensor);
-                else Sensors[resolutionId] = resolutionSensor;
-
-                // bit
-                var bit = display.BitsPerPixel;
-
-                var bitId = $"{parentSensorSafeName}_{id}_bit";
-                var bitSensor = new DataTypeIntSensor(_updateInterval, $"{Name} {name} Bits Per Pixel", bitId, string.Empty, "mdi:monitor", string.Empty, Name);
-                bitSensor.SetState(bit);
-
-                if (!Sensors.ContainsKey(bitId)) Sensors.Add(bitId, bitSensor);
-                else Sensors[bitId] = bitSensor;
+                if (!Sensors.ContainsKey(displayInfoId)) Sensors.Add(displayInfoId, displayInfoSensor);
+                else Sensors[displayInfoId] = displayInfoSensor;
             }
         }
 

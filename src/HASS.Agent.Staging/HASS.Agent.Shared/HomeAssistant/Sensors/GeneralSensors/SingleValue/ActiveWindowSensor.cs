@@ -35,6 +35,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return GetActiveWindowTitle();
         }
 
+        public override string GetAttributes() => string.Empty;
+
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
 

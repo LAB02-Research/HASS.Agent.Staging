@@ -28,6 +28,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
 
 
         public string Id { get; set; } = string.Empty;
+        public bool UseAttributes { get; set; } = false;
 
         public abstract DiscoveryConfigModel GetAutoDiscoveryConfig();
         public abstract void ClearAutoDiscoveryConfig();

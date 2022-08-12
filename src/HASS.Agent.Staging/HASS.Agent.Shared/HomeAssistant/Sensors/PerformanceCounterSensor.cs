@@ -51,5 +51,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
         }
         
         public override string GetState() => Math.Round(Counter.NextValue()).ToString(CultureInfo.InvariantCulture);
+
+        public override string GetAttributes() => string.Empty;
     }
 }

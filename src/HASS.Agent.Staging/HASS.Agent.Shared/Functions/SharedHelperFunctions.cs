@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.DirectoryServices.AccountManagement;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
@@ -18,30 +19,6 @@ namespace HASS.Agent.Shared.Functions
     /// </summary>
     public static class SharedHelperFunctions
     {
-        [DllImport("advapi32.dll", SetLastError = true)]
-        private static extern bool OpenProcessToken(IntPtr processHandle, uint desiredAccess, out IntPtr tokenHandle);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool CloseHandle(IntPtr hObject);
-
-        private delegate bool EnumWindowsProc(IntPtr hWnd, int lParam);
-
-        [DllImport("USER32.DLL")]
-        private static extern bool EnumWindows(EnumWindowsProc enumFunc, int lParam);
-
-        [DllImport("USER32.DLL")]
-        private static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
-
-        [DllImport("USER32.DLL")]
-        private static extern int GetWindowTextLength(IntPtr hWnd);
-
-        [DllImport("USER32.DLL")]
-        private static extern bool IsWindowVisible(IntPtr hWnd);
-
-        [DllImport("USER32.DLL")]
-        private static extern IntPtr GetShellWindow();
-        
         /// <summary>
         /// Returns the safe variant of the configured device name, or a safe version of the machinename if nothing's stored
         /// </summary>
@@ -49,19 +26,23 @@ namespace HASS.Agent.Shared.Functions
         public static string GetSafeConfiguredDeviceName() =>
             string.IsNullOrEmpty(Variables.DeviceName)
                 ? GetSafeDeviceName()
-                : Regex.Replace(Variables.DeviceName, @"[^a-zA-Z0-9_-_\s]", "_");
+                : GetSafeValue(Variables.DeviceName);
 
         /// <summary>
         /// Returns a safe version of this machine's name
         /// </summary>
         /// <returns></returns>
-        public static string GetSafeDeviceName() => Regex.Replace(Environment.MachineName, @"[^a-zA-Z0-9_-_\s]", "_");
+        public static string GetSafeDeviceName() => GetSafeValue(Environment.MachineName);
 
         /// <summary>
-        /// Returns a safe (lowercase) version of the provided value
+        /// Returns a safe version of the provided value
         /// </summary>
         /// <returns></returns>
-        public static string GetSafeValue(string value) => Regex.Replace(value, @"[^a-zA-Z0-9_-_\s]", "_");
+        public static string GetSafeValue(string value)
+        {
+            var val = Regex.Replace(value, @"[^a-zA-Z0-9_-_\s]", "_");
+            return val.Replace(" ", "");
+        }
 
         /// <summary>
         /// Provides a dictionary containing the pointers and titles of all open windows
@@ -69,19 +50,19 @@ namespace HASS.Agent.Shared.Functions
         /// <returns></returns>
         public static IDictionary<IntPtr, string> GetOpenWindows()
         {
-            var shellWindow = GetShellWindow();
+            var shellWindow = NativeMethods.GetShellWindow();
             var windows = new Dictionary<IntPtr, string>();
 
-            EnumWindows(delegate (IntPtr hWnd, int lParam)
+            NativeMethods.EnumWindows(delegate (IntPtr hWnd, int lParam)
             {
                 if (hWnd == shellWindow) return true;
-                if (!IsWindowVisible(hWnd)) return true;
+                if (!NativeMethods.IsWindowVisible(hWnd)) return true;
 
-                var length = GetWindowTextLength(hWnd);
+                var length = NativeMethods.GetWindowTextLength(hWnd);
                 if (length == 0) return true;
 
                 var builder = new StringBuilder(length);
-                GetWindowText(hWnd, builder, length + 1);
+                NativeMethods.GetWindowText(hWnd, builder, length + 1);
 
                 windows[hWnd] = builder.ToString();
                 return true;
@@ -103,7 +84,7 @@ namespace HASS.Agent.Shared.Functions
             var processHandle = IntPtr.Zero;
             try
             {
-                OpenProcessToken(process.Handle, 8, out processHandle);
+                NativeMethods.OpenProcessToken(process.Handle, 8, out processHandle);
                 using var wi = new WindowsIdentity(processHandle);
                 var user = wi.Name;
                 if (!includeDomain) return user.Contains(@"\") ? user[(user.IndexOf(@"\") + 1)..] : user;
@@ -115,7 +96,7 @@ namespace HASS.Agent.Shared.Functions
             }
             finally
             {
-                if (processHandle != IntPtr.Zero) CloseHandle(processHandle);
+                if (processHandle != IntPtr.Zero) NativeMethods.CloseHandle(processHandle);
             }
         }
 
@@ -152,6 +133,40 @@ namespace HASS.Agent.Shared.Functions
             {
                 Log.Fatal(ex, ex.Message);
                 return "Everyone";
+            }
+        }
+
+        /// <summary>
+        /// Parses the application name from the application's reg key
+        /// </summary>
+        /// <param name="subKeyName"></param>
+        /// <returns></returns>
+        public static string ParseRegWebcamMicApplicationName(string subKeyName)
+        {
+            try
+            {
+                var subKeyLowerName = subKeyName.ToLower();
+
+                // win app?
+                if (subKeyLowerName.StartsWith("windows.") || subKeyLowerName.StartsWith("microsoft."))
+                {
+                    // yep, remove the first part
+                    var name = subKeyName.Replace($"{subKeyName.Split('.').First()}.", "");
+
+                    // remove the last part
+                    name = name.Replace($"_{name.Split('_').Last()}", "");
+
+                    // done
+                    return name;
+                }
+
+                // nope, regular, just replace the hashes
+                return subKeyName.Replace("#", "\\");
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Unable to parse subkey '{key}': {err}", subKeyName, ex.Message);
+                return subKeyName;
             }
         }
     }

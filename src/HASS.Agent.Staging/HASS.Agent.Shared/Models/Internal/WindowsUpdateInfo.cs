@@ -2,6 +2,21 @@
 
 namespace HASS.Agent.Shared.Models.Internal
 {
+    public class WindowsUpdateInfoCollection
+    {
+        public WindowsUpdateInfoCollection()
+        {
+            //
+        }
+
+        public WindowsUpdateInfoCollection(List<WindowsUpdateInfo> windowsUpdates)
+        {
+            foreach (var windowsUpdate in windowsUpdates) WindowsUpdates.Add(windowsUpdate);
+        }
+
+        public List<WindowsUpdateInfo> WindowsUpdates { get; set; } = new List<WindowsUpdateInfo>();
+    }
+
     /// <summary>
     /// Contains Windows update information
     /// </summary>

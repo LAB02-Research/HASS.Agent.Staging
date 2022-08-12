@@ -36,6 +36,7 @@ namespace HASS.Agent.Models.Config
         public int TrayIconWebViewHeight { get; set; } = 560;
         public string TrayIconWebViewUrl { get; set; } = string.Empty;
         public bool TrayIconWebViewBackgroundLoading { get; set; } = false;
+        public bool TrayIconWebViewShowMenuOnLeftClick { get; set; } = false;
 
         public string ServiceAuthId { get; set; } = string.Empty;
 
@@ -57,11 +58,13 @@ namespace HASS.Agent.Models.Config
         public string HassUri { get; set; } = "http://homeassistant.local:8123";
         public string HassToken { get; set; } = string.Empty;
         public bool HassAutoClientCertificate { get; set; } = false;
+        public bool HassAllowUntrustedCertificates { get; set; } = true;
         public string HassClientCertificate { get; set; } = string.Empty;
 
         public bool QuickActionsHotKeyEnabled { get; set; } = true;
         public string QuickActionsHotKey { get; set; } = string.Empty;
 
+        public bool MqttEnabled { get; set; } = true;
         public string MqttAddress { get; set; } = "homeassistant.local";
         public int MqttPort { get; set; } = 1883;
         public bool MqttUseTls { get; set; }

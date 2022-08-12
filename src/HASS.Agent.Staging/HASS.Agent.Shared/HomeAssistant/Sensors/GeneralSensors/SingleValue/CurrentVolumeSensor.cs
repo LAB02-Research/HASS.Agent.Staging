@@ -41,5 +41,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             // return as percentage
             return Math.Round(audioDevice.AudioEndpointVolume.MasterVolumeLevelScalar * 100, 0).ToString(CultureInfo.InvariantCulture);
         }
+
+        public override string GetAttributes() => string.Empty;
     }
 }

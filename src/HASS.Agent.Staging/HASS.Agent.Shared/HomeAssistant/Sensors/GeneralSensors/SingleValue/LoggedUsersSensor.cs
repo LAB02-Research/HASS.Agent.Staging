@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
-using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Models.HomeAssistant;
 using Newtonsoft.Json;
 using Serilog;
@@ -30,14 +30,14 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                 Name = Name,
                 Unique_id = Id,
                 Device = deviceConfig,
-                State_topic =
-                    $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
+                State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
                 Icon = "mdi:account-group",
-                Availability_topic =
-                    $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/availability"
+                Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/availability"
             });
         }
 
         public override string GetState() => JsonConvert.SerializeObject(SessionsManager.GetLoggedUsers());
+
+        public override string GetAttributes() => string.Empty;
     }
 }

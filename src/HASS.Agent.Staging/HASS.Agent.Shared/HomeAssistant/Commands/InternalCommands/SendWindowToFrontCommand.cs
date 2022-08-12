@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using HASS.Agent.Shared.Enums;
-using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using Serilog;
 
 namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
@@ -24,7 +24,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
 
             if (string.IsNullOrWhiteSpace(CommandConfig))
             {
-                Log.Warning("[SENDWINDOWTOFRONT] Unable to launch command '{name}', it's configured as action-only", Name);
+                Log.Warning("[SENDWINDOWTOFRONT] [{name}] Unable to launch command, it's configured as action-only", Name);
 
                 State = "OFF";
                 return;
@@ -41,7 +41,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
 
             if (string.IsNullOrWhiteSpace(action))
             {
-                Log.Warning("[SENDWINDOWTOFRONT] Unable to launch command '{name}', empty action provided", Name);
+                Log.Warning("[SENDWINDOWTOFRONT] [{name}] Unable to launch command, empty action provided", Name);
 
                 State = "OFF";
                 return;
@@ -49,7 +49,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
 
             if (!string.IsNullOrWhiteSpace(CommandConfig))
             {
-                Log.Warning("[SENDWINDOWTOFRONT] Command '{name}' launched by action, command-provided process will be ignored", Name);
+                Log.Warning("[SENDWINDOWTOFRONT] [{name}] Command launched by action, command-provided process will be ignored", Name);
             }
 
             ProcessManager.BringMainWindowToFront(action);

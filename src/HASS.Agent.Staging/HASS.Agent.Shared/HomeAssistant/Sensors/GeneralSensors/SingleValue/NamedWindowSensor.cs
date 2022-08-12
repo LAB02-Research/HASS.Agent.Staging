@@ -5,7 +5,7 @@ using HASS.Agent.Shared.Models.HomeAssistant;
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 {
     /// <summary>
-    /// Sensor indicated whether the provided windowname is currently open (doesn't need focus)
+    /// Sensor indicating whether the provided windowname is currently open (doesn't need focus)
     /// </summary>
     public class NamedWindowSensor : AbstractSingleValueSensor
     {
@@ -39,5 +39,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             var windowNames = SharedHelperFunctions.GetOpenWindows().Values;
             return windowNames.Any(v => v.ToUpper().Contains(WindowName.ToUpper())) ? "ON" : "OFF";
         }
+
+        public override string GetAttributes() => string.Empty;
     }
 }

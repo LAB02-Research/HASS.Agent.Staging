@@ -6,7 +6,10 @@ using ByteSizeLib;
 using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue.DataTypes;
 using HASS.Agent.Shared.Models.HomeAssistant;
+using HASS.Agent.Shared.Models.Internal;
+using Newtonsoft.Json;
 using Serilog;
+#pragma warning disable CS1591
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 {
@@ -46,55 +49,48 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
                     // label
                     var driveLabel = string.IsNullOrEmpty(drive.VolumeLabel) ? "-" : drive.VolumeLabel;
-                    var driveLabelId = $"{parentSensorSafeName}_{driveNameLower}_label";
 
-                    var labelSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {driveName} Label", driveLabelId, string.Empty, "mdi:harddisk", string.Empty, Name);
-                    labelSensor.SetState(driveLabel);
+                    // sensor value
+                    var sensorValue = string.IsNullOrEmpty(drive.VolumeLabel) ? driveName : drive.VolumeLabel;
 
-                    if (!Sensors.ContainsKey(driveLabelId)) Sensors.Add(driveLabelId, labelSensor);
-                    else Sensors[driveLabelId] = labelSensor;
+                    // prepare the info
+                    var storageInfo = new StorageInfo();
+                    storageInfo.Name = driveName;
+                    storageInfo.Label = driveLabel;
+                    storageInfo.FileSystem = drive.DriveFormat;
 
                     // total size
                     var totalSizeMb = Math.Round(ByteSize.FromBytes(drive.TotalSize).MegaBytes);
-                    var totalSizeId = $"{parentSensorSafeName}_{driveNameLower}_total_size";
-
-                    var totalSizeSensor = new DataTypeDoubleSensor(_updateInterval, $"{Name} {driveName} Total Size", totalSizeId, string.Empty, "mdi:harddisk", "MB", Name);
-                    totalSizeSensor.SetState(totalSizeMb);
-
-                    if (!Sensors.ContainsKey(totalSizeId)) Sensors.Add(totalSizeId, totalSizeSensor);
-                    else Sensors[totalSizeId] = totalSizeSensor;
+                    storageInfo.TotalSizeMB = totalSizeMb;
 
                     // available space
                     var availableSpaceMb = Math.Round(ByteSize.FromBytes(drive.AvailableFreeSpace).MegaBytes);
-                    var availableSpaceId = $"{parentSensorSafeName}_{driveNameLower}_available_space";
-
-                    var availableSpaceSensor = new DataTypeDoubleSensor(_updateInterval, $"{Name} {driveName} Available Space", availableSpaceId, string.Empty, "mdi:harddisk", "MB", Name);
-                    availableSpaceSensor.SetState(availableSpaceMb);
-
-                    if (!Sensors.ContainsKey(availableSpaceId)) Sensors.Add(availableSpaceId, availableSpaceSensor);
-                    else Sensors[availableSpaceId] = availableSpaceSensor;
+                    storageInfo.AvailableSpaceMB = availableSpaceMb;
 
                     // used space
                     var usedSpaceMb = totalSizeMb - availableSpaceMb;
-                    var usedSpaceId = $"{parentSensorSafeName}_{driveNameLower}_used_space";
+                    storageInfo.UsedSpaceMB = usedSpaceMb;
 
-                    var usedSpaceSensor = new DataTypeDoubleSensor(_updateInterval, $"{Name} {driveName} Used Space", usedSpaceId, string.Empty, "mdi:harddisk", "MB", Name);
-                    usedSpaceSensor.SetState(usedSpaceMb);
+                    // available space percentage
+                    var availableSpacePercentage = (int)Math.Round((availableSpaceMb / totalSizeMb) * 100);
+                    storageInfo.AvailableSpacePercentage = availableSpacePercentage;
 
-                    if (!Sensors.ContainsKey(usedSpaceId)) Sensors.Add(usedSpaceId, usedSpaceSensor);
-                    else Sensors[usedSpaceId] = usedSpaceSensor;
+                    // used space percentage
+                    var usedSpacePercentage = (int)Math.Round((usedSpaceMb / totalSizeMb) * 100);
+                    storageInfo.UsedSpacePercentage = usedSpacePercentage;
 
-                    // file system
-                    var fileSystem = drive.DriveFormat;
-                    var fileSystemId = $"{parentSensorSafeName}_{driveNameLower}_filesystem";
+                    // process the sensor
+                    var info = JsonConvert.SerializeObject(storageInfo, Formatting.Indented);
+                    var driveInfoId = $"{parentSensorSafeName}_{driveNameLower}";
+                    var driveInfoSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {driveName}", driveInfoId, string.Empty, "mdi:harddisk", string.Empty, Name, true);
 
-                    var fileSystemSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {driveName} File System", fileSystemId, string.Empty, "mdi:harddisk", string.Empty, Name);
-                    fileSystemSensor.SetState(fileSystem);
+                    driveInfoSensor.SetState(sensorValue);
+                    driveInfoSensor.SetAttributes(info);
 
-                    if (!Sensors.ContainsKey(fileSystemId)) Sensors.Add(fileSystemId, fileSystemSensor);
-                    else Sensors[fileSystemId] = fileSystemSensor;
+                    if (!Sensors.ContainsKey(driveInfoId)) Sensors.Add(driveInfoId, driveInfoSensor);
+                    else Sensors[driveInfoId] = driveInfoSensor;
 
-                    // drive count
+                    // increment drive count
                     driveCount++;
                 }
                 catch (Exception ex)
@@ -103,17 +99,17 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     {
                         case UnauthorizedAccessException _:
                         case SecurityException _:
-                            Log.Fatal(ex, "[STORAGE] Disk access denied: {msg}", ex.Message);
+                            Log.Fatal(ex, "[STORAGE] [{name}] Disk access denied: {msg}", Name, ex.Message);
                             continue;
                         case DriveNotFoundException _:
-                            Log.Fatal(ex, "[STORAGE] Disk not found: {msg}", ex.Message);
+                            Log.Fatal(ex, "[STORAGE] [{name}] Disk not found: {msg}", Name, ex.Message);
                             continue;
                         case IOException _:
-                            Log.Fatal(ex, "[STORAGE] Disk IO error: {msg}", ex.Message);
+                            Log.Fatal(ex, "[STORAGE] [{name}] Disk IO error: {msg}", Name, ex.Message);
                             continue;
                     }
 
-                    Log.Fatal(ex, "[STORAGE] Error querying disk: {msg}", ex.Message);
+                    Log.Fatal(ex, "[STORAGE] [{name}] Error querying disk: {msg}", Name, ex.Message);
                 }
             }
 

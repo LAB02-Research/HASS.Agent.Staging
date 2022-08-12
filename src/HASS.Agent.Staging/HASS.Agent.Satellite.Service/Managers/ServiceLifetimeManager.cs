@@ -1,6 +1,6 @@
 ﻿using System.ServiceProcess;
 using HASS.Agent.Shared.Enums;
-using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using Microsoft.Extensions.Hosting.WindowsServices;
 using Microsoft.Extensions.Options;
 using Serilog;

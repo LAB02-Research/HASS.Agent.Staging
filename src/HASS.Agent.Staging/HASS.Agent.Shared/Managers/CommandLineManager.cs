@@ -12,7 +12,7 @@ using HASS.Agent.Shared.Models.Internal;
 using Microsoft.Win32.SafeHandles;
 using Serilog;
 
-namespace HASS.Agent.Shared.Functions
+namespace HASS.Agent.Shared.Managers
 {
     /// <summary>
     /// Performs commandline-related actions
@@ -240,7 +240,7 @@ namespace HASS.Agent.Shared.Functions
                     Verb = "runas",
                     UseShellExecute = true
                 };
-                
+
                 // optionally add arguments
                 if (!string.IsNullOrEmpty(arguments.Trim())) startInfo.Arguments = arguments;
 
@@ -256,7 +256,7 @@ namespace HASS.Agent.Shared.Functions
                     Log.Error("[CLI] Unable to start file: {file}", file);
                     return false;
                 }
-                
+
                 // give it until the timeout
                 process.WaitForExit(Convert.ToInt32(timeOut.TotalMilliseconds));
 
@@ -716,11 +716,11 @@ namespace HASS.Agent.Shared.Functions
         internal const uint TOKEN_ADJUST_GROUPS = 0x0040;
         internal const uint TOKEN_ADJUST_DEFAULT = 0x0080;
         internal const uint TOKEN_ADJUST_SESSIONID = 0x0100;
-        internal const uint TOKEN_READ = (STANDARD_RIGHTS_READ | TOKEN_QUERY);
-        internal const uint TOKEN_ALL_ACCESS = (STANDARD_RIGHTS_REQUIRED |
+        internal const uint TOKEN_READ = STANDARD_RIGHTS_READ | TOKEN_QUERY;
+        internal const uint TOKEN_ALL_ACCESS = STANDARD_RIGHTS_REQUIRED |
             TOKEN_ASSIGN_PRIMARY | TOKEN_DUPLICATE | TOKEN_IMPERSONATE |
             TOKEN_QUERY | TOKEN_QUERY_SOURCE | TOKEN_ADJUST_PRIVILEGES |
-            TOKEN_ADJUST_GROUPS | TOKEN_ADJUST_DEFAULT | TOKEN_ADJUST_SESSIONID);
+            TOKEN_ADJUST_GROUPS | TOKEN_ADJUST_DEFAULT | TOKEN_ADJUST_SESSIONID;
 
         internal const int ERROR_INSUFFICIENT_BUFFER = 122;
 
@@ -742,10 +742,10 @@ namespace HASS.Agent.Shared.Functions
         internal const uint SE_GROUP_INTEGRITY_ENABLED = 0x00000040;
         internal const uint SE_GROUP_LOGON_ID = 0xC0000000;
         internal const uint SE_GROUP_RESOURCE = 0x20000000;
-        internal const uint SE_GROUP_VALID_ATTRIBUTES = (SE_GROUP_MANDATORY |
+        internal const uint SE_GROUP_VALID_ATTRIBUTES = SE_GROUP_MANDATORY |
             SE_GROUP_ENABLED_BY_DEFAULT | SE_GROUP_ENABLED | SE_GROUP_OWNER |
             SE_GROUP_USE_FOR_DENY_ONLY | SE_GROUP_LOGON_ID | SE_GROUP_RESOURCE |
-            SE_GROUP_INTEGRITY | SE_GROUP_INTEGRITY_ENABLED);
+            SE_GROUP_INTEGRITY | SE_GROUP_INTEGRITY_ENABLED;
 
         /// <summary>
         /// The function opens the access token associated with a process.

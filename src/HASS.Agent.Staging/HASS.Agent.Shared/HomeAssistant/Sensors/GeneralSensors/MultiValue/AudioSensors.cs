@@ -79,10 +79,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     else Sensors[peakVolumeId] = peakVolumeSensor;
 
                     // sessions sensor
-                    var sessions = JsonConvert.SerializeObject(sessionInfos, Formatting.Indented);
+                    var sessions = JsonConvert.SerializeObject(new AudioSessionInfoCollection(sessionInfos), Formatting.Indented);
                     var sessionsId = $"{parentSensorSafeName}_audio_sessions";
-                    var sessionsSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name);
-                    sessionsSensor.SetState(sessions);
+                    var sessionsSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
+                    
+                    sessionsSensor.SetState(sessionInfos.Count);
+                    sessionsSensor.SetAttributes(sessions);
 
                     if (!Sensors.ContainsKey(sessionsId)) Sensors.Add(sessionsId, sessionsSensor);
                     else Sensors[sessionsId] = sessionsSensor;
@@ -97,7 +99,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 if (_errorPrinted) return;
                 _errorPrinted = true;
 
-                Log.Fatal(ex, "[AUDIO] Error while fetching audio info: {err}", ex.Message);
+                Log.Fatal(ex, "[AUDIO] [{name}] Error while fetching audio info: {err}", Name, ex.Message);
             }
         }
 
@@ -164,7 +166,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                         }
                         catch (Exception ex)
                         {
-                            if (!_errorPrinted) Log.Fatal(ex, "[AUDIO] [{app}] Exception while retrieving info: {err}", session.DisplayName, ex.Message);
+                            if (!_errorPrinted) Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving info: {err}", Name, session.DisplayName, ex.Message);
                             errors = true;
                         }
                         finally
@@ -191,7 +193,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 if (_errorPrinted) return sessionInfos;
                 _errorPrinted = true;
 
-                Log.Fatal(ex, "[AUDIO] Fatal exception while getting sessions: {err}", ex.Message);
+                Log.Fatal(ex, "[AUDIO] [{name}] Fatal exception while getting sessions: {err}", Name, ex.Message);
             }
 
             return sessionInfos;

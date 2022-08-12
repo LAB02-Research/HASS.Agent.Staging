@@ -29,8 +29,6 @@ namespace HASS.Agent.Forms
     [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Local")]
     public partial class Main : MetroForm
     {
-        // ReSharper disable once InconsistentNaming
-        private const int WM_QUERYENDSESSION = 0x11;
         private bool _isClosing = false;
         
         public Main()
@@ -119,7 +117,7 @@ namespace HASS.Agent.Forms
                 _ = Task.Run(SystemStateManager.Initialize);
                 _ = Task.Run(CacheManager.Initialize);
                 _ = Task.Run(NotificationManager.Initialize);
-                _ = Task.Run(MediaManager.Initialize);
+                _ = Task.Run(MediaManager.InitializeAsync);
             }
             catch (Exception ex)
             {
@@ -132,13 +130,38 @@ namespace HASS.Agent.Forms
         }
 
         /// <summary>
-        /// Listen to Windows messages to detect session endings
+        /// Listen to Windows messages
         /// </summary>
         /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == WM_QUERYENDSESSION) SystemStateManager.ProcessSessionEnd();
+            switch (m.Msg)
+            {
+                case NativeMethods.WM_QUERYENDSESSION:
+                    SystemStateManager.ProcessSessionEnd();
+                    break;
+                case NativeMethods.WM_POWERBROADCAST:
+                    SystemStateManager.ProcessMonitorPowerChange(m);
+                    break;
+            }
+
             base.WndProc(ref m);
+        }
+
+        /// <summary>
+        /// Register for events when we have an handle
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+
+            var settingGuid = new NativeMethods.PowerSettingGuid();
+            var powerGuid = HelperFunctions.IsWindows8Plus()
+                ? settingGuid.ConsoleDisplayState
+                : settingGuid.MonitorPowerGuid;
+
+            SystemStateManager.UnRegPowerNotify = NativeMethods.RegisterPowerSettingNotification(Handle, powerGuid, NativeMethods.DEVICE_NOTIFY_WINDOW_HANDLE);
         }
 
         /// <summary>
@@ -165,7 +188,7 @@ namespace HASS.Agent.Forms
         /// Checks whether the user has a non-default DPI scaling
         /// </summary>
         [SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
-        private void CheckDpiScalingFactor()
+        private static void CheckDpiScalingFactor()
         {
             var (scalingFactor, dpiScalingFactor) = HelperFunctions.GetScalingFactors();
             if (scalingFactor == 1 && dpiScalingFactor == 1) return;
@@ -181,7 +204,7 @@ namespace HASS.Agent.Forms
                 Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-        private void ProcessTrayIcon()
+        private static void ProcessTrayIcon()
         {
             // are we set to show the webview and keep it loaded?
             if (!Variables.AppSettings.TrayIconShowWebView) return;
@@ -739,15 +762,33 @@ namespace HASS.Agent.Forms
 
         private void NotifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            // we're only interested if we need to show the webview
-            if (e.Button != MouseButtons.Right || !Variables.AppSettings.TrayIconShowWebView) return;
+            // we're only interested if the webview's enabled
+            if (!Variables.AppSettings.TrayIconShowWebView) return;
+
+            // ignore doubleclicks
+            if (e.Clicks > 1)
+            {
+                CmTrayIcon.Close();
+                return;
+            }
+
+            // if it's a leftclick, show the regular menu if enabled
+            if (e.Button == MouseButtons.Left && Variables.AppSettings.TrayIconWebViewShowMenuOnLeftClick)
+            {
+                CmTrayIcon.Show(MousePosition);
+                return;
+            }
             
+            // if it's anything but rightclick, do nothing
+            if (e.Button != MouseButtons.Right) return;
+
+            // close the menu if it loaded
             CmTrayIcon.Close();
 
-            // yep, check the url
+            // check the url
             if (string.IsNullOrEmpty(Variables.AppSettings.TrayIconWebViewUrl))
             {
-                MessageBoxAdv.Show("No URL has been set! Please configure the webview through Configuration -> Tray Icon.", Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBoxAdv.Show(Languages.Main_NotifyIcon_MouseClick_MessageBox1, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 

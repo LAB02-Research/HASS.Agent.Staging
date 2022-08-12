@@ -153,6 +153,12 @@ namespace HASS.Agent.Satellite.Service.Settings
                 case SensorType.LoggedUserSensor:
                     abstractSensor = new LoggedUserSensor(sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
+                case SensorType.PowershellSensor:
+                    abstractSensor = new PowershellSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    break;
+                case SensorType.WindowStateSensor:
+                    abstractSensor = new WindowStateSensor(sensor.Query, sensor.Name, sensor.UpdateInterval, sensor.Id.ToString());
+                    break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
                     break;
@@ -275,6 +281,32 @@ namespace HASS.Agent.Satellite.Service.Settings
                         };
                     }
 
+                case PowershellSensor powershellSensor:
+                    {
+                        _ = Enum.TryParse<SensorType>(powershellSensor.GetType().Name, out var type);
+                        return new ConfiguredSensor
+                        {
+                            Id = Guid.Parse(powershellSensor.Id),
+                            Name = powershellSensor.Name,
+                            Type = type,
+                            UpdateInterval = powershellSensor.UpdateIntervalSeconds,
+                            Query = powershellSensor.Command
+                        };
+                    }
+
+                case WindowStateSensor windowStateSensor:
+                    {
+                        _ = Enum.TryParse<SensorType>(windowStateSensor.GetType().Name, out var type);
+                        return new ConfiguredSensor
+                        {
+                            Id = Guid.Parse(windowStateSensor.Id),
+                            Name = windowStateSensor.Name,
+                            Type = type,
+                            UpdateInterval = windowStateSensor.UpdateIntervalSeconds,
+                            Query = windowStateSensor.ProcessName
+                        };
+                    }
+
                 default:
                     {
                         _ = Enum.TryParse<SensorType>(sensor.GetType().Name, out var type);
@@ -309,6 +341,7 @@ namespace HASS.Agent.Satellite.Service.Settings
                             UpdateInterval = sensor.UpdateIntervalSeconds
                         };
                     }
+
                 case NetworkSensors networkSensors:
                     {
                         _ = Enum.TryParse<SensorType>(networkSensors.GetType().Name, out var type);
@@ -321,6 +354,7 @@ namespace HASS.Agent.Satellite.Service.Settings
                             UpdateInterval = sensor.UpdateIntervalSeconds
                         };
                     }
+
                 case WindowsUpdatesSensors windowsUpdatesSensors:
                     {
                         _ = Enum.TryParse<SensorType>(windowsUpdatesSensors.GetType().Name, out var type);
@@ -332,6 +366,7 @@ namespace HASS.Agent.Satellite.Service.Settings
                             UpdateInterval = sensor.UpdateIntervalSeconds
                         };
                     }
+
                 case BatterySensors batterySensors:
                     {
                         _ = Enum.TryParse<SensorType>(batterySensors.GetType().Name, out var type);
@@ -343,6 +378,7 @@ namespace HASS.Agent.Satellite.Service.Settings
                             UpdateInterval = sensor.UpdateIntervalSeconds
                         };
                     }
+
                 case DisplaySensors displaySensors:
                     {
                         _ = Enum.TryParse<SensorType>(displaySensors.GetType().Name, out var type);
@@ -354,6 +390,7 @@ namespace HASS.Agent.Satellite.Service.Settings
                             UpdateInterval = sensor.UpdateIntervalSeconds
                         };
                     }
+
                 case AudioSensors audioSensors:
                     {
                         _ = Enum.TryParse<SensorType>(audioSensors.GetType().Name, out var type);

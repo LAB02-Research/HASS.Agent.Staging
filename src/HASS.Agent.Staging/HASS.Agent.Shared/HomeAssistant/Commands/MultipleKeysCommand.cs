@@ -12,9 +12,14 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class MultipleKeysCommand : AbstractCommand
     {
+        public string State { get; protected set; }
         public List<string> Keys { get; set; }
 
-        public MultipleKeysCommand(List<string> keys, string name = "MultipleKeys", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "MultipleKeys", entityType, id) => Keys = keys;
+        public MultipleKeysCommand(List<string> keys, string name = "MultipleKeys", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "MultipleKeys", entityType, id)
+        {
+            Keys = keys;
+            State = "OFF";
+        }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -35,7 +40,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             };
         }
 
-        public override string GetState() => "OFF";
+        public override string GetState() => State;
 
         public override void TurnOff()
         {
@@ -46,6 +51,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
         {
             try
             {
+                State = "ON";
+
                 foreach (var key in Keys)
                 {
                     SendKeys.SendWait(key);
@@ -55,7 +62,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             }
             catch (Exception ex)
             {
-                Log.Error("[COMMAND] Launching command '{name}' failed: {ex}", Name, ex.Message);
+                Log.Error("[MULTIPLEKEYS] [{name}] Executing command failed: {ex}", Name, ex.Message);
+            }
+            finally
+            {
+                State = "OFF";
             }
         }
 

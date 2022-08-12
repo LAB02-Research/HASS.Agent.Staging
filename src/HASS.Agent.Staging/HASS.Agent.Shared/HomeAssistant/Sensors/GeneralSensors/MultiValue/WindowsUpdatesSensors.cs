@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue.DataTypes;
+using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Models.HomeAssistant;
+using HASS.Agent.Shared.Models.Internal;
+using Newtonsoft.Json;
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 {
@@ -50,28 +53,28 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             else Sensors[softwareUpdateCountId] = softwareUpdateCountSensor;
 
             // driver updates array
-            // todo
-            //var driverUpdatesStr = JsonConvert.SerializeObject(driverUpdates, Formatting.Indented);
-            
-            //var driverUpdatesId = $"{parentSensorSafeName}_driver_updates";
+            var driverUpdatesList = new WindowsUpdateInfoCollection(driverUpdates);
+            var driverUpdatesStr = JsonConvert.SerializeObject(driverUpdatesList, Formatting.Indented);
 
-            //var driverUpdatesSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Available Driver Updates", driverUpdatesId, string.Empty, "mdi:microsoft-windows", string.Empty, Name);
-            //driverUpdatesSensor.SetState(driverUpdatesStr);
+            var driverUpdatesId = $"{parentSensorSafeName}_driver_updates";
 
-            //if (!Sensors.ContainsKey(driverUpdatesId)) Sensors.Add(driverUpdatesId, driverUpdatesSensor);
-            //else Sensors[driverUpdatesId] = driverUpdatesSensor;
+            var driverUpdatesSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Available Driver Updates", driverUpdatesId, string.Empty, "mdi:microsoft-windows", string.Empty, Name, true);
+            driverUpdatesSensor.SetState(driverUpdates.Count);
+            driverUpdatesSensor.SetAttributes(driverUpdatesStr);
+
+            if (!Sensors.ContainsKey(driverUpdatesId)) Sensors.Add(driverUpdatesId, driverUpdatesSensor);
+            else Sensors[driverUpdatesId] = driverUpdatesSensor;
 
             // software updates array
-            // todo
-            //var softwareUpdatesStr = JsonConvert.SerializeObject(softwareUpdates, Formatting.Indented);
+            var softwareUpdatesStr = JsonConvert.SerializeObject(new WindowsUpdateInfoCollection(softwareUpdates), Formatting.Indented);
+            var softwareUpdatesId = $"{parentSensorSafeName}_software_updates";
+            var softwareUpdatesSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Available Software Updates", softwareUpdatesId, string.Empty, "mdi:microsoft-windows", string.Empty, Name, true);
+            
+            softwareUpdatesSensor.SetState(softwareUpdates.Count);
+            softwareUpdatesSensor.SetAttributes(softwareUpdatesStr);
 
-            //var softwareUpdatesId = $"{parentSensorSafeName}_software_updates";
-
-            //var softwareUpdatesSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Available Software Updates", softwareUpdatesId, string.Empty, "mdi:microsoft-windows", string.Empty, Name);
-            //softwareUpdatesSensor.SetState(softwareUpdatesStr);
-
-            //if (!Sensors.ContainsKey(softwareUpdatesId)) Sensors.Add(softwareUpdatesId, softwareUpdatesSensor);
-            //else Sensors[softwareUpdatesId] = softwareUpdatesSensor;
+            if (!Sensors.ContainsKey(softwareUpdatesId)) Sensors.Add(softwareUpdatesId, softwareUpdatesSensor);
+            else Sensors[softwareUpdatesId] = softwareUpdatesSensor;
 
             // all done!
         }

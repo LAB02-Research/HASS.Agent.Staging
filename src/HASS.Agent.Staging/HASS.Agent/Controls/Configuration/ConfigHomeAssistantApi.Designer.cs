@@ -41,6 +41,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbHassIp = new System.Windows.Forms.TextBox();
             this.LblApiToken = new System.Windows.Forms.Label();
             this.LblServerUri = new System.Windows.Forms.Label();
+            this.CbHassAllowUntrustedCertificates = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // LblTip1
@@ -53,7 +54,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip1.Name = "LblTip1";
             this.LblTip1.Size = new System.Drawing.Size(485, 15);
             this.LblTip1.TabIndex = 57;
-            this.LblTip1.Text = Languages.ConfigHomeAssistantApi_LblTip1;
+            this.LblTip1.Text = "tip: doubleclick this field to browse";
             this.LblTip1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // TbHassClientCertificate
@@ -81,7 +82,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblClientCertificate.Name = "LblClientCertificate";
             this.LblClientCertificate.Size = new System.Drawing.Size(169, 19);
             this.LblClientCertificate.TabIndex = 56;
-            this.LblClientCertificate.Text = Languages.ConfigHomeAssistantApi_LblClientCertificate;
+            this.LblClientCertificate.Text = "client &certificate";
             this.LblClientCertificate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CbHassAutoClientCertificate
@@ -106,7 +107,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnTestApi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnTestApi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnTestApi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnTestApi.Location = new System.Drawing.Point(481, 420);
+            this.BtnTestApi.Location = new System.Drawing.Point(481, 468);
             this.BtnTestApi.Name = "BtnTestApi";
             this.BtnTestApi.Size = new System.Drawing.Size(180, 29);
             this.BtnTestApi.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -131,7 +132,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(584, 147);
             this.LblInfo1.TabIndex = 53;
-            this.LblInfo1.Text = Languages.ConfigHomeAssistantApi_LblInfo1;
+            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
             // 
             // TbHassApiToken
             // 
@@ -171,7 +172,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblApiToken.Name = "LblApiToken";
             this.LblApiToken.Size = new System.Drawing.Size(169, 19);
             this.LblApiToken.TabIndex = 51;
-            this.LblApiToken.Text = Languages.ConfigHomeAssistantApi_LblApiToken;
+            this.LblApiToken.Text = "&api token";
             this.LblApiToken.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LblServerUri
@@ -184,8 +185,22 @@ namespace HASS.Agent.Controls.Configuration
             this.LblServerUri.Name = "LblServerUri";
             this.LblServerUri.Size = new System.Drawing.Size(169, 19);
             this.LblServerUri.TabIndex = 50;
-            this.LblServerUri.Text = Languages.ConfigHomeAssistantApi_LblServerUri;
+            this.LblServerUri.Text = "server &uri";
             this.LblServerUri.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // CbHassAllowUntrustedCertificates
+            // 
+            this.CbHassAllowUntrustedCertificates.AccessibleDescription = "Enable allowing untrusted certificates when connecting.";
+            this.CbHassAllowUntrustedCertificates.AccessibleName = "Untrusted certificates";
+            this.CbHassAllowUntrustedCertificates.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.CbHassAllowUntrustedCertificates.AutoSize = true;
+            this.CbHassAllowUntrustedCertificates.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbHassAllowUntrustedCertificates.Location = new System.Drawing.Point(177, 428);
+            this.CbHassAllowUntrustedCertificates.Name = "CbHassAllowUntrustedCertificates";
+            this.CbHassAllowUntrustedCertificates.Size = new System.Drawing.Size(191, 23);
+            this.CbHassAllowUntrustedCertificates.TabIndex = 58;
+            this.CbHassAllowUntrustedCertificates.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigMqtt_CbAllowUntrustedCertificates;
+            this.CbHassAllowUntrustedCertificates.UseVisualStyleBackColor = true;
             // 
             // ConfigHomeAssistantApi
             // 
@@ -195,6 +210,7 @@ namespace HASS.Agent.Controls.Configuration
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.Controls.Add(this.CbHassAllowUntrustedCertificates);
             this.Controls.Add(this.LblTip1);
             this.Controls.Add(this.TbHassClientCertificate);
             this.Controls.Add(this.LblClientCertificate);
@@ -209,6 +225,7 @@ namespace HASS.Agent.Controls.Configuration
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ConfigHomeAssistantApi";
             this.Size = new System.Drawing.Size(700, 544);
+            this.Load += new System.EventHandler(this.ConfigHomeAssistantApi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +243,6 @@ namespace HASS.Agent.Controls.Configuration
         internal Syncfusion.WinForms.Controls.SfButton BtnTestApi;
         internal System.Windows.Forms.TextBox TbHassApiToken;
         internal System.Windows.Forms.TextBox TbHassIp;
+        internal CheckBox CbHassAllowUntrustedCertificates;
     }
 }

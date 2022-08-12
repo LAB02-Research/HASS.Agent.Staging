@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using HASS.Agent.Shared.Enums;
-using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Models.HomeAssistant;
 using Serilog;
 
@@ -36,7 +36,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
 
             if (string.IsNullOrWhiteSpace(Command))
             {
-                Log.Warning("[COMMAND] Unable to launch PS '{name}', it's configured as action-only", Name);
+                Log.Warning("[POWERSHELL] [{name}] Unable to execute, it's configured as action-only", Name);
 
                 State = "OFF";
                 return;
@@ -46,12 +46,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
                 ? PowershellManager.ExecuteScriptHeadless(Command)
                 : PowershellManager.ExecuteCommandHeadless(Command);
 
-            if (!executed)
-            {
-                Log.Error("[COMMAND] Launching PS {descriptor} '{name}' failed", _descriptor, Name);
-                State = "FAILED";
-            }
-            else State = "OFF";
+            if (!executed) Log.Error("[POWERSHELL] [{name}] Executing {descriptor} failed", Name, _descriptor, Name);
+            
+            State = "OFF";
         }
 
         public override void TurnOnWithAction(string action)
@@ -65,12 +62,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
                 ? PowershellManager.ExecuteScriptHeadless(command)
                 : PowershellManager.ExecuteCommandHeadless(command);
 
-            if (!executed)
-            {
-                Log.Error("[COMMAND] Launching PS {descriptor} '{name}' with action '{action}' failed", _descriptor, Name, action);
-                State = "FAILED";
-            }
-            else State = "OFF";
+            if (!executed) Log.Error("[POWERSHELL] [{name}] Launching PS {descriptor} with action '{action}' failed", Name, _descriptor, action);
+            
+            State = "OFF";
         }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()

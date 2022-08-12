@@ -141,6 +141,9 @@ namespace HASS.Agent.Forms
             // store settings
             StoreSettings();
 
+            // (re)load tray icon's webview if needed
+            if (Variables.AppSettings.TrayIconWebViewBackgroundLoading) HelperFunctions.PrepareTrayIconWebView();
+
             // unpublish all entities if the device's name is changed
             if (_general.TbDeviceName.Text != _previousDeviceName)
             {
@@ -246,6 +249,7 @@ namespace HASS.Agent.Forms
             _homeAssistantApi.TbHassApiToken.Text = Variables.AppSettings.HassToken;
             _homeAssistantApi.TbHassClientCertificate.Text = Variables.AppSettings.HassClientCertificate;
             _homeAssistantApi.CbHassAutoClientCertificate.CheckState = Variables.AppSettings.HassAutoClientCertificate ? CheckState.Checked : CheckState.Unchecked;
+            _homeAssistantApi.CbHassAllowUntrustedCertificates.CheckState = Variables.AppSettings.HassAllowUntrustedCertificates ? CheckState.Checked : CheckState.Unchecked;
             if (Variables.AppSettings.HassAutoClientCertificate)
             {
                 _homeAssistantApi.TbHassClientCertificate.Text = string.Empty;
@@ -256,6 +260,7 @@ namespace HASS.Agent.Forms
             _hotKey.CbEnableQuickActionsHotkey.CheckState = Variables.AppSettings.QuickActionsHotKeyEnabled ? CheckState.Checked : CheckState.Unchecked;
 
             // mqtt
+            _mqtt.CbEnableMqtt.CheckState = Variables.AppSettings.MqttEnabled ? CheckState.Checked : CheckState.Unchecked;
             _mqtt.TbMqttAddress.Text = Variables.AppSettings.MqttAddress;
             _mqtt.NumMqttPort.Value = Variables.AppSettings.MqttPort;
             _mqtt.CbMqttTls.CheckState = Variables.AppSettings.MqttUseTls ? CheckState.Checked : CheckState.Unchecked;
@@ -301,6 +306,7 @@ namespace HASS.Agent.Forms
             _trayIcon.NumWebViewHeight.Value = Variables.AppSettings.TrayIconWebViewHeight;
             _trayIcon.TbWebViewUrl.Text = Variables.AppSettings.TrayIconWebViewUrl;
             _trayIcon.CbWebViewKeepLoaded.CheckState = Variables.AppSettings.TrayIconWebViewBackgroundLoading ? CheckState.Checked : CheckState.Unchecked;
+            _trayIcon.CbWebViewShowMenuOnLeftClick.CheckState = Variables.AppSettings.TrayIconWebViewShowMenuOnLeftClick ? CheckState.Checked : CheckState.Unchecked;
 
             // done
             _initializing = false;
@@ -335,6 +341,7 @@ namespace HASS.Agent.Forms
             Variables.AppSettings.HassToken = _homeAssistantApi.TbHassApiToken.Text;
             Variables.AppSettings.HassClientCertificate = _homeAssistantApi.TbHassClientCertificate.Text;
             Variables.AppSettings.HassAutoClientCertificate = _homeAssistantApi.CbHassAutoClientCertificate.CheckState == CheckState.Checked;
+            Variables.AppSettings.HassAllowUntrustedCertificates = _homeAssistantApi.CbHassAllowUntrustedCertificates.CheckState == CheckState.Checked;
 
             // hotkey config
             Variables.AppSettings.QuickActionsHotKeyEnabled = _hotKey.CbEnableQuickActionsHotkey.CheckState == CheckState.Checked;
@@ -354,6 +361,7 @@ namespace HASS.Agent.Forms
             }
 
             // mqtt
+            Variables.AppSettings.MqttEnabled = _mqtt.CbEnableMqtt.CheckState == CheckState.Checked;
             Variables.AppSettings.MqttAddress = _mqtt.TbMqttAddress.Text;
             Variables.AppSettings.MqttPort = (int)_mqtt.NumMqttPort.Value;
             Variables.AppSettings.MqttUseTls = _mqtt.CbMqttTls.CheckState == CheckState.Checked;
@@ -399,6 +407,7 @@ namespace HASS.Agent.Forms
             Variables.AppSettings.TrayIconWebViewHeight = (int)_trayIcon.NumWebViewHeight.Value;
             Variables.AppSettings.TrayIconWebViewUrl = _trayIcon.TbWebViewUrl.Text;
             Variables.AppSettings.TrayIconWebViewBackgroundLoading = _trayIcon.CbWebViewKeepLoaded.CheckState == CheckState.Checked;
+            Variables.AppSettings.TrayIconWebViewShowMenuOnLeftClick = _trayIcon.CbWebViewShowMenuOnLeftClick.CheckState == CheckState.Checked;
 
             // save to file
             SettingsManager.StoreAppSettings();

@@ -2882,4 +2882,58 @@ Note: you disabled sanitation, so make sure your device name is accepted by Home
 	<data name="ConfigGeneral_LblInfo6" xml:space="preserve">
 		<value>If you want, you can disable the state notifications all together. HASS.Agent won't show you when a connection was lost or restored.</value>
 	</data>
+	<data name="SensorType_PrintersSensors" xml:space="preserve">
+		<value>Printers</value>
+	</data>
+	<data name="CommandType_MonitorSleepCommand" xml:space="preserve">
+		<value>MonitorSleep</value>
+	</data>
+	<data name="CommandType_MonitorWakeCommand" xml:space="preserve">
+		<value>MonitorWake</value>
+	</data>
+	<data name="MonitorPowerEvent_PowerOn" xml:space="preserve">
+		<value>PowerOn</value>
+	</data>
+	<data name="MonitorPowerEvent_PowerOff" xml:space="preserve">
+		<value>PowerOff</value>
+	</data>
+	<data name="MonitorPowerEvent_Dimmed" xml:space="preserve">
+		<value>Dimmed</value>
+	</data>
+	<data name="MonitorPowerEvent_Unknown" xml:space="preserve">
+		<value>Unknown</value>
+	</data>
+	<data name="SensorType_MonitorPowerStateSensor" xml:space="preserve">
+		<value>MonitorPowerState</value>
+	</data>
+	<data name="SensorType_PowershellSensor" xml:space="preserve">
+		<value>PowershellSensor</value>
+	</data>
+	<data name="CommandType_SetVolumeCommand" xml:space="preserve">
+		<value>SetVolume</value>
+	</data>
+	<data name="WindowState_Maximized" xml:space="preserve">
+		<value>Maximized</value>
+	</data>
+	<data name="WindowState_Minimized" xml:space="preserve">
+		<value>Minimized</value>
+	</data>
+	<data name="WindowState_Normal" xml:space="preserve">
+		<value>Normal</value>
+	</data>
+	<data name="WindowState_Unknown" xml:space="preserve">
+		<value>Unknown</value>
+	</data>
+	<data name="WindowState_Hidden" xml:space="preserve">
+		<value>Hidden</value>
+	</data>
+	<data name="SensorType_WindowStateSensor" xml:space="preserve">
+		<value>WindowState</value>
+	</data>
+	<data name="SensorType_WebcamProcessSensor" xml:space="preserve">
+		<value>WebcamProcess</value>
+	</data>
+	<data name="SensorType_MicrophoneProcessSensor" xml:space="preserve">
+		<value>MicrophoneProcess</value>
+	</data>
 </root>

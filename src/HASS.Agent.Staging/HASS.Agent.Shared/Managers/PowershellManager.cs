@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using Serilog;
 
-namespace HASS.Agent.Shared.Functions
+namespace HASS.Agent.Shared.Managers
 {
     /// <summary>
     /// Performs powershell-related actions
@@ -120,7 +120,7 @@ namespace HASS.Agent.Shared.Functions
                     UseShellExecute = false,
                     WorkingDirectory = workingDir,
                     // set the right type of arguments
-                    Arguments = isScript 
+                    Arguments = isScript
                         ? $@"& '{command}'"
                         : $@"& {{{command}}}"
                 };
@@ -163,6 +163,87 @@ namespace HASS.Agent.Shared.Functions
             catch (Exception ex)
             {
                 Log.Fatal(ex, "[POWERSHELL] Fatal error when executing {descriptor}: {command}", descriptor, command);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Executes the command or script, and returns the standard and error output
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="timeout"></param>
+        /// <param name="output"></param>
+        /// <param name="errors"></param>
+        /// <returns></returns>
+        internal static bool ExecuteWithOutput(string command, TimeSpan timeout, out string output, out string errors)
+        {
+            output = string.Empty;
+            errors = string.Empty;
+
+            try
+            {
+                // check whether we're executing a script
+                var isScript = command.ToLower().EndsWith(".ps1");
+
+                var workingDir = string.Empty;
+                if (isScript)
+                {
+                    // try to get the script's startup path
+                    var scriptDir = Path.GetDirectoryName(command);
+                    workingDir = !string.IsNullOrEmpty(scriptDir) ? scriptDir : string.Empty;
+                }
+
+                // find the powershell executable
+                var psExec = GetPsExecutable();
+                if (string.IsNullOrEmpty(psExec)) return false;
+
+                // prepare the executing process
+                var processInfo = new ProcessStartInfo
+                {
+                    FileName = psExec,
+                    RedirectStandardError = true,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    WorkingDirectory = workingDir,
+                    // set the right type of arguments
+                    Arguments = isScript
+                        ? $@"& '{command}'"
+                        : $@"& {{{command}}}"
+                };
+
+                // execute and wait
+                using var process = new Process();
+                process.StartInfo = processInfo;
+
+                var start = process.Start();
+                if (!start)
+                {
+                    Log.Error("[POWERSHELL] Unable to begin executing the {type}: {cmd}", isScript ? "script" : "command", command);
+                    return false;
+                }
+
+                // wait for completion
+                var completed = process.WaitForExit(Convert.ToInt32(timeout.TotalMilliseconds));
+                if (!completed) Log.Error("[POWERSHELL] Timeout executing the {type}: {cmd}", isScript ? "script" : "command", command);
+
+                // read the streams
+                output = process.StandardOutput.ReadToEnd();
+                errors = process.StandardError.ReadToEnd();
+
+                // dispose of them
+                process.StandardOutput.Dispose();
+                process.StandardError.Dispose();
+
+                // make sure the process ends
+                process.Kill();
+
+                // done
+                return completed;
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, ex.Message);
                 return false;
             }
         }

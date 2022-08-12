@@ -1,10 +1,14 @@
-﻿using Windows.Media.Control;
+﻿using System.IO;
+using Windows.Media.Control;
+using Windows.Media.Playback;
+using CoreAudio;
 using HASS.Agent.Enums;
 using HASS.Agent.Extensions;
 using HASS.Agent.Managers;
 using HASS.Agent.Shared.Enums;
 using HASS.Agent.Shared.Extensions;
 using Serilog;
+using MediaPlayerState = HASS.Agent.Enums.MediaPlayerState;
 
 namespace HASS.Agent.Media
 {
@@ -12,13 +16,15 @@ namespace HASS.Agent.Media
     {
         private static bool _monitoring = true;
 
+        private static GlobalSystemMediaTransportControlsSessionManager _sessionManager;
+
         internal static MediaPlayerState State { get; private set; } = MediaPlayerState.Idle;
         internal static string Playing { get; private set; } = string.Empty;
 
         /// <summary>
         /// Initializes the media manager
         /// </summary>
-        internal static void Initialize()
+        internal static async Task InitializeAsync()
         {
             if (!Variables.AppSettings.MediaPlayerEnabled)
             {
@@ -32,12 +38,39 @@ namespace HASS.Agent.Media
                 return;
             }
 
-            // prepare the mediaplayer
-            Variables.MediaPlayer.IsLoopingEnabled = false;
-            Variables.MediaPlayer.AutoPlay = false;
+            // try to initialize and prepare Windows' mediaplayer platform
+            // todo: optional, but add an OS check - not all OS's support this
+            try
+            {
+                // create the objects
+                Variables.AudioDeviceEnumerator = new MMDeviceEnumerator();
+                Variables.MediaPlayer = new MediaPlayer();
+
+                _sessionManager = await GlobalSystemMediaTransportControlsSessionManager.RequestAsync();
+
+                // prepare the mediaplayer
+                Variables.MediaPlayer.IsLoopingEnabled = false;
+                Variables.MediaPlayer.AutoPlay = false;
+            }
+            catch (TypeInitializationException ex)
+            {
+                Log.Error("[MEDIA] Unable to initialize, your OS doesn't seem to be supported or isn't fully updated:\r\n{err}", ex.Message);
+                Variables.AppSettings.MediaPlayerEnabled = false;
+
+                Log.Warning("[MEDIA] Failed, disabled");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "[MEDIA] Unable to initialize: {err}" , ex.Message);
+                Variables.AppSettings.MediaPlayerEnabled = false;
+
+                Log.Warning("[MEDIA] Failed, disabled");
+                return;
+            }
 
             // start monitoring playing media
-            Task.Run(MediaMonitor);
+            _ = Task.Run(MediaMonitor);
 
             // ready
             Log.Information("[MEDIA] Ready");
@@ -45,14 +78,14 @@ namespace HASS.Agent.Media
 
         private static async void MediaMonitor()
         {
-            var sessionManager = await GlobalSystemMediaTransportControlsSessionManager.RequestAsync();
+            
 
             while (_monitoring)
             {
                 try
                 {
                     // get the current sessions
-                    var sessions = sessionManager.GetSessions();
+                    var sessions = _sessionManager.GetSessions();
                     if (!sessions.Any()) continue;
 
                     GlobalSystemMediaTransportControlsSession session = null;
@@ -108,6 +141,9 @@ namespace HASS.Agent.Media
         internal static void Stop()
         {
             _monitoring = false;
+            Variables.AppSettings.MediaPlayerEnabled = false;
+
+            if (Variables.MediaPlayer == null) return;
 
             if (Variables.MediaPlayer.CurrentState == Windows.Media.Playback.MediaPlayerState.Playing) Variables.MediaPlayer.Pause();
             Variables.MediaPlayer.Dispose();

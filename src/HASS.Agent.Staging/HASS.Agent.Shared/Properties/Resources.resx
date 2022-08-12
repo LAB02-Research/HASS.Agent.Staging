@@ -120,4 +120,7 @@
   <data name="ServiceGeneral_BtnStoreCustomExecutor_MessageBox2" xml:space="preserve">
 		<value>Please select an executor first (tip: doubleclick to browse).</value>
 	</data>
+  <data name="Main_NotifyIcon_MouseClick_MessageBox1" xml:space="preserve">
+	  <value>No URL has been set! Please configure the webview through Configuration -&gt; Tray Icon.</value>
+  </data>
 </root>

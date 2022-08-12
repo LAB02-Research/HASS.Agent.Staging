@@ -1,5 +1,7 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading;
+using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Mqtt;
 
 namespace HASS.Agent.Shared
@@ -87,6 +89,15 @@ namespace HASS.Agent.Shared
         /// </summary>
         /// <param name="mqttManager"></param>
         public static void SetMqttManager(IMqttManager mqttManager) => Variables.MqttManager = mqttManager;
+
+        /// <summary>
+        /// Disposes and closes shared objects
+        /// </summary>
+        public static void Dispose()
+        {
+            // todo: forgot any?
+            SharedSystemStateManager.Stop();
+        }
 
         /// <summary>
         /// Sets the culture

@@ -5,9 +5,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 using Cassia;
+using HASS.Agent.Shared.Functions;
 using Serilog;
 
-namespace HASS.Agent.Shared.Functions
+namespace HASS.Agent.Shared.Managers
 {
     internal static class SessionsManager
     {
@@ -46,7 +47,7 @@ namespace HASS.Agent.Shared.Functions
                         // we only want active ones
                         if (sessionInfo.State != ConnectionState.Active) continue;
                     }
-                    
+
                     WTSQuerySessionInformation(serverHandle, sessionInfo.SessionID, WTS_INFO_CLASS.WTSUserName, out var userPtr, out _);
 
                     try
@@ -184,7 +185,7 @@ namespace HASS.Agent.Shared.Functions
             TokenElevationTypeLimited
         }
 
-        [DllImport("user32.dll", EntryPoint = ("GetSystemMetrics"))]
+        [DllImport("user32.dll", EntryPoint = "GetSystemMetrics")]
         private static extern int GetSystemMetrics(int nIndex);
 
 

@@ -39,7 +39,7 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HASS.Agent.Resources.Localization.Languages", typeof(Languages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HASS.Agent.Shared.Resources.Localization.Languages", typeof(Languages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -1135,6 +1135,24 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MonitorSleep.
+        /// </summary>
+        internal static string CommandType_MonitorSleepCommand {
+            get {
+                return ResourceManager.GetString("CommandType_MonitorSleepCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MonitorWake.
+        /// </summary>
+        internal static string CommandType_MonitorWakeCommand {
+            get {
+                return ResourceManager.GetString("CommandType_MonitorWakeCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MultipleKeys.
         /// </summary>
         internal static string CommandType_MultipleKeysCommand {
@@ -1176,6 +1194,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string CommandType_SendWindowToFrontCommand {
             get {
                 return ResourceManager.GetString("CommandType_SendWindowToFrontCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SetVolume.
+        /// </summary>
+        internal static string CommandType_SetVolumeCommand {
+            get {
+                return ResourceManager.GetString("CommandType_SetVolumeCommand", resourceCulture);
             }
         }
         
@@ -3765,6 +3792,42 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dimmed.
+        /// </summary>
+        internal static string MonitorPowerEvent_Dimmed {
+            get {
+                return ResourceManager.GetString("MonitorPowerEvent_Dimmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PowerOff.
+        /// </summary>
+        internal static string MonitorPowerEvent_PowerOff {
+            get {
+                return ResourceManager.GetString("MonitorPowerEvent_PowerOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PowerOn.
+        /// </summary>
+        internal static string MonitorPowerEvent_PowerOn {
+            get {
+                return ResourceManager.GetString("MonitorPowerEvent_PowerOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string MonitorPowerEvent_Unknown {
+            get {
+                return ResourceManager.GetString("MonitorPowerEvent_Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mqtt: error while connecting.
         /// </summary>
         internal static string MqttManager_ToolTip_ConnectionError {
@@ -5994,6 +6057,24 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SensorType_MicrophoneProcessSensor {
+            get {
+                return ResourceManager.GetString("SensorType_MicrophoneProcessSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MonitorPowerState.
+        /// </summary>
+        internal static string SensorType_MonitorPowerStateSensor {
+            get {
+                return ResourceManager.GetString("SensorType_MonitorPowerStateSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NamedWindow.
         /// </summary>
         internal static string SensorType_NamedWindowSensor {
@@ -6017,6 +6098,24 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string SensorType_PerformanceCounterSensor {
             get {
                 return ResourceManager.GetString("SensorType_PerformanceCounterSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PowershellSensor.
+        /// </summary>
+        internal static string SensorType_PowershellSensor {
+            get {
+                return ResourceManager.GetString("SensorType_PowershellSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Printers.
+        /// </summary>
+        internal static string SensorType_PrintersSensors {
+            get {
+                return ResourceManager.GetString("SensorType_PrintersSensors", resourceCulture);
             }
         }
         
@@ -6071,6 +6170,24 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string SensorType_WebcamActiveSensor {
             get {
                 return ResourceManager.GetString("SensorType_WebcamActiveSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WebcamProcess.
+        /// </summary>
+        internal static string SensorType_WebcamProcessSensor {
+            get {
+                return ResourceManager.GetString("SensorType_WebcamProcessSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WindowState.
+        /// </summary>
+        internal static string SensorType_WindowStateSensor {
+            get {
+                return ResourceManager.GetString("SensorType_WindowStateSensor", resourceCulture);
             }
         }
         
@@ -7699,6 +7816,51 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string WebViewCommandConfig_Title {
             get {
                 return ResourceManager.GetString("WebViewCommandConfig_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden.
+        /// </summary>
+        internal static string WindowState_Hidden {
+            get {
+                return ResourceManager.GetString("WindowState_Hidden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximized.
+        /// </summary>
+        internal static string WindowState_Maximized {
+            get {
+                return ResourceManager.GetString("WindowState_Maximized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimized.
+        /// </summary>
+        internal static string WindowState_Minimized {
+            get {
+                return ResourceManager.GetString("WindowState_Minimized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        internal static string WindowState_Normal {
+            get {
+                return ResourceManager.GetString("WindowState_Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string WindowState_Unknown {
+            get {
+                return ResourceManager.GetString("WindowState_Unknown", resourceCulture);
             }
         }
     }

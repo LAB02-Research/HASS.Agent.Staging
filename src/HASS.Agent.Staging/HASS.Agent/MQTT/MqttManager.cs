@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -43,6 +44,12 @@ namespace HASS.Agent.MQTT
         public bool IsConnected() => _mqttClient is { IsConnected: true };
 
         /// <summary>
+        /// Returns whether the user wants the retain flag raised
+        /// </summary>
+        /// <returns></returns>
+        public bool UseRetainFlag() => Variables.AppSettings?.MqttUseRetainFlag ?? true;
+
+        /// <summary>
         /// Returns the default or configured discovery prefix
         /// </summary>
         /// <returns></returns>
@@ -61,6 +68,16 @@ namespace HASS.Agent.MQTT
         {
             try
             {
+                // mqtt enabled?
+                if (!Variables.AppSettings.MqttEnabled)
+                {
+                    _status = MqttStatus.Disconnected;
+                    Variables.MainForm?.SetMqttStatus(ComponentStatus.Stopped);
+                    Log.Information("[MQTT] Disabled through settings");
+
+                    return;
+                }
+
                 // create our device's config model
                 if (Variables.DeviceConfig == null) CreateDeviceConfigModel();
             
@@ -121,6 +138,8 @@ namespace HASS.Agent.MQTT
         {
             try
             {
+                if (!Variables.AppSettings.MqttEnabled) return;
+
                 Log.Information("[MQTT] Reloading configuration ..");
 
                 // already connected?
@@ -161,6 +180,7 @@ namespace HASS.Agent.MQTT
         /// <param name="options"></param>
         private async void StartClient(IManagedMqttClientOptions options)
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
             if (_mqttClient == null) return;
 
             try
@@ -271,11 +291,12 @@ namespace HASS.Agent.MQTT
         }
 
         /// <summary>
-        /// Announce our availability
-        /// <para>Deprecated: used to announce sensors/commands, now left to their managers</para>
+        /// Announce our general availability
         /// </summary>
         private async void InitialRegistration()
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
+
             if (_mqttClient == null) return;
             while (!_mqttClient.IsConnected) await Task.Delay(2000);
 
@@ -291,6 +312,8 @@ namespace HASS.Agent.MQTT
         /// </summary>
         public void CreateDeviceConfigModel()
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
+
             var name = HelperFunctions.GetConfiguredDeviceName();
             Log.Information("[MQTT] Identifying as device: {name}", name);
 
@@ -310,6 +333,8 @@ namespace HASS.Agent.MQTT
         private DateTime _lastPublishFailedLogged = DateTime.MinValue;
         public async Task PublishAsync(MqttApplicationMessage message)
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
+
             if (_mqttClient.IsConnected) await _mqttClient.PublishAsync(message);
             else
             {
@@ -330,6 +355,7 @@ namespace HASS.Agent.MQTT
         /// <returns></returns>
         public async Task AnnounceAutoDiscoveryConfigAsync(AbstractDiscoverable discoverable, string domain, bool clearConfig = false)
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
             if (_mqttClient is not { IsConnected: true }) return;
 
             try
@@ -349,11 +375,9 @@ namespace HASS.Agent.MQTT
                 
                 // build config message
                 var messageBuilder = new MqttApplicationMessageBuilder()
-                    .WithTopic(topic);
-
-                // set retain flag
-                if (Variables.AppSettings.MqttUseRetainFlag) messageBuilder.WithRetainFlag();
-
+                    .WithTopic(topic)
+                    .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
+                
                 // add payload
                 if (clearConfig) messageBuilder.WithPayload(Array.Empty<byte>());
                 else messageBuilder.WithPayload(JsonSerializer.Serialize(discoverable.GetAutoDiscoveryConfig(), discoverable.GetAutoDiscoveryConfig().GetType(), options));
@@ -380,6 +404,7 @@ namespace HASS.Agent.MQTT
         private DateTime _lastAvailableAnnouncementFailedLogged = DateTime.MinValue;
         public async Task AnnounceAvailabilityAsync(bool offline = false)
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
             if (_mqttClient is not { IsConnected: true }) return;
 
             try
@@ -398,10 +423,8 @@ namespace HASS.Agent.MQTT
                     // prepare message
                     var messageBuilder = new MqttApplicationMessageBuilder()
                         .WithTopic($"{Variables.AppSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
-                        .WithPayload(offline ? "offline" : "online");
-
-                    // set retain flag
-                    if (Variables.AppSettings.MqttUseRetainFlag) messageBuilder.WithRetainFlag();
+                        .WithPayload(offline ? "offline" : "online")
+                        .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
 
                     // publish
                     await _mqttClient.PublishAsync(messageBuilder.Build());
@@ -427,6 +450,7 @@ namespace HASS.Agent.MQTT
         /// <returns></returns>
         public async Task ClearDeviceConfigAsync()
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
             if (_mqttClient is not { IsConnected: true })
             {
                 Log.Warning("[MQTT] Not connected, clearing device config failed");
@@ -442,10 +466,8 @@ namespace HASS.Agent.MQTT
                     // prepare message
                     var messageBuilder = new MqttApplicationMessageBuilder()
                         .WithTopic($"{Variables.AppSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
-                        .WithPayload(Array.Empty<byte>());
-
-                    // set retain flag
-                    if (Variables.AppSettings.MqttUseRetainFlag) messageBuilder.WithRetainFlag();
+                        .WithPayload(Array.Empty<byte>())
+                        .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
                     
                     // publish
                     await _mqttClient.PublishAsync(messageBuilder.Build());
@@ -463,6 +485,7 @@ namespace HASS.Agent.MQTT
         /// </summary>
         public void Disconnect()
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
             if (_mqttClient is { IsConnected: true })
             {
                 _mqttClient.InternalClient.DisconnectAsync();
@@ -479,6 +502,7 @@ namespace HASS.Agent.MQTT
         /// <returns></returns>
         public async Task SubscribeAsync(AbstractCommand command)
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
             if (!IsConnected()) while (IsConnected() == false) await Task.Delay(250);
 
             await _mqttClient.SubscribeAsync(((CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig()).Command_topic);
@@ -492,6 +516,7 @@ namespace HASS.Agent.MQTT
         /// <returns></returns>
         public async Task UnubscribeAsync(AbstractCommand command)
         {
+            if (!Variables.AppSettings.MqttEnabled) return;
             if (!IsConnected()) while (IsConnected() == false) await Task.Delay(250);
 
             await _mqttClient.UnsubscribeAsync(((CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig()).Command_topic);
@@ -516,11 +541,9 @@ namespace HASS.Agent.MQTT
             // configure last will message
             var lastWillMessageBuilder = new MqttApplicationMessageBuilder()
                 .WithTopic($"{Variables.AppSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
-                .WithPayload("offline");
-
-            // set retain flag
-            if (Variables.AppSettings.MqttUseRetainFlag) lastWillMessageBuilder.WithRetainFlag();
-
+                .WithPayload("offline")
+                .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
+            
             // prepare message
             var lastWillMessage = lastWillMessageBuilder.Build();
 

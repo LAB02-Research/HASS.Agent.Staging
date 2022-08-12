@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.IO;
+using System.Net.Http;
 using System.Reflection;
 using Windows.Media.Playback;
 using CoreAudio;
@@ -108,8 +110,8 @@ namespace HASS.Agent
         /// <summary>
         /// Media
         /// </summary>
-        internal static MMDeviceEnumerator AudioDeviceEnumerator { get; } = new();
-        internal static MediaPlayer MediaPlayer { get; } = new();
+        internal static MMDeviceEnumerator AudioDeviceEnumerator { get; set; }
+        internal static MediaPlayer MediaPlayer { get; set; }
 
         /// <summary>
         /// Config

@@ -20,10 +20,16 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
         public const int VK_VOLUME_MUTE = 0xAD;
         public const int VK_VOLUME_UP = 0xAF;
         public const int VK_VOLUME_DOWN = 0xAE;
+        public const int KEY_UP = 38;
 
+        public string State { get; protected set; }
         public byte KeyCode { get; set; }
 
-        public KeyCommand(byte keyCode, string name = "Key", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "Key", entityType, id) => KeyCode = keyCode;
+        public KeyCommand(byte keyCode, string name = "Key", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "Key", entityType, id)
+        {
+            KeyCode = keyCode;
+            State = "OFF";
+        }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -47,14 +53,21 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
         [DllImport("user32.dll")]
         public static extern void keybd_event(byte virtualKey, byte scanCode, uint flags, IntPtr extraInfo);
 
-        public override string GetState() => "OFF";
+        public override string GetState() => State;
 
         public override void TurnOff()
         {
             //
         }
 
-        public override void TurnOn() => keybd_event(KeyCode, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
+        public override void TurnOn()
+        {
+            State = "OFF";
+
+            keybd_event(KeyCode, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
+            
+            State = "OFF";
+        }
 
         public override void TurnOnWithAction(string action)
         {

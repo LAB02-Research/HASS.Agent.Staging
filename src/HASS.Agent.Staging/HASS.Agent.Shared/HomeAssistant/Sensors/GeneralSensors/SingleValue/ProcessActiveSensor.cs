@@ -47,5 +47,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             // done
             return instanceCount.ToString();
         }
+
+        public override string GetAttributes() => string.Empty;
     }
 }

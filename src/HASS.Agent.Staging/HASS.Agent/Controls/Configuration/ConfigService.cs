@@ -5,7 +5,7 @@ using HASS.Agent.Managers;
 using HASS.Agent.Resources.Localization;
 using HASS.Agent.Service;
 using HASS.Agent.Shared.Enums;
-using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.Managers;
 using Serilog;
 using Syncfusion.Windows.Forms;
 

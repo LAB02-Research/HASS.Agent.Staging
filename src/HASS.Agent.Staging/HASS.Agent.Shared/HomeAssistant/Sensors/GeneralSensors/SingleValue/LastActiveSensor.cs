@@ -42,7 +42,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
             return _lastActive.ToTimeZoneString();
         }
-        
+
+        public override string GetAttributes() => string.Empty;
+
         private static DateTime GetLastInputTime()
         {
             var lastInputInfo = new LASTINPUTINFO();

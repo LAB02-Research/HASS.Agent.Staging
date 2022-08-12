@@ -1,4 +1,4 @@
-﻿using HASS.Agent.Shared.Functions;
+﻿using HASS.Agent.Shared.Managers;
 using Newtonsoft.Json;
 using Serilog;
 

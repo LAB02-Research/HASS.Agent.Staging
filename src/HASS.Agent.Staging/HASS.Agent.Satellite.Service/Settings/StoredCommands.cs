@@ -135,6 +135,18 @@ namespace HASS.Agent.Satellite.Service.Settings
                 case CommandType.MultipleKeysCommand:
                     abstractCommand = new MultipleKeysCommand(command.Keys, command.Name, command.EntityType, command.Id.ToString());
                     break;
+                case CommandType.SendWindowToFrontCommand:
+                    abstractCommand = new SendWindowToFrontCommand(command.Name, command.Command, command.EntityType, command.Id.ToString());
+                    break;
+                case CommandType.MonitorSleepCommand:
+                    abstractCommand = new MonitorSleepCommand(command.Name, command.EntityType, command.Id.ToString());
+                    break;
+                case CommandType.MonitorWakeCommand:
+                    abstractCommand = new MonitorWakeCommand(command.Name, command.EntityType, command.Id.ToString());
+                    break;
+                case CommandType.SetVolumeCommand:
+                    abstractCommand = new SetVolumeCommand(command.Name, command.Command, command.EntityType, command.Id.ToString());
+                    break;
                 default:
                     Log.Error("[SETTINGS_COMMANDS] [{name}] Unknown configured command type: {type}", command.Name, command.Type.ToString());
                     break;

@@ -39,5 +39,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             SHQueryUserNotificationState(out var state);
             return state;
         }
+
+        public override string GetAttributes() => string.Empty;
     }
 }

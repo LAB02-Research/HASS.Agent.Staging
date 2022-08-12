@@ -46,17 +46,19 @@ namespace HASS.Agent.Controls.Configuration
 
             var clientCert = TbHassClientCertificate.Text;
             var useAutoCert = CbHassAutoClientCertificate.CheckState == CheckState.Checked;
+            var allowUnsafeCert = CbHassAllowUntrustedCertificates.CheckState == CheckState.Checked;
 
             // lock gui
             TbHassIp.Enabled = false;
             TbHassApiToken.Enabled = false;
             TbHassClientCertificate.Enabled = false;
             CbHassAutoClientCertificate.Enabled = false;
+            CbHassAllowUntrustedCertificates.Enabled = false;
             BtnTestApi.Enabled = false;
-            BtnTestApi.Text = "testing ..";
+            BtnTestApi.Text = Languages.ConfigHomeAssistantApi_BtnTestApi_Testing;
 
             // perform test
-            var (success, message) = await HassApiManager.CheckHassConfigAsync(hassUri, apiKey, useAutoCert, clientCert);
+            var (success, message) = await HassApiManager.CheckHassConfigAsync(hassUri, apiKey, useAutoCert, allowUnsafeCert, clientCert);
             if (!success) MessageBoxAdv.Show(string.Format(Languages.ConfigHomeAssistantApi_BtnTestApi_MessageBox3, message), Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else MessageBoxAdv.Show(string.Format(Languages.ConfigHomeAssistantApi_BtnTestApi_MessageBox4, message), Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -65,8 +67,14 @@ namespace HASS.Agent.Controls.Configuration
             TbHassApiToken.Enabled = true;
             TbHassClientCertificate.Enabled = true;
             CbHassAutoClientCertificate.Enabled = true;
+            CbHassAllowUntrustedCertificates.Enabled = true;
             BtnTestApi.Enabled = true;
-            BtnTestApi.Text = "test connection";
+            BtnTestApi.Text = Languages.ConfigHomeAssistantApi_BtnTestApi;
+        }
+
+        private void ConfigHomeAssistantApi_Load(object sender, EventArgs e)
+        {
+            //
         }
     }
 }

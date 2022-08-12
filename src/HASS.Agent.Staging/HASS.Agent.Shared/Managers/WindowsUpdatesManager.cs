@@ -5,7 +5,7 @@ using HASS.Agent.Shared.Models.Internal;
 using Serilog;
 using WUApiLib;
 
-namespace HASS.Agent.Shared.Functions
+namespace HASS.Agent.Shared.Managers
 {
     /// <summary>
     /// Checks for available Windows Updates (both software and drivers)

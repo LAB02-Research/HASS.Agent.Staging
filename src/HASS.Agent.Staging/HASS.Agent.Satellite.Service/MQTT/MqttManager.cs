@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
@@ -36,6 +37,12 @@ namespace HASS.Agent.Satellite.Service.MQTT
         /// Returns whether the client is connected
         /// </summary>
         public bool IsConnected() => _mqttClient is { IsConnected: true };
+
+        /// <summary>
+        /// Returns whether the user wants the retain flag raised
+        /// </summary>
+        /// <returns></returns>
+        public bool UseRetainFlag() => Variables.ServiceMqttSettings?.MqttUseRetainFlag ?? true;
 
         /// <summary>
         /// Returns the default or configured discovery prefix
@@ -350,10 +357,8 @@ namespace HASS.Agent.Satellite.Service.MQTT
 
                 // build config message
                 var messageBuilder = new MqttApplicationMessageBuilder()
-                    .WithTopic(topic);
-
-                // set retain flag
-                if (Variables.ServiceMqttSettings.MqttUseRetainFlag) messageBuilder.WithRetainFlag();
+                    .WithTopic(topic)
+                    .WithRetainFlag(Variables.ServiceMqttSettings.MqttUseRetainFlag);
 
                 // add payload
                 if (clearConfig) messageBuilder.WithPayload(Array.Empty<byte>());
@@ -399,10 +404,8 @@ namespace HASS.Agent.Satellite.Service.MQTT
                     // prepare message
                     var messageBuilder = new MqttApplicationMessageBuilder()
                         .WithTopic($"{Variables.ServiceMqttSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
-                        .WithPayload(offline ? "offline" : "online");
-
-                    // set retain flag
-                    if (Variables.ServiceMqttSettings.MqttUseRetainFlag) messageBuilder.WithRetainFlag();
+                        .WithPayload(offline ? "offline" : "online")
+                        .WithRetainFlag(Variables.ServiceMqttSettings.MqttUseRetainFlag);
 
                     // publish
                     await _mqttClient.PublishAsync(messageBuilder.Build());
@@ -446,10 +449,8 @@ namespace HASS.Agent.Satellite.Service.MQTT
                     // prepare message
                     var messageBuilder = new MqttApplicationMessageBuilder()
                         .WithTopic($"{Variables.ServiceMqttSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
-                        .WithPayload(Array.Empty<byte>());
-
-                    // set retain flag
-                    if (Variables.ServiceMqttSettings.MqttUseRetainFlag) messageBuilder.WithRetainFlag();
+                        .WithPayload(Array.Empty<byte>())
+                        .WithRetainFlag(Variables.ServiceMqttSettings.MqttUseRetainFlag);
 
                     // publish
                     await _mqttClient.PublishAsync(messageBuilder.Build());
@@ -547,10 +548,8 @@ namespace HASS.Agent.Satellite.Service.MQTT
             // configure last will message
             var lastWillMessageBuilder = new MqttApplicationMessageBuilder()
                 .WithTopic($"{Variables.ServiceMqttSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
-                .WithPayload("offline");
-
-            // set retain flag
-            if (Variables.ServiceMqttSettings.MqttUseRetainFlag) lastWillMessageBuilder.WithRetainFlag();
+                .WithPayload("offline")
+                .WithRetainFlag(Variables.ServiceMqttSettings.MqttUseRetainFlag);
 
             // prepare message
             var lastWillMessage = lastWillMessageBuilder.Build();
@@ -571,7 +570,7 @@ namespace HASS.Agent.Satellite.Service.MQTT
             {
                 UseTls = Variables.ServiceMqttSettings.MqttUseTls,
                 AllowUntrustedCertificates = Variables.ServiceMqttSettings.MqttAllowUntrustedCertificates,
-                SslProtocol = Variables.ServiceMqttSettings.MqttUseTls ? System.Security.Authentication.SslProtocols.Tls12 : System.Security.Authentication.SslProtocols.None
+                SslProtocol = Variables.ServiceMqttSettings.MqttUseTls ? SslProtocols.Tls12 : SslProtocols.None
             };
 
             // configure certificates
@@ -588,7 +587,18 @@ namespace HASS.Agent.Satellite.Service.MQTT
                 certificates.Add(new X509Certificate2(Variables.ServiceMqttSettings.MqttClientCertificate));
             }
 
+            // optionally loosen security
+            if (Variables.ServiceMqttSettings.MqttAllowUntrustedCertificates)
+            {
+                tlsParameters.IgnoreCertificateChainErrors = true;
+                tlsParameters.IgnoreCertificateRevocationErrors = true;
+                tlsParameters.CertificateValidationHandler += _ => true;
+            }
+
+            // add the certs
             if (certificates.Count > 0) tlsParameters.Certificates = certificates;
+
+            // finalise tls params
             clientOptionsBuilder.WithTls(tlsParameters);
 
             // build the client options
