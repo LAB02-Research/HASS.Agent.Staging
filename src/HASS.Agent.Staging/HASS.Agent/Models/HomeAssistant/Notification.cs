@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace HASS.Agent.Models.HomeAssistant
+﻿namespace HASS.Agent.Models.HomeAssistant
 {
     public class NotificationAction
     {
