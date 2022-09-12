@@ -27,6 +27,7 @@ namespace HASS.Agent.HomeAssistant
         private static ServiceClient _serviceClient;
         private static EntityClient _entityClient;
         private static StatesClient _statesClient;
+        private static EventClient _eventClient;
 
         internal static HassManagerStatus ManagerStatus = HassManagerStatus.Initialising;
         private static string _haVersion = string.Empty;
@@ -101,6 +102,7 @@ namespace HASS.Agent.HomeAssistant
                 _serviceClient = ClientFactory.GetClient<ServiceClient>();
                 _entityClient = ClientFactory.GetClient<EntityClient>();
                 _statesClient = ClientFactory.GetClient<StatesClient>();
+                _eventClient = ClientFactory.GetClient<EventClient>();
 
                 // load entities
                 ManagerStatus = HassManagerStatus.LoadingData;
@@ -686,6 +688,16 @@ namespace HASS.Agent.HomeAssistant
 
             var actionValue = action.GetCategory();
             return $"{domainValue}.{actionValue}";
+        }
+
+        /// <summary>
+        /// Fires an event for the specified type and payload
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="payload"></param>
+        public static async Task FireEvent(string type, object payload)
+        {
+            await _eventClient.FireEvent(type, payload);
         }
     }
 }
