@@ -8,7 +8,7 @@ namespace HASS.Agent.Models.HomeAssistant
         public string Title { get; set; }
     }
 
-    public class NotificationExtraData
+    public class NotificationData
     {
         public int Duration { get; set; } = 0;
         public string Image { get; set; }
@@ -26,6 +26,6 @@ namespace HASS.Agent.Models.HomeAssistant
         public string Message { get; set; }
         public string Title { get; set; }
 
-        public NotificationExtraData Data { get; set; } = new();
+        public NotificationData Data { get; set; } = new();
     }
 }
