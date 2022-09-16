@@ -38,7 +38,7 @@ namespace HASS.Agent
         /// <summary>
         /// Constants
         /// </summary>
-        internal const string SyncfusionLicense = "NjMwOTQxQDMyMzAyZTMxMmUzMEdCeXVEL2FGOUZvTHdTOTRTakxMbHZoRm9iRFBVMGNpZVBYOFlwdEhIVnc9";
+        internal const string SyncfusionLicense = "Njk2MzAzQDMyMzAyZTMyMmUzMG4ybzIwL0FOZEtkSk5sQXRQS0tLeWdmQWY2TUJRRjgvSFlhREkvdXk5c3M9";
         internal const string RootRegKey = @"HKEY_CURRENT_USER\SOFTWARE\LAB02Research\HASSAgent";
         internal const string CertificateHash = "E4C76406BD0AC3937014764596B1697E4EB4A953";
         

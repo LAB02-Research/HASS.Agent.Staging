@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.DirectoryServices.AccountManagement;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -145,10 +146,14 @@ namespace HASS.Agent.Shared.Functions
         {
             try
             {
+                // get the reg's keyname
+                subKeyName = subKeyName.Split('\\').Last();
+                
+                // create a lowercase variant
                 var subKeyLowerName = subKeyName.ToLower();
 
                 // win app?
-                if (subKeyLowerName.StartsWith("windows.") || subKeyLowerName.StartsWith("microsoft."))
+                if ((subKeyLowerName.StartsWith("windows") || subKeyLowerName.StartsWith("microsoft")) && subKeyLowerName.Contains("_"))
                 {
                     // yep, remove the first part
                     var name = subKeyName.Replace($"{subKeyName.Split('.').First()}.", "");
@@ -160,14 +165,80 @@ namespace HASS.Agent.Shared.Functions
                     return name;
                 }
 
-                // nope, regular, just replace the hashes
-                return subKeyName.Replace("#", "\\");
+                // nope, regular, replace the hashes
+                var appName = subKeyName.Replace("#", "\\");
+
+                // get the application and return it
+                return Path.GetFileNameWithoutExtension(appName);
             }
             catch (Exception ex)
             {
                 Log.Error("Unable to parse subkey '{key}': {err}", subKeyName, ex.Message);
                 return subKeyName;
             }
+        }
+
+        /// <summary>
+        /// Checks a long-lived access token for the Home Assistant API
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public static bool CheckHomeAssistantApiToken(string token)
+        {
+            if (string.IsNullOrWhiteSpace(token)) return false;
+
+            // check for two dots
+            if (token.Count(f => f == '.') != 2) return false;
+
+            // check for length
+            if (token.Length != 183) return false;
+
+            // check for whitespace
+            if (token.Contains(" ")) return false;
+
+            // looks good
+            return true;
+        }
+
+        /// <summary>
+        /// Checks the Home Assistant uri for plausability
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        public static bool CheckHomeAssistantUri(string uri)
+        {
+            if (string.IsNullOrWhiteSpace(uri)) return false;
+
+            // check for protocol
+            if (!uri.Contains("//")) return false;
+
+            // check for whitespace
+            if (uri.Contains(" ")) return false;
+
+            // looks good, port checking is tricky, 80/443 doesn't require it
+            return true;
+        }
+
+        /// <summary>
+        /// Checks the MQTT broker uri for plausability
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        public static bool CheckMqttBrokerUri(string uri)
+        {
+            if (string.IsNullOrWhiteSpace(uri)) return false;
+
+            // check for no protocol
+            if (uri.Contains("//")) return false;
+
+            // check for no port
+            if (uri.Contains(":")) return false;
+
+            // check for whitespace
+            if (uri.Contains(" ")) return false;
+
+            // looks good
+            return true;
         }
     }
 }

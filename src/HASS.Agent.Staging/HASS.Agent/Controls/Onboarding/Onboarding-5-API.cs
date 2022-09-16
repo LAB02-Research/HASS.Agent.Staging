@@ -1,5 +1,6 @@
 ﻿using HASS.Agent.HomeAssistant;
 using HASS.Agent.Resources.Localization;
+using HASS.Agent.Shared.Functions;
 using Syncfusion.Windows.Forms;
 
 namespace HASS.Agent.Controls.Onboarding
@@ -45,6 +46,26 @@ namespace HASS.Agent.Controls.Onboarding
                 MessageBoxAdv.Show(Languages.OnboardingApi_BtnTest_MessageBox2, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ActiveControl = TbHassIp;
                 return;
+            }
+
+            if (!SharedHelperFunctions.CheckHomeAssistantApiToken(apiKey))
+            {
+                var q = MessageBoxAdv.Show("Your API token doesn't look right. Make sure you selected the entire token (don't use CTRL+A or doubleclick).\r\nIt should contain three sections (seperated by two dots).\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (q != DialogResult.Yes)
+                {
+                    ActiveControl = TbHassApiToken;
+                    return;
+                }
+            }
+
+            if (!SharedHelperFunctions.CheckHomeAssistantUri(hassUri))
+            {
+                var q = MessageBoxAdv.Show("Your URI doesn't look right. It should look something like 'http://homeassistant.local:8123' or 'http://192.168.0.1:8123'.\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (q != DialogResult.Yes)
+                {
+                    ActiveControl = TbHassIp;
+                    return;
+                }
             }
 
             // lock gui

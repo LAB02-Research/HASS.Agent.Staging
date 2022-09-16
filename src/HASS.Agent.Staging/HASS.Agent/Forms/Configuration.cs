@@ -126,6 +126,13 @@ namespace HASS.Agent.Forms
         {
             var forceRestart = false;
 
+            // check if all values look ok
+            if (!CheckValues())
+            {
+                // something's off and the user wants to abort
+                return;
+            }
+
             // lock ui
             ConfigTabs.Enabled = false;
             BtnAbout.Enabled = false;
@@ -220,6 +227,49 @@ namespace HASS.Agent.Forms
 
             // done
             Close();
+        }
+
+        /// <summary>
+        /// Checks various values for known faults
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckValues()
+        {
+            // hass api token
+            var hassApi = _homeAssistantApi.TbHassApiToken.Text.Trim();
+            if (!string.IsNullOrEmpty(hassApi))
+            {
+                if (!SharedHelperFunctions.CheckHomeAssistantApiToken(hassApi))
+                {
+                    var q = MessageBoxAdv.Show("Your Home Assistant API token doesn't look right. Make sure you selected the entire token (don't use CTRL+A or doubleclick).\r\nIt should contain three sections (seperated by two dots).\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (q != DialogResult.Yes) return false;
+                }
+            }
+
+            // hass uri
+            var hassUri = _homeAssistantApi.TbHassIp.Text.Trim();
+            if (!string.IsNullOrEmpty(hassUri))
+            {
+                if (!SharedHelperFunctions.CheckHomeAssistantUri(hassUri))
+                {
+                    var q = MessageBoxAdv.Show("Your Home Assistant URI doesn't look right. It should look something like 'http://homeassistant.local:8123' or 'https://192.168.0.1:8123'.\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (q != DialogResult.Yes) return false;
+                }
+            }
+
+            // mqtt uri
+            var mqttUri = _mqtt.TbMqttAddress.Text.Trim();
+            if (!string.IsNullOrEmpty(mqttUri))
+            {
+                if (!SharedHelperFunctions.CheckMqttBrokerUri(mqttUri))
+                {
+                    var q = MessageBoxAdv.Show("Your MQTT broker URI doesn't look right. It should look something like 'homeassistant.local' or '192.168.0.1'.\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (q != DialogResult.Yes) return false;
+                }
+            }
+
+            // all good
+            return true;
         }
 
         /// <summary>

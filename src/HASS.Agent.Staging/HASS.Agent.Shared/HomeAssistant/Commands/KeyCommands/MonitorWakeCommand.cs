@@ -4,6 +4,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
 {
     /// <summary>
     /// Simulates a 'arrow up' key press to wake the monitors
+    /// https://stackoverflow.com/a/42393472 ?
     /// </summary>
     public class MonitorWakeCommand : KeyCommand
     {
