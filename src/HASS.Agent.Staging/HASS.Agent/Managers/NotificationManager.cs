@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HASS.Agent.Functions;
+﻿using HASS.Agent.Functions;
 using HASS.Agent.HomeAssistant;
 using HASS.Agent.Models.HomeAssistant;
 using Microsoft.Toolkit.Uwp.Notifications;
@@ -65,7 +60,7 @@ namespace HASS.Agent.Managers
                 toastBuilder.AddHeader("HASS.Agent", notification.Title, string.Empty);
 
                 // prepare image
-                if (!string.IsNullOrWhiteSpace(notification.Data.Image))
+                if (!string.IsNullOrWhiteSpace(notification.Data?.Image))
                 {
                     var (success, localFile) = await StorageManager.DownloadImageAsync(notification.Data.Image);
                     if (success) toastBuilder.AddInlineImage(new Uri(localFile));
@@ -75,16 +70,19 @@ namespace HASS.Agent.Managers
                 // prepare message
                 toastBuilder.AddText(notification.Message);
 
-                if (notification.Data.Actions.Count > 0)
+                if (notification.Data?.Actions.Count > 0)
                 {
                     foreach (var action in notification.Data.Actions)
                     {
-                        toastBuilder.AddButton(action.Title, ToastActivationType.Background, action.Action);
+                        if (!string.IsNullOrEmpty(action.Action))
+                        {
+                            toastBuilder.AddButton(action.Title, ToastActivationType.Background, action.Action);
+                        }
                     }
                 }
 
                 // check for duration limit
-                if (notification.Data.Duration > 0)
+                if (notification.Data?.Duration > 0)
                 {
                     // there's a duration added, so show for x seconds
                     // todo: unreliable

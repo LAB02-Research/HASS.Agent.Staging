@@ -16,14 +16,9 @@
     
     public class Notification
     {
-        public Notification()
-        {
-            //
-        }
-
         public string Message { get; set; }
         public string Title { get; set; }
 
-        public NotificationData Data { get; set; } = new();
+        public NotificationData Data { get; set; }
     }
 }
