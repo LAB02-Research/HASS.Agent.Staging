@@ -81,7 +81,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                             ? (long)(subKey.GetValue("LastUsedTimeStop") ?? -1)
                             : -1;
 
-                        if (endTime <= 0) return (true, SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKeyName));
+                        if (endTime <= 0) return (true, SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name));
                     }
                 }
                 else
@@ -90,7 +90,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                     if (subKey == null || !subKey.GetValueNames().Contains("LastUsedTimeStop")) continue;
 
                     var endTime = subKey.GetValue("LastUsedTimeStop") is long ? (long)(subKey.GetValue("LastUsedTimeStop") ?? -1) : -1;
-                    if (endTime <= 0) return (true, SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKeyName));
+                    if (endTime <= 0) return (true, SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name));
                 }
             }
 
