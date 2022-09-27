@@ -362,6 +362,22 @@ namespace HASS.Agent.Sensors
 
             // =================================
 
+            sensorInfoCard = new SensorInfoCard(SensorType.BluetoothDevicesSensor,
+                Languages.SensorsManager_BluetoothDevicesSensorDescription,
+                30, false, true, false);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
+            sensorInfoCard = new SensorInfoCard(SensorType.BluetoothLeDevicesSensor,
+                Languages.SensorsManager_BluetoothLeDevicesSensorDescription,
+                30, false, true, false);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
             sensorInfoCard = new SensorInfoCard(SensorType.CpuLoadSensor,
                 Languages.SensorsManager_CpuLoadSensorDescription,
                 30, false, true, true);
@@ -476,7 +492,7 @@ namespace HASS.Agent.Sensors
 
             sensorInfoCard = new SensorInfoCard(SensorType.MicrophoneActiveSensor,
                 Languages.SensorsManager_MicrophoneActiveSensorDescription,
-                10, false, true, false);
+                10, false, true, true);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 
@@ -484,7 +500,7 @@ namespace HASS.Agent.Sensors
 
             sensorInfoCard = new SensorInfoCard(SensorType.MicrophoneProcessSensor,
                 Languages.SensorsManager_MicrophoneProcessSensorDescription,
-                10, false, true, false);
+                10, false, true, true);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 
@@ -580,7 +596,7 @@ namespace HASS.Agent.Sensors
 
             sensorInfoCard = new SensorInfoCard(SensorType.WebcamActiveSensor,
                 Languages.SensorsManager_WebcamActiveSensorDescription,
-                10, false, true, false);
+                10, false, true, true);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 
@@ -588,7 +604,7 @@ namespace HASS.Agent.Sensors
 
             sensorInfoCard = new SensorInfoCard(SensorType.WebcamProcessSensor,
                 Languages.SensorsManager_WebcamProcessSensorDescription,
-                10, false, true, false);
+                10, false, true, true);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 

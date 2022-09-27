@@ -5922,6 +5922,24 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BluetoothDevices.
+        /// </summary>
+        internal static string SensorType_BluetoothDevicesSensor {
+            get {
+                return ResourceManager.GetString("SensorType_BluetoothDevicesSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SensorType_BluetoothLeDevicesSensor {
+            get {
+                return ResourceManager.GetString("SensorType_BluetoothLeDevicesSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CpuLoad.
         /// </summary>
         internal static string SensorType_CpuLoadSensor {
@@ -6057,7 +6075,7 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to MicrophoneProcess.
         /// </summary>
         internal static string SensorType_MicrophoneProcessSensor {
             get {

@@ -175,6 +175,9 @@ namespace HASS.Agent.Functions
                         Variables.HotKeyListener?.Dispose();
                     }));
 
+                    // stop bt listener
+                    BluetoothManager.StopLeScan();
+
                     // stop notifier api
                     ApiManager.Stop();
 

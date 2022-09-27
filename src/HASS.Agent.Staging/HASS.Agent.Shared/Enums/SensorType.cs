@@ -23,6 +23,14 @@ namespace HASS.Agent.Shared.Enums
         [EnumMember(Value = "BatterySensors")]
         BatterySensors,
 
+        [LocalizedDescription("SensorType_BluetoothDevicesSensor", typeof(Languages))]
+        [EnumMember(Value = "BluetoothDevicesSensor")]
+        BluetoothDevicesSensor,
+
+        [LocalizedDescription("SensorType_BluetoothLeDevicesSensor", typeof(Languages))]
+        [EnumMember(Value = "BluetoothLeDevicesSensor")]
+        BluetoothLeDevicesSensor,
+
         [LocalizedDescription("SensorType_CpuLoadSensor", typeof(Languages))]        
         [EnumMember(Value = "CpuLoadSensor")]
         CpuLoadSensor,

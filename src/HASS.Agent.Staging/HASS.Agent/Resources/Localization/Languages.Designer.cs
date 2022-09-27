@@ -39,7 +39,7 @@ namespace HASS.Agent.Resources.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HASS.Agent.Resources.Localization.Languages", typeof(Languages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Localization.Languages", typeof(Languages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -5253,6 +5253,30 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provides a sensor with the amount of bluetooth devices found.
+        ///
+        ///The devices and their connected state are added as attributes..
+        /// </summary>
+        internal static string SensorsManager_BluetoothDevicesSensorDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_BluetoothDevicesSensorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides a sensors with the amount of bluetooth LE devices found.
+        ///
+        ///The devices and their connected state are added as attributes.
+        ///
+        ///Only shows devices that were seen since the last report, ie. when the sensor publishes, the list clears..
+        /// </summary>
+        internal static string SensorsManager_BluetoothLeDevicesSensorDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_BluetoothLeDevicesSensorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provides the current load of the first CPU as a percentage..
         /// </summary>
         internal static string SensorsManager_CpuLoadSensorDescription {
@@ -5389,7 +5413,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provides a bool value based on whether the microphone is currently being used..
+        ///   Looks up a localized string similar to Provides a bool value based on whether the microphone is currently being used.
+        ///
+        ///Note: if used in the satellite service, it won&apos;t detect userspace applications..
         /// </summary>
         internal static string SensorsManager_MicrophoneActiveSensorDescription {
             get {
@@ -5398,7 +5424,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provides the name of the process that&apos;s currently using the microphone..
+        ///   Looks up a localized string similar to Provides the name of the process that&apos;s currently using the microphone.
+        ///
+        ///Note: if used in the satellite service, it won&apos;t detect userspace applications..
         /// </summary>
         internal static string SensorsManager_MicrophoneProcessSensorDescription {
             get {
@@ -5530,7 +5558,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provides a bool value based on whether the webcam is currently being used..
+        ///   Looks up a localized string similar to Provides a bool value based on whether the webcam is currently being used.
+        ///
+        ///Note: if used in the satellite service, it won&apos;t detect userspace applications..
         /// </summary>
         internal static string SensorsManager_WebcamActiveSensorDescription {
             get {
@@ -5539,7 +5569,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provides the name of the process that&apos;s currently using the webcam..
+        ///   Looks up a localized string similar to Provides the name of the process that&apos;s currently using the webcam.
+        ///
+        ///Note: if used in the satellite service, it won&apos;t detect userspace applications..
         /// </summary>
         internal static string SensorsManager_WebcamProcessSensorDescription {
             get {
@@ -6116,6 +6148,24 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorType_BatterySensors {
             get {
                 return ResourceManager.GetString("SensorType_BatterySensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BluetoothDevices.
+        /// </summary>
+        internal static string SensorType_BluetoothDevicesSensor {
+            get {
+                return ResourceManager.GetString("SensorType_BluetoothDevicesSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BluetoothLeDevices.
+        /// </summary>
+        internal static string SensorType_BluetoothLeDevicesSensor {
+            get {
+                return ResourceManager.GetString("SensorType_BluetoothLeDevicesSensor", resourceCulture);
             }
         }
         

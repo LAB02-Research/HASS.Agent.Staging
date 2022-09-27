@@ -1177,7 +1177,9 @@ ApplicationStarted, Logoff, SystemShutdown, Resume, Suspend, ConsoleConnect, Con
 		<value>Provides the amount of used memory as a percentage.</value>
 	</data>
 	<data name="SensorsManager_MicrophoneActiveSensorDescription" xml:space="preserve">
-		<value>Provides a bool value based on whether the microphone is currently being used.</value>
+		<value>Provides a bool value based on whether the microphone is currently being used.
+
+Note: if used in the satellite service, it won't detect userspace applications.</value>
 	</data>
 	<data name="SensorsManager_NamedWindowSensorDescription" xml:space="preserve">
 		<value>Provides an ON/OFF value based on whether the window is currently open (doesn't have to be active).</value>
@@ -1224,7 +1226,9 @@ NotPresent, Busy, RunningDirect3dFullScreen, PresentationMode, AcceptsNotificati
 Can for instance be used to determine whether to send notifications or TTS messages.</value>
 	</data>
 	<data name="SensorsManager_WebcamActiveSensorDescription" xml:space="preserve">
-		<value>Provides a bool value based on whether the webcam is currently being used.</value>
+		<value>Provides a bool value based on whether the webcam is currently being used.
+
+Note: if used in the satellite service, it won't detect userspace applications.</value>
 	</data>
 	<data name="SensorsManager_WindowsUpdatesSensorsDescription" xml:space="preserve">
 		<value>Provides a sensor with the amount of pending driver updates, a sensor with the amount of pending software updates, a sensor containing all pending driver updates information (title, kb article id's, hidden, type and categories) and a sensor containing the same for pending software updates.
@@ -3009,9 +3013,31 @@ Hidden, Maximized, Minimized, Normal and Unknown.</value>
 		<value>MicrophoneProcess</value>
 	</data>
 	<data name="SensorsManager_WebcamProcessSensorDescription" xml:space="preserve">
-		<value>Provides the name of the process that's currently using the webcam.</value>
+		<value>Provides the name of the process that's currently using the webcam.
+
+Note: if used in the satellite service, it won't detect userspace applications.</value>
 	</data>
 	<data name="SensorsManager_MicrophoneProcessSensorDescription" xml:space="preserve">
-		<value>Provides the name of the process that's currently using the microphone.</value>
+		<value>Provides the name of the process that's currently using the microphone.
+
+Note: if used in the satellite service, it won't detect userspace applications.</value>
+	</data>
+	<data name="SensorType_BluetoothDevicesSensor" xml:space="preserve">
+		<value>BluetoothDevices</value>
+	</data>
+	<data name="SensorType_BluetoothLeDevicesSensor" xml:space="preserve">
+		<value>BluetoothLeDevices</value>
+	</data>
+	<data name="SensorsManager_BluetoothDevicesSensorDescription" xml:space="preserve">
+		<value>Provides a sensor with the amount of bluetooth devices found.
+
+The devices and their connected state are added as attributes.</value>
+	</data>
+	<data name="SensorsManager_BluetoothLeDevicesSensorDescription" xml:space="preserve">
+		<value>Provides a sensors with the amount of bluetooth LE devices found.
+
+The devices and their connected state are added as attributes.
+
+Only shows devices that were seen since the last report, ie. when the sensor publishes, the list clears.</value>
 	</data>
 </root>

@@ -185,6 +185,12 @@ namespace HASS.Agent.Settings
                 case SensorType.WebcamProcessSensor:
                     abstractSensor = new WebcamProcessSensor(sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
+                case SensorType.BluetoothDevicesSensor:
+                    abstractSensor = new BluetoothDevicesSensor(sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    break;
+                case SensorType.BluetoothLeDevicesSensor:
+                    abstractSensor = new BluetoothLeDevicesSensor(sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
                     break;

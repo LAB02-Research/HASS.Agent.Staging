@@ -2936,4 +2936,10 @@ Note: you disabled sanitation, so make sure your device name is accepted by Home
 	<data name="SensorType_MicrophoneProcessSensor" xml:space="preserve">
 		<value>MicrophoneProcess</value>
 	</data>
+	<data name="SensorType_BluetoothDevicesSensor" xml:space="preserve">
+		<value>BluetoothDevices</value>
+	</data>
+	<data name="SensorType_BluetoothLeDevicesSensor" xml:space="preserve">
+		<value>BluetoothLeDevices</value>
+	</data>
 </root>
