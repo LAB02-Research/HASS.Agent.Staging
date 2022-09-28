@@ -20,7 +20,7 @@ namespace HASS.Agent.Forms
         private readonly Hotkey _previousHotkey = Variables.QuickActionsHotKey;
 
         private readonly string _previousDeviceName = Variables.AppSettings.DeviceName;
-        private readonly int _previousNotificationPort = Variables.AppSettings.LocalApiPort;
+        private readonly int _previousLocalApiPort = Variables.AppSettings.LocalApiPort;
 
         private readonly ConfigGeneral _general = new();
         private readonly ConfigHomeAssistantApi _homeAssistantApi = new();
@@ -146,7 +146,7 @@ namespace HASS.Agent.Forms
             if (_general.CbEnableDeviceNameSanitation.Checked) _general.TbDeviceName.Text = SharedHelperFunctions.GetSafeValue(_general.TbDeviceName.Text);
 
             // store settings
-            StoreSettings();
+            await StoreSettingsAsync();
 
             // (re)load tray icon's webview if needed
             if (Variables.AppSettings.TrayIconWebViewBackgroundLoading) HelperFunctions.PrepareTrayIconWebView();
@@ -183,8 +183,8 @@ namespace HASS.Agent.Forms
                 forceRestart = true;
             }
 
-            // reserve the new notifier's port if it's changed
-            if (Variables.AppSettings.LocalApiPort != _previousNotificationPort)
+            // reserve the new local api's port if it's changed
+            if (Variables.AppSettings.LocalApiPort != _previousLocalApiPort)
             {
                 MessageBoxAdv.Show(Languages.Configuration_ProcessChanges_MessageBox2, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -365,7 +365,7 @@ namespace HASS.Agent.Forms
         /// <summary>
         /// Store all settings
         /// </summary>
-        private void StoreSettings()
+        private async Task StoreSettingsAsync()
         {
             // general
             var deviceName = string.IsNullOrEmpty(_general.TbDeviceName.Text) ? SharedHelperFunctions.GetSafeDeviceName() : _general.TbDeviceName.Text;
@@ -423,6 +423,9 @@ namespace HASS.Agent.Forms
             Variables.AppSettings.MqttClientCertificate = _mqtt.TbMqttClientCertificate.Text;
             Variables.AppSettings.MqttAllowUntrustedCertificates = _mqtt.CbAllowUntrustedCertificates.CheckState == CheckState.Checked;
             Variables.AppSettings.MqttUseRetainFlag = _mqtt.CbUseRetainFlag.CheckState == CheckState.Checked;
+
+            // mqtt -> service
+            await SettingsManager.SendMqttSettingsToServiceAsync();
 
             // updates
             Variables.AppSettings.CheckForUpdates = _updates.CbUpdates.CheckState == CheckState.Checked;

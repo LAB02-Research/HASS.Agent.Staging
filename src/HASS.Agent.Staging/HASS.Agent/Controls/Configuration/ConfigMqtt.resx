@@ -57,4 +57,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LblInfo1.Text" xml:space="preserve">
+    <value>Commands and sensors are sent through MQTT. Please provide credentials for your server. If
+you're using the HA addon, you can probably use the preset address.
+
+Note: these settings (except the client id) will be applied to the satellite service as well.</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PbShow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAZZJREFUSEvtk61TAlEUxTcQDAajwWAgGgwG/gCCgUAwGA0GgsFIZMZANBgMBgOR
+        YDQYNliAhdkgMwQCwUAgGAgGgv7Oeh/zdmdRscqZObPv3Y9z37v3bbDBBgkGg0Gx1+uV+/3+mdjtdo/Z
+        H5j7bwjDcAuxOozhRx6jKBrzvYrjeMfSfgdOd0rixBf7jhSawRqHKphEPnRtEp6yAmswgiWTSwNHlVPM
+        XTDrB/js9qtIzAjeebYF+5rJfoGTX3oBUw1RdtahZ88lYmOLLWnt7DyMa9mz4nGn09lLHEBBnm8V2xYe
+        aNjsly2mYDMr8jgcDrctPlAxbFPPnyICc257aOF6eQX07r2YVuLIFHnxk1gfyeb5HSeulQKn36egP7N2
+        6lVZqxbm1KAa+hfkUyC2CtR/IVZ9H7EXug32RJx1MyXuQJEyzpEX+Mb3RjfyE7TWk5YQfr+Fr9hOLCwf
+        SiawbuIuUdTt1CrR3dTxXcX8+f0ITr1L4i2Js4zYkvjUlhYzLFra+rB2qHXnsGGsIVzBl8xhg3+NIPgE
+        h6ut6KfTmkkAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

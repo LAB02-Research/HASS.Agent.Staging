@@ -148,11 +148,11 @@ namespace HASS.Agent.Shared.Managers
                 // non-zero exitcode, process as failed
                 Log.Error("[POWERSHELL] The {descriptor} returned non-zero exitcode: {code}", descriptor, process.ExitCode);
 
-                var errors = process.StandardError.ReadToEnd();
+                var errors = process.StandardError.ReadToEnd().Trim();
                 if (!string.IsNullOrEmpty(errors)) Log.Error("[POWERSHELL] Error output:\r\n{output}", errors);
                 else
                 {
-                    var console = process.StandardOutput.ReadToEnd();
+                    var console = process.StandardOutput.ReadToEnd().Trim();
                     if (!string.IsNullOrEmpty(console)) Log.Error("[POWERSHELL] No error output, console output:\r\n{output}", errors);
                     else Log.Error("[POWERSHELL] No error and no console output");
                 }
@@ -228,8 +228,8 @@ namespace HASS.Agent.Shared.Managers
                 if (!completed) Log.Error("[POWERSHELL] Timeout executing the {type}: {cmd}", isScript ? "script" : "command", command);
 
                 // read the streams
-                output = process.StandardOutput.ReadToEnd();
-                errors = process.StandardError.ReadToEnd();
+                output = process.StandardOutput.ReadToEnd().Trim();
+                errors = process.StandardError.ReadToEnd().Trim();
 
                 // dispose of them
                 process.StandardOutput.Dispose();

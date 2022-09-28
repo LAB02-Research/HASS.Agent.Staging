@@ -42,9 +42,9 @@ namespace HASS.Agent.Forms
         /// <param name="e"></param>
         private void BtnPrevious_Click(object sender, EventArgs e) => _onboardingManager.ShowPrevious();
 
-        private void BtnClose_Click(object sender, EventArgs e)
+        private async void BtnClose_Click(object sender, EventArgs e)
         {
-            if (!_onboardingManager.ConfirmBeforeClose()) return;
+            if (!await _onboardingManager.ConfirmBeforeCloseAsync()) return;
             DialogResult = DialogResult.OK;
         }
 
@@ -58,9 +58,9 @@ namespace HASS.Agent.Forms
             BtnPrevious.Text = Languages.Onboarding_BtnPrevious;
         }
 
-        private void Onboarding_FormClosing(object sender, FormClosingEventArgs e)
+        private async void Onboarding_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!_onboardingManager.ConfirmBeforeClose()) e.Cancel = true;
+            if (!await _onboardingManager.ConfirmBeforeCloseAsync()) e.Cancel = true;
         }
 
         private void Onboarding_ResizeEnd(object sender, EventArgs e)

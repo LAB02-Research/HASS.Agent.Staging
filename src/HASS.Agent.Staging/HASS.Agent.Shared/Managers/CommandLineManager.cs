@@ -82,7 +82,7 @@ namespace HASS.Agent.Shared.Managers
                         consoleOutput.AppendLine(row);
                     }
 
-                    consoleResult.Output = consoleOutput.ToString();
+                    consoleResult.Output = consoleOutput.ToString().Trim();
                 }
                 else consoleResult.Output = string.Empty;
 
@@ -100,7 +100,7 @@ namespace HASS.Agent.Shared.Managers
                         errorOutput.AppendLine(row);
                     }
 
-                    consoleResult.ErrorOutput = errorOutput.ToString();
+                    consoleResult.ErrorOutput = errorOutput.ToString().Trim();
                 }
                 else consoleResult.ErrorOutput = string.Empty;
 

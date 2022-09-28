@@ -30,6 +30,7 @@ namespace HASS.Agent.Controls.Configuration
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigMqtt));
             this.LblTip3 = new System.Windows.Forms.Label();
             this.TbMqttClientCertificate = new System.Windows.Forms.TextBox();
             this.LblClientCert = new System.Windows.Forms.Label();
@@ -140,7 +141,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbUseRetainFlag.Name = "CbUseRetainFlag";
             this.CbUseRetainFlag.Size = new System.Drawing.Size(114, 23);
             this.CbUseRetainFlag.TabIndex = 10;
-            this.CbUseRetainFlag.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigMqtt_CbUseRetainFlag;
+            this.CbUseRetainFlag.Text = "use &retain flag";
             this.CbUseRetainFlag.UseVisualStyleBackColor = true;
             // 
             // CbAllowUntrustedCertificates
@@ -154,7 +155,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbAllowUntrustedCertificates.Name = "CbAllowUntrustedCertificates";
             this.CbAllowUntrustedCertificates.Size = new System.Drawing.Size(191, 23);
             this.CbAllowUntrustedCertificates.TabIndex = 9;
-            this.CbAllowUntrustedCertificates.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigMqtt_CbAllowUntrustedCertificates;
+            this.CbAllowUntrustedCertificates.Text = "&allow untrusted certificates";
             this.CbAllowUntrustedCertificates.UseVisualStyleBackColor = true;
             // 
             // BtnMqttClearConfig
@@ -176,7 +177,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnMqttClearConfig.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnMqttClearConfig.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnMqttClearConfig.TabIndex = 11;
-            this.BtnMqttClearConfig.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigMqtt_BtnMqttClearConfig;
+            this.BtnMqttClearConfig.Text = "&clear config";
             this.BtnMqttClearConfig.UseVisualStyleBackColor = false;
             this.BtnMqttClearConfig.Click += new System.EventHandler(this.BtnMqttClearConfig_Click);
             // 
@@ -199,12 +200,11 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.AccessibleName = "Information";
             this.LblInfo1.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblInfo1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo1.Location = new System.Drawing.Point(70, 36);
+            this.LblInfo1.Location = new System.Drawing.Point(70, 12);
             this.LblInfo1.Name = "LblInfo1";
-            this.LblInfo1.Size = new System.Drawing.Size(577, 75);
+            this.LblInfo1.Size = new System.Drawing.Size(577, 107);
             this.LblInfo1.TabIndex = 55;
-            this.LblInfo1.Text = "Commands and sensors are sent through MQTT. Please provide credentials for your s" +
-    "erver. If\r\nyou\'re using the HA addon, you can probably use the preset address.";
+            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
             // 
             // TbMqttDiscoveryPrefix
             // 
@@ -287,7 +287,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbMqttTls.Name = "CbMqttTls";
             this.CbMqttTls.Size = new System.Drawing.Size(49, 23);
             this.CbMqttTls.TabIndex = 2;
-            this.CbMqttTls.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigMqtt_CbMqttTls;
+            this.CbMqttTls.Text = "&TLS";
             this.CbMqttTls.UseVisualStyleBackColor = true;
             // 
             // LblBrokerPassword
@@ -420,7 +420,7 @@ namespace HASS.Agent.Controls.Configuration
             this.PbShow.AccessibleName = "Password characters";
             this.PbShow.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.PbShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbShow.Image = global::HASS.Agent.Properties.Resources.show_24;
+            this.PbShow.Image = ((System.Drawing.Image)(resources.GetObject("PbShow.Image")));
             this.PbShow.Location = new System.Drawing.Point(253, 372);
             this.PbShow.Name = "PbShow";
             this.PbShow.Size = new System.Drawing.Size(24, 24);
@@ -438,7 +438,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbEnableMqtt.Checked = true;
             this.CbEnableMqtt.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CbEnableMqtt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbEnableMqtt.Location = new System.Drawing.Point(58, 119);
+            this.CbEnableMqtt.Location = new System.Drawing.Point(58, 127);
             this.CbEnableMqtt.Name = "CbEnableMqtt";
             this.CbEnableMqtt.Size = new System.Drawing.Size(102, 23);
             this.CbEnableMqtt.TabIndex = 101;
@@ -453,9 +453,9 @@ namespace HASS.Agent.Controls.Configuration
             this.LblMqttDisabledWarning.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblMqttDisabledWarning.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LblMqttDisabledWarning.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblMqttDisabledWarning.Location = new System.Drawing.Point(219, 121);
+            this.LblMqttDisabledWarning.Location = new System.Drawing.Point(219, 129);
             this.LblMqttDisabledWarning.Name = "LblMqttDisabledWarning";
-            this.LblMqttDisabledWarning.Size = new System.Drawing.Size(463, 43);
+            this.LblMqttDisabledWarning.Size = new System.Drawing.Size(463, 45);
             this.LblMqttDisabledWarning.TabIndex = 102;
             this.LblMqttDisabledWarning.Text = "without mqtt, commands and sensors will not work!";
             this.LblMqttDisabledWarning.Visible = false;

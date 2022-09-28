@@ -24,6 +24,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyVersion>2022.13.0</AssemblyVersion>
     <FileVersion>2022.13.0</FileVersion>
+    <RootNamespace>HASS.Agent</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

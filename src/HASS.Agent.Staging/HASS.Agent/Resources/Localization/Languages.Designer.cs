@@ -39,7 +39,7 @@ namespace HASS.Agent.Resources.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Localization.Languages", typeof(Languages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HASS.Agent.Resources.Localization.Languages", typeof(Languages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -2362,6 +2362,17 @@ namespace HASS.Agent.Resources.Localization {
         internal static string ConfigService_BtnEnableService_MessageBox1 {
             get {
                 return ResourceManager.GetString("ConfigService_BtnEnableService_MessageBox1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The service is currently in stopped state, so you won&apos;t be able to configure it.
+        ///
+        ///Make sure you have it up and running first..
+        /// </summary>
+        internal static string ConfigService_BtnManageService_MessageBox1 {
+            get {
+                return ResourceManager.GetString("ConfigService_BtnManageService_MessageBox1", resourceCulture);
             }
         }
         

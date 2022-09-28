@@ -41,7 +41,7 @@ namespace HASS.Agent.Shared.Functions
         /// <returns></returns>
         public static string GetSafeValue(string value)
         {
-            var val = Regex.Replace(value, @"[^a-zA-Z0-9_-_\s]", "_");
+            var val = Regex.Replace(value, @"[^a-zA-Z0-9_\-_\s]", "_");
             return val.Replace(" ", "");
         }
 

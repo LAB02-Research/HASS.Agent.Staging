@@ -442,12 +442,12 @@ namespace HASS.Agent.Managers
         /// Checks to see if we need confirmation (and get it)
         /// </summary>
         /// <returns></returns>
-        internal bool ConfirmBeforeClose()
+        internal async Task<bool> ConfirmBeforeCloseAsync()
         {
             // if we're completed, finalize and close
             if (Variables.AppSettings.OnboardingStatus == OnboardingStatus.Completed)
             {
-                FinalizeOnboarding();
+                await FinalizeOnboardingAsync();
                 return true;
             }
 
@@ -465,14 +465,16 @@ namespace HASS.Agent.Managers
                 OnboardingStatus = OnboardingStatus.Aborted,
                 LocalApiEnabled = false
             };
+
             SettingsManager.StoreAppSettings();
+
             return true;
         }
 
         /// <summary>
         /// Finalizes the onboarding process
         /// </summary>
-        private void FinalizeOnboarding()
+        private async Task FinalizeOnboardingAsync()
         {
             // lock interface
             _onboarding.BtnClose.Enabled = false;
@@ -481,6 +483,9 @@ namespace HASS.Agent.Managers
 
             // write all settings to disk
             SettingsManager.StoreAppSettings();
+
+            // send mqtt config to the service
+            await SettingsManager.SendMqttSettingsToServiceAsync(true);
 
             // if the local api's activated, execute port binding
             if (Variables.AppSettings.LocalApiEnabled) ApiManager.ExecuteElevatedPortReservation();

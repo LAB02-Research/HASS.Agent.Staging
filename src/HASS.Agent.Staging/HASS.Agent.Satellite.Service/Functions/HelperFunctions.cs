@@ -24,7 +24,11 @@ namespace HASS.Agent.Satellite.Service.Functions
         /// Returns a safe version of this machine's name
         /// </summary>
         /// <returns></returns>
-        internal static string? GetSafeDeviceName() => Regex.Replace($"{Environment.MachineName}-satellite", @"[^a-zA-Z0-9_-_\s]", "_");
+        internal static string? GetSafeDeviceName()
+        {
+            var val = Regex.Replace($"{Environment.MachineName}-satellite", @"[^a-zA-Z0-9_\-_\s]", "_");
+            return val.Replace(" ", "");
+        }
 
         /// <summary>
         /// Try to properly close the service with default 500ms waiting time

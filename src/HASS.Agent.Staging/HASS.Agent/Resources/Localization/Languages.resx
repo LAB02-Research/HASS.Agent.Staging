@@ -3040,4 +3040,9 @@ The devices and their connected state are added as attributes.
 
 Only shows devices that were seen since the last report, ie. when the sensor publishes, the list clears.</value>
 	</data>
+	<data name="ConfigService_BtnManageService_MessageBox1" xml:space="preserve">
+		<value>The service is currently in stopped state, so you won't be able to configure it.
+
+Make sure you have it up and running first.</value>
+	</data>
 </root>
