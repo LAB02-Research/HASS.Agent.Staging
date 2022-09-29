@@ -5,13 +5,15 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using HASS.Agent.API;
 using HASS.Agent.Enums;
 using HASS.Agent.Functions;
+using HASS.Agent.Managers;
+using HASS.Agent.Media;
+using HASS.Agent.Models.HomeAssistant;
 using HASS.Agent.Resources.Localization;
 using HASS.Agent.Settings;
 using HASS.Agent.Shared.Enums;
-using HASS.Agent.Shared.HomeAssistant;
-using HASS.Agent.Shared.HomeAssistant.Commands;
 using HASS.Agent.Shared.Models.HomeAssistant;
 using HASS.Agent.Shared.Mqtt;
 using MQTTnet;
@@ -22,7 +24,6 @@ using MQTTnet.Client.Options;
 using MQTTnet.Exceptions;
 using MQTTnet.Extensions.ManagedClient;
 using Serilog;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace HASS.Agent.MQTT
 {
@@ -360,13 +361,6 @@ namespace HASS.Agent.MQTT
 
             try
             {
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = new CamelCaseJsonNamingpolicy(),
-                    PropertyNameCaseInsensitive = true,
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-                };
-
                 // prepare prefix
                 if (string.IsNullOrEmpty(Variables.AppSettings.MqttDiscoveryPrefix)) Variables.AppSettings.MqttDiscoveryPrefix = "homeassistant";
 
@@ -380,7 +374,7 @@ namespace HASS.Agent.MQTT
                 
                 // add payload
                 if (clearConfig) messageBuilder.WithPayload(Array.Empty<byte>());
-                else messageBuilder.WithPayload(JsonSerializer.Serialize(discoverable.GetAutoDiscoveryConfig(), discoverable.GetAutoDiscoveryConfig().GetType(), options));
+                else messageBuilder.WithPayload(JsonSerializer.Serialize(discoverable.GetAutoDiscoveryConfig(), discoverable.GetAutoDiscoveryConfig().GetType(), JsonSerializerOptions));
 
                 // publish disco config
                 await PublishAsync(messageBuilder.Build());
@@ -402,6 +396,15 @@ namespace HASS.Agent.MQTT
         /// </summary>
         private DateTime _lastAvailableAnnouncement = DateTime.MinValue;
         private DateTime _lastAvailableAnnouncementFailedLogged = DateTime.MinValue;
+        
+        public static readonly JsonSerializerOptions JsonSerializerOptions = new()
+        {
+            PropertyNamingPolicy = new CamelCaseJsonNamingpolicy(),
+            PropertyNameCaseInsensitive = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            Converters = { new JsonStringEnumConverter() }
+        };
+
         public async Task AnnounceAvailabilityAsync(bool offline = false)
         {
             if (!Variables.AppSettings.MqttEnabled) return;
@@ -428,6 +431,24 @@ namespace HASS.Agent.MQTT
 
                     // publish
                     await _mqttClient.PublishAsync(messageBuilder.Build());
+                    
+                    
+                    // prepare message
+                    var haMessageBuilder = new MqttApplicationMessageBuilder()
+                        .WithTopic($"hass.agent/devices/{Variables.DeviceConfig.Name}")
+                        .WithPayload(JsonSerializer.Serialize(new
+                        {
+                            device = GetDeviceConfigModel(),
+                            apis = new
+                            {
+                                notifications = Variables.AppSettings.NotificationsEnabled,
+                                media_player = Variables.AppSettings.MediaPlayerEnabled
+                            }
+                        }, JsonSerializerOptions))
+                        .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
+
+                    // publish
+                    await _mqttClient.PublishAsync(haMessageBuilder.Build());
                 }
                 else
                 {
@@ -507,6 +528,20 @@ namespace HASS.Agent.MQTT
 
             await _mqttClient.SubscribeAsync(((CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig()).Command_topic);
             await _mqttClient.SubscribeAsync(((CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig()).Action_topic);
+        }
+
+        public async Task SubscribeNotificationsAsync()
+        {
+            if (!Variables.AppSettings.MqttEnabled) return;
+            if (!IsConnected()) while (IsConnected() == false) await Task.Delay(250);
+            await _mqttClient.SubscribeAsync($"hass.agent/notifications/{HelperFunctions.GetConfiguredDeviceName()}");
+        }
+
+        public async Task SubscribeMediaCommandsAsync()
+        {
+            if (!Variables.AppSettings.MqttEnabled) return;
+            if (!IsConnected()) while (IsConnected() == false) await Task.Delay(250);
+            await _mqttClient.SubscribeAsync($"hass.agent/media_player/{HelperFunctions.GetConfiguredDeviceName()}/cmd");
         }
 
         /// <summary>
@@ -609,6 +644,27 @@ namespace HASS.Agent.MQTT
         /// <param name="applicationMessage"></param>
         private static void HandleMessageReceived(MqttApplicationMessage applicationMessage)
         {
+            if (applicationMessage.Topic == $"hass.agent/notifications/{HelperFunctions.GetConfiguredDeviceName()}")
+            {
+                var notification = JsonSerializer.Deserialize<Notification>(applicationMessage.Payload, JsonSerializerOptions)!;
+                _ = Task.Run(() => NotificationManager.ShowNotification(notification));
+            } else if (applicationMessage.Topic == $"hass.agent/media_player/{HelperFunctions.GetConfiguredDeviceName()}/cmd")
+            {
+                var command =
+                    JsonSerializer.Deserialize<MqttMediaPlayerCommand>(applicationMessage.Payload,
+                        JsonSerializerOptions)!;
+
+                if (command.Command == MediaPlayerCommand.PlayMedia)
+                {
+                    MediaManager.ProcessMedia(command.Data);
+                }
+                else
+                {
+                    MediaManager.ProcessCommand(command.Command);
+                }
+            }
+
+
             if (!Variables.Commands.Any()) return;
             foreach (var command in Variables.Commands)
             {

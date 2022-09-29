@@ -1,12 +1,15 @@
 ﻿using System.IO;
+using System.Text.Json;
 using Windows.Media.Control;
 using Windows.Media.Playback;
 using CoreAudio;
 using HASS.Agent.Enums;
 using HASS.Agent.Extensions;
+using HASS.Agent.Functions;
 using HASS.Agent.Managers;
-using HASS.Agent.Shared.Enums;
+using HASS.Agent.MQTT;
 using HASS.Agent.Shared.Extensions;
+using MQTTnet;
 using Serilog;
 using MediaPlayerState = HASS.Agent.Enums.MediaPlayerState;
 
@@ -72,6 +75,8 @@ namespace HASS.Agent.Media
             // start monitoring playing media
             _ = Task.Run(MediaMonitor);
 
+            _ = Task.Run(Variables.MqttManager.SubscribeMediaCommandsAsync);
+
             // ready
             Log.Information("[MEDIA] Ready");
         }
@@ -130,6 +135,18 @@ namespace HASS.Agent.Media
                 }
                 finally
                 {
+                    var haMessageBuilder = new MqttApplicationMessageBuilder()
+                        .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/state")
+                        .WithPayload(JsonSerializer.Serialize(new MqttMediaPlayerMessage
+                        {
+                            Title = Playing,
+                            State = State,
+                            Volume = MediaManagerRequests.GetVolume(),
+                            Muted = MediaManagerRequests.GetMuteState()
+                        }, MqttManager.JsonSerializerOptions));
+                    
+                    await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                    
                     await Task.Delay(TimeSpan.FromSeconds(2));
                 }
             }

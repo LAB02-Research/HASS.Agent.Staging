@@ -1,9 +1,12 @@
-﻿using HASS.Agent.Functions;
+﻿using HASS.Agent.API;
+using HASS.Agent.Functions;
 using HASS.Agent.HomeAssistant;
 using HASS.Agent.Models.HomeAssistant;
 using Microsoft.Toolkit.Uwp.Notifications;
+using MQTTnet;
 using Newtonsoft.Json;
 using Serilog;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace HASS.Agent.Managers
 {
@@ -25,7 +28,9 @@ namespace HASS.Agent.Managers
                 Log.Warning("[NOTIFIER] Local API is disabled, unable to receive notifications");
                 return;
             }
-            
+
+            _ = Task.Run(Variables.MqttManager.SubscribeNotificationsAsync);
+
             ToastNotificationManagerCompat.OnActivated += OnNotificationButtonPressed;
 
             // no task other than logging
@@ -39,6 +44,16 @@ namespace HASS.Agent.Managers
                 device_name = HelperFunctions.GetConfiguredDeviceName(),
                 action = e.Argument
             });
+
+            var haMessageBuilder = new MqttApplicationMessageBuilder()
+                .WithTopic($"hass.agent/notifications/{Variables.DeviceConfig.Name}/actions")
+                .WithPayload(JsonSerializer.Serialize(new
+                {
+                    action = e.Argument,
+                    input = e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null
+                }, ApiDeserialization.SerializerOptions));
+
+            await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
         }
 
         /// <summary>

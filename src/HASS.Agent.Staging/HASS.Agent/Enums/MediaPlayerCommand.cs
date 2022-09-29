@@ -37,5 +37,8 @@ namespace HASS.Agent.Enums
 
         [EnumMember(Value = "previous")]
         Previous,
+        
+        [EnumMember(Value = "play_media")]
+        PlayMedia
     }
 }
