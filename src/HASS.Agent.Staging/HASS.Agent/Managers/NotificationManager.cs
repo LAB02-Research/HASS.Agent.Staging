@@ -73,7 +73,6 @@ namespace HASS.Agent.Managers
                 var toastBuilder = new ToastContentBuilder();
 
                 // prepare title
-                if (string.IsNullOrWhiteSpace(notification.Title)) notification.Title = "Home Assistant";
                 toastBuilder.AddHeader("HASS.Agent", notification.Title, string.Empty);
 
                 // prepare image
