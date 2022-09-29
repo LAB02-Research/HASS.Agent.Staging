@@ -22,7 +22,8 @@ namespace HASS.Agent.API
             context.Response.ContentType = "application/json";
             await context.Response.SendResponseAsync(JsonSerializer.Serialize(new
             {
-                device = Variables.MqttManager.GetDeviceConfigModel(),
+                serial_number = Variables.SerialNumber,
+                device = Variables.DeviceConfig,
                 apis = new
                 {
                     notifications = Variables.AppSettings.NotificationsEnabled,

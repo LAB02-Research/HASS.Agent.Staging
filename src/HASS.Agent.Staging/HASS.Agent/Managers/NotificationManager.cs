@@ -39,7 +39,7 @@ namespace HASS.Agent.Managers
 
         private static async void OnNotificationButtonPressed(ToastNotificationActivatedEventArgsCompat e)
         {
-            await HassApiManager.FireEvent("hass_agent_notifications", new
+            var haEventTask = HassApiManager.FireEvent("hass_agent_notifications", new
             {
                 device_name = HelperFunctions.GetConfiguredDeviceName(),
                 action = e.Argument
@@ -52,8 +52,10 @@ namespace HASS.Agent.Managers
                     action = e.Argument,
                     input = e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null
                 }, ApiDeserialization.SerializerOptions));
+            
+            var mqttTask = Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
 
-            await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+            await Task.WhenAny(haEventTask, mqttTask);
         }
 
         /// <summary>

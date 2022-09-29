@@ -438,7 +438,8 @@ namespace HASS.Agent.MQTT
                         .WithTopic($"hass.agent/devices/{Variables.DeviceConfig.Name}")
                         .WithPayload(JsonSerializer.Serialize(new
                         {
-                            device = GetDeviceConfigModel(),
+                            serial_number = Variables.SerialNumber,
+                            device = Variables.DeviceConfig,
                             apis = new
                             {
                                 notifications = Variables.AppSettings.NotificationsEnabled,

@@ -18,6 +18,7 @@ using HASS.Agent.Shared.HomeAssistant.Commands;
 using HASS.Agent.Shared.HomeAssistant.Sensors;
 using HASS.Agent.Shared.Models.HomeAssistant;
 using HASS.Agent.Shared.Mqtt;
+using Microsoft.Win32;
 using MQTTnet;
 using WK.Libraries.HotkeyListenerNS;
 
@@ -34,6 +35,9 @@ namespace HASS.Agent
         public static string ApplicationExecutable { get; } = Assembly.GetExecutingAssembly().Location.Replace(".dll", ".exe");
         public static string Version { get; } = Application.ProductVersion;
         public static bool Beta { get; } = Version.Contains('b');
+
+        public static string SerialNumber => (string) Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography",
+            "MachineGuid", null);
 
         /// <summary>
         /// Constants

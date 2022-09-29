@@ -44,6 +44,16 @@ namespace HASS.Agent.Satellite.Service.MQTT
         /// <returns></returns>
         public bool UseRetainFlag() => Variables.ServiceMqttSettings?.MqttUseRetainFlag ?? true;
 
+        public Task SubscribeMediaCommandsAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task SubscribeNotificationsAsync()
+        {
+            return Task.CompletedTask;
+        }
+
         /// <summary>
         /// Returns the default or configured discovery prefix
         /// </summary>
