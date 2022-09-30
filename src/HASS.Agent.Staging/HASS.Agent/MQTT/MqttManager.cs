@@ -657,7 +657,11 @@ namespace HASS.Agent.MQTT
 
                 if (command.Command == MediaPlayerCommand.PlayMedia)
                 {
-                    MediaManager.ProcessMedia(command.Data);
+                    MediaManager.ProcessMedia(command.Data.GetString());
+                }
+                else if(command.Command == MediaPlayerCommand.Seek)
+                {
+                    MediaManager.ProcessSeekCommand(TimeSpan.FromSeconds(command.Data.GetDouble()).Ticks);
                 }
                 else
                 {
