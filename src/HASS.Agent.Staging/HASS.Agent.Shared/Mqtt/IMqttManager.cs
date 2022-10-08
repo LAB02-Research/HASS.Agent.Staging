@@ -23,9 +23,13 @@ namespace HASS.Agent.Shared.Mqtt
         void Disconnect();
         Task SubscribeAsync(AbstractCommand command);
         Task UnubscribeAsync(AbstractCommand command);
+
+        Task SubscribeNotificationsAsync();
+        
         string MqttDiscoveryPrefix();
         DeviceConfigModel GetDeviceConfigModel();
         void ReloadConfiguration();
         bool UseRetainFlag();
+        Task SubscribeMediaCommandsAsync();
     }
 }
