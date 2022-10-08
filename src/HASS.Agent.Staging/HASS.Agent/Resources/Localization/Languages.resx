@@ -3045,4 +3045,18 @@ Only shows devices that were seen since the last report, ie. when the sensor pub
 
 Make sure you have it up and running first.</value>
 	</data>
+	<data name="SensorsMod_MessageBox_Sanitize" xml:space="preserve">
+		<value>The name you provided contains unsupported characters and won't work. The suggested version is:
+
+{0}
+
+Do you want to use this version?</value>
+	</data>
+	<data name="CommandsMod_MessageBox_Sanitize" xml:space="preserve">
+		<value>The name you provided contains unsupported characters and won't work. The suggested version is:
+
+{0}
+
+Do you want to use this version?</value>
+	</data>
 </root>

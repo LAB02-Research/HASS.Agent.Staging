@@ -1029,6 +1029,19 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The name you provided contains unsupported characters and won&apos;t work. The suggested version is:
+        ///
+        ///{0}
+        ///
+        ///Do you want to use this version?.
+        /// </summary>
+        internal static string CommandsMod_MessageBox_Sanitize {
+            get {
+                return ResourceManager.GetString("CommandsMod_MessageBox_Sanitize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} only!.
         /// </summary>
         internal static string CommandsMod_SpecificClient {
@@ -5969,6 +5982,19 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_LblUpdate {
             get {
                 return ResourceManager.GetString("SensorsMod_LblUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The name you provided contains unsupported characters and won&apos;t work. The suggested version is:
+        ///
+        ///{0}
+        ///
+        ///Do you want to use this version?.
+        /// </summary>
+        internal static string SensorsMod_MessageBox_Sanitize {
+            get {
+                return ResourceManager.GetString("SensorsMod_MessageBox_Sanitize", resourceCulture);
             }
         }
         

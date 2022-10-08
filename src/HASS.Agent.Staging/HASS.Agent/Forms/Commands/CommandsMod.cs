@@ -239,6 +239,21 @@ namespace HASS.Agent.Forms.Commands
                 return;
             }
 
+            // name contains illegal chars?
+            var sanitized = SharedHelperFunctions.GetSafeValue(name);
+            if (sanitized != name)
+            {
+                var confirmSanitize = MessageBoxAdv.Show(string.Format(Languages.CommandsMod_MessageBox_Sanitize, sanitized), Variables.MessageBoxTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (confirmSanitize != DialogResult.OK)
+                {
+                    ActiveControl = TbName;
+                    return;
+                }
+
+                TbName.Text = sanitized;
+                name = sanitized;
+            }
+
             // name already used?
             if (!_serviceMode && Variables.Commands.Any(x => string.Equals(x.Name, name, StringComparison.InvariantCultureIgnoreCase) && x.Id != Command.Id.ToString()))
             {

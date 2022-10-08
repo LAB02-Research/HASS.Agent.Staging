@@ -8,6 +8,7 @@ using HASS.Agent.Shared.Enums;
 using HASS.Agent.Shared.Extensions;
 using HASS.Agent.Shared.Models.Config;
 using Serilog;
+using HASS.Agent.Shared.Functions;
 
 namespace HASS.Agent.Forms.Sensors
 {
@@ -470,6 +471,21 @@ namespace HASS.Agent.Forms.Sensors
                 MessageBoxAdv.Show(Languages.SensorsMod_BtnStore_MessageBox3, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ActiveControl = TbName;
                 return;
+            }
+
+            // name contains illegal chars?
+            var sanitized = SharedHelperFunctions.GetSafeValue(name);
+            if (sanitized != name)
+            {
+                var confirmSanitize = MessageBoxAdv.Show(string.Format(Languages.SensorsMod_MessageBox_Sanitize, sanitized), Variables.MessageBoxTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (confirmSanitize != DialogResult.OK)
+                {
+                    ActiveControl = TbName;
+                    return;
+                }
+
+                TbName.Text = sanitized;
+                name = sanitized;
             }
 
             // name already used?
