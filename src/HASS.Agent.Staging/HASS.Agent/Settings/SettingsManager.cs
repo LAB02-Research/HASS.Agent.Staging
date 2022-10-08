@@ -382,5 +382,41 @@ namespace HASS.Agent.Settings
         {
             Registry.SetValue(Variables.RootRegKey, "DeviceSerialNumber", guid, RegistryValueKind.String);
         }
+
+        /// <summary>
+        /// Gets the 'hide donate button from the main window' setting from registry
+        /// </summary>
+        /// <returns></returns>
+        internal static bool GetHideDonateButton()
+        {
+            try
+            {
+                var setting = (string)Registry.GetValue(Variables.RootRegKey, "HideDonateButton", "0");
+                if (string.IsNullOrEmpty(setting)) return false;
+
+                return setting == "1";
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "[SETTINGS] Error retrieving 'hide donate button from the main window' setting: {err}", ex.Message);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Stores the 'hide donate button from the main window' setting in registry
+        /// </summary>
+        /// <param name="hide"></param>
+        internal static void SetHideDonateButton(bool hide)
+        {
+            try
+            {
+                Registry.SetValue(Variables.RootRegKey, "HideDonateButton", hide ? "1" : "0", RegistryValueKind.String);
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "[SETTINGS] Error storing 'hide donate button from the main window' setting: {err}", ex.Message);
+            }
+        }
     }
 }

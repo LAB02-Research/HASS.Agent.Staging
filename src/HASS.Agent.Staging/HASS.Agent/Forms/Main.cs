@@ -62,6 +62,9 @@ namespace HASS.Agent.Forms
 
                 // catch all key presses
                 KeyPreview = true;
+
+                // hide donate button?
+                if (SettingsManager.GetHideDonateButton()) PbDonate.Visible = false;
                 
                 // set all statuses to loading
                 SetLocalApiStatus(ComponentStatus.Loading);
@@ -86,7 +89,7 @@ namespace HASS.Agent.Forms
 
                     // abort
                     Variables.ShuttingDown = true;
-                    Log.CloseAndFlush();
+                    await Log.CloseAndFlushAsync();
                     Close();
                     return;
                 }
@@ -802,6 +805,26 @@ namespace HASS.Agent.Forms
 
             // show it
             HelperFunctions.LaunchTrayIconWebView(webView);
+        }
+
+        private async void PbDonate_Click(object sender, EventArgs e)
+        {
+            if (await HelperFunctions.TryBringToFront("Donate")) return;
+
+            var form = new Donate();
+            form.FormClosed += delegate { form.Dispose(); };
+            form.Show(this);
+        }
+
+        /// <summary>
+        /// Hides the 'Donate' button from the UI
+        /// </summary>
+        internal void HideDonateButton()
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                PbDonate.Visible = false;
+            }));
         }
     }
 }

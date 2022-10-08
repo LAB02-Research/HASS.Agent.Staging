@@ -47,7 +47,7 @@ namespace HASS.Agent.Models.Config
         public string CustomExecutorName { get; set; } = string.Empty;
         public string CustomExecutorBinary { get; set; } = string.Empty;
 
-        public bool LocalApiEnabled { get; set; } = true;
+        public bool LocalApiEnabled { get; set; } = false;
         public int LocalApiPort { get; set; } = 5115;
 
         public bool NotificationsEnabled { get; set; } = true;

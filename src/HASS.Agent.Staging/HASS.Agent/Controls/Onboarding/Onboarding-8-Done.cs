@@ -14,6 +14,6 @@ namespace HASS.Agent.Controls.Onboarding
             //
         }
 
-        private void LblGitHub_Click(object sender, EventArgs e) => HelperFunctions.LaunchUrl("https://github.com/LAB02-Research/HASS.Agent");
+        private void PbBMAC_Click(object sender, EventArgs e) => HelperFunctions.LaunchUrl("https://www.buymeacoffee.com/lab02research");
     }
 }

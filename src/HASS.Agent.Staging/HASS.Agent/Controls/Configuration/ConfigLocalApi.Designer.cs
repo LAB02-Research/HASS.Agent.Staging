@@ -48,9 +48,9 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LblInfo1.Location = new System.Drawing.Point(70, 36);
             this.LblInfo1.Name = "LblInfo1";
-            this.LblInfo1.Size = new System.Drawing.Size(566, 102);
+            this.LblInfo1.Size = new System.Drawing.Size(566, 153);
             this.LblInfo1.TabIndex = 36;
-            this.LblInfo1.Text = Languages.ConfigLocalApi_LblInfo1;
+            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
             // 
             // LblPort
             // 
@@ -59,11 +59,11 @@ namespace HASS.Agent.Controls.Configuration
             this.LblPort.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblPort.AutoSize = true;
             this.LblPort.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblPort.Location = new System.Drawing.Point(283, 222);
+            this.LblPort.Location = new System.Drawing.Point(283, 277);
             this.LblPort.Name = "LblPort";
             this.LblPort.Size = new System.Drawing.Size(35, 19);
             this.LblPort.TabIndex = 34;
-            this.LblPort.Text = Languages.ConfigLocalApi_LblPort;
+            this.LblPort.Text = "&port";
             // 
             // NumLocalApiPort
             // 
@@ -77,7 +77,7 @@ namespace HASS.Agent.Controls.Configuration
             this.NumLocalApiPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NumLocalApiPort.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NumLocalApiPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.NumLocalApiPort.Location = new System.Drawing.Point(335, 220);
+            this.NumLocalApiPort.Location = new System.Drawing.Point(335, 275);
             this.NumLocalApiPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -98,13 +98,14 @@ namespace HASS.Agent.Controls.Configuration
             // 
             // BtnExecutePortReservation
             // 
-            this.BtnExecutePortReservation.AccessibleDescription = "Executes a port reservation, and opens the port in the firewall. This will show an UAC prompt, asking for elevation.";
+            this.BtnExecutePortReservation.AccessibleDescription = "Executes a port reservation, and opens the port in the firewall. This will show a" +
+    "n UAC prompt, asking for elevation.";
             this.BtnExecutePortReservation.AccessibleName = "Port reservation";
             this.BtnExecutePortReservation.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BtnExecutePortReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnExecutePortReservation.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnExecutePortReservation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnExecutePortReservation.Location = new System.Drawing.Point(200, 399);
+            this.BtnExecutePortReservation.Location = new System.Drawing.Point(200, 454);
             this.BtnExecutePortReservation.Name = "BtnExecutePortReservation";
             this.BtnExecutePortReservation.Size = new System.Drawing.Size(301, 31);
             this.BtnExecutePortReservation.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -115,7 +116,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnExecutePortReservation.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnExecutePortReservation.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnExecutePortReservation.TabIndex = 2;
-            this.BtnExecutePortReservation.Text = Languages.ConfigLocalApi_BtnExecutePortReservation;
+            this.BtnExecutePortReservation.Text = "execute port &reservation";
             this.BtnExecutePortReservation.UseVisualStyleBackColor = false;
             this.BtnExecutePortReservation.Click += new System.EventHandler(this.BtnExecutePortReservation_Click);
             // 
@@ -126,11 +127,11 @@ namespace HASS.Agent.Controls.Configuration
             this.CbLocalApiActive.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.CbLocalApiActive.AutoSize = true;
             this.CbLocalApiActive.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbLocalApiActive.Location = new System.Drawing.Point(290, 161);
+            this.CbLocalApiActive.Location = new System.Drawing.Point(290, 216);
             this.CbLocalApiActive.Name = "CbLocalApiActive";
             this.CbLocalApiActive.Size = new System.Drawing.Size(121, 23);
             this.CbLocalApiActive.TabIndex = 0;
-            this.CbLocalApiActive.Text = Languages.ConfigLocalApi_CbLocalApiActive;
+            this.CbLocalApiActive.Text = "&enable local api";
             this.CbLocalApiActive.UseVisualStyleBackColor = true;
             // 
             // LblInfo2
@@ -139,11 +140,12 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo2.AccessibleName = "Port reservation info";
             this.LblInfo2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblInfo2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo2.Location = new System.Drawing.Point(70, 307);
+            this.LblInfo2.Location = new System.Drawing.Point(70, 362);
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(566, 74);
             this.LblInfo2.TabIndex = 76;
-            this.LblInfo2.Text = Languages.ConfigLocalApi_LblInfo2;
+            this.LblInfo2.Text = "To be able to listen to the requests, HASS.Agent needs to have its port reserved " +
+    "and opened in your firewall. You can use this button to have it done for you.";
             // 
             // ConfigLocalApi
             // 

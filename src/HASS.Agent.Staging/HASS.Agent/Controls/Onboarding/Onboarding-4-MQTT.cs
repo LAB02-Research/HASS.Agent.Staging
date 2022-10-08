@@ -39,6 +39,7 @@ namespace HASS.Agent.Controls.Onboarding
             TbMqttUsername.Text = Variables.AppSettings.MqttUsername;
             TbMqttPassword.Text = Variables.AppSettings.MqttPassword;
             TbMqttDiscoveryPrefix.Text = Variables.AppSettings.MqttDiscoveryPrefix;
+            CbEnableMqtt.CheckState = Variables.AppSettings.MqttEnabled ? CheckState.Checked : CheckState.Unchecked;
 
             _initializing = false;
 
@@ -53,6 +54,7 @@ namespace HASS.Agent.Controls.Onboarding
             Variables.AppSettings.MqttUsername = TbMqttUsername.Text;
             Variables.AppSettings.MqttPassword = TbMqttPassword.Text;
             Variables.AppSettings.MqttDiscoveryPrefix = TbMqttDiscoveryPrefix.Text;
+            Variables.AppSettings.MqttEnabled = CbEnableMqtt.CheckState == CheckState.Checked;
             return true;
         }
 

@@ -54,22 +54,22 @@ namespace HASS.Agent.Forms
             this.LblOctokit = new System.Windows.Forms.Label();
             this.LblCliWrap = new System.Windows.Forms.Label();
             this.LblInfo6 = new System.Windows.Forms.Label();
-            this.PbBMAC = new System.Windows.Forms.PictureBox();
             this.PbHassLogo = new System.Windows.Forms.PictureBox();
             this.PbHassAgentLogo = new System.Windows.Forms.PictureBox();
             this.LblCassia = new System.Windows.Forms.Label();
             this.LblGrpcDotNetNamedPipes = new System.Windows.Forms.Label();
-            this.PbGithubSponsor = new System.Windows.Forms.PictureBox();
             this.LblGrpc = new System.Windows.Forms.Label();
             this.LblByteSize = new System.Windows.Forms.Label();
+            this.PbPayPal = new System.Windows.Forms.PictureBox();
             this.PbKoFi = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PbBMAC)).BeginInit();
+            this.PbGithubSponsor = new System.Windows.Forms.PictureBox();
+            this.PbBMAC = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PbHassLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbHassAgentLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbGithubSponsor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbPayPal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbKoFi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbGithubSponsor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbBMAC)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnClose
@@ -81,7 +81,7 @@ namespace HASS.Agent.Forms
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnClose.Location = new System.Drawing.Point(0, 661);
+            this.BtnClose.Location = new System.Drawing.Point(0, 666);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(747, 37);
             this.BtnClose.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -92,7 +92,7 @@ namespace HASS.Agent.Forms
             this.BtnClose.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnClose.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnClose.TabIndex = 0;
-            this.BtnClose.Text = global::HASS.Agent.Resources.Localization.Languages.About_BtnClose;
+            this.BtnClose.Text = "&close";
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -397,28 +397,13 @@ namespace HASS.Agent.Forms
             this.LblInfo6.Text = "Like this tool? Support us (read: keep us awake) by buying a cup of coffee:";
             this.LblInfo6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // PbBMAC
-            // 
-            this.PbBMAC.AccessibleDescription = "Opens the \'buy me a coffee\' donation website.";
-            this.PbBMAC.AccessibleName = "BMAC donation";
-            this.PbBMAC.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.PbBMAC.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbBMAC.Image = global::HASS.Agent.Properties.Resources.bmac_logo;
-            this.PbBMAC.Location = new System.Drawing.Point(537, 538);
-            this.PbBMAC.Name = "PbBMAC";
-            this.PbBMAC.Size = new System.Drawing.Size(153, 43);
-            this.PbBMAC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PbBMAC.TabIndex = 29;
-            this.PbBMAC.TabStop = false;
-            this.PbBMAC.Click += new System.EventHandler(this.PbBMAC_Click);
-            // 
             // PbHassLogo
             // 
             this.PbHassLogo.AccessibleDescription = "Home Assistant logo.";
             this.PbHassLogo.AccessibleName = "HA logo";
             this.PbHassLogo.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbHassLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbHassLogo.Image = global::HASS.Agent.Properties.Resources.hass_avatar;
+            this.PbHassLogo.Image = ((System.Drawing.Image)(resources.GetObject("PbHassLogo.Image")));
             this.PbHassLogo.Location = new System.Drawing.Point(12, 453);
             this.PbHassLogo.Name = "PbHassLogo";
             this.PbHassLogo.Size = new System.Drawing.Size(128, 128);
@@ -433,7 +418,7 @@ namespace HASS.Agent.Forms
             this.PbHassAgentLogo.AccessibleName = "HASS.Agent logo";
             this.PbHassAgentLogo.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbHassAgentLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbHassAgentLogo.Image = global::HASS.Agent.Properties.Resources.logo_128;
+            this.PbHassAgentLogo.Image = ((System.Drawing.Image)(resources.GetObject("PbHassAgentLogo.Image")));
             this.PbHassAgentLogo.Location = new System.Drawing.Point(12, 23);
             this.PbHassAgentLogo.Name = "PbHassAgentLogo";
             this.PbHassAgentLogo.Size = new System.Drawing.Size(128, 128);
@@ -472,21 +457,6 @@ namespace HASS.Agent.Forms
             this.LblGrpcDotNetNamedPipes.Text = "GrpcDotNetNamedPipes";
             this.LblGrpcDotNetNamedPipes.Click += new System.EventHandler(this.LblGrpcDotNetNamedPipes_Click);
             // 
-            // PbGithubSponsor
-            // 
-            this.PbGithubSponsor.AccessibleDescription = "Opens the \'sponsor on gituhb\' donation website.";
-            this.PbGithubSponsor.AccessibleName = "GitHub donation";
-            this.PbGithubSponsor.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.PbGithubSponsor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbGithubSponsor.Image = global::HASS.Agent.Properties.Resources.githubsponsors;
-            this.PbGithubSponsor.Location = new System.Drawing.Point(176, 601);
-            this.PbGithubSponsor.Name = "PbGithubSponsor";
-            this.PbGithubSponsor.Size = new System.Drawing.Size(235, 43);
-            this.PbGithubSponsor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PbGithubSponsor.TabIndex = 33;
-            this.PbGithubSponsor.TabStop = false;
-            this.PbGithubSponsor.Click += new System.EventHandler(this.PbGithubSponsor_Click);
-            // 
             // LblGrpc
             // 
             this.LblGrpc.AccessibleDescription = "Opens the \'gRPC\' website.";
@@ -517,33 +487,65 @@ namespace HASS.Agent.Forms
             this.LblByteSize.Text = "ByteSize";
             this.LblByteSize.Click += new System.EventHandler(this.LblByteSize_Click);
             // 
+            // PbPayPal
+            // 
+            this.PbPayPal.AccessibleDescription = "Opens the \'paypal\' donation website.";
+            this.PbPayPal.AccessibleName = "PayPal donation";
+            this.PbPayPal.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.PbPayPal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbPayPal.Image = ((System.Drawing.Image)(resources.GetObject("PbPayPal.Image")));
+            this.PbPayPal.Location = new System.Drawing.Point(359, 538);
+            this.PbPayPal.Name = "PbPayPal";
+            this.PbPayPal.Size = new System.Drawing.Size(152, 43);
+            this.PbPayPal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PbPayPal.TabIndex = 43;
+            this.PbPayPal.TabStop = false;
+            this.PbPayPal.Click += new System.EventHandler(this.PbPayPal_Click);
+            // 
             // PbKoFi
             // 
             this.PbKoFi.AccessibleDescription = "Opens the \'ko-fi\' donation website.";
             this.PbKoFi.AccessibleName = "Kofi donation";
             this.PbKoFi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.PbKoFi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbKoFi.Image = global::HASS.Agent.Properties.Resources.kofi;
-            this.PbKoFi.Location = new System.Drawing.Point(176, 538);
+            this.PbKoFi.Image = ((System.Drawing.Image)(resources.GetObject("PbKoFi.Image")));
+            this.PbKoFi.Location = new System.Drawing.Point(541, 538);
             this.PbKoFi.Name = "PbKoFi";
             this.PbKoFi.Size = new System.Drawing.Size(171, 43);
             this.PbKoFi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PbKoFi.TabIndex = 36;
+            this.PbKoFi.TabIndex = 42;
             this.PbKoFi.TabStop = false;
+            this.PbKoFi.Click += new System.EventHandler(this.PbKoFi_Click);
             // 
-            // pictureBox1
+            // PbGithubSponsor
             // 
-            this.pictureBox1.AccessibleDescription = "Opens the \'buy me a coffee\' donation website.";
-            this.pictureBox1.AccessibleName = "BMAC donation";
-            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::HASS.Agent.Properties.Resources.paypal;
-            this.pictureBox1.Location = new System.Drawing.Point(455, 601);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(235, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
+            this.PbGithubSponsor.AccessibleDescription = "Opens the \'sponsor on gituhb\' donation website.";
+            this.PbGithubSponsor.AccessibleName = "GitHub donation";
+            this.PbGithubSponsor.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.PbGithubSponsor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbGithubSponsor.Image = ((System.Drawing.Image)(resources.GetObject("PbGithubSponsor.Image")));
+            this.PbGithubSponsor.Location = new System.Drawing.Point(176, 602);
+            this.PbGithubSponsor.Name = "PbGithubSponsor";
+            this.PbGithubSponsor.Size = new System.Drawing.Size(235, 43);
+            this.PbGithubSponsor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PbGithubSponsor.TabIndex = 41;
+            this.PbGithubSponsor.TabStop = false;
+            this.PbGithubSponsor.Click += new System.EventHandler(this.PbGithubSponsor_Click);
+            // 
+            // PbBMAC
+            // 
+            this.PbBMAC.AccessibleDescription = "Opens the \'buy me a coffee\' donation website.";
+            this.PbBMAC.AccessibleName = "BMAC donation";
+            this.PbBMAC.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.PbBMAC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbBMAC.Image = ((System.Drawing.Image)(resources.GetObject("PbBMAC.Image")));
+            this.PbBMAC.Location = new System.Drawing.Point(176, 538);
+            this.PbBMAC.Name = "PbBMAC";
+            this.PbBMAC.Size = new System.Drawing.Size(153, 43);
+            this.PbBMAC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PbBMAC.TabIndex = 40;
+            this.PbBMAC.TabStop = false;
+            this.PbBMAC.Click += new System.EventHandler(this.PbBMAC_Click);
             // 
             // About
             // 
@@ -556,15 +558,15 @@ namespace HASS.Agent.Forms
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.CaptionFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(747, 698);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(747, 703);
+            this.Controls.Add(this.PbPayPal);
             this.Controls.Add(this.PbKoFi);
+            this.Controls.Add(this.PbGithubSponsor);
+            this.Controls.Add(this.PbBMAC);
             this.Controls.Add(this.LblByteSize);
             this.Controls.Add(this.LblGrpc);
-            this.Controls.Add(this.PbGithubSponsor);
             this.Controls.Add(this.LblGrpcDotNetNamedPipes);
             this.Controls.Add(this.LblCassia);
-            this.Controls.Add(this.PbBMAC);
             this.Controls.Add(this.LblInfo6);
             this.Controls.Add(this.LblCliWrap);
             this.Controls.Add(this.LblOctokit);
@@ -603,12 +605,12 @@ namespace HASS.Agent.Forms
             this.Load += new System.EventHandler(this.About_Load);
             this.ResizeEnd += new System.EventHandler(this.About_ResizeEnd);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.About_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.PbBMAC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbHassLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbHassAgentLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbGithubSponsor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbPayPal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbKoFi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbGithubSponsor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbBMAC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,14 +641,14 @@ namespace HASS.Agent.Forms
         private System.Windows.Forms.Label LblOctokit;
         private System.Windows.Forms.Label LblCliWrap;
         private System.Windows.Forms.Label LblInfo6;
-        private System.Windows.Forms.PictureBox PbBMAC;
         private System.Windows.Forms.Label LblCassia;
         private Label LblGrpcDotNetNamedPipes;
-        private PictureBox PbGithubSponsor;
         private Label LblGrpc;
         private Label LblByteSize;
+        private PictureBox PbPayPal;
         private PictureBox PbKoFi;
-        private PictureBox pictureBox1;
+        private PictureBox PbGithubSponsor;
+        private PictureBox PbBMAC;
     }
 }
 

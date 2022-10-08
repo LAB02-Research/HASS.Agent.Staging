@@ -8,10 +8,9 @@ namespace HASS.Agent.Enums
         NeverDone,
         Aborted,
         Startup,
-        LocalApi,
-        Integrations,
         API,
         MQTT,
+        Integrations,
         HotKey,
         Updates,
         Completed

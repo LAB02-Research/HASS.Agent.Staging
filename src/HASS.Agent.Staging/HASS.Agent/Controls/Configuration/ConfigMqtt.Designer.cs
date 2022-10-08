@@ -68,7 +68,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip3.AccessibleName = "Client certificate tip";
             this.LblTip3.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblTip3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblTip3.Location = new System.Drawing.Point(414, 284);
+            this.LblTip3.Location = new System.Drawing.Point(415, 349);
             this.LblTip3.Name = "LblTip3";
             this.LblTip3.Size = new System.Drawing.Size(268, 28);
             this.LblTip3.TabIndex = 64;
@@ -83,7 +83,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbMqttClientCertificate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbMqttClientCertificate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbMqttClientCertificate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbMqttClientCertificate.Location = new System.Drawing.Point(414, 256);
+            this.TbMqttClientCertificate.Location = new System.Drawing.Point(415, 321);
             this.TbMqttClientCertificate.Name = "TbMqttClientCertificate";
             this.TbMqttClientCertificate.Size = new System.Drawing.Size(268, 25);
             this.TbMqttClientCertificate.TabIndex = 8;
@@ -96,7 +96,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblClientCert.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblClientCert.AutoSize = true;
             this.LblClientCert.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblClientCert.Location = new System.Drawing.Point(411, 234);
+            this.LblClientCert.Location = new System.Drawing.Point(412, 299);
             this.LblClientCert.Name = "LblClientCert";
             this.LblClientCert.Size = new System.Drawing.Size(103, 19);
             this.LblClientCert.TabIndex = 63;
@@ -111,7 +111,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbMqttRootCertificate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbMqttRootCertificate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbMqttRootCertificate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbMqttRootCertificate.Location = new System.Drawing.Point(414, 196);
+            this.TbMqttRootCertificate.Location = new System.Drawing.Point(415, 261);
             this.TbMqttRootCertificate.Name = "TbMqttRootCertificate";
             this.TbMqttRootCertificate.Size = new System.Drawing.Size(268, 25);
             this.TbMqttRootCertificate.TabIndex = 7;
@@ -124,7 +124,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblRootCert.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblRootCert.AutoSize = true;
             this.LblRootCert.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblRootCert.Location = new System.Drawing.Point(411, 174);
+            this.LblRootCert.Location = new System.Drawing.Point(412, 239);
             this.LblRootCert.Name = "LblRootCert";
             this.LblRootCert.Size = new System.Drawing.Size(97, 19);
             this.LblRootCert.TabIndex = 61;
@@ -137,7 +137,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbUseRetainFlag.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.CbUseRetainFlag.AutoSize = true;
             this.CbUseRetainFlag.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbUseRetainFlag.Location = new System.Drawing.Point(411, 386);
+            this.CbUseRetainFlag.Location = new System.Drawing.Point(412, 451);
             this.CbUseRetainFlag.Name = "CbUseRetainFlag";
             this.CbUseRetainFlag.Size = new System.Drawing.Size(114, 23);
             this.CbUseRetainFlag.TabIndex = 10;
@@ -151,7 +151,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbAllowUntrustedCertificates.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.CbAllowUntrustedCertificates.AutoSize = true;
             this.CbAllowUntrustedCertificates.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbAllowUntrustedCertificates.Location = new System.Drawing.Point(411, 328);
+            this.CbAllowUntrustedCertificates.Location = new System.Drawing.Point(412, 393);
             this.CbAllowUntrustedCertificates.Name = "CbAllowUntrustedCertificates";
             this.CbAllowUntrustedCertificates.Size = new System.Drawing.Size(191, 23);
             this.CbAllowUntrustedCertificates.TabIndex = 9;
@@ -166,7 +166,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnMqttClearConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnMqttClearConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnMqttClearConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnMqttClearConfig.Location = new System.Drawing.Point(454, 495);
+            this.BtnMqttClearConfig.Location = new System.Drawing.Point(455, 560);
             this.BtnMqttClearConfig.Name = "BtnMqttClearConfig";
             this.BtnMqttClearConfig.Size = new System.Drawing.Size(228, 31);
             this.BtnMqttClearConfig.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -188,7 +188,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip1.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblTip1.AutoSize = true;
             this.LblTip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblTip1.Location = new System.Drawing.Point(253, 447);
+            this.LblTip1.Location = new System.Drawing.Point(254, 512);
             this.LblTip1.Name = "LblTip1";
             this.LblTip1.Size = new System.Drawing.Size(138, 15);
             this.LblTip1.TabIndex = 56;
@@ -202,7 +202,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LblInfo1.Location = new System.Drawing.Point(70, 12);
             this.LblInfo1.Name = "LblInfo1";
-            this.LblInfo1.Size = new System.Drawing.Size(577, 107);
+            this.LblInfo1.Size = new System.Drawing.Size(577, 162);
             this.LblInfo1.TabIndex = 55;
             this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
             // 
@@ -215,7 +215,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbMqttDiscoveryPrefix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbMqttDiscoveryPrefix.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbMqttDiscoveryPrefix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbMqttDiscoveryPrefix.Location = new System.Drawing.Point(56, 443);
+            this.TbMqttDiscoveryPrefix.Location = new System.Drawing.Point(57, 508);
             this.TbMqttDiscoveryPrefix.Name = "TbMqttDiscoveryPrefix";
             this.TbMqttDiscoveryPrefix.Size = new System.Drawing.Size(191, 25);
             this.TbMqttDiscoveryPrefix.TabIndex = 5;
@@ -227,7 +227,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblDiscoPrefix.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblDiscoPrefix.AutoSize = true;
             this.LblDiscoPrefix.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblDiscoPrefix.Location = new System.Drawing.Point(53, 421);
+            this.LblDiscoPrefix.Location = new System.Drawing.Point(54, 486);
             this.LblDiscoPrefix.Name = "LblDiscoPrefix";
             this.LblDiscoPrefix.Size = new System.Drawing.Size(103, 19);
             this.LblDiscoPrefix.TabIndex = 54;
@@ -242,7 +242,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbMqttPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbMqttPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbMqttPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbMqttPassword.Location = new System.Drawing.Point(56, 371);
+            this.TbMqttPassword.Location = new System.Drawing.Point(57, 436);
             this.TbMqttPassword.Name = "TbMqttPassword";
             this.TbMqttPassword.Size = new System.Drawing.Size(191, 25);
             this.TbMqttPassword.TabIndex = 4;
@@ -257,7 +257,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbMqttUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbMqttUsername.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbMqttUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbMqttUsername.Location = new System.Drawing.Point(58, 313);
+            this.TbMqttUsername.Location = new System.Drawing.Point(59, 378);
             this.TbMqttUsername.Name = "TbMqttUsername";
             this.TbMqttUsername.Size = new System.Drawing.Size(191, 25);
             this.TbMqttUsername.TabIndex = 3;
@@ -271,7 +271,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbMqttAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbMqttAddress.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbMqttAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbMqttAddress.Location = new System.Drawing.Point(58, 196);
+            this.TbMqttAddress.Location = new System.Drawing.Point(59, 261);
             this.TbMqttAddress.Name = "TbMqttAddress";
             this.TbMqttAddress.Size = new System.Drawing.Size(259, 25);
             this.TbMqttAddress.TabIndex = 0;
@@ -283,7 +283,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbMqttTls.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.CbMqttTls.AutoSize = true;
             this.CbMqttTls.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbMqttTls.Location = new System.Drawing.Point(219, 249);
+            this.CbMqttTls.Location = new System.Drawing.Point(220, 314);
             this.CbMqttTls.Name = "CbMqttTls";
             this.CbMqttTls.Size = new System.Drawing.Size(49, 23);
             this.CbMqttTls.TabIndex = 2;
@@ -297,7 +297,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblBrokerPassword.AutoSize = true;
             this.LblBrokerPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblBrokerPassword.Location = new System.Drawing.Point(55, 349);
+            this.LblBrokerPassword.Location = new System.Drawing.Point(56, 414);
             this.LblBrokerPassword.Name = "LblBrokerPassword";
             this.LblBrokerPassword.Size = new System.Drawing.Size(67, 19);
             this.LblBrokerPassword.TabIndex = 52;
@@ -310,7 +310,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerUsername.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblBrokerUsername.AutoSize = true;
             this.LblBrokerUsername.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblBrokerUsername.Location = new System.Drawing.Point(55, 291);
+            this.LblBrokerUsername.Location = new System.Drawing.Point(56, 356);
             this.LblBrokerUsername.Name = "LblBrokerUsername";
             this.LblBrokerUsername.Size = new System.Drawing.Size(69, 19);
             this.LblBrokerUsername.TabIndex = 51;
@@ -323,7 +323,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerPort.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblBrokerPort.AutoSize = true;
             this.LblBrokerPort.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblBrokerPort.Location = new System.Drawing.Point(53, 249);
+            this.LblBrokerPort.Location = new System.Drawing.Point(54, 314);
             this.LblBrokerPort.Name = "LblBrokerPort";
             this.LblBrokerPort.Size = new System.Drawing.Size(35, 19);
             this.LblBrokerPort.TabIndex = 50;
@@ -336,7 +336,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerIp.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblBrokerIp.AutoSize = true;
             this.LblBrokerIp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblBrokerIp.Location = new System.Drawing.Point(55, 174);
+            this.LblBrokerIp.Location = new System.Drawing.Point(56, 239);
             this.LblBrokerIp.Name = "LblBrokerIp";
             this.LblBrokerIp.Size = new System.Drawing.Size(197, 19);
             this.LblBrokerIp.TabIndex = 47;
@@ -349,7 +349,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblTip2.AutoSize = true;
             this.LblTip2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblTip2.Location = new System.Drawing.Point(253, 505);
+            this.LblTip2.Location = new System.Drawing.Point(254, 570);
             this.LblTip2.Name = "LblTip2";
             this.LblTip2.Size = new System.Drawing.Size(142, 15);
             this.LblTip2.TabIndex = 70;
@@ -364,7 +364,7 @@ namespace HASS.Agent.Controls.Configuration
             this.TbMqttClientId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbMqttClientId.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbMqttClientId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbMqttClientId.Location = new System.Drawing.Point(56, 501);
+            this.TbMqttClientId.Location = new System.Drawing.Point(57, 566);
             this.TbMqttClientId.MaxLength = 100;
             this.TbMqttClientId.Name = "TbMqttClientId";
             this.TbMqttClientId.Size = new System.Drawing.Size(191, 25);
@@ -377,7 +377,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblClientId.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblClientId.AutoSize = true;
             this.LblClientId.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblClientId.Location = new System.Drawing.Point(53, 479);
+            this.LblClientId.Location = new System.Drawing.Point(54, 544);
             this.LblClientId.Name = "LblClientId";
             this.LblClientId.Size = new System.Drawing.Size(56, 19);
             this.LblClientId.TabIndex = 69;
@@ -395,7 +395,7 @@ namespace HASS.Agent.Controls.Configuration
             this.NumMqttPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NumMqttPort.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NumMqttPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.NumMqttPort.Location = new System.Drawing.Point(109, 247);
+            this.NumMqttPort.Location = new System.Drawing.Point(110, 312);
             this.NumMqttPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -421,7 +421,7 @@ namespace HASS.Agent.Controls.Configuration
             this.PbShow.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.PbShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbShow.Image = ((System.Drawing.Image)(resources.GetObject("PbShow.Image")));
-            this.PbShow.Location = new System.Drawing.Point(253, 372);
+            this.PbShow.Location = new System.Drawing.Point(254, 437);
             this.PbShow.Name = "PbShow";
             this.PbShow.Size = new System.Drawing.Size(24, 24);
             this.PbShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -438,7 +438,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbEnableMqtt.Checked = true;
             this.CbEnableMqtt.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CbEnableMqtt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbEnableMqtt.Location = new System.Drawing.Point(58, 127);
+            this.CbEnableMqtt.Location = new System.Drawing.Point(59, 189);
             this.CbEnableMqtt.Name = "CbEnableMqtt";
             this.CbEnableMqtt.Size = new System.Drawing.Size(102, 23);
             this.CbEnableMqtt.TabIndex = 101;
@@ -453,7 +453,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblMqttDisabledWarning.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblMqttDisabledWarning.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LblMqttDisabledWarning.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblMqttDisabledWarning.Location = new System.Drawing.Point(219, 129);
+            this.LblMqttDisabledWarning.Location = new System.Drawing.Point(220, 191);
             this.LblMqttDisabledWarning.Name = "LblMqttDisabledWarning";
             this.LblMqttDisabledWarning.Size = new System.Drawing.Size(463, 45);
             this.LblMqttDisabledWarning.TabIndex = 102;
@@ -498,7 +498,7 @@ namespace HASS.Agent.Controls.Configuration
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ConfigMqtt";
-            this.Size = new System.Drawing.Size(700, 547);
+            this.Size = new System.Drawing.Size(700, 614);
             this.Load += new System.EventHandler(this.ConfigMqtt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NumMqttPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbShow)).EndInit();

@@ -107,6 +107,9 @@
     <Compile Update="Controls\Service\ServiceGeneral.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Forms\Donate.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ChildApplications\ServiceSetState.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -483,152 +486,131 @@
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-2-Startup.sl.resx">
       <DependentUpon>Onboarding-2-Startup.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-LocalApi.de.resx">
-      <DependentUpon>Onboarding-3-LocalApi.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.de.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-LocalApi.en.resx">
-      <DependentUpon>Onboarding-3-LocalApi.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.en.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-LocalApi.es.resx">
-      <DependentUpon>Onboarding-3-LocalApi.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.es.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-LocalApi.nl.resx">
-      <DependentUpon>Onboarding-3-LocalApi.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.nl.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-LocalApi.pt-br.resx">
-      <DependentUpon>Onboarding-3-LocalApi.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.pt-br.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-LocalApi.ru.resx">
-      <DependentUpon>Onboarding-3-LocalApi.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.ru.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-LocalApi.sl.resx">
-      <DependentUpon>Onboarding-3-LocalApi.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.sl.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-Integrations.de.resx">
-      <DependentUpon>Onboarding-4-Integrations.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.de.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-Integrations.en.resx">
-      <DependentUpon>Onboarding-4-Integrations.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.en.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-Integrations.es.resx">
-      <DependentUpon>Onboarding-4-Integrations.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.es.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-Integrations.nl.resx">
-      <DependentUpon>Onboarding-4-Integrations.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.nl.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-Integrations.pt-br.resx">
-      <DependentUpon>Onboarding-4-Integrations.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.pt-br.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-Integrations.ru.resx">
-      <DependentUpon>Onboarding-4-Integrations.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.ru.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-Integrations.sl.resx">
-      <DependentUpon>Onboarding-4-Integrations.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.sl.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-API.de.resx">
-      <DependentUpon>Onboarding-5-API.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.de.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-API.en.resx">
-      <DependentUpon>Onboarding-5-API.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.en.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-API.es.resx">
-      <DependentUpon>Onboarding-5-API.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.es.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-API.nl.resx">
-      <DependentUpon>Onboarding-5-API.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.nl.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-API.pt-br.resx">
-      <DependentUpon>Onboarding-5-API.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.pt-br.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-API.ru.resx">
-      <DependentUpon>Onboarding-5-API.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.ru.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-API.sl.resx">
-      <DependentUpon>Onboarding-5-API.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.sl.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-MQTT.de.resx">
-      <DependentUpon>Onboarding-6-MQTT.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.de.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-MQTT.en.resx">
-      <DependentUpon>Onboarding-6-MQTT.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.en.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-MQTT.es.resx">
-      <DependentUpon>Onboarding-6-MQTT.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.es.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-MQTT.nl.resx">
-      <DependentUpon>Onboarding-6-MQTT.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.nl.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-MQTT.pt-br.resx">
-      <DependentUpon>Onboarding-6-MQTT.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.pt-br.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-MQTT.ru.resx">
-      <DependentUpon>Onboarding-6-MQTT.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.ru.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-MQTT.sl.resx">
-      <DependentUpon>Onboarding-6-MQTT.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.sl.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-HotKey.de.resx">
-      <DependentUpon>Onboarding-7-HotKey.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.de.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-HotKey.en.resx">
-      <DependentUpon>Onboarding-7-HotKey.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.en.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-HotKey.es.resx">
-      <DependentUpon>Onboarding-7-HotKey.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.es.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-HotKey.nl.resx">
-      <DependentUpon>Onboarding-7-HotKey.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.nl.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-HotKey.pt-br.resx">
-      <DependentUpon>Onboarding-7-HotKey.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.pt-br.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-HotKey.ru.resx">
-      <DependentUpon>Onboarding-7-HotKey.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.ru.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-HotKey.sl.resx">
-      <DependentUpon>Onboarding-7-HotKey.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.sl.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Updates.de.resx">
-      <DependentUpon>Onboarding-8-Updates.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.de.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Updates.en.resx">
-      <DependentUpon>Onboarding-8-Updates.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.en.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Updates.es.resx">
-      <DependentUpon>Onboarding-8-Updates.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.es.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Updates.nl.resx">
-      <DependentUpon>Onboarding-8-Updates.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.nl.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Updates.pt-br.resx">
-      <DependentUpon>Onboarding-8-Updates.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.pt-br.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Updates.ru.resx">
-      <DependentUpon>Onboarding-8-Updates.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.ru.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Updates.sl.resx">
-      <DependentUpon>Onboarding-8-Updates.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-9-Done.de.resx">
-      <DependentUpon>Onboarding-9-Done.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-9-Done.en.resx">
-      <DependentUpon>Onboarding-9-Done.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-9-Done.es.resx">
-      <DependentUpon>Onboarding-9-Done.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-9-Done.nl.resx">
-      <DependentUpon>Onboarding-9-Done.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-9-Done.pt-br.resx">
-      <DependentUpon>Onboarding-9-Done.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-9-Done.ru.resx">
-      <DependentUpon>Onboarding-9-Done.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Controls\Onboarding\Onboarding-9-Done.sl.resx">
-      <DependentUpon>Onboarding-9-Done.resx</DependentUpon>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.sl.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\QuickActionControl.de.resx">
       <DependentUpon>QuickActionControl.resx</DependentUpon>
@@ -755,6 +737,27 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceSensors.sl.resx">
       <DependentUpon>ServiceSensors.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About - Copy.de.resx">
+      <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About - Copy.en.resx">
+      <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About - Copy.es.resx">
+      <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About - Copy.nl.resx">
+      <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About - Copy.pt-br.resx">
+      <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About - Copy.ru.resx">
+      <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About - Copy.sl.resx">
+      <DependentUpon>About.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\About.de.resx">
       <DependentUpon>About.resx</DependentUpon>

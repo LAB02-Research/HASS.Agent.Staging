@@ -33,10 +33,9 @@ namespace HASS.Agent.Controls.Onboarding
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OnboardingIntegrations));
             this.PbHassAgentLogo = new System.Windows.Forms.PictureBox();
             this.LblNotifierIntegration = new System.Windows.Forms.Label();
-            this.LblInfo2 = new System.Windows.Forms.Label();
             this.LblInfo1 = new System.Windows.Forms.Label();
-            this.LblMediaPlayerIntegration = new System.Windows.Forms.Label();
-            this.LblInfo3 = new System.Windows.Forms.Label();
+            this.CbEnableMediaPlayer = new System.Windows.Forms.CheckBox();
+            this.CbEnableNotifications = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.PbHassAgentLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +45,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.PbHassAgentLogo.AccessibleName = "HASS Agent logo";
             this.PbHassAgentLogo.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbHassAgentLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbHassAgentLogo.Image = global::HASS.Agent.Properties.Resources.logo_128;
+            this.PbHassAgentLogo.Image = ((System.Drawing.Image)(resources.GetObject("PbHassAgentLogo.Image")));
             this.PbHassAgentLogo.Location = new System.Drawing.Point(24, 20);
             this.PbHassAgentLogo.Name = "PbHassAgentLogo";
             this.PbHassAgentLogo.Size = new System.Drawing.Size(128, 128);
@@ -56,30 +55,18 @@ namespace HASS.Agent.Controls.Onboarding
             // 
             // LblNotifierIntegration
             // 
-            this.LblNotifierIntegration.AccessibleDescription = "Shortcut to open the notifier integrations webpage.";
-            this.LblNotifierIntegration.AccessibleName = "Notifier webpage";
+            this.LblNotifierIntegration.AccessibleDescription = "Shortcut to open the integrations webpage.";
+            this.LblNotifierIntegration.AccessibleName = "Integration webpage";
             this.LblNotifierIntegration.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
             this.LblNotifierIntegration.AutoSize = true;
             this.LblNotifierIntegration.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblNotifierIntegration.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.LblNotifierIntegration.Location = new System.Drawing.Point(180, 141);
+            this.LblNotifierIntegration.Location = new System.Drawing.Point(180, 395);
             this.LblNotifierIntegration.Name = "LblNotifierIntegration";
-            this.LblNotifierIntegration.Size = new System.Drawing.Size(215, 19);
+            this.LblNotifierIntegration.Size = new System.Drawing.Size(238, 19);
             this.LblNotifierIntegration.TabIndex = 0;
-            this.LblNotifierIntegration.Text = Languages.OnboardingIntegrations_LblNotifierIntegration;
+            this.LblNotifierIntegration.Text = "HASS.Agent-Integration GitHub page";
             this.LblNotifierIntegration.Click += new System.EventHandler(this.LblNotifierIntegration_Click);
-            // 
-            // LblInfo2
-            // 
-            this.LblInfo2.AccessibleDescription = "Extra information on how to install and configure the integrations.";
-            this.LblInfo2.AccessibleName = "Integrations info";
-            this.LblInfo2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-            this.LblInfo2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo2.Location = new System.Drawing.Point(180, 318);
-            this.LblInfo2.Name = "LblInfo2";
-            this.LblInfo2.Size = new System.Drawing.Size(592, 114);
-            this.LblInfo2.TabIndex = 26;
-            this.LblInfo2.Text = Languages.OnboardingIntegrations_LblInfo2;
             // 
             // LblInfo1
             // 
@@ -89,37 +76,41 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblInfo1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LblInfo1.Location = new System.Drawing.Point(180, 20);
             this.LblInfo1.Name = "LblInfo1";
-            this.LblInfo1.Size = new System.Drawing.Size(592, 106);
+            this.LblInfo1.Size = new System.Drawing.Size(602, 208);
             this.LblInfo1.TabIndex = 25;
-            this.LblInfo1.Text = Languages.OnboardingIntegrations_LblInfo1;
+            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
             // 
-            // LblMediaPlayerIntegration
+            // CbEnableMediaPlayer
             // 
-            this.LblMediaPlayerIntegration.AccessibleDescription = "Shortcut to open the media player integrations webpage.";
-            this.LblMediaPlayerIntegration.AccessibleName = "Media player webpage";
-            this.LblMediaPlayerIntegration.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-            this.LblMediaPlayerIntegration.AutoSize = true;
-            this.LblMediaPlayerIntegration.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LblMediaPlayerIntegration.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.LblMediaPlayerIntegration.Location = new System.Drawing.Point(180, 263);
-            this.LblMediaPlayerIntegration.Name = "LblMediaPlayerIntegration";
-            this.LblMediaPlayerIntegration.Size = new System.Drawing.Size(245, 19);
-            this.LblMediaPlayerIntegration.TabIndex = 1;
-            this.LblMediaPlayerIntegration.Text = "HASS.Agent-MediaPlayer GitHub page";
-            this.LblMediaPlayerIntegration.Click += new System.EventHandler(this.LblMediaPlayerIntegration_Click);
+            this.CbEnableMediaPlayer.AccessibleDescription = "Enable the media player functionality of the integration.";
+            this.CbEnableMediaPlayer.AccessibleName = "Enable media player";
+            this.CbEnableMediaPlayer.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.CbEnableMediaPlayer.AutoSize = true;
+            this.CbEnableMediaPlayer.Checked = true;
+            this.CbEnableMediaPlayer.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbEnableMediaPlayer.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbEnableMediaPlayer.Location = new System.Drawing.Point(180, 304);
+            this.CbEnableMediaPlayer.Name = "CbEnableMediaPlayer";
+            this.CbEnableMediaPlayer.Size = new System.Drawing.Size(307, 23);
+            this.CbEnableMediaPlayer.TabIndex = 27;
+            this.CbEnableMediaPlayer.Text = "enable &mediaplayer (including text-to-speech)";
+            this.CbEnableMediaPlayer.UseVisualStyleBackColor = true;
             // 
-            // LblInfo3
+            // CbEnableNotifications
             // 
-            this.LblInfo3.AccessibleDescription = "Media player integration information.";
-            this.LblInfo3.AccessibleName = "Media player info";
-            this.LblInfo3.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-            this.LblInfo3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo3.Location = new System.Drawing.Point(180, 171);
-            this.LblInfo3.Name = "LblInfo3";
-            this.LblInfo3.Size = new System.Drawing.Size(592, 62);
-            this.LblInfo3.TabIndex = 77;
-            this.LblInfo3.Text = Languages.OnboardingIntegrations_LblInfo3;
-            this.LblInfo3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.CbEnableNotifications.AccessibleDescription = "Enable the ability to receive notifications, sent throught the integration.";
+            this.CbEnableNotifications.AccessibleName = "Enable notifications";
+            this.CbEnableNotifications.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.CbEnableNotifications.AutoSize = true;
+            this.CbEnableNotifications.Checked = true;
+            this.CbEnableNotifications.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbEnableNotifications.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbEnableNotifications.Location = new System.Drawing.Point(180, 248);
+            this.CbEnableNotifications.Name = "CbEnableNotifications";
+            this.CbEnableNotifications.Size = new System.Drawing.Size(146, 23);
+            this.CbEnableNotifications.TabIndex = 26;
+            this.CbEnableNotifications.Text = "enable &notifications";
+            this.CbEnableNotifications.UseVisualStyleBackColor = true;
             // 
             // OnboardingIntegrations
             // 
@@ -129,10 +120,9 @@ namespace HASS.Agent.Controls.Onboarding
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.Controls.Add(this.LblInfo3);
-            this.Controls.Add(this.LblMediaPlayerIntegration);
+            this.Controls.Add(this.CbEnableMediaPlayer);
+            this.Controls.Add(this.CbEnableNotifications);
             this.Controls.Add(this.LblNotifierIntegration);
-            this.Controls.Add(this.LblInfo2);
             this.Controls.Add(this.LblInfo1);
             this.Controls.Add(this.PbHassAgentLogo);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -149,9 +139,8 @@ namespace HASS.Agent.Controls.Onboarding
         #endregion
         private System.Windows.Forms.PictureBox PbHassAgentLogo;
         private System.Windows.Forms.Label LblNotifierIntegration;
-        private System.Windows.Forms.Label LblInfo2;
         private System.Windows.Forms.Label LblInfo1;
-        private Label LblMediaPlayerIntegration;
-        private Label LblInfo3;
+        private CheckBox CbEnableMediaPlayer;
+        private CheckBox CbEnableNotifications;
     }
 }

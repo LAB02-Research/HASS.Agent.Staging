@@ -58,8 +58,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LblInfo1.Text" xml:space="preserve">
-    <value>Commands and sensors are sent through MQTT. Please provide credentials for your server. If
-you're using the HA addon, you can probably use the preset address.
+    <value>Commands and sensors use MQTT, as well as notifications and mediaplayer functions when using the new integration. 
+
+Please provide credentials for your broker. If you're using the HA Mosquitto addon, you can probably use the preset address.
 
 Note: these settings (except the client id) will be applied to the satellite service as well.</value>
   </data>
@@ -67,7 +68,7 @@ Note: these settings (except the client id) will be applied to the satellite ser
   <data name="PbShow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAZZJREFUSEvtk61TAlEUxTcQDAajwWAgGgwG/gCCgUAwGA0GgsFIZMZANBgMBgOR
+        wQAADsEBuJFr7QAAAZZJREFUSEvtk61TAlEUxTcQDAajwWAgGgwG/gCCgUAwGA0GgsFIZMZANBgMBgOR
         YDQYNliAhdkgMwQCwUAgGAgGgv7Oeh/zdmdRscqZObPv3Y9z37v3bbDBBgkGg0Gx1+uV+/3+mdjtdo/Z
         H5j7bwjDcAuxOozhRx6jKBrzvYrjeMfSfgdOd0rixBf7jhSawRqHKphEPnRtEp6yAmswgiWTSwNHlVPM
         XTDrB/js9qtIzAjeebYF+5rJfoGTX3oBUw1RdtahZ88lYmOLLWnt7DyMa9mz4nGn09lLHEBBnm8V2xYe
