@@ -16,7 +16,11 @@ namespace HASS.Agent.API
     /// </summary>
     public class ApiEndpoints : ApiDeserialization
     {
-
+        /// <summary>
+        /// Info routes, provides device info on /info
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static async Task DeviceInfoRoute(IHttpContext context)
         {
             context.Response.ContentType = "application/json";

@@ -23,9 +23,9 @@ namespace HASS.Agent.Managers
                 return;
             }
 
-            if (!Variables.AppSettings.LocalApiEnabled)
+            if (!Variables.AppSettings.LocalApiEnabled && !Variables.AppSettings.MqttEnabled)
             {
-                Log.Warning("[NOTIFIER] Local API is disabled, unable to receive notifications");
+                Log.Warning("[NOTIFIER] Both local API and MQTT are disabled, unable to receive notifications");
                 return;
             }
 
@@ -90,10 +90,8 @@ namespace HASS.Agent.Managers
                 {
                     foreach (var action in notification.Data.Actions)
                     {
-                        if (!string.IsNullOrEmpty(action.Action))
-                        {
-                            toastBuilder.AddButton(action.Title, ToastActivationType.Background, action.Action);
-                        }
+                        if (string.IsNullOrEmpty(action.Action)) continue;
+                        toastBuilder.AddButton(action.Title, ToastActivationType.Background, action.Action);
                     }
                 }
 

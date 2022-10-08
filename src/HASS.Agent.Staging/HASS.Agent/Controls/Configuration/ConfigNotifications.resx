@@ -57,4 +57,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LblInfo2.Text" xml:space="preserve">
+    <value>If something's not working, make sure you followed these steps:
+
+- Install the HASS.Agent integration
+- Restart Home Assistant
+- Make sure HASS.Agent is active with MQTT enabled
+- Your device will get detected!
+- Optionally: manually add it, using the local API
+</value>
+  </data>
+  <data name="LblInfo1.Text" xml:space="preserve">
+    <value>HASS.Agent can receive notifications from Home Assistant, using text, images and actions. If you have MQTT enabled, your device will automatically get added. Otherwise, manually configure the integration to use the local API.</value>
+  </data>
 </root>

@@ -30,13 +30,14 @@ namespace HASS.Agent.Controls.Configuration
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigNotifications));
             this.LblInfo2 = new System.Windows.Forms.Label();
             this.LblInfo1 = new System.Windows.Forms.Label();
             this.BtnNotificationsReadme = new Syncfusion.WinForms.Controls.SfButton();
             this.CbAcceptNotifications = new System.Windows.Forms.CheckBox();
             this.BtnSendTestNotification = new Syncfusion.WinForms.Controls.SfButton();
             this.CbNotificationsIgnoreImageCertErrors = new System.Windows.Forms.CheckBox();
-            this.LblLocalApiDisabled = new System.Windows.Forms.Label();
+            this.LblConnectivityDisabled = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblInfo2
@@ -45,11 +46,11 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo2.AccessibleName = "Debugging info";
             this.LblInfo2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblInfo2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo2.Location = new System.Drawing.Point(37, 375);
+            this.LblInfo2.Location = new System.Drawing.Point(37, 354);
             this.LblInfo2.Name = "LblInfo2";
-            this.LblInfo2.Size = new System.Drawing.Size(643, 114);
+            this.LblInfo2.Size = new System.Drawing.Size(643, 153);
             this.LblInfo2.TabIndex = 37;
-            this.LblInfo2.Text = Languages.ConfigNotifications_LblInfo2;
+            this.LblInfo2.Text = resources.GetString("LblInfo2.Text");
             // 
             // LblInfo1
             // 
@@ -61,7 +62,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(575, 68);
             this.LblInfo1.TabIndex = 36;
-            this.LblInfo1.Text = Languages.ConfigNotifications_LblInfo1;
+            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
             // 
             // BtnNotificationsReadme
             // 
@@ -82,7 +83,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnNotificationsReadme.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnNotificationsReadme.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnNotificationsReadme.TabIndex = 3;
-            this.BtnNotificationsReadme.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigNotifications_BtnNotificationsReadme;
+            this.BtnNotificationsReadme.Text = "notifications &documentation";
             this.BtnNotificationsReadme.UseVisualStyleBackColor = false;
             this.BtnNotificationsReadme.Click += new System.EventHandler(this.BtnNotificationsReadme_Click);
             // 
@@ -97,7 +98,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbAcceptNotifications.Name = "CbAcceptNotifications";
             this.CbAcceptNotifications.Size = new System.Drawing.Size(145, 23);
             this.CbAcceptNotifications.TabIndex = 0;
-            this.CbAcceptNotifications.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigNotifications_CbAcceptNotifications;
+            this.CbAcceptNotifications.Text = "&accept notifications";
             this.CbAcceptNotifications.UseVisualStyleBackColor = true;
             // 
             // BtnSendTestNotification
@@ -119,7 +120,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnSendTestNotification.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnSendTestNotification.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnSendTestNotification.TabIndex = 2;
-            this.BtnSendTestNotification.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigNotifications_BtnSendTestNotification;
+            this.BtnSendTestNotification.Text = "show test notification";
             this.BtnSendTestNotification.UseVisualStyleBackColor = false;
             this.BtnSendTestNotification.Click += new System.EventHandler(this.BtnSendTestNotification_Click);
             // 
@@ -134,23 +135,24 @@ namespace HASS.Agent.Controls.Configuration
             this.CbNotificationsIgnoreImageCertErrors.Name = "CbNotificationsIgnoreImageCertErrors";
             this.CbNotificationsIgnoreImageCertErrors.Size = new System.Drawing.Size(237, 23);
             this.CbNotificationsIgnoreImageCertErrors.TabIndex = 1;
-            this.CbNotificationsIgnoreImageCertErrors.Text = global::HASS.Agent.Resources.Localization.Languages.ConfigNotifications_CbNotificationsIgnoreImageCertErrors;
+            this.CbNotificationsIgnoreImageCertErrors.Text = "&ignore certificate errors for images";
             this.CbNotificationsIgnoreImageCertErrors.UseVisualStyleBackColor = true;
             // 
-            // LblLocalApiDisabled
+            // LblConnectivityDisabled
             // 
-            this.LblLocalApiDisabled.AccessibleDescription = "Warns that the local API needs to be enabled for this to work.";
-            this.LblLocalApiDisabled.AccessibleName = "Local API warning info";
-            this.LblLocalApiDisabled.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-            this.LblLocalApiDisabled.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblLocalApiDisabled.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblLocalApiDisabled.Location = new System.Drawing.Point(19, 301);
-            this.LblLocalApiDisabled.Name = "LblLocalApiDisabled";
-            this.LblLocalApiDisabled.Size = new System.Drawing.Size(663, 19);
-            this.LblLocalApiDisabled.TabIndex = 76;
-            this.LblLocalApiDisabled.Text = Languages.ConfigNotifications_LblLocalApiDisabled;
-            this.LblLocalApiDisabled.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LblLocalApiDisabled.Visible = false;
+            this.LblConnectivityDisabled.AccessibleDescription = "Warns that the local api or mqtt needs to be enabled for this to work.";
+            this.LblConnectivityDisabled.AccessibleName = "Connectivity warning";
+            this.LblConnectivityDisabled.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+            this.LblConnectivityDisabled.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblConnectivityDisabled.ForeColor = System.Drawing.Color.OrangeRed;
+            this.LblConnectivityDisabled.Location = new System.Drawing.Point(19, 293);
+            this.LblConnectivityDisabled.Name = "LblConnectivityDisabled";
+            this.LblConnectivityDisabled.Size = new System.Drawing.Size(663, 54);
+            this.LblConnectivityDisabled.TabIndex = 63;
+            this.LblConnectivityDisabled.Text = "both the local API and MQTT are disabled, but the integration needs at least one " +
+    "for it to work";
+            this.LblConnectivityDisabled.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LblConnectivityDisabled.Visible = false;
             // 
             // ConfigNotifications
             // 
@@ -160,13 +162,13 @@ namespace HASS.Agent.Controls.Configuration
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.Controls.Add(this.LblLocalApiDisabled);
+            this.Controls.Add(this.LblConnectivityDisabled);
             this.Controls.Add(this.CbNotificationsIgnoreImageCertErrors);
             this.Controls.Add(this.BtnSendTestNotification);
-            this.Controls.Add(this.LblInfo2);
             this.Controls.Add(this.LblInfo1);
             this.Controls.Add(this.BtnNotificationsReadme);
             this.Controls.Add(this.CbAcceptNotifications);
+            this.Controls.Add(this.LblInfo2);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ConfigNotifications";
@@ -185,6 +187,6 @@ namespace HASS.Agent.Controls.Configuration
         internal System.Windows.Forms.CheckBox CbAcceptNotifications;
         internal Syncfusion.WinForms.Controls.SfButton BtnSendTestNotification;
         internal CheckBox CbNotificationsIgnoreImageCertErrors;
-        private Label LblLocalApiDisabled;
+        private Label LblConnectivityDisabled;
     }
 }

@@ -361,5 +361,26 @@ namespace HASS.Agent.Settings
                 return false;
             }
         }
+
+        /// <summary>
+        /// Gets the device's serial number (unique, generated, stored)
+        /// </summary>
+        /// <returns></returns>
+        internal static string DeviceSerialNumber()
+        {
+            var guid = (string)Registry.GetValue(Variables.RootRegKey, "DeviceSerialNumber", string.Empty);
+            if (string.IsNullOrEmpty(guid))
+            {
+                guid = Guid.NewGuid().ToString();
+                StoreDeviceSerialNumber(guid);
+            }
+
+            return guid;
+        }
+        
+        private static void StoreDeviceSerialNumber(string guid)
+        {
+            Registry.SetValue(Variables.RootRegKey, "DeviceSerialNumber", guid, RegistryValueKind.String);
+        }
     }
 }

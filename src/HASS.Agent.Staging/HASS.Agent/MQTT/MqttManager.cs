@@ -397,6 +397,9 @@ namespace HASS.Agent.MQTT
         private DateTime _lastAvailableAnnouncement = DateTime.MinValue;
         private DateTime _lastAvailableAnnouncementFailedLogged = DateTime.MinValue;
         
+        /// <summary>
+        /// JSON serializer options (camelcase, casing, ignore condition, converters)
+        /// </summary>
         public static readonly JsonSerializerOptions JsonSerializerOptions = new()
         {
             PropertyNamingPolicy = new CamelCaseJsonNamingpolicy(),
@@ -431,10 +434,9 @@ namespace HASS.Agent.MQTT
 
                     // publish
                     await _mqttClient.PublishAsync(messageBuilder.Build());
-                    
-                    
-                    // prepare message
-                    var haMessageBuilder = new MqttApplicationMessageBuilder()
+
+                    // prepare integration message
+                    var integrationMsgBuilder = new MqttApplicationMessageBuilder()
                         .WithTopic($"hass.agent/devices/{Variables.DeviceConfig.Name}")
                         .WithPayload(JsonSerializer.Serialize(new
                         {
@@ -449,7 +451,7 @@ namespace HASS.Agent.MQTT
                         .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
 
                     // publish
-                    await _mqttClient.PublishAsync(haMessageBuilder.Build());
+                    await _mqttClient.PublishAsync(integrationMsgBuilder.Build());
                 }
                 else
                 {
@@ -531,6 +533,10 @@ namespace HASS.Agent.MQTT
             await _mqttClient.SubscribeAsync(((CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig()).Action_topic);
         }
 
+        /// <summary>
+        /// Subscribe to the integration's notification topic
+        /// </summary>
+        /// <returns></returns>
         public async Task SubscribeNotificationsAsync()
         {
             if (!Variables.AppSettings.MqttEnabled) return;
@@ -538,6 +544,10 @@ namespace HASS.Agent.MQTT
             await _mqttClient.SubscribeAsync($"hass.agent/notifications/{HelperFunctions.GetConfiguredDeviceName()}");
         }
 
+        /// <summary>
+        /// Subscribe to the integration's mediaplayer topic
+        /// </summary>
+        /// <returns></returns>
         public async Task SubscribeMediaCommandsAsync()
         {
             if (!Variables.AppSettings.MqttEnabled) return;
@@ -647,30 +657,35 @@ namespace HASS.Agent.MQTT
         {
             if (applicationMessage.Topic == $"hass.agent/notifications/{HelperFunctions.GetConfiguredDeviceName()}")
             {
+                // process as a notification
                 var notification = JsonSerializer.Deserialize<Notification>(applicationMessage.Payload, JsonSerializerOptions)!;
                 _ = Task.Run(() => NotificationManager.ShowNotification(notification));
-            } else if (applicationMessage.Topic == $"hass.agent/media_player/{HelperFunctions.GetConfiguredDeviceName()}/cmd")
-            {
-                var command =
-                    JsonSerializer.Deserialize<MqttMediaPlayerCommand>(applicationMessage.Payload,
-                        JsonSerializerOptions)!;
+                return;
+            } 
 
-                if (command.Command == MediaPlayerCommand.PlayMedia)
+            if (applicationMessage.Topic == $"hass.agent/media_player/{HelperFunctions.GetConfiguredDeviceName()}/cmd")
+            {
+                // process as a mediaplyer command
+                var command = JsonSerializer.Deserialize<MqttMediaPlayerCommand>(applicationMessage.Payload, JsonSerializerOptions)!;
+
+                switch (command.Command)
                 {
-                    MediaManager.ProcessMedia(command.Data.GetString());
+                    case MediaPlayerCommand.PlayMedia:
+                        MediaManager.ProcessMedia(command.Data.GetString());
+                        break;
+                    case MediaPlayerCommand.Seek:
+                        MediaManager.ProcessSeekCommand(TimeSpan.FromSeconds(command.Data.GetDouble()).Ticks);
+                        break;
+                    default:
+                        MediaManager.ProcessCommand(command.Command);
+                        break;
                 }
-                else if(command.Command == MediaPlayerCommand.Seek)
-                {
-                    MediaManager.ProcessSeekCommand(TimeSpan.FromSeconds(command.Data.GetDouble()).Ticks);
-                }
-                else
-                {
-                    MediaManager.ProcessCommand(command.Command);
-                }
+                return;
             }
 
-
             if (!Variables.Commands.Any()) return;
+
+            // process as a hass.agent command
             foreach (var command in Variables.Commands)
             {
                 var commandConfig = (CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig();

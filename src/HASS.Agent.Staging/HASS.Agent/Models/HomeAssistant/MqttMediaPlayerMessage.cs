@@ -1,6 +1,6 @@
 ﻿using HASS.Agent.Enums;
 
-namespace HASS.Agent.Media;
+namespace HASS.Agent.Models.HomeAssistant;
 
 public class MqttMediaPlayerMessage
 {

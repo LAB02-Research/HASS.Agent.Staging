@@ -13,6 +13,7 @@ using HASS.Agent.Models.Config;
 using HASS.Agent.Models.Internal;
 using HASS.Agent.MQTT;
 using HASS.Agent.Service;
+using HASS.Agent.Settings;
 using HASS.Agent.Shared.HomeAssistant;
 using HASS.Agent.Shared.HomeAssistant.Commands;
 using HASS.Agent.Shared.HomeAssistant.Sensors;
@@ -36,8 +37,10 @@ namespace HASS.Agent
         public static string Version { get; } = Application.ProductVersion;
         public static bool Beta { get; } = Version.Contains('b');
 
-        public static string SerialNumber => (string) Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography",
-            "MachineGuid", null);
+        /// <summary>
+        /// Device info
+        /// </summary>
+        public static string SerialNumber { get; } = SettingsManager.DeviceSerialNumber();
 
         /// <summary>
         /// Constants

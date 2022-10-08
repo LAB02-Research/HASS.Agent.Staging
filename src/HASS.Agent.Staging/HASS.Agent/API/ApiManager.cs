@@ -60,9 +60,8 @@ namespace HASS.Agent.API
                             await ctx.Response.SendResponseAsync("HASS.Agent Active");
                         }, "Get", "/", true, "RootEndpoint"));
 
-                        var deviceInfoRoute = new Route(ApiEndpoints.DeviceInfoRoute, "Get", "/info", true,
-                            "DeviceInfoRoute");
-
+                        // info route
+                        var deviceInfoRoute = new Route(ApiEndpoints.DeviceInfoRoute, "Get", "/info", true, "DeviceInfoRoute");
                         s.Router.Register(deviceInfoRoute);
 
                         // notification route
