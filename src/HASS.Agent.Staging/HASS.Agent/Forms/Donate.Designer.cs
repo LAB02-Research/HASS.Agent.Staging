@@ -178,9 +178,9 @@ namespace HASS.Agent.Forms
             this.CbHideDonateButton.AutoSize = true;
             this.CbHideDonateButton.Location = new System.Drawing.Point(166, 426);
             this.CbHideDonateButton.Name = "CbHideDonateButton";
-            this.CbHideDonateButton.Size = new System.Drawing.Size(375, 19);
+            this.CbHideDonateButton.Size = new System.Drawing.Size(320, 19);
             this.CbHideDonateButton.TabIndex = 40;
-            this.CbHideDonateButton.Text = "I already donated (or won\'t), hide the button on the main window.";
+            this.CbHideDonateButton.Text = "I already donated, hide the button on the main window.";
             this.CbHideDonateButton.UseVisualStyleBackColor = true;
             // 
             // Donate

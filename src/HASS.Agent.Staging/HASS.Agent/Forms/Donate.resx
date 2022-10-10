@@ -151,7 +151,7 @@
   <data name="PbHassAgentLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAACXJJREFUeF7tnf+nJ1UYx/vXIiIiIiIiIiIiIqKfIhIRERGxREQiotra2tq+t9na
+        vQAADr0BR/uQrQAACXJJREFUeF7tnf+nJ1UYx/vXIiIiIiIiIiIiIqKfIhIRERGxREQiotra2tq+t9na
         2tp2a2u1tX3b7t7vd9rXxz3tNPs855yZOWfmzD3Pm7fae2fm3jvv15xz5jln5nPd9a+vNeZ6bQBUbgOg
         chsAldsAqNwGQOU2ACq3AVC5DYDKbQBUbgOgchsAldsAqNwGQOU2ACq3AVC5DYABvunwWvPc6a3mo4s7
         zfn1vdV/+Tdfl7Yv2QZAT9/zwXpz7vJeIwkY7v1wXdyvVBsAPXzfx+vN5Z39tBXxfbaT9i/RBkCkY8J3
@@ -197,7 +197,7 @@
   <data name="PbGithubSponsor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOsAAAArCAYAAACZ4n9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAH+FJREFUeF7tXAd8VcXyDh0EFQS7Yi8oihWVjgo2REVRsXdRseFTsXd9NsRnF0ER
+        DQAACw0B7QfALAAAH+FJREFUeF7tXAd8VcXyDh0EFQS7Yi8oihWVjgo2REVRsXdRseFTsXd9NsRnF0ER
         BOwPC2JHSiqhhBYgUgMhJCSBdEKY/3yzZ+4999y9Ya8PMPm/N7/fkp3v7M7O2d1vd3bP1YT0WXMkpaXP
         PGDGzNm3J6elFySnzohKKdsR07wr5k+1AdO8DfOn2oBp3hXzp9qAad4V86fagGl+61h6QVr6rJtTZ8zc
         d+bsjASkBCZow9S09F4Z8+Zn5K7LKyso2kAFhUXhFNQVK7Bgfj2Iad4V86cghrZdytWE7Sj/bb5ub/81
@@ -339,7 +339,7 @@
   <data name="PbKoFi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKsAAAArCAYAAAAHWHjBAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAEqlJREFUeF7tXQeUVdW5PoAUCyJRYGYoKqIxUSAKCiqhg9goKkVAAfVFH0+J0YSo
+        vgAADr4B6kKxwAAAEqlJREFUeF7tXQeUVdW5PoAUCyJRYGYoKqIxUSAKCiqhg9goKkVAAfVFH0+J0YSo
         EVtQY3uBLMVIfJriC0YFKVKlM/QuUgeY3phyp3f48n37njNz5s65QIAB1/L8a33r3nvOPnv/e+/vL3uf
         c++1AJwWZqQUdX5yTyDQf/ORwJWrUgKXLUsOtFju44eOZkRzouPatMCwHZmBd2PzAquyS1p5cehk4Xnw
         RJiVVnjj4G2Zf4xYnrLe+joh1lqYgAu+SUKzZcmIWJ4MKuvDh0HTpcmovzgR1vx4NFiUuL9DdOqcF2Ny
@@ -432,7 +432,7 @@ Like most developers, I run on caffeïne - so if you can spare it, a cup of coff
   <data name="PbPayPal.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJgAAAArCAYAAACEnEH6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAGdxJREFUeF7tXHd8FOUWHVoIIM+GIFIUCb1LCzUUqaKIYqGJhBYEIqE3CSAoRUUD
+        wQAADsEBuJFr7QAAGdxJREFUeF7tXHd8FOUWHVoIIM+GIFIUCb1LCzUUqaKIYqGJhBYEIqE3CSAoRUUD
         CgEURMpDlGIoCSQkpBdCQgIJIM2CKGBZ8NF37zv3zszu7GYWEgzY+OP+ZuZ8deY7c++532yiENEt26Vz
         mSVs36+22LInWawpPS3XY1tZrDHNLNbYZhZbbHMxq+FoNGA2O442Nnsbbv/Xx2zAHPeZe8xR9tfBdFyM
         55v4lMWWOdJCJ5dYrv4U+4jZ2ufWTMGb2eXjK9tcT3lpri2yxg5rWGmy7ixLtsiaZIv1hrUgPFgx3ICY
