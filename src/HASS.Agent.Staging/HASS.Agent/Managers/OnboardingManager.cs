@@ -6,6 +6,7 @@ using HASS.Agent.Functions;
 using HASS.Agent.Models.Config;
 using HASS.Agent.Resources.Localization;
 using HASS.Agent.Settings;
+using Serilog;
 using Syncfusion.Windows.Forms;
 
 namespace HASS.Agent.Managers
@@ -25,7 +26,7 @@ namespace HASS.Agent.Managers
         /// <summary>
         /// Loads the control corresponding to the current status
         /// </summary>
-        internal void ShowCurrentOnboardingStatus()
+        internal bool ShowCurrentOnboardingStatus()
         {
             switch (Variables.AppSettings.OnboardingStatus)
             {
@@ -61,7 +62,15 @@ namespace HASS.Agent.Managers
                 case OnboardingStatus.Completed:
                     ShowDone();
                     break;
+
+                default:
+                    Log.Warning("[ONBOARDING] Unknown state detected, ignoring, setting as done: {state}", Variables.AppSettings.OnboardingStatus);
+                    Variables.AppSettings.OnboardingStatus = OnboardingStatus.Completed;
+                    SettingsManager.StoreAppSettings();
+                    return false;
             }
+
+            return true;
         }
 
         /// <summary>
