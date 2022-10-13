@@ -92,7 +92,7 @@ namespace HASS.Agent.Forms
             this.BtnClose.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnClose.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnClose.TabIndex = 0;
-            this.BtnClose.Text = "&close";
+            this.BtnClose.Text = Languages.About_BtnClose;
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -122,7 +122,7 @@ namespace HASS.Agent.Forms
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(360, 19);
             this.LblInfo1.TabIndex = 3;
-            this.LblInfo1.Text = "A Windows-based client for the Home Assistant platform.";
+            this.LblInfo1.Text = Languages.About_LblInfo1;
             // 
             // LblInfo3
             // 
@@ -134,8 +134,7 @@ namespace HASS.Agent.Forms
             this.LblInfo3.Name = "LblInfo3";
             this.LblInfo3.Size = new System.Drawing.Size(536, 38);
             this.LblInfo3.TabIndex = 4;
-            this.LblInfo3.Text = "This application is open source and completely free.  Please check the project pa" +
-    "ges of \r\nthe used components for their individual licenses:";
+            this.LblInfo3.Text = Languages.About_LblInfo3;
             // 
             // LblCoreAudio
             // 
@@ -297,8 +296,7 @@ namespace HASS.Agent.Forms
             this.LblInfo4.Name = "LblInfo4";
             this.LblInfo4.Size = new System.Drawing.Size(536, 38);
             this.LblInfo4.TabIndex = 16;
-            this.LblInfo4.Text = "A big \'thank you\' to the developers of these projects, who were kind enough to sh" +
-    "are\r\ntheir hard work with the rest of us mere mortals. ";
+            this.LblInfo4.Text = Languages.About_LblInfo4;
             // 
             // LblInfo5
             // 
@@ -310,8 +308,7 @@ namespace HASS.Agent.Forms
             this.LblInfo5.Name = "LblInfo5";
             this.LblInfo5.Size = new System.Drawing.Size(536, 38);
             this.LblInfo5.TabIndex = 18;
-            this.LblInfo5.Text = "And of course; thanks to Paulus Shoutsen and the entire team of devs that \r\ncreat" +
-    "ed and maintain Home Assistant :-)";
+            this.LblInfo5.Text = Languages.About_LblInfo5;
             // 
             // LblInfo2
             // 
@@ -324,7 +321,7 @@ namespace HASS.Agent.Forms
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(135, 19);
             this.LblInfo2.TabIndex = 21;
-            this.LblInfo2.Text = "Created with love by";
+            this.LblInfo2.Text = Languages.About_LblInfo2;
             // 
             // LblLab02Research
             // 
@@ -394,7 +391,7 @@ namespace HASS.Agent.Forms
             this.LblInfo6.Name = "LblInfo6";
             this.LblInfo6.Size = new System.Drawing.Size(562, 42);
             this.LblInfo6.TabIndex = 28;
-            this.LblInfo6.Text = "Like this tool? Support us (read: keep us awake) by buying a cup of coffee:";
+            this.LblInfo6.Text = Languages.About_LblInfo6;
             this.LblInfo6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // PbHassLogo
@@ -601,7 +598,7 @@ namespace HASS.Agent.Forms
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "About";
+            this.Text = Languages.About_Title;
             this.Load += new System.EventHandler(this.About_Load);
             this.ResizeEnd += new System.EventHandler(this.About_ResizeEnd);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.About_KeyUp);

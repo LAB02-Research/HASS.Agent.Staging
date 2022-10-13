@@ -50,7 +50,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(566, 153);
             this.LblInfo1.TabIndex = 36;
-            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
+            this.LblInfo1.Text = Languages.ConfigLocalApi_LblInfo1;
             // 
             // LblPort
             // 
@@ -63,7 +63,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblPort.Name = "LblPort";
             this.LblPort.Size = new System.Drawing.Size(35, 19);
             this.LblPort.TabIndex = 34;
-            this.LblPort.Text = "&port";
+            this.LblPort.Text = Languages.ConfigLocalApi_LblPort;
             // 
             // NumLocalApiPort
             // 
@@ -116,7 +116,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnExecutePortReservation.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnExecutePortReservation.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnExecutePortReservation.TabIndex = 2;
-            this.BtnExecutePortReservation.Text = "execute port &reservation";
+            this.BtnExecutePortReservation.Text = Languages.ConfigLocalApi_BtnExecutePortReservation;
             this.BtnExecutePortReservation.UseVisualStyleBackColor = false;
             this.BtnExecutePortReservation.Click += new System.EventHandler(this.BtnExecutePortReservation_Click);
             // 
@@ -131,7 +131,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbLocalApiActive.Name = "CbLocalApiActive";
             this.CbLocalApiActive.Size = new System.Drawing.Size(121, 23);
             this.CbLocalApiActive.TabIndex = 0;
-            this.CbLocalApiActive.Text = "&enable local api";
+            this.CbLocalApiActive.Text = Languages.ConfigLocalApi_CbLocalApiActive;
             this.CbLocalApiActive.UseVisualStyleBackColor = true;
             // 
             // LblInfo2
@@ -144,8 +144,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(566, 74);
             this.LblInfo2.TabIndex = 76;
-            this.LblInfo2.Text = "To be able to listen to the requests, HASS.Agent needs to have its port reserved " +
-    "and opened in your firewall. You can use this button to have it done for you.";
+            this.LblInfo2.Text = Languages.ConfigLocalApi_LblInfo2;
             // 
             // ConfigLocalApi
             // 

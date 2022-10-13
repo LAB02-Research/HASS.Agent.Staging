@@ -65,7 +65,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblNotifierIntegration.Name = "LblNotifierIntegration";
             this.LblNotifierIntegration.Size = new System.Drawing.Size(238, 19);
             this.LblNotifierIntegration.TabIndex = 0;
-            this.LblNotifierIntegration.Text = "HASS.Agent-Integration GitHub page";
+            this.LblNotifierIntegration.Text = Languages.OnboardingIntegrations_LblNotifierIntegration;
             this.LblNotifierIntegration.Click += new System.EventHandler(this.LblNotifierIntegration_Click);
             // 
             // LblInfo1
@@ -78,7 +78,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(602, 208);
             this.LblInfo1.TabIndex = 25;
-            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
+            this.LblInfo1.Text = Languages.OnboardingIntegrations_LblInfo1;
             // 
             // CbEnableMediaPlayer
             // 
@@ -93,7 +93,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.CbEnableMediaPlayer.Name = "CbEnableMediaPlayer";
             this.CbEnableMediaPlayer.Size = new System.Drawing.Size(307, 23);
             this.CbEnableMediaPlayer.TabIndex = 27;
-            this.CbEnableMediaPlayer.Text = "enable &mediaplayer (including text-to-speech)";
+            this.CbEnableMediaPlayer.Text = Languages.OnboardingIntegrations_CbEnableMediaPlayer;
             this.CbEnableMediaPlayer.UseVisualStyleBackColor = true;
             // 
             // CbEnableNotifications
@@ -109,7 +109,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.CbEnableNotifications.Name = "CbEnableNotifications";
             this.CbEnableNotifications.Size = new System.Drawing.Size(146, 23);
             this.CbEnableNotifications.TabIndex = 26;
-            this.CbEnableNotifications.Text = "enable &notifications";
+            this.CbEnableNotifications.Text = Languages.OnboardingIntegrations_CbEnableNotifications;
             this.CbEnableNotifications.UseVisualStyleBackColor = true;
             // 
             // OnboardingIntegrations

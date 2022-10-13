@@ -58,7 +58,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(541, 78);
             this.LblInfo1.TabIndex = 31;
-            this.LblInfo1.Text = "Control the way the tray icon behaves on a right mousebutton click.";
+            this.LblInfo1.Text = Languages.ConfigTrayIcon_LblInfo1;
             // 
             // CbDefaultMenu
             // 
@@ -119,7 +119,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblWebViewUrl.Name = "LblWebViewUrl";
             this.LblWebViewUrl.Size = new System.Drawing.Size(349, 19);
             this.LblWebViewUrl.TabIndex = 49;
-            this.LblWebViewUrl.Text = "&url to show (for instance an Home Assistant dashboard)";
+            this.LblWebViewUrl.Text = Languages.ConfigTrayIcon_LblWebViewUrl;
             // 
             // LblX
             // 
@@ -145,7 +145,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblWebViewSize.Name = "LblWebViewSize";
             this.LblWebViewSize.Size = new System.Drawing.Size(31, 19);
             this.LblWebViewSize.TabIndex = 51;
-            this.LblWebViewSize.Text = "size";
+            this.LblWebViewSize.Text = Languages.ConfigTrayIcon_LblWebViewSize;
             // 
             // BtnShowWebViewPreview
             // 
@@ -291,7 +291,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(320, 19);
             this.LblInfo2.TabIndex = 76;
-            this.LblInfo2.Text = "this uses some resources, but reduces loading time";
+            this.LblInfo2.Text = Languages.ConfigTrayIcon_LblInfo2;
             // 
             // CbWebViewShowMenuOnLeftClick
             // 
@@ -305,7 +305,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbWebViewShowMenuOnLeftClick.Name = "CbWebViewShowMenuOnLeftClick";
             this.CbWebViewShowMenuOnLeftClick.Size = new System.Drawing.Size(304, 23);
             this.CbWebViewShowMenuOnLeftClick.TabIndex = 77;
-            this.CbWebViewShowMenuOnLeftClick.Text = "show default menu on left mousebutton click";
+            this.CbWebViewShowMenuOnLeftClick.Text = Languages.ConfigTrayIcon_CbWebViewShowMenuOnLeftClick;
             this.CbWebViewShowMenuOnLeftClick.UseVisualStyleBackColor = true;
             // 
             // ConfigTrayIcon

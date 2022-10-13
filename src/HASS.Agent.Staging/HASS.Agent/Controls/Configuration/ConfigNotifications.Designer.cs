@@ -50,7 +50,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(643, 153);
             this.LblInfo2.TabIndex = 37;
-            this.LblInfo2.Text = resources.GetString("LblInfo2.Text");
+            this.LblInfo2.Text = Languages.ConfigNotifications_LblInfo2;
             // 
             // LblInfo1
             // 
@@ -62,7 +62,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(575, 68);
             this.LblInfo1.TabIndex = 36;
-            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
+            this.LblInfo1.Text = Languages.ConfigNotifications_LblInfo1;
             // 
             // BtnNotificationsReadme
             // 
@@ -83,7 +83,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnNotificationsReadme.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnNotificationsReadme.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnNotificationsReadme.TabIndex = 3;
-            this.BtnNotificationsReadme.Text = "notifications &documentation";
+            this.BtnNotificationsReadme.Text = Languages.ConfigNotifications_BtnNotificationsReadme;
             this.BtnNotificationsReadme.UseVisualStyleBackColor = false;
             this.BtnNotificationsReadme.Click += new System.EventHandler(this.BtnNotificationsReadme_Click);
             // 
@@ -98,7 +98,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbAcceptNotifications.Name = "CbAcceptNotifications";
             this.CbAcceptNotifications.Size = new System.Drawing.Size(145, 23);
             this.CbAcceptNotifications.TabIndex = 0;
-            this.CbAcceptNotifications.Text = "&accept notifications";
+            this.CbAcceptNotifications.Text = Languages.ConfigNotifications_CbAcceptNotifications;
             this.CbAcceptNotifications.UseVisualStyleBackColor = true;
             // 
             // BtnSendTestNotification
@@ -120,7 +120,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnSendTestNotification.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnSendTestNotification.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnSendTestNotification.TabIndex = 2;
-            this.BtnSendTestNotification.Text = "show test notification";
+            this.BtnSendTestNotification.Text = Languages.ConfigNotifications_BtnSendTestNotification;
             this.BtnSendTestNotification.UseVisualStyleBackColor = false;
             this.BtnSendTestNotification.Click += new System.EventHandler(this.BtnSendTestNotification_Click);
             // 
@@ -135,7 +135,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbNotificationsIgnoreImageCertErrors.Name = "CbNotificationsIgnoreImageCertErrors";
             this.CbNotificationsIgnoreImageCertErrors.Size = new System.Drawing.Size(237, 23);
             this.CbNotificationsIgnoreImageCertErrors.TabIndex = 1;
-            this.CbNotificationsIgnoreImageCertErrors.Text = "&ignore certificate errors for images";
+            this.CbNotificationsIgnoreImageCertErrors.Text = Languages.ConfigNotifications_CbNotificationsIgnoreImageCertErrors;
             this.CbNotificationsIgnoreImageCertErrors.UseVisualStyleBackColor = true;
             // 
             // LblConnectivityDisabled
@@ -149,8 +149,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblConnectivityDisabled.Name = "LblConnectivityDisabled";
             this.LblConnectivityDisabled.Size = new System.Drawing.Size(663, 54);
             this.LblConnectivityDisabled.TabIndex = 63;
-            this.LblConnectivityDisabled.Text = "both the local API and MQTT are disabled, but the integration needs at least one " +
-    "for it to work";
+            this.LblConnectivityDisabled.Text = Languages.ConfigNotifications_LblConnectivityDisabled;
             this.LblConnectivityDisabled.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.LblConnectivityDisabled.Visible = false;
             // 

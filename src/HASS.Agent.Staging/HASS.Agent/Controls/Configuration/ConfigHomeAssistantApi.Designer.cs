@@ -54,7 +54,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip1.Name = "LblTip1";
             this.LblTip1.Size = new System.Drawing.Size(485, 15);
             this.LblTip1.TabIndex = 57;
-            this.LblTip1.Text = "tip: doubleclick this field to browse";
+            this.LblTip1.Text = Languages.ConfigHomeAssistantApi_LblTip1;
             this.LblTip1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // TbHassClientCertificate
@@ -82,7 +82,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblClientCertificate.Name = "LblClientCertificate";
             this.LblClientCertificate.Size = new System.Drawing.Size(169, 19);
             this.LblClientCertificate.TabIndex = 56;
-            this.LblClientCertificate.Text = "client &certificate";
+            this.LblClientCertificate.Text = Languages.ConfigHomeAssistantApi_LblClientCertificate;
             this.LblClientCertificate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CbHassAutoClientCertificate
@@ -132,7 +132,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(584, 147);
             this.LblInfo1.TabIndex = 53;
-            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
+            this.LblInfo1.Text = Languages.ConfigHomeAssistantApi_LblInfo1;
             // 
             // TbHassApiToken
             // 
@@ -172,7 +172,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblApiToken.Name = "LblApiToken";
             this.LblApiToken.Size = new System.Drawing.Size(169, 19);
             this.LblApiToken.TabIndex = 51;
-            this.LblApiToken.Text = "&api token";
+            this.LblApiToken.Text = Languages.ConfigHomeAssistantApi_LblApiToken;
             this.LblApiToken.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LblServerUri
@@ -185,7 +185,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblServerUri.Name = "LblServerUri";
             this.LblServerUri.Size = new System.Drawing.Size(169, 19);
             this.LblServerUri.TabIndex = 50;
-            this.LblServerUri.Text = "server &uri";
+            this.LblServerUri.Text = Languages.ConfigHomeAssistantApi_LblServerUri;
             this.LblServerUri.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CbHassAllowUntrustedCertificates

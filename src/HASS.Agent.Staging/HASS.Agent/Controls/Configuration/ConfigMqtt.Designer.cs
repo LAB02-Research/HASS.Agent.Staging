@@ -72,7 +72,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip3.Name = "LblTip3";
             this.LblTip3.Size = new System.Drawing.Size(268, 28);
             this.LblTip3.TabIndex = 64;
-            this.LblTip3.Text = "tip: doubleclick these fields to browse";
+            this.LblTip3.Text = Languages.ConfigMqtt_LblTip3;
             // 
             // TbMqttClientCertificate
             // 
@@ -100,7 +100,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblClientCert.Name = "LblClientCert";
             this.LblClientCert.Size = new System.Drawing.Size(103, 19);
             this.LblClientCert.TabIndex = 63;
-            this.LblClientCert.Text = "client certificate";
+            this.LblClientCert.Text = Languages.ConfigMqtt_LblClientCert;
             // 
             // TbMqttRootCertificate
             // 
@@ -128,7 +128,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblRootCert.Name = "LblRootCert";
             this.LblRootCert.Size = new System.Drawing.Size(97, 19);
             this.LblRootCert.TabIndex = 61;
-            this.LblRootCert.Text = "root certificate";
+            this.LblRootCert.Text = Languages.ConfigMqtt_LblRootCert;
             // 
             // CbUseRetainFlag
             // 
@@ -141,7 +141,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbUseRetainFlag.Name = "CbUseRetainFlag";
             this.CbUseRetainFlag.Size = new System.Drawing.Size(114, 23);
             this.CbUseRetainFlag.TabIndex = 10;
-            this.CbUseRetainFlag.Text = "use &retain flag";
+            this.CbUseRetainFlag.Text = Languages.ConfigMqtt_CbUseRetainFlag;
             this.CbUseRetainFlag.UseVisualStyleBackColor = true;
             // 
             // CbAllowUntrustedCertificates
@@ -155,7 +155,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbAllowUntrustedCertificates.Name = "CbAllowUntrustedCertificates";
             this.CbAllowUntrustedCertificates.Size = new System.Drawing.Size(191, 23);
             this.CbAllowUntrustedCertificates.TabIndex = 9;
-            this.CbAllowUntrustedCertificates.Text = "&allow untrusted certificates";
+            this.CbAllowUntrustedCertificates.Text = Languages.ConfigMqtt_CbAllowUntrustedCertificates;
             this.CbAllowUntrustedCertificates.UseVisualStyleBackColor = true;
             // 
             // BtnMqttClearConfig
@@ -177,7 +177,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnMqttClearConfig.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnMqttClearConfig.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnMqttClearConfig.TabIndex = 11;
-            this.BtnMqttClearConfig.Text = "&clear config";
+            this.BtnMqttClearConfig.Text = Languages.ConfigMqtt_BtnMqttClearConfig;
             this.BtnMqttClearConfig.UseVisualStyleBackColor = false;
             this.BtnMqttClearConfig.Click += new System.EventHandler(this.BtnMqttClearConfig_Click);
             // 
@@ -192,7 +192,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip1.Name = "LblTip1";
             this.LblTip1.Size = new System.Drawing.Size(138, 15);
             this.LblTip1.TabIndex = 56;
-            this.LblTip1.Text = "(leave default if not sure)";
+            this.LblTip1.Text = Languages.ConfigMqtt_LblTip1;
             // 
             // LblInfo1
             // 
@@ -204,7 +204,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(577, 162);
             this.LblInfo1.TabIndex = 55;
-            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
+            this.LblInfo1.Text = Languages.ConfigMqtt_LblInfo1;
             // 
             // TbMqttDiscoveryPrefix
             // 
@@ -231,7 +231,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblDiscoPrefix.Name = "LblDiscoPrefix";
             this.LblDiscoPrefix.Size = new System.Drawing.Size(103, 19);
             this.LblDiscoPrefix.TabIndex = 54;
-            this.LblDiscoPrefix.Text = "discovery prefix";
+            this.LblDiscoPrefix.Text = Languages.ConfigMqtt_LblDiscoPrefix;
             // 
             // TbMqttPassword
             // 
@@ -287,7 +287,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbMqttTls.Name = "CbMqttTls";
             this.CbMqttTls.Size = new System.Drawing.Size(49, 23);
             this.CbMqttTls.TabIndex = 2;
-            this.CbMqttTls.Text = "&TLS";
+            this.CbMqttTls.Text = Languages.ConfigMqtt_CbMqttTls;
             this.CbMqttTls.UseVisualStyleBackColor = true;
             // 
             // LblBrokerPassword
@@ -301,7 +301,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerPassword.Name = "LblBrokerPassword";
             this.LblBrokerPassword.Size = new System.Drawing.Size(67, 19);
             this.LblBrokerPassword.TabIndex = 52;
-            this.LblBrokerPassword.Text = "password";
+            this.LblBrokerPassword.Text = Languages.ConfigMqtt_LblBrokerPassword;
             // 
             // LblBrokerUsername
             // 
@@ -314,7 +314,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerUsername.Name = "LblBrokerUsername";
             this.LblBrokerUsername.Size = new System.Drawing.Size(69, 19);
             this.LblBrokerUsername.TabIndex = 51;
-            this.LblBrokerUsername.Text = "username";
+            this.LblBrokerUsername.Text = Languages.ConfigMqtt_LblBrokerUsername;
             // 
             // LblBrokerPort
             // 
@@ -327,7 +327,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerPort.Name = "LblBrokerPort";
             this.LblBrokerPort.Size = new System.Drawing.Size(35, 19);
             this.LblBrokerPort.TabIndex = 50;
-            this.LblBrokerPort.Text = "port";
+            this.LblBrokerPort.Text = Languages.ConfigMqtt_LblBrokerPort;
             // 
             // LblBrokerIp
             // 
@@ -340,7 +340,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblBrokerIp.Name = "LblBrokerIp";
             this.LblBrokerIp.Size = new System.Drawing.Size(197, 19);
             this.LblBrokerIp.TabIndex = 47;
-            this.LblBrokerIp.Text = "broker ip address or hostname";
+            this.LblBrokerIp.Text = Languages.ConfigMqtt_LblBrokerIp;
             // 
             // LblTip2
             // 
@@ -353,7 +353,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblTip2.Name = "LblTip2";
             this.LblTip2.Size = new System.Drawing.Size(142, 15);
             this.LblTip2.TabIndex = 70;
-            this.LblTip2.Text = "(leave empty for random)";
+            this.LblTip2.Text = Languages.ConfigMqtt_LblTip2;
             // 
             // TbMqttClientId
             // 
@@ -381,7 +381,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblClientId.Name = "LblClientId";
             this.LblClientId.Size = new System.Drawing.Size(56, 19);
             this.LblClientId.TabIndex = 69;
-            this.LblClientId.Text = "client id";
+            this.LblClientId.Text = Languages.ConfigMqtt_LblClientId;
             // 
             // NumMqttPort
             // 
@@ -442,7 +442,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbEnableMqtt.Name = "CbEnableMqtt";
             this.CbEnableMqtt.Size = new System.Drawing.Size(102, 23);
             this.CbEnableMqtt.TabIndex = 101;
-            this.CbEnableMqtt.Text = "enable mqtt";
+            this.CbEnableMqtt.Text = Languages.ConfigMqtt_CbEnableMqtt;
             this.CbEnableMqtt.UseVisualStyleBackColor = true;
             this.CbEnableMqtt.CheckedChanged += new System.EventHandler(this.CbEnableMqtt_CheckedChanged);
             // 
@@ -457,7 +457,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblMqttDisabledWarning.Name = "LblMqttDisabledWarning";
             this.LblMqttDisabledWarning.Size = new System.Drawing.Size(463, 45);
             this.LblMqttDisabledWarning.TabIndex = 102;
-            this.LblMqttDisabledWarning.Text = "without mqtt, commands and sensors will not work!";
+            this.LblMqttDisabledWarning.Text = Languages.ConfigMqtt_LblMqttDisabledWarning;
             this.LblMqttDisabledWarning.Visible = false;
             // 
             // ConfigMqtt

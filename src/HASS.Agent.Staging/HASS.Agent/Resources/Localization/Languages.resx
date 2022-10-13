@@ -1813,9 +1813,6 @@ This way, whatever you're doing on your machine, you can always interact with Ho
 	<data name="ConfigHotKey_LblHotkeyCombo" xml:space="preserve">
 		<value>&amp;hotkey combination</value>
 	</data>
-	<data name="ConfigLocalApi_LblInfo1" xml:space="preserve">
-		<value>HASS.Agent has its own local API, so Home Assistant can send requests (for instance to send a notification). You can configure it globally here, and afterwards you can configure the dependent sections (currently notifications and mediaplayer).</value>
-	</data>
 	<data name="ConfigLocalApi_LblPort" xml:space="preserve">
 		<value>&amp;port</value>
 	</data>
@@ -1873,17 +1870,6 @@ developers.</value>
 	<data name="ConfigLogging_BtnShowLogs" xml:space="preserve">
 		<value>&amp;open logs folder</value>
 	</data>
-	<data name="ConfigMediaPlayer_LblInfo2" xml:space="preserve">
-		<value>If something's not working, make sure you followed these steps:
-
-- Install HASS.Agent-MediaPlayer integration
-- Restart Home Assistant
-- Configure a media_player entity
-- Restart Home Assistant</value>
-	</data>
-	<data name="ConfigMediaPlayer_LblInfo1" xml:space="preserve">
-		<value>HASS.Agent can act as a media player for Home Assistant, so you'll be able to control any media that's playing and send text-to-speech. The Local API needs to be enabled for this to work.</value>
-	</data>
 	<data name="ConfigMediaPlayer_BtnMediaPlayerReadme" xml:space="preserve">
 		<value>media player &amp;documentation</value>
 	</data>
@@ -1911,10 +1897,6 @@ developers.</value>
 	<data name="ConfigMqtt_LblTip1" xml:space="preserve">
 		<value>(leave default if not sure)</value>
 	</data>
-	<data name="ConfigMqtt_LblInfo1" xml:space="preserve">
-		<value>Commands and sensors are sent through MQTT. Please provide credentials for your server. If
-you're using the HA addon, you can probably use the preset address.</value>
-	</data>
 	<data name="ConfigMqtt_LblDiscoPrefix" xml:space="preserve">
 		<value>discovery prefix</value>
 	</data>
@@ -1939,17 +1921,6 @@ you're using the HA addon, you can probably use the preset address.</value>
 	<data name="ConfigMqtt_LblClientId" xml:space="preserve">
 		<value>client id</value>
 	</data>
-	<data name="ConfigNotifications_LblInfo2" xml:space="preserve">
-		<value>If something's not working, make sure you followed these steps:
-
-- Install HASS.Agent-Notifier integration
-- Restart Home Assistant
-- Configure a notifier entity
-- Restart Home Assistant</value>
-	</data>
-	<data name="ConfigNotifications_LblInfo1" xml:space="preserve">
-		<value>HASS.Agent can receive notifications from Home Assistant, using text and/or images. The Local API needs to be enabled for this to work.</value>
-	</data>
 	<data name="ConfigNotifications_BtnNotificationsReadme" xml:space="preserve">
 		<value>notifications &amp;documentation</value>
 	</data>
@@ -1961,10 +1932,6 @@ you're using the HA addon, you can probably use the preset address.</value>
 	</data>
 	<data name="ConfigNotifications_LblLocalApiDisabled" xml:space="preserve">
 		<value>the local API is disabled, but the media player needs it to work</value>
-	</data>
-	<data name="ConfigService_LblInfo1" xml:space="preserve">
-		<value>The satellite service allows you to run sensors and commands even when no user's logged in. 
-Use the 'satellite service' button on the main window to manage it.</value>
 	</data>
 	<data name="ConfigService_LblServiceStatusInfo" xml:space="preserve">
 		<value>service status:</value>
@@ -2102,9 +2069,6 @@ Do you want to enable it?</value>
 	<data name="OnboardingLocalApi_LblInfo2" xml:space="preserve">
 		<value>You can choose what modules you want to enable. They require HA integrations, but don't worry, the next page will give you more info on how to set them up.</value>
 	</data>
-	<data name="OnboardingIntegrations_LblNotifierIntegration" xml:space="preserve">
-		<value>HASS.Agent-Notifier GitHub page</value>
-	</data>
 	<data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
 		<value>To use notifications, you need to install and configure the HASS.Agent-notifier integration in
 Home Assistant.
@@ -2132,12 +2096,6 @@ information.</value>
 	</data>
 	<data name="OnboardingMqtt_CbMqttTls" xml:space="preserve">
 		<value>&amp;TLS</value>
-	</data>
-	<data name="OnboardingMqtt_LblInfo1" xml:space="preserve">
-		<value>Commands and sensors are sent through MQTT. Please provide credentials for your server.
-If you're using the HA addon, you can probably use the preset address.
-
-Leave empty if you're not going to use commands and sensors.</value>
 	</data>
 	<data name="OnboardingMqtt_LblDiscoveryPrefix" xml:space="preserve">
 		<value>discovery prefix</value>
@@ -2168,24 +2126,6 @@ This way, whatever you're doing on your machine, you can always interact with Ho
 	</data>
 	<data name="OnboardingDone_LblGitHub" xml:space="preserve">
 		<value>HASS.Agent GitHub page</value>
-	</data>
-	<data name="OnboardingDone_LblInfo3" xml:space="preserve">
-		<value>Tip: there's a lót more to tinker with, so make sure you take a look at the configuration window!
-
-
-Thank you for using HASS.Agent, hopefully it'll be useful for you :-)
-
-And if you encounter any problems, please create a ticket on the GitHub page.</value>
-	</data>
-	<data name="OnboardingDone_LblInfo2" xml:space="preserve">
-		<value>HASS.Agent will now restart to activate your configuration.
-
-
-If you've enabled notifications, an elevation request will popup. This is required to allow
-HASS.Agent to listen on the specified port.</value>
-	</data>
-	<data name="OnboardingDone_LblInfo1" xml:space="preserve">
-		<value>All done!</value>
 	</data>
 	<data name="ServiceCommands_LblLowIntegrity" xml:space="preserve">
 		<value>low integrity</value>
@@ -2590,9 +2530,6 @@ created and maintain Home Assistant :-)</value>
 	<data name="About_LblInfo2" xml:space="preserve">
 		<value>Created with love by</value>
 	</data>
-	<data name="About_LblInfo6" xml:space="preserve">
-		<value>Like this tool? Support us (read: keep us awake) by buying a cup of coffee:</value>
-	</data>
 	<data name="About_LblOr" xml:space="preserve">
 		<value>or</value>
 	</data>
@@ -2760,14 +2697,6 @@ in private mode.</value>
 - Restart Home Assistant
 -Configure a notifier and / or media_player entity
 -Restart Home Assistant</value>
-	</data>
-	<data name="ConfigHomeAssistantApi_LblInfo1" xml:space="preserve">
-		<value>To learn which entities you have configured, and to send quick actions, HASS.Agent uses
-Home Assistant's API.
-
-Please provide a long-lived access token, and the address of your Home Assistant instance.
-
-You can get a token through your profile page. Scroll to the bottom and click 'CREATE TOKEN'.</value>
 	</data>
 	<data name="OnboardingApi_LblInfo1" xml:space="preserve">
 		<value>To learn which entities you have configured, and to send quick actions, HASS.Agent uses
@@ -3058,5 +2987,206 @@ Do you want to use this version?</value>
 {0}
 
 Do you want to use this version?</value>
+	</data>
+	<data name="ConfigHomeAssistantApi_LblInfo1" xml:space="preserve">
+		<value>To learn which entities you have configured, and to send quick actions, HASS.Agent uses
+Home Assistant's API.
+
+Please provide a long-lived access token, and the address of your Home Assistant instance.
+
+You can get a token through your profile page. Scroll to the bottom and click 'CREATE TOKEN'.</value>
+	</data>
+	<data name="ConfigLocalApi_LblInfo1" xml:space="preserve">
+		<value>HASS.Agent has its own local API, so Home Assistant can send requests (for instance to send a notification). You can configure it globally here, and afterwards you can configure the dependent sections (currently notifications and mediaplayer).
+
+Note: this is not required for the new integration to function. Only enable and use it if you don't use MQTT.</value>
+	</data>
+	<data name="ConfigMediaPlayer_LblInfo2" xml:space="preserve">
+		<value>If something's not working, make sure you followed these steps:
+
+- Install the HASS.Agent integration
+- Restart Home Assistant
+- Make sure HASS.Agent is active with MQTT enabled
+- Your device will get detected!
+- Optionally: manually add it, using the local API</value>
+	</data>
+	<data name="ConfigMediaPlayer_LblInfo1" xml:space="preserve">
+		<value>HASS.Agent can act as a media player for Home Assistant, so you'll be able to see and control any media that's playing, and send text-to-speech. If you have MQTT enabled, your device will automatically get added. Otherwise, manually configure the integration to use the local API.</value>
+	</data>
+	<data name="ConfigMediaPlayer_LblConnectivityDisabled" xml:space="preserve">
+		<value>both the local API and MQTT are disabled, but the integration needs at least one for it to work</value>
+	</data>
+	<data name="ConfigMqtt_LblInfo1" xml:space="preserve">
+		<value>Commands and sensors use MQTT, as well as notifications and mediaplayer functions when using the new integration. 
+
+Please provide credentials for your broker. If you're using the HA Mosquitto addon, you can probably use the preset address.
+
+Note: these settings (except the client id) will be applied to the satellite service as well.</value>
+	</data>
+	<data name="ConfigMqtt_CbEnableMqtt" xml:space="preserve">
+		<value>enable mqtt</value>
+	</data>
+	<data name="ConfigMqtt_LblMqttDisabledWarning" xml:space="preserve">
+		<value>without mqtt, commands and sensors will not work!</value>
+	</data>
+	<data name="ConfigNotifications_LblInfo2" xml:space="preserve">
+		<value>If something's not working, make sure you followed these steps:
+
+- Install the HASS.Agent integration
+- Restart Home Assistant
+- Make sure HASS.Agent is active with MQTT enabled
+- Your device will get detected!
+- Optionally: manually add it, using the local API</value>
+	</data>
+	<data name="ConfigNotifications_LblInfo1" xml:space="preserve">
+		<value>HASS.Agent can receive notifications from Home Assistant, using text, images and actions. If you have MQTT enabled, your device will automatically get added. Otherwise, manually configure the integration to use the local API.</value>
+	</data>
+	<data name="ConfigNotifications_LblConnectivityDisabled" xml:space="preserve">
+		<value>both the local API and MQTT are disabled, but the integration needs at least one for it to work</value>
+	</data>
+	<data name="ConfigService_LblInfo1" xml:space="preserve">
+		<value>The satellite service allows you to run sensors and commands even when no user's logged in. 
+Use the 'satellite service' button on the main window to manage it.</value>
+	</data>
+	<data name="ConfigService_LblInfo5" xml:space="preserve">
+		<value>If you want to manage the service (add commands and sensor, change settings) you can do so here, or by using the 'satellite service' button on the main window.</value>
+	</data>
+	<data name="ConfigService_BtnManageService" xml:space="preserve">
+		<value>&amp;manage service</value>
+	</data>
+	<data name="ConfigTrayIcon_CbWebViewShowMenuOnLeftClick" xml:space="preserve">
+		<value>show default menu on left mousebutton click</value>
+	</data>
+	<data name="OnboardingMqtt_LblInfo1" xml:space="preserve">
+		<value>Commands and sensors are sent through MQTT. The notifications- and mediaplayer integration uses it as well. 
+
+Tip: if you're using the HA addon, you can probably use the preset address - just provide credentials.
+</value>
+	</data>
+	<data name="OnboardingMqtt_CbEnableMqtt" xml:space="preserve">
+		<value>enable mqtt</value>
+	</data>
+	<data name="OnboardingIntegrations_LblNotifierIntegration" xml:space="preserve">
+		<value>HASS.Agent-Integration GitHub page</value>
+	</data>
+	<data name="OnboardingIntegrations_CbEnableMediaPlayer" xml:space="preserve">
+		<value>enable &amp;mediaplayer (including text-to-speech)</value>
+	</data>
+	<data name="OnboardingIntegrations_CbEnableNotifications" xml:space="preserve">
+		<value>enable &amp;notifications</value>
+	</data>
+	<data name="OnboardingDone_LblInfo6" xml:space="preserve">
+		<value>Developing and maintaining this tool (and everything that surrounds it) takes up a lot of time. Like most developers, I run on caffeïne - so if you can spare it, a cup of coffee is always very much appreciated!</value>
+	</data>
+	<data name="OnboardingDone_LblInfo3" xml:space="preserve">
+		<value>There's a lót more to tinker with, so make sure you take a look at the Configuration window!
+
+
+Thank you for using HASS.Agent, hopefully it'll be useful for you :-)
+</value>
+	</data>
+	<data name="OnboardingDone_LblInfo2" xml:space="preserve">
+		<value>HASS.Agent will now restart to activate your configuration.</value>
+	</data>
+	<data name="OnboardingDone_LblInfo1" xml:space="preserve">
+		<value>Yay, done!</value>
+	</data>
+	<data name="OnboardingDone_LblTip2" xml:space="preserve">
+		<value>Tip: other donation methods are available on the About window.</value>
+	</data>
+	<data name="PostUpdate_PostUpdate" xml:space="preserve">
+		<value>HASS.Agent Post Update</value>
+	</data>
+	<data name="CommandsMod_CommandsMod" xml:space="preserve">
+		<value>Command</value>
+	</data>
+	<data name="About_LblInfo6" xml:space="preserve">
+		<value>Like this tool? Support us (read: keep us awake) by buying a cup of coffee:</value>
+	</data>
+	<data name="Donate_LblInfo" xml:space="preserve">
+		<value>HASS.Agent is completely free, and will always stay that way without restrictions!
+
+However, developing and maintaining this tool (and everything that surrounds it, like support and the docs) takes up a lot of time. 
+
+Like most developers, I run on caffeïne - so if you can spare it, a cup of coffee is always very much appreciated!</value>
+	</data>
+	<data name="Donate_BtnClose" xml:space="preserve">
+		<value>&amp;close</value>
+	</data>
+	<data name="Donate_CbHideDonateButton" xml:space="preserve">
+		<value>I already donated, hide the button on the main window.</value>
+	</data>
+	<data name="Donate_Title" xml:space="preserve">
+		<value>Donate</value>
+	</data>
+	<data name="Main_TsCheckForUpdates" xml:space="preserve">
+		<value>check for updates</value>
+	</data>
+	<data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox5" xml:space="preserve">
+		<value>Your API token doesn't look right. Make sure you selected the entire token (don't use CTRL+A or doubleclick).
+It should contain three sections (seperated by two dots).
+
+Are you sure you want to use it like this?</value>
+	</data>
+	<data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox6" xml:space="preserve">
+		<value>Your URI doesn't look right. It should look something like 'http://homeassistant.local:8123' or 'http://192.168.0.1:8123'.
+
+Are you sure you want to use it like this?</value>
+	</data>
+	<data name="OnboardingApi_BtnTest_MessageBox5" xml:space="preserve">
+		<value>Your API token doesn't look right. Make sure you selected the entire token (don't use CTRL+A or doubleclick).
+It should contain three sections (seperated by two dots).
+
+Are you sure you want to use it like this?</value>
+	</data>
+	<data name="OnboardingApi_BtnTest_MessageBox6" xml:space="preserve">
+		<value>Your URI doesn't look right. It should look something like 'http://homeassistant.local:8123' or 'http://192.168.0.1:8123'.
+
+Are you sure you want to use it like this?</value>
+	</data>
+	<data name="Configuration_CheckValues_MessageBox1" xml:space="preserve">
+		<value>Your Home Assistant API token doesn't look right. Make sure you selected the entire token (don't use CTRL+A or doubleclick).
+It should contain three sections (seperated by two dots).
+
+Are you sure you want to use it like this?</value>
+	</data>
+	<data name="Configuration_CheckValues_MessageBox2" xml:space="preserve">
+		<value>Your Home Assistant URI doesn't look right. It should look something like 'http://homeassistant.local:8123' or 'https://192.168.0.1:8123'.
+
+Are you sure you want to use it like this?</value>
+	</data>
+	<data name="Configuration_CheckValues_MessageBox3" xml:space="preserve">
+		<value>Your MQTT broker URI doesn't look right. It should look something like 'homeassistant.local' or '192.168.0.1'.
+
+Are you sure you want to use it like this?</value>
+	</data>
+	<data name="WebView_InitializeAsync_MessageBox1" xml:space="preserve">
+		<value>Microsoft's WebView2 runtime isn't found on your machine. Usually this is handled by the installer, but you can install it manually.
+
+Do you want to download the runtime installer?</value>
+	</data>
+	<data name="WebView_InitializeAsync_MessageBox2" xml:space="preserve">
+		<value>Something went wrong while initializing the WebView. Please check your logs and open a GitHub ticket to get help.</value>
+	</data>
+	<data name="ServiceHelper_ChangeStartMode_Error1" xml:space="preserve">
+		<value>unable to open servicemanager</value>
+	</data>
+	<data name="ServiceHelper_ChangeStartMode_Error2" xml:space="preserve">
+		<value>unable to open service</value>
+	</data>
+	<data name="ServiceHelper_ChangeStartMode_Error3" xml:space="preserve">
+		<value>error configuring startup mode, check logs</value>
+	</data>
+	<data name="ServiceHelper_ChangeStartMode_Error4" xml:space="preserve">
+		<value>error setting startup mode, check logs</value>
+	</data>
+	<data name="ServiceControllerManager_Error_Timeout" xml:space="preserve">
+		<value>timeout expired</value>
+	</data>
+	<data name="ServiceControllerManager_Error_Fatal" xml:space="preserve">
+		<value>fatal error, check logs</value>
+	</data>
+	<data name="ServiceControllerManager_Error_Unknown" xml:space="preserve">
+		<value>unknown reason</value>
 	</data>
 </root>

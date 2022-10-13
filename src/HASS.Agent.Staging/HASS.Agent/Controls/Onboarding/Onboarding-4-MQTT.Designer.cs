@@ -122,7 +122,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.CbMqttTls.Name = "CbMqttTls";
             this.CbMqttTls.Size = new System.Drawing.Size(49, 23);
             this.CbMqttTls.TabIndex = 2;
-            this.CbMqttTls.Text = "&TLS";
+            this.CbMqttTls.Text = Languages.OnboardingMqtt_CbMqttTls;
             this.CbMqttTls.UseVisualStyleBackColor = true;
             this.CbMqttTls.CheckedChanged += new System.EventHandler(this.CbMqttTls_CheckedChanged);
             // 
@@ -137,7 +137,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblPassword.Name = "LblPassword";
             this.LblPassword.Size = new System.Drawing.Size(67, 19);
             this.LblPassword.TabIndex = 31;
-            this.LblPassword.Text = "password";
+            this.LblPassword.Text = Languages.OnboardingMqtt_LblPassword;
             // 
             // LblUsername
             // 
@@ -150,7 +150,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblUsername.Name = "LblUsername";
             this.LblUsername.Size = new System.Drawing.Size(69, 19);
             this.LblUsername.TabIndex = 30;
-            this.LblUsername.Text = "username";
+            this.LblUsername.Text = Languages.OnboardingMqtt_LblUsername;
             // 
             // LblPort
             // 
@@ -163,7 +163,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblPort.Name = "LblPort";
             this.LblPort.Size = new System.Drawing.Size(35, 19);
             this.LblPort.TabIndex = 29;
-            this.LblPort.Text = "port";
+            this.LblPort.Text = Languages.OnboardingMqtt_LblPort;
             // 
             // LblIpAdress
             // 
@@ -176,7 +176,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblIpAdress.Name = "LblIpAdress";
             this.LblIpAdress.Size = new System.Drawing.Size(153, 19);
             this.LblIpAdress.TabIndex = 28;
-            this.LblIpAdress.Text = "ip address or hostname";
+            this.LblIpAdress.Text = Languages.OnboardingMqtt_LblIpAdress;
             // 
             // LblInfo1
             // 
@@ -188,7 +188,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(599, 98);
             this.LblInfo1.TabIndex = 27;
-            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
+            this.LblInfo1.Text = Languages.OnboardingMqtt_LblInfo1;
             // 
             // TbMqttDiscoveryPrefix
             // 
@@ -216,7 +216,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblDiscoveryPrefix.Name = "LblDiscoveryPrefix";
             this.LblDiscoveryPrefix.Size = new System.Drawing.Size(103, 19);
             this.LblDiscoveryPrefix.TabIndex = 33;
-            this.LblDiscoveryPrefix.Text = "discovery prefix";
+            this.LblDiscoveryPrefix.Text = Languages.OnboardingMqtt_LblDiscoveryPrefix;
             // 
             // LblTip1
             // 
@@ -229,7 +229,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblTip1.Name = "LblTip1";
             this.LblTip1.Size = new System.Drawing.Size(135, 13);
             this.LblTip1.TabIndex = 34;
-            this.LblTip1.Text = "(leave default if not sure)";
+            this.LblTip1.Text = Languages.OnboardingMqtt_LblTip1;
             // 
             // LblTip2
             // 
@@ -242,7 +242,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblTip2.Name = "LblTip2";
             this.LblTip2.Size = new System.Drawing.Size(358, 13);
             this.LblTip2.TabIndex = 35;
-            this.LblTip2.Text = "Tip: specialized settings can be found in the Configuration window.";
+            this.LblTip2.Text = Languages.OnboardingMqtt_LblTip2;
             // 
             // NumMqttPort
             // 
@@ -303,7 +303,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.CbEnableMqtt.Name = "CbEnableMqtt";
             this.CbEnableMqtt.Size = new System.Drawing.Size(102, 23);
             this.CbEnableMqtt.TabIndex = 102;
-            this.CbEnableMqtt.Text = "enable mqtt";
+            this.CbEnableMqtt.Text = Languages.OnboardingMqtt_CbEnableMqtt;
             this.CbEnableMqtt.UseVisualStyleBackColor = true;
             // 
             // OnboardingMqtt

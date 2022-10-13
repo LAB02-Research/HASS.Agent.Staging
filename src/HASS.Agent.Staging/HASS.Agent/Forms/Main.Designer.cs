@@ -131,7 +131,7 @@ namespace HASS.Agent.Forms
             this.TsShow.Image = ((System.Drawing.Image)(resources.GetObject("TsShow.Image")));
             this.TsShow.Name = "TsShow";
             this.TsShow.Size = new System.Drawing.Size(203, 26);
-            this.TsShow.Text = "show hass.agent";
+            this.TsShow.Text = Languages.Main_TsShow;
             this.TsShow.Click += new System.EventHandler(this.TsShow_Click);
             // 
             // TsShowQuickActions
@@ -142,7 +142,7 @@ namespace HASS.Agent.Forms
             this.TsShowQuickActions.Image = ((System.Drawing.Image)(resources.GetObject("TsShowQuickActions.Image")));
             this.TsShowQuickActions.Name = "TsShowQuickActions";
             this.TsShowQuickActions.Size = new System.Drawing.Size(203, 26);
-            this.TsShowQuickActions.Text = "show quick actions";
+            this.TsShowQuickActions.Text = Languages.Main_TsShowQuickActions;
             this.TsShowQuickActions.Click += new System.EventHandler(this.TsShowQuickActions_Click);
             // 
             // toolStripSeparator1
@@ -161,7 +161,7 @@ namespace HASS.Agent.Forms
             this.TsConfig.Image = ((System.Drawing.Image)(resources.GetObject("TsConfig.Image")));
             this.TsConfig.Name = "TsConfig";
             this.TsConfig.Size = new System.Drawing.Size(203, 26);
-            this.TsConfig.Text = "configuration";
+            this.TsConfig.Text = Languages.Main_TsConfig;
             this.TsConfig.Click += new System.EventHandler(this.TsConfig_Click);
             // 
             // TsQuickItemsConfig
@@ -172,7 +172,7 @@ namespace HASS.Agent.Forms
             this.TsQuickItemsConfig.Image = ((System.Drawing.Image)(resources.GetObject("TsQuickItemsConfig.Image")));
             this.TsQuickItemsConfig.Name = "TsQuickItemsConfig";
             this.TsQuickItemsConfig.Size = new System.Drawing.Size(203, 26);
-            this.TsQuickItemsConfig.Text = "manage quick actions";
+            this.TsQuickItemsConfig.Text = Languages.Main_TsQuickItemsConfig;
             this.TsQuickItemsConfig.Click += new System.EventHandler(this.TsQuickItemsConfig_Click);
             // 
             // TsSatelliteService
@@ -183,7 +183,7 @@ namespace HASS.Agent.Forms
             this.TsSatelliteService.Image = ((System.Drawing.Image)(resources.GetObject("TsSatelliteService.Image")));
             this.TsSatelliteService.Name = "TsSatelliteService";
             this.TsSatelliteService.Size = new System.Drawing.Size(203, 26);
-            this.TsSatelliteService.Text = "manage satellite service";
+            this.TsSatelliteService.Text = Languages.Main_TsSatelliteService;
             this.TsSatelliteService.Click += new System.EventHandler(this.TsSatelliteService_Click);
             // 
             // TsLocalSensors
@@ -194,7 +194,7 @@ namespace HASS.Agent.Forms
             this.TsLocalSensors.Image = ((System.Drawing.Image)(resources.GetObject("TsLocalSensors.Image")));
             this.TsLocalSensors.Name = "TsLocalSensors";
             this.TsLocalSensors.Size = new System.Drawing.Size(203, 26);
-            this.TsLocalSensors.Text = "manage local sensors";
+            this.TsLocalSensors.Text = Languages.Main_TsLocalSensors;
             this.TsLocalSensors.Click += new System.EventHandler(this.TsLocalSensors_Click);
             // 
             // TsCommands
@@ -205,7 +205,7 @@ namespace HASS.Agent.Forms
             this.TsCommands.Image = ((System.Drawing.Image)(resources.GetObject("TsCommands.Image")));
             this.TsCommands.Name = "TsCommands";
             this.TsCommands.Size = new System.Drawing.Size(203, 26);
-            this.TsCommands.Text = "manage commands";
+            this.TsCommands.Text = Languages.Main_TsCommands;
             this.TsCommands.Click += new System.EventHandler(this.TsCommands_Click);
             // 
             // toolStripSeparator2
@@ -224,7 +224,7 @@ namespace HASS.Agent.Forms
             this.TsCheckForUpdates.Image = ((System.Drawing.Image)(resources.GetObject("TsCheckForUpdates.Image")));
             this.TsCheckForUpdates.Name = "TsCheckForUpdates";
             this.TsCheckForUpdates.Size = new System.Drawing.Size(203, 26);
-            this.TsCheckForUpdates.Text = "check for updates";
+            this.TsCheckForUpdates.Text = Languages.Main_TsCheckForUpdates;
             this.TsCheckForUpdates.Click += new System.EventHandler(this.TsCheckForUpdates_Click);
             // 
             // toolStripSeparator3
@@ -243,7 +243,7 @@ namespace HASS.Agent.Forms
             this.TsDonate.Image = ((System.Drawing.Image)(resources.GetObject("TsDonate.Image")));
             this.TsDonate.Name = "TsDonate";
             this.TsDonate.Size = new System.Drawing.Size(203, 26);
-            this.TsDonate.Text = "donate";
+            this.TsDonate.Text = Languages.Main_TsDonate;
             this.TsDonate.Click += new System.EventHandler(this.TsDonate_Click);
             // 
             // TsHelp
@@ -254,7 +254,7 @@ namespace HASS.Agent.Forms
             this.TsHelp.Image = ((System.Drawing.Image)(resources.GetObject("TsHelp.Image")));
             this.TsHelp.Name = "TsHelp";
             this.TsHelp.Size = new System.Drawing.Size(203, 26);
-            this.TsHelp.Text = "help && contact";
+            this.TsHelp.Text = Languages.Main_TsHelp;
             this.TsHelp.Click += new System.EventHandler(this.TsHelp_Click);
             // 
             // TsAbout
@@ -265,7 +265,7 @@ namespace HASS.Agent.Forms
             this.TsAbout.Image = ((System.Drawing.Image)(resources.GetObject("TsAbout.Image")));
             this.TsAbout.Name = "TsAbout";
             this.TsAbout.Size = new System.Drawing.Size(203, 26);
-            this.TsAbout.Text = "about";
+            this.TsAbout.Text = Languages.Main_TsAbout;
             this.TsAbout.Click += new System.EventHandler(this.TsAbout_Click);
             // 
             // toolStripSeparator4
@@ -284,7 +284,7 @@ namespace HASS.Agent.Forms
             this.TsExit.Image = ((System.Drawing.Image)(resources.GetObject("TsExit.Image")));
             this.TsExit.Name = "TsExit";
             this.TsExit.Size = new System.Drawing.Size(203, 26);
-            this.TsExit.Text = "exit";
+            this.TsExit.Text = Languages.Main_TsExit;
             this.TsExit.Click += new System.EventHandler(this.TsExit_Click);
             // 
             // BtnExit
@@ -330,7 +330,7 @@ namespace HASS.Agent.Forms
             this.BtnHide.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnHide.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnHide.TabIndex = 5;
-            this.BtnHide.Text = "&hide";
+            this.BtnHide.Text = Languages.Main_BtnHide;
             this.BtnHide.UseVisualStyleBackColor = false;
             this.BtnHide.Click += new System.EventHandler(this.BtnHide_Click);
             // 
@@ -351,7 +351,7 @@ namespace HASS.Agent.Forms
             this.GpControls.Size = new System.Drawing.Size(572, 195);
             this.GpControls.TabIndex = 7;
             this.GpControls.TabStop = false;
-            this.GpControls.Text = "controls";
+            this.GpControls.Text = Languages.Main_GpControls;
             // 
             // BtnServiceManager
             // 
@@ -375,7 +375,7 @@ namespace HASS.Agent.Forms
             this.BtnServiceManager.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.BtnServiceManager.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnServiceManager.TabIndex = 2;
-            this.BtnServiceManager.Text = "s&atellite service";
+            this.BtnServiceManager.Text = Languages.Main_BtnServiceManager;
             this.BtnServiceManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnServiceManager.TextMargin = new System.Windows.Forms.Padding(0, 20, 0, 3);
             this.BtnServiceManager.UseVisualStyleBackColor = false;
@@ -403,7 +403,7 @@ namespace HASS.Agent.Forms
             this.BtnAppSettings.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.BtnAppSettings.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnAppSettings.TabIndex = 0;
-            this.BtnAppSettings.Text = "c&onfiguration";
+            this.BtnAppSettings.Text = Languages.Main_BtnAppSettings;
             this.BtnAppSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnAppSettings.TextMargin = new System.Windows.Forms.Padding(0, 20, 0, 3);
             this.BtnAppSettings.UseVisualStyleBackColor = false;
@@ -431,7 +431,7 @@ namespace HASS.Agent.Forms
             this.BtnActionsManager.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.BtnActionsManager.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnActionsManager.TabIndex = 1;
-            this.BtnActionsManager.Text = "&quick actions";
+            this.BtnActionsManager.Text = Languages.Main_BtnActionsManager;
             this.BtnActionsManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnActionsManager.TextMargin = new System.Windows.Forms.Padding(0, 20, 0, 3);
             this.BtnActionsManager.UseVisualStyleBackColor = false;
@@ -461,7 +461,7 @@ namespace HASS.Agent.Forms
             this.BtnCommandsManager.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.BtnCommandsManager.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnCommandsManager.TabIndex = 4;
-            this.BtnCommandsManager.Text = "loading";
+            this.BtnCommandsManager.Text = Languages.Main_BtnCommandsManager;
             this.BtnCommandsManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnCommandsManager.TextMargin = new System.Windows.Forms.Padding(0, 20, 0, 3);
             this.BtnCommandsManager.UseVisualStyleBackColor = false;
@@ -491,7 +491,7 @@ namespace HASS.Agent.Forms
             this.BtnSensorsManager.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.BtnSensorsManager.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnSensorsManager.TabIndex = 3;
-            this.BtnSensorsManager.Text = "loading";
+            this.BtnSensorsManager.Text = Languages.Main_BtnSensorsManager;
             this.BtnSensorsManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnSensorsManager.TextMargin = new System.Windows.Forms.Padding(0, 20, 0, 3);
             this.BtnSensorsManager.UseVisualStyleBackColor = false;
@@ -523,7 +523,7 @@ namespace HASS.Agent.Forms
             this.GpStatus.Size = new System.Drawing.Size(572, 214);
             this.GpStatus.TabIndex = 6;
             this.GpStatus.TabStop = false;
-            this.GpStatus.Text = "system status";
+            this.GpStatus.Text = Languages.Main_GpStatus;
             // 
             // LblStatusService
             // 
@@ -546,7 +546,7 @@ namespace HASS.Agent.Forms
             this.LblService.Name = "LblService";
             this.LblService.Size = new System.Drawing.Size(152, 19);
             this.LblService.TabIndex = 12;
-            this.LblService.Text = "satellite service:";
+            this.LblService.Text = Languages.Main_LblService;
             this.LblService.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LblStatusMqtt
@@ -570,7 +570,7 @@ namespace HASS.Agent.Forms
             this.LblMqtt.Name = "LblMqtt";
             this.LblMqtt.Size = new System.Drawing.Size(152, 19);
             this.LblMqtt.TabIndex = 10;
-            this.LblMqtt.Text = "mqtt:";
+            this.LblMqtt.Text = Languages.Main_LblMqtt;
             this.LblMqtt.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LblStatusCommands
@@ -594,7 +594,7 @@ namespace HASS.Agent.Forms
             this.LblCommands.Name = "LblCommands";
             this.LblCommands.Size = new System.Drawing.Size(176, 19);
             this.LblCommands.TabIndex = 8;
-            this.LblCommands.Text = "commands:";
+            this.LblCommands.Text = Languages.Main_LblCommands;
             this.LblCommands.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LblStatusSensors
@@ -654,7 +654,7 @@ namespace HASS.Agent.Forms
             this.LblSensors.Name = "LblSensors";
             this.LblSensors.Size = new System.Drawing.Size(176, 19);
             this.LblSensors.TabIndex = 3;
-            this.LblSensors.Text = "sensors:";
+            this.LblSensors.Text = Languages.Main_LblSensors;
             this.LblSensors.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LblQuickActions
@@ -666,7 +666,7 @@ namespace HASS.Agent.Forms
             this.LblQuickActions.Name = "LblQuickActions";
             this.LblQuickActions.Size = new System.Drawing.Size(176, 19);
             this.LblQuickActions.TabIndex = 2;
-            this.LblQuickActions.Text = "quick actions:";
+            this.LblQuickActions.Text = Languages.Main_LblQuickActions;
             this.LblQuickActions.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LblHomeAssistantApi
@@ -678,7 +678,7 @@ namespace HASS.Agent.Forms
             this.LblHomeAssistantApi.Name = "LblHomeAssistantApi";
             this.LblHomeAssistantApi.Size = new System.Drawing.Size(152, 19);
             this.LblHomeAssistantApi.TabIndex = 1;
-            this.LblHomeAssistantApi.Text = "home assistant api:";
+            this.LblHomeAssistantApi.Text = Languages.Main_LblHomeAssistantApi;
             this.LblHomeAssistantApi.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LblLocalApi
@@ -690,7 +690,7 @@ namespace HASS.Agent.Forms
             this.LblLocalApi.Name = "LblLocalApi";
             this.LblLocalApi.Size = new System.Drawing.Size(152, 19);
             this.LblLocalApi.TabIndex = 0;
-            this.LblLocalApi.Text = "local api:";
+            this.LblLocalApi.Text = Languages.Main_LblLocalApi;
             this.LblLocalApi.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // BtnCheckForUpdate
@@ -712,7 +712,7 @@ namespace HASS.Agent.Forms
             this.BtnCheckForUpdate.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnCheckForUpdate.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnCheckForUpdate.TabIndex = 6;
-            this.BtnCheckForUpdate.Text = "check for &updates";
+            this.BtnCheckForUpdate.Text = Languages.Main_BtnCheckForUpdate;
             this.BtnCheckForUpdate.UseVisualStyleBackColor = false;
             this.BtnCheckForUpdate.Click += new System.EventHandler(this.BtnCheckForUpdate_Click);
             // 

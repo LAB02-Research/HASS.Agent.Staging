@@ -138,7 +138,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblSetting.Name = "LblSetting";
             this.LblSetting.Size = new System.Drawing.Size(46, 19);
             this.LblSetting.TabIndex = 12;
-            this.LblSetting.Text = "&config";
+            this.LblSetting.Text = Languages.CommandsMod_LblSetting;
             this.LblSetting.Visible = false;
             // 
             // LblName
@@ -152,7 +152,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(43, 19);
             this.LblName.TabIndex = 10;
-            this.LblName.Text = "&name";
+            this.LblName.Text = Languages.CommandsMod_LblName;
             // 
             // PnlDescription
             // 
@@ -196,7 +196,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblDescription.Name = "LblDescription";
             this.LblDescription.Size = new System.Drawing.Size(76, 19);
             this.LblDescription.TabIndex = 20;
-            this.LblDescription.Text = "description";
+            this.LblDescription.Text = Languages.CommandsMod_LblDescription;
             // 
             // CbRunAsLowIntegrity
             // 
@@ -224,7 +224,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblIntegrityInfo.Name = "LblIntegrityInfo";
             this.LblIntegrityInfo.Size = new System.Drawing.Size(155, 15);
             this.LblIntegrityInfo.TabIndex = 27;
-            this.LblIntegrityInfo.Text = "what\'s this?";
+            this.LblIntegrityInfo.Text = Languages.CommandsMod_LblIntegrityInfo;
             this.LblIntegrityInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LblIntegrityInfo.Visible = false;
             this.LblIntegrityInfo.Click += new System.EventHandler(this.LblIntegrityInfo_Click);
@@ -350,7 +350,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblSelectedType.Name = "LblSelectedType";
             this.LblSelectedType.Size = new System.Drawing.Size(89, 19);
             this.LblSelectedType.TabIndex = 31;
-            this.LblSelectedType.Text = "selected type";
+            this.LblSelectedType.Text = Languages.CommandsMod_LblSelectedType;
             // 
             // LblService
             // 
@@ -363,7 +363,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblService.Name = "LblService";
             this.LblService.Size = new System.Drawing.Size(43, 15);
             this.LblService.TabIndex = 37;
-            this.LblService.Text = "service";
+            this.LblService.Text = Languages.CommandsMod_LblService;
             // 
             // PbService
             // 
@@ -389,7 +389,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblAgent.Name = "LblAgent";
             this.LblAgent.Size = new System.Drawing.Size(37, 15);
             this.LblAgent.TabIndex = 35;
-            this.LblAgent.Text = "agent";
+            this.LblAgent.Text = Languages.CommandsMod_LblAgent;
             // 
             // PbAgent
             // 
@@ -416,7 +416,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblSpecificClient.Name = "LblSpecificClient";
             this.LblSpecificClient.Size = new System.Drawing.Size(155, 19);
             this.LblSpecificClient.TabIndex = 38;
-            this.LblSpecificClient.Text = "hass.agent only!";
+            this.LblSpecificClient.Text = Languages.CommandsMod_LblSpecificClient;
             this.LblSpecificClient.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.LblSpecificClient.Visible = false;
             // 
@@ -451,7 +451,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblEntityType.Name = "LblEntityType";
             this.LblEntityType.Size = new System.Drawing.Size(75, 19);
             this.LblEntityType.TabIndex = 40;
-            this.LblEntityType.Text = "&entity type";
+            this.LblEntityType.Text = Languages.CommandsMod_LblEntityType;
             // 
             // LblMqttTopic
             // 
@@ -465,7 +465,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblMqttTopic.Name = "LblMqttTopic";
             this.LblMqttTopic.Size = new System.Drawing.Size(150, 19);
             this.LblMqttTopic.TabIndex = 41;
-            this.LblMqttTopic.Text = "show mqtt action topic";
+            this.LblMqttTopic.Text = Languages.CommandsMod_LblMqttTopic;
             this.LblMqttTopic.Visible = false;
             this.LblMqttTopic.Click += new System.EventHandler(this.LblMqttTopic_Click);
             // 
@@ -481,7 +481,7 @@ namespace HASS.Agent.Forms.Commands
             this.LblActionInfo.Name = "LblActionInfo";
             this.LblActionInfo.Size = new System.Drawing.Size(40, 15);
             this.LblActionInfo.TabIndex = 43;
-            this.LblActionInfo.Text = "action";
+            this.LblActionInfo.Text = Languages.CommandsMod_LblActionInfo;
             this.LblActionInfo.Click += new System.EventHandler(this.LblActionInfo_Click);
             // 
             // PbActionInfo
@@ -587,7 +587,7 @@ namespace HASS.Agent.Forms.Commands
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Command";
+            this.Text = Languages.CommandsMod_CommandsMod;
             this.Load += new System.EventHandler(this.CommandsMod_Load);
             this.ResizeEnd += new System.EventHandler(this.CommandsMod_ResizeEnd);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CommandsMod_KeyUp);

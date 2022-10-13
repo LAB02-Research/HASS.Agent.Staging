@@ -241,7 +241,7 @@ namespace HASS.Agent.Forms
             {
                 if (!SharedHelperFunctions.CheckHomeAssistantApiToken(hassApi))
                 {
-                    var q = MessageBoxAdv.Show("Your Home Assistant API token doesn't look right. Make sure you selected the entire token (don't use CTRL+A or doubleclick).\r\nIt should contain three sections (seperated by two dots).\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    var q = MessageBoxAdv.Show(Languages.Configuration_CheckValues_MessageBox1, Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (q != DialogResult.Yes) return false;
                 }
             }
@@ -252,7 +252,7 @@ namespace HASS.Agent.Forms
             {
                 if (!SharedHelperFunctions.CheckHomeAssistantUri(hassUri))
                 {
-                    var q = MessageBoxAdv.Show("Your Home Assistant URI doesn't look right. It should look something like 'http://homeassistant.local:8123' or 'https://192.168.0.1:8123'.\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    var q = MessageBoxAdv.Show(Languages.Configuration_CheckValues_MessageBox2, Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (q != DialogResult.Yes) return false;
                 }
             }
@@ -263,7 +263,7 @@ namespace HASS.Agent.Forms
             {
                 if (!SharedHelperFunctions.CheckMqttBrokerUri(mqttUri))
                 {
-                    var q = MessageBoxAdv.Show("Your MQTT broker URI doesn't look right. It should look something like 'homeassistant.local' or '192.168.0.1'.\r\n\r\nAre you sure you want to use it like this?", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    var q = MessageBoxAdv.Show(Languages.Configuration_CheckValues_MessageBox3, Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (q != DialogResult.Yes) return false;
                 }
             }

@@ -1,4 +1,64 @@
-﻿<root>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -151,7 +211,7 @@
   <data name="PbHassAgentLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAACXJJREFUeF7tnf+nJ1UYx/vXIiIiIiIiIiIiIqKfIhIRERGxREQiotra2tq+t9na
+        vAAADrwBlbxySQAACXJJREFUeF7tnf+nJ1UYx/vXIiIiIiIiIiIiIqKfIhIRERGxREQiotra2tq+t9na
         2tp2a2u1tX3b7t7vd9rXxz3tNPs855yZOWfmzD3Pm7fae2fm3jvv15xz5jln5nPd9a+vNeZ6bQBUbgOg
         chsAldsAqNwGQOU2ACq3AVC5DYDKbQBUbgOgchsAldsAqNwGQOU2ACq3AVC5DYABvunwWvPc6a3mo4s7
         zfn1vdV/+Tdfl7Yv2QZAT9/zwXpz7vJeIwkY7v1wXdyvVBsAPXzfx+vN5Z39tBXxfbaT9i/RBkCkY8J3
@@ -197,7 +257,7 @@
   <data name="PbGithubSponsor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOsAAAArCAYAAACZ4n9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAH+FJREFUeF7tXAd8VcXyDh0EFQS7Yi8oihWVjgo2REVRsXdRseFTsXd9NsRnF0ER
+        DAAACwwBP0AiyAAAH+FJREFUeF7tXAd8VcXyDh0EFQS7Yi8oihWVjgo2REVRsXdRseFTsXd9NsRnF0ER
         BOwPC2JHSiqhhBYgUgMhJCSBdEKY/3yzZ+4999y9Ya8PMPm/N7/fkp3v7M7O2d1vd3bP1YT0WXMkpaXP
         PGDGzNm3J6elFySnzohKKdsR07wr5k+1AdO8DfOn2oBp3hXzp9qAad4V86fagGl+61h6QVr6rJtTZ8zc
         d+bsjASkBCZow9S09F4Z8+Zn5K7LKyso2kAFhUXhFNQVK7Bgfj2Iad4V86cghrZdytWE7Sj/bb5ub/81
@@ -339,7 +399,7 @@
   <data name="PbKoFi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKsAAAArCAYAAAAHWHjBAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAEqlJREFUeF7tXQeUVdW5PoAUCyJRYGYoKqIxUSAKCiqhg9goKkVAAfVFH0+J0YSo
+        vQAADr0BR/uQrQAAEqlJREFUeF7tXQeUVdW5PoAUCyJRYGYoKqIxUSAKCiqhg9goKkVAAfVFH0+J0YSo
         EVtQY3uBLMVIfJriC0YFKVKlM/QuUgeY3phyp3f48n37njNz5s65QIAB1/L8a33r3nvOPnv/e+/vL3uf
         c++1AJwWZqQUdX5yTyDQf/ORwJWrUgKXLUsOtFju44eOZkRzouPatMCwHZmBd2PzAquyS1p5cehk4Xnw
         RJiVVnjj4G2Zf4xYnrLe+joh1lqYgAu+SUKzZcmIWJ4MKuvDh0HTpcmovzgR1vx4NFiUuL9DdOqcF2Ny
@@ -422,17 +482,10 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="LblInfo.Text" xml:space="preserve">
-    <value>HASS.Agent is completely free, and will always stay that way without restrictions!
-
-However, developing and maintaining this tool (and everything that surrounds it, like support and the docs) takes up a lot of time. 
-
-Like most developers, I run on caffeïne - so if you can spare it, a cup of coffee is always very much appreciated!</value>
-  </data>
   <data name="PbPayPal.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJgAAAArCAYAAACEnEH6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAGdxJREFUeF7tXHd8FOUWHVoIIM+GIFIUCb1LCzUUqaKIYqGJhBYEIqE3CSAoRUUD
+        wAAADsABataJCQAAGdxJREFUeF7tXHd8FOUWHVoIIM+GIFIUCb1LCzUUqaKIYqGJhBYEIqE3CSAoRUUD
         CgEURMpDlGIoCSQkpBdCQgIJIM2CKGBZ8NF37zv3zszu7GYWEgzY+OP+ZuZ8deY7c++532yiENEt26Vz
         mSVs36+22LInWawpPS3XY1tZrDHNLNbYZhZbbHMxq+FoNGA2O442Nnsbbv/Xx2zAHPeZe8xR9tfBdFyM
         55v4lMWWOdJCJ5dYrv4U+4jZ2ufWTMGb2eXjK9tcT3lpri2yxg5rWGmy7ixLtsiaZIv1hrUgPFgx3ICY

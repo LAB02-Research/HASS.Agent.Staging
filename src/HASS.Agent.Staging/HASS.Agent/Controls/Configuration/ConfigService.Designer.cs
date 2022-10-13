@@ -58,9 +58,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(581, 61);
             this.LblInfo1.TabIndex = 36;
-            this.LblInfo1.Text = "The satellite service allows you to run sensors and commands even when no user\'s " +
-    "logged in. \r\nUse the \'satellite service\' button on the main window to manage it." +
-    "";
+            this.LblInfo1.Text = Languages.ConfigService_LblInfo1;
             // 
             // LblServiceStatus
             // 
@@ -86,7 +84,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblServiceStatusInfo.Name = "LblServiceStatusInfo";
             this.LblServiceStatusInfo.Size = new System.Drawing.Size(94, 19);
             this.LblServiceStatusInfo.TabIndex = 37;
-            this.LblServiceStatusInfo.Text = "service status:";
+            this.LblServiceStatusInfo.Text = Languages.ConfigService_LblServiceStatusInfo;
             // 
             // BtnStartService
             // 
@@ -108,7 +106,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnStartService.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnStartService.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnStartService.TabIndex = 2;
-            this.BtnStartService.Text = "s&tart service";
+            this.BtnStartService.Text = Languages.ConfigService_BtnStartService;
             this.BtnStartService.UseVisualStyleBackColor = false;
             this.BtnStartService.Click += new System.EventHandler(this.BtnStartService_Click);
             // 
@@ -132,7 +130,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnDisableService.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnDisableService.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnDisableService.TabIndex = 3;
-            this.BtnDisableService.Text = "&disable service";
+            this.BtnDisableService.Text = Languages.ConfigService_BtnDisableService;
             this.BtnDisableService.UseVisualStyleBackColor = false;
             this.BtnDisableService.Click += new System.EventHandler(this.BtnDisableService_Click);
             // 
@@ -155,7 +153,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnStopService.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnStopService.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnStopService.TabIndex = 1;
-            this.BtnStopService.Text = "&stop service";
+            this.BtnStopService.Text = Languages.ConfigService_BtnStopService;
             this.BtnStopService.UseVisualStyleBackColor = false;
             this.BtnStopService.Click += new System.EventHandler(this.BtnStopService_Click);
             // 
@@ -179,7 +177,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnEnableService.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnEnableService.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnEnableService.TabIndex = 4;
-            this.BtnEnableService.Text = "&enable service";
+            this.BtnEnableService.Text = Languages.ConfigService_BtnEnableService;
             this.BtnEnableService.UseVisualStyleBackColor = false;
             this.BtnEnableService.Click += new System.EventHandler(this.BtnEnableService_Click);
             // 
@@ -203,7 +201,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnReinstallService.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnReinstallService.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnReinstallService.TabIndex = 5;
-            this.BtnReinstallService.Text = "&reinstall service";
+            this.BtnReinstallService.Text = Languages.ConfigService_BtnReinstallService;
             this.BtnReinstallService.UseVisualStyleBackColor = false;
             this.BtnReinstallService.Click += new System.EventHandler(this.BtnReinstallService_Click);
             // 
@@ -218,7 +216,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(655, 65);
             this.LblInfo2.TabIndex = 44;
-            this.LblInfo2.Text = resources.GetString("LblInfo2.Text");
+            this.LblInfo2.Text = Languages.ConfigService_LblInfo2;
             this.LblInfo2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // LblInfo3
@@ -231,8 +229,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo3.Name = "LblInfo3";
             this.LblInfo3.Size = new System.Drawing.Size(644, 38);
             this.LblInfo3.TabIndex = 45;
-            this.LblInfo3.Text = "You can try reinstalling the service if it\'s not working correctly.\r\nYour configu" +
-    "ration and entities won\'t be removed.";
+            this.LblInfo3.Text = Languages.ConfigService_LblInfo3;
             this.LblInfo3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // BtnShowLogs
@@ -254,7 +251,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnShowLogs.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnShowLogs.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnShowLogs.TabIndex = 6;
-            this.BtnShowLogs.Text = "open service &logs folder";
+            this.BtnShowLogs.Text = Languages.ConfigService_BtnShowLogs;
             this.BtnShowLogs.UseVisualStyleBackColor = false;
             this.BtnShowLogs.Click += new System.EventHandler(this.BtnShowLogs_Click);
             // 
@@ -293,8 +290,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo4.Name = "LblInfo4";
             this.LblInfo4.Size = new System.Drawing.Size(644, 37);
             this.LblInfo4.TabIndex = 48;
-            this.LblInfo4.Text = "If the service still fails after reinstalling, please open a ticket and send the " +
-    "content of the latest log.";
+            this.LblInfo4.Text = Languages.ConfigService_LblInfo4;
             this.LblInfo4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // LblInfo5
@@ -307,8 +303,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo5.Name = "LblInfo5";
             this.LblInfo5.Size = new System.Drawing.Size(644, 38);
             this.LblInfo5.TabIndex = 50;
-            this.LblInfo5.Text = "If you want to manage the service (add commands and sensor, change settings) you " +
-    "can do so here, or by using the \'satellite service\' button on the main window.";
+            this.LblInfo5.Text = Languages.ConfigService_LblInfo5;
             this.LblInfo5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // BtnManageService
@@ -330,7 +325,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnManageService.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnManageService.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnManageService.TabIndex = 49;
-            this.BtnManageService.Text = "&manage service";
+            this.BtnManageService.Text = Languages.ConfigService_BtnManageService;
             this.BtnManageService.UseVisualStyleBackColor = false;
             this.BtnManageService.Click += new System.EventHandler(this.BtnManageService_Click);
             // 

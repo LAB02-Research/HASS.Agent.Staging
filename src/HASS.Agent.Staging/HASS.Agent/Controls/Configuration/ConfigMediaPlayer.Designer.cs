@@ -48,7 +48,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(643, 192);
             this.LblInfo2.TabIndex = 37;
-            this.LblInfo2.Text = resources.GetString("LblInfo2.Text");
+            this.LblInfo2.Text = Languages.ConfigMediaPlayer_LblInfo2;
             // 
             // LblInfo1
             // 
@@ -60,7 +60,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(575, 104);
             this.LblInfo1.TabIndex = 36;
-            this.LblInfo1.Text = resources.GetString("LblInfo1.Text");
+            this.LblInfo1.Text = Languages.ConfigMediaPlayer_LblInfo1;
             // 
             // BtnMediaPlayerReadme
             // 
@@ -81,7 +81,7 @@ namespace HASS.Agent.Controls.Configuration
             this.BtnMediaPlayerReadme.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnMediaPlayerReadme.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnMediaPlayerReadme.TabIndex = 1;
-            this.BtnMediaPlayerReadme.Text = "media player &documentation";
+            this.BtnMediaPlayerReadme.Text = Languages.ConfigMediaPlayer_BtnMediaPlayerReadme;
             this.BtnMediaPlayerReadme.UseVisualStyleBackColor = false;
             this.BtnMediaPlayerReadme.Click += new System.EventHandler(this.BtnNotificationsReadme_Click);
             // 
@@ -96,7 +96,7 @@ namespace HASS.Agent.Controls.Configuration
             this.CbEnableMediaPlayer.Name = "CbEnableMediaPlayer";
             this.CbEnableMediaPlayer.Size = new System.Drawing.Size(229, 23);
             this.CbEnableMediaPlayer.TabIndex = 0;
-            this.CbEnableMediaPlayer.Text = "&enable media player functionality";
+            this.CbEnableMediaPlayer.Text = Languages.ConfigMediaPlayer_CbEnableMediaPlayer;
             this.CbEnableMediaPlayer.UseVisualStyleBackColor = true;
             // 
             // LblConnectivityDisabled
@@ -110,8 +110,7 @@ namespace HASS.Agent.Controls.Configuration
             this.LblConnectivityDisabled.Name = "LblConnectivityDisabled";
             this.LblConnectivityDisabled.Size = new System.Drawing.Size(663, 54);
             this.LblConnectivityDisabled.TabIndex = 62;
-            this.LblConnectivityDisabled.Text = "both the local API and MQTT are disabled, but the integration needs at least one " +
-    "for it to work";
+            this.LblConnectivityDisabled.Text = Languages.ConfigMediaPlayer_LblConnectivityDisabled;
             this.LblConnectivityDisabled.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.LblConnectivityDisabled.Visible = false;
             // 

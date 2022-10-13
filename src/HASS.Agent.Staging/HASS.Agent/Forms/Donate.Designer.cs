@@ -68,7 +68,7 @@ namespace HASS.Agent.Forms
             this.BtnClose.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnClose.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnClose.TabIndex = 0;
-            this.BtnClose.Text = "&close";
+            this.BtnClose.Text = Languages.Donate_BtnClose;
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -157,7 +157,7 @@ namespace HASS.Agent.Forms
             this.LblInfo.Name = "LblInfo";
             this.LblInfo.Size = new System.Drawing.Size(514, 185);
             this.LblInfo.TabIndex = 38;
-            this.LblInfo.Text = resources.GetString("LblInfo.Text");
+            this.LblInfo.Text = Languages.Donate_LblInfo;
             // 
             // PbPayPal
             // 
@@ -180,7 +180,7 @@ namespace HASS.Agent.Forms
             this.CbHideDonateButton.Name = "CbHideDonateButton";
             this.CbHideDonateButton.Size = new System.Drawing.Size(320, 19);
             this.CbHideDonateButton.TabIndex = 40;
-            this.CbHideDonateButton.Text = "I already donated, hide the button on the main window.";
+            this.CbHideDonateButton.Text = Languages.Donate_CbHideDonateButton;
             this.CbHideDonateButton.UseVisualStyleBackColor = true;
             // 
             // Donate
@@ -214,7 +214,7 @@ namespace HASS.Agent.Forms
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Donate";
+            this.Text = Languages.Donate_Title;
             this.Load += new System.EventHandler(this.Donate_Load);
             this.ResizeEnd += new System.EventHandler(this.Donate_ResizeEnd);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Donate_KeyUp);

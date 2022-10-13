@@ -47,7 +47,7 @@ namespace HASS.Agent.Forms.ChildApplications
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(604, 57);
             this.LblInfo1.TabIndex = 1;
-            this.LblInfo1.Text = "Please wait a bit while some post-update tasks are performed ..";
+            this.LblInfo1.Text = Languages.PostUpdate_LblInfo1;
             this.LblInfo1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // PbStep1InstallSatelliteService
@@ -74,7 +74,7 @@ namespace HASS.Agent.Forms.ChildApplications
             this.LblTask1.Name = "LblTask1";
             this.LblTask1.Size = new System.Drawing.Size(178, 19);
             this.LblTask1.TabIndex = 55;
-            this.LblTask1.Text = "Configuring Satellite Service";
+            this.LblTask1.Text = Languages.PostUpdate_LblTask1;
             // 
             // PostUpdate
             // 
@@ -101,7 +101,7 @@ namespace HASS.Agent.Forms.ChildApplications
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HASS.Agent Post Update";
+            this.Text = Languages.PostUpdate_PostUpdate;
             this.Load += new System.EventHandler(this.PostUpdate_Load);
             this.ResizeEnd += new System.EventHandler(this.PostUpdate_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.PbStep1InstallSatelliteService)).EndInit();

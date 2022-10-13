@@ -32,6 +32,8 @@ namespace HASS.Agent.Managers
                         buffered: true,
                         flushToDiskInterval: TimeSpan.FromMilliseconds(150)))
                 .CreateLogger();
+
+            Log.Information("[MAIN] HASS.Agent version: {version}", Variables.Version);
         }
 
         /// <summary>

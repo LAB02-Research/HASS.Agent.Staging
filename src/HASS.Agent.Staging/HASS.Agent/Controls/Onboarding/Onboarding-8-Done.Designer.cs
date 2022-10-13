@@ -68,9 +68,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblInfo3.Name = "LblInfo3";
             this.LblInfo3.Size = new System.Drawing.Size(595, 111);
             this.LblInfo3.TabIndex = 25;
-            this.LblInfo3.Text = "There\'s a lót more to tinker with, so make sure you take a look at the Configurat" +
-    "ion window!\r\n\r\n\r\nThank you for using HASS.Agent, hopefully it\'ll be useful for y" +
-    "ou :-)\r\n";
+            this.LblInfo3.Text = Languages.OnboardingDone_LblInfo3;
             // 
             // PbUpdate
             // 
@@ -95,7 +93,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblInfo2.Name = "LblInfo2";
             this.LblInfo2.Size = new System.Drawing.Size(515, 46);
             this.LblInfo2.TabIndex = 28;
-            this.LblInfo2.Text = "HASS.Agent will now restart to activate your configuration.";
+            this.LblInfo2.Text = Languages.OnboardingDone_LblInfo2;
             this.LblInfo2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // LblInfo1
@@ -109,7 +107,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblInfo1.Name = "LblInfo1";
             this.LblInfo1.Size = new System.Drawing.Size(187, 47);
             this.LblInfo1.TabIndex = 29;
-            this.LblInfo1.Text = "Yay, done!";
+            this.LblInfo1.Text = Languages.OnboardingDone_LblInfo1;
             // 
             // PbBMAC
             // 
@@ -136,7 +134,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblInfo6.Name = "LblInfo6";
             this.LblInfo6.Size = new System.Drawing.Size(595, 85);
             this.LblInfo6.TabIndex = 30;
-            this.LblInfo6.Text = resources.GetString("LblInfo6.Text");
+            this.LblInfo6.Text = Languages.OnboardingDone_LblInfo6;
             // 
             // LblTip2
             // 
@@ -149,7 +147,7 @@ namespace HASS.Agent.Controls.Onboarding
             this.LblTip2.Name = "LblTip2";
             this.LblTip2.Size = new System.Drawing.Size(343, 13);
             this.LblTip2.TabIndex = 36;
-            this.LblTip2.Text = "Tip: other donation methods are available on the About window.";
+            this.LblTip2.Text = Languages.OnboardingDone_LblTip2;
             // 
             // OnboardingDone
             // 

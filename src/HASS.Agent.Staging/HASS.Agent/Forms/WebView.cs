@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using Syncfusion.Windows.Forms;
 using HASS.Agent.Functions;
 using HASS.Agent.Models.Internal;
+using HASS.Agent.Resources.Localization;
 using HASS.Agent.Settings;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Core.Raw;
@@ -83,7 +84,7 @@ namespace HASS.Agent.Forms
             {
                 Log.Fatal(ex, "[WEBVIEW] WebView2 runtime not found, unable to initialize: {err}", ex.Message);
 
-                var q = MessageBoxAdv.Show("Microsoft's WebView2 runtime isn't found on your machine. Usually this is handled by the installer, but you can install it manually.\r\n\r\nDo you want to download the runtime installer?",
+                var q = MessageBoxAdv.Show(Languages.WebView_InitializeAsync_MessageBox1,
                     Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
                 if (q != DialogResult.Yes) return false;
@@ -95,7 +96,7 @@ namespace HASS.Agent.Forms
             {
                 Log.Fatal(ex, "[WEBVIEW] WebView2 initialization failed: {err}", ex.Message);
 
-                MessageBoxAdv.Show("Something went wrong while initializing the WebView. Please check your logs and open a GitHub ticket to get help.", Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxAdv.Show(Languages.WebView_InitializeAsync_MessageBox2, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
