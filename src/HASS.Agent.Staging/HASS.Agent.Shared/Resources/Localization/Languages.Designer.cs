@@ -39,7 +39,7 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Localization.Languages", typeof(Languages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HASS.Agent.Shared.Resources.Localization.Languages", typeof(Languages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
