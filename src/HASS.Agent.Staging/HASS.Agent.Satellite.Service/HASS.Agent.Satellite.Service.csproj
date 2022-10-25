@@ -27,15 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.21.7" />
+    <PackageReference Include="Google.Protobuf" Version="3.21.8" />
     <PackageReference Include="Grpc" Version="2.46.5" />
     <PackageReference Include="Grpc.Core.Api" Version="2.49.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.49.1">
+    <PackageReference Include="Grpc.Tools" Version="2.50.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.1" />
     <PackageReference Include="MQTTnet" Version="3.1.2" />
     <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.2" />
     <PackageReference Include="Serilog" Version="2.12.0" />

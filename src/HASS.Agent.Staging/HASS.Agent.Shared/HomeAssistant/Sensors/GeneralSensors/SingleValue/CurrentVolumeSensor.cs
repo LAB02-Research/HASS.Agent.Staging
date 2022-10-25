@@ -33,7 +33,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
         public override string GetState()
         {
-            using var audioDevice = Variables.AudioDeviceEnumerator?.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia);
+            using var audioDevice = Variables.AudioDeviceEnumerator?.GetDefaultAudioEndpoint(DataFlow.eRender, Role.Multimedia);
             // check for null & mute
             if (audioDevice?.AudioEndpointVolume == null) return "0";
             if (audioDevice.AudioEndpointVolume.Mute) return "0";

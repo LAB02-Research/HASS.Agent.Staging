@@ -41,7 +41,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 var parentSensorSafeName = SharedHelperFunctions.GetSafeValue(Name);
 
                 // get the default audio device
-                using (var audioDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia))
+                using (var audioDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(DataFlow.eRender, Role.Multimedia))
                 {
                     // default device name
                     var defaultDeviceId = $"{parentSensorSafeName}_default_device";
@@ -101,7 +101,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 }
 
                 // get the default input audio device
-                using (var inputDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.eCapture, ERole.eCommunications))
+                using (var inputDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(DataFlow.eCapture, Role.Communications))
                 {
                     // default input device name
                     var defaultInputDeviceId = $"{parentSensorSafeName}_default_input_device";
@@ -160,7 +160,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             {
                 var errors = false;
 
-                foreach (var device in Variables.AudioDeviceEnumerator.EnumerateAudioEndPoints(EDataFlow.eRender, DEVICE_STATE.DEVICE_STATE_ACTIVE))
+                foreach (var device in Variables.AudioDeviceEnumerator.EnumerateAudioEndPoints(DataFlow.eRender, DeviceState.Active))
                 {
                     // process sessions (and get peak volume)
                     foreach (var session in device.AudioSessionManager2?.Sessions.Where(x => x != null))
@@ -175,7 +175,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
                             // get displayname
                             string displayName;
-                            var procId = (int)session.GetProcessID;
+                            var procId = (int)session.ProcessID;
                             if (procId <= 0)
                             {
                                 // faulty process id, use the provided displayname
@@ -308,15 +308,15 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
         /// </summary>
         /// <param name="state"></param>
         /// <returns></returns>
-        private static string GetReadableState(DEVICE_STATE state)
+        private static string GetReadableState(DeviceState state)
         {
             return state switch
             {
-                DEVICE_STATE.DEVICE_STATE_ACTIVE => "ACTIVE",
-                DEVICE_STATE.DEVICE_STATE_DISABLED => "DISABLED",
-                DEVICE_STATE.DEVICE_STATE_NOTPRESENT => "NOT PRESENT",
-                DEVICE_STATE.DEVICE_STATE_UNPLUGGED => "UNPLUGGED",
-                DEVICE_STATE.DEVICE_STATEMASK_ALL => "STATEMASK_ALL",
+                DeviceState.Active => "ACTIVE",
+                DeviceState.Disabled => "DISABLED",
+                DeviceState.NotPresent => "NOT PRESENT",
+                DeviceState.Unplugged => "UNPLUGGED",
+                DeviceState.MaskAll => "STATEMASK_ALL",
                 _ => "UNKNOWN"
             };
         }

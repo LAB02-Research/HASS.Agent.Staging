@@ -42,28 +42,28 @@
 
   <ItemGroup>
     <PackageReference Include="Grapevine" Version="5.0.0-rc.10" />
-    <PackageReference Include="Grpc.Tools" Version="2.49.1">
+    <PackageReference Include="Grpc.Tools" Version="2.50.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="GrpcDotNetNamedPipes" Version="1.4.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.2" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1343.22" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1370.28" />
     <PackageReference Include="MQTTnet" Version="3.1.2" />
     <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Octokit" Version="3.0.1" />
+    <PackageReference Include="Octokit" Version="4.0.1" />
     <PackageReference Include="Serilog" Version="2.12.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageReference Include="Syncfusion.Core.WinForms" Version="20.2.0.50" />
-    <PackageReference Include="Syncfusion.Licensing" Version="20.2.0.50" />
-    <PackageReference Include="Syncfusion.Shared.Base" Version="20.2.0.50" />
-    <PackageReference Include="Syncfusion.Tools.Windows" Version="20.2.0.50" />
+    <PackageReference Include="Syncfusion.Core.WinForms" Version="20.3.0.50" />
+    <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.50" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="20.3.0.50" />
+    <PackageReference Include="Syncfusion.Tools.Windows" Version="20.3.0.50" />
   </ItemGroup>
 
   <ItemGroup>
@@ -150,6 +150,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigExternalTools.es.resx">
       <DependentUpon>ConfigExternalTools.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigExternalTools.fr.resx">
+      <DependentUpon>ConfigExternalTools.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigExternalTools.nl.resx">
       <DependentUpon>ConfigExternalTools.resx</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +172,9 @@
       <DependentUpon>ConfigGeneral.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigGeneral.es.resx">
+      <DependentUpon>ConfigGeneral.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigGeneral.fr.resx">
       <DependentUpon>ConfigGeneral.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigGeneral.nl.resx">
@@ -192,6 +198,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigHomeAssistantApi.es.resx">
       <DependentUpon>ConfigHomeAssistantApi.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigHomeAssistantApi.fr.resx">
+      <DependentUpon>ConfigHomeAssistantApi.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigHomeAssistantApi.nl.resx">
       <DependentUpon>ConfigHomeAssistantApi.resx</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +222,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigHotKey.es.resx">
       <DependentUpon>ConfigHotKey.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigHotKey.fr.resx">
+      <DependentUpon>ConfigHotKey.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigHotKey.nl.resx">
       <DependentUpon>ConfigHotKey.resx</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +243,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigLocalApi.es.resx">
       <DependentUpon>ConfigLocalApi.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigLocalApi.fr.resx">
+      <DependentUpon>ConfigLocalApi.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigLocalApi.nl.resx">
       <DependentUpon>ConfigLocalApi.resx</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +259,9 @@
       <DependentUpon>ConfigLocalStorage.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigLocalStorage.es.resx">
+      <DependentUpon>ConfigLocalStorage.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigLocalStorage.fr.resx">
       <DependentUpon>ConfigLocalStorage.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigLocalStorage.nl.resx">
@@ -276,6 +294,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigLogging.es.resx">
       <DependentUpon>ConfigLogging.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigLogging.fr.resx">
+      <DependentUpon>ConfigLogging.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigLogging.nl.resx">
       <DependentUpon>ConfigLogging.resx</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +315,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigMediaPlayer.es.resx">
       <DependentUpon>ConfigMediaPlayer.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigMediaPlayer.fr.resx">
+      <DependentUpon>ConfigMediaPlayer.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigMediaPlayer.nl.resx">
       <DependentUpon>ConfigMediaPlayer.resx</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +331,9 @@
       <DependentUpon>ConfigMqtt.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigMqtt.es.resx">
+      <DependentUpon>ConfigMqtt.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigMqtt.fr.resx">
       <DependentUpon>ConfigMqtt.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigMqtt.nl.resx">
@@ -357,6 +384,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigNotifications.es.resx">
       <DependentUpon>ConfigNotifications.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigNotifications.fr.resx">
+      <DependentUpon>ConfigNotifications.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigNotifications.nl.resx">
       <DependentUpon>ConfigNotifications.resx</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +406,9 @@
       <DependentUpon>ConfigService.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigService.es.resx">
+      <DependentUpon>ConfigService.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigService.fr.resx">
       <DependentUpon>ConfigService.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigService.nl.resx">
@@ -399,6 +432,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigStartup.es.resx">
       <DependentUpon>ConfigStartup.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigStartup.fr.resx">
+      <DependentUpon>ConfigStartup.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigStartup.nl.resx">
       <DependentUpon>ConfigStartup.resx</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +453,9 @@
     <EmbeddedResource Update="Controls\Configuration\ConfigTrayIcon.es.resx">
       <DependentUpon>ConfigTrayIcon.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigTrayIcon.fr.resx">
+      <DependentUpon>ConfigTrayIcon.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigTrayIcon.nl.resx">
       <DependentUpon>ConfigTrayIcon.resx</DependentUpon>
     </EmbeddedResource>
@@ -430,6 +469,9 @@
       <DependentUpon>ConfigUpdates.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigUpdates.es.resx">
+      <DependentUpon>ConfigUpdates.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Configuration\ConfigUpdates.fr.resx">
       <DependentUpon>ConfigUpdates.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Configuration\ConfigUpdates.nl.resx">
@@ -453,6 +495,9 @@
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-1-Welcome.es.resx">
       <DependentUpon>Onboarding-1-Welcome.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-1-Welcome.fr.resx">
+      <DependentUpon>Onboarding-1-Welcome.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-1-Welcome.nl.resx">
       <DependentUpon>Onboarding-1-Welcome.resx</DependentUpon>
     </EmbeddedResource>
@@ -474,6 +519,9 @@
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-2-Startup.es.resx">
       <DependentUpon>Onboarding-2-Startup.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-2-Startup.fr.resx">
+      <DependentUpon>Onboarding-2-Startup.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-2-Startup.nl.resx">
       <DependentUpon>Onboarding-2-Startup.resx</DependentUpon>
     </EmbeddedResource>
@@ -486,6 +534,12 @@
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-2-Startup.sl.resx">
       <DependentUpon>Onboarding-2-Startup.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-3-API.fr.resx">
+      <DependentUpon>Onboarding-3-API.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-4-MQTT.fr.resx">
+      <DependentUpon>Onboarding-4-MQTT.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.de.resx">
       <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
@@ -493,6 +547,9 @@
       <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.es.resx">
+      <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.fr.resx">
       <DependentUpon>Onboarding-5-Integrations.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-5-Integrations.nl.resx">
@@ -558,6 +615,9 @@
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.es.resx">
       <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.fr.resx">
+      <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-6-HotKey.nl.resx">
       <DependentUpon>Onboarding-6-HotKey.resx</DependentUpon>
     </EmbeddedResource>
@@ -577,6 +637,9 @@
       <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.es.resx">
+      <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.fr.resx">
       <DependentUpon>Onboarding-7-Updates.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-7-Updates.nl.resx">
@@ -600,6 +663,9 @@
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.es.resx">
       <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.fr.resx">
+      <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Onboarding\Onboarding-8-Done.nl.resx">
       <DependentUpon>Onboarding-8-Done.resx</DependentUpon>
     </EmbeddedResource>
@@ -619,6 +685,9 @@
       <DependentUpon>QuickActionControl.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\QuickActionControl.es.resx">
+      <DependentUpon>QuickActionControl.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\QuickActionControl.fr.resx">
       <DependentUpon>QuickActionControl.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\QuickActionControl.nl.resx">
@@ -642,6 +711,9 @@
     <EmbeddedResource Update="Controls\Service\ServiceCommands.es.resx">
       <DependentUpon>ServiceCommands.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Service\ServiceCommands.fr.resx">
+      <DependentUpon>ServiceCommands.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceCommands.nl.resx">
       <DependentUpon>ServiceCommands.resx</DependentUpon>
     </EmbeddedResource>
@@ -661,6 +733,9 @@
       <DependentUpon>ServiceConnect.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceConnect.es.resx">
+      <DependentUpon>ServiceConnect.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Service\ServiceConnect.fr.resx">
       <DependentUpon>ServiceConnect.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceConnect.nl.resx">
@@ -684,6 +759,9 @@
     <EmbeddedResource Update="Controls\Service\ServiceGeneral.es.resx">
       <DependentUpon>ServiceGeneral.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Service\ServiceGeneral.fr.resx">
+      <DependentUpon>ServiceGeneral.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceGeneral.nl.resx">
       <DependentUpon>ServiceGeneral.resx</DependentUpon>
     </EmbeddedResource>
@@ -705,6 +783,9 @@
     <EmbeddedResource Update="Controls\Service\ServiceMQTT.es.resx">
       <DependentUpon>ServiceMQTT.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Service\ServiceMQTT.fr.resx">
+      <DependentUpon>ServiceMQTT.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceMQTT.nl.resx">
       <DependentUpon>ServiceMQTT.resx</DependentUpon>
     </EmbeddedResource>
@@ -724,6 +805,9 @@
       <DependentUpon>ServiceSensors.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceSensors.es.resx">
+      <DependentUpon>ServiceSensors.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Service\ServiceSensors.fr.resx">
       <DependentUpon>ServiceSensors.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\Service\ServiceSensors.nl.resx">
@@ -768,6 +852,9 @@
     <EmbeddedResource Update="Forms\About.es.resx">
       <DependentUpon>About.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\About.fr.resx">
+      <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\About.nl.resx">
       <DependentUpon>About.resx</DependentUpon>
     </EmbeddedResource>
@@ -787,6 +874,9 @@
       <DependentUpon>PortReservation.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\PortReservation.es.resx">
+      <DependentUpon>PortReservation.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\PortReservation.fr.resx">
       <DependentUpon>PortReservation.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\PortReservation.nl.resx">
@@ -810,6 +900,9 @@
     <EmbeddedResource Update="Forms\ChildApplications\PostUpdate.es.resx">
       <DependentUpon>PostUpdate.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\PostUpdate.fr.resx">
+      <DependentUpon>PostUpdate.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\PostUpdate.nl.resx">
       <DependentUpon>PostUpdate.resx</DependentUpon>
     </EmbeddedResource>
@@ -829,6 +922,9 @@
       <DependentUpon>Restart.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\Restart.es.resx">
+      <DependentUpon>Restart.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\Restart.fr.resx">
       <DependentUpon>Restart.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\Restart.nl.resx">
@@ -852,6 +948,9 @@
     <EmbeddedResource Update="Forms\ChildApplications\ServiceReinstall.es.resx">
       <DependentUpon>ServiceReinstall.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\ServiceReinstall.fr.resx">
+      <DependentUpon>ServiceReinstall.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\ServiceReinstall.nl.resx">
       <DependentUpon>ServiceReinstall.resx</DependentUpon>
     </EmbeddedResource>
@@ -873,6 +972,9 @@
     <EmbeddedResource Update="Forms\ChildApplications\ServiceSetState.es.resx">
       <DependentUpon>ServiceSetState.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\ServiceSetState.fr.resx">
+      <DependentUpon>ServiceSetState.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\ServiceSetState.nl.resx">
       <DependentUpon>ServiceSetState.resx</DependentUpon>
     </EmbeddedResource>
@@ -891,6 +993,9 @@
     <EmbeddedResource Update="Forms\Commands\CommandConfig\CommandMqttTopic.es.resx">
       <DependentUpon>CommandMqttTopic.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Commands\CommandConfig\CommandMqttTopic.fr.resx">
+      <DependentUpon>CommandMqttTopic.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\Commands\CommandConfig\CommandMqttTopic.nl.resx">
       <DependentUpon>CommandMqttTopic.resx</DependentUpon>
     </EmbeddedResource>
@@ -901,6 +1006,9 @@
       <DependentUpon>WebViewCommandConfig.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Commands\CommandConfig\WebViewCommandConfig.es.resx">
+      <DependentUpon>WebViewCommandConfig.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Commands\CommandConfig\WebViewCommandConfig.fr.resx">
       <DependentUpon>WebViewCommandConfig.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Commands\CommandConfig\WebViewCommandConfig.nl.resx">
@@ -916,6 +1024,9 @@
       <DependentUpon>CommandsConfig.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Commands\CommandsConfig.es.resx">
+      <DependentUpon>CommandsConfig.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Commands\CommandsConfig.fr.resx">
       <DependentUpon>CommandsConfig.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Commands\CommandsConfig.nl.resx">
@@ -939,6 +1050,9 @@
     <EmbeddedResource Update="Forms\Commands\CommandsMod.es.resx">
       <DependentUpon>CommandsMod.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Commands\CommandsMod.fr.resx">
+      <DependentUpon>CommandsMod.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\Commands\CommandsMod.nl.resx">
       <DependentUpon>CommandsMod.resx</DependentUpon>
     </EmbeddedResource>
@@ -960,6 +1074,9 @@
     <EmbeddedResource Update="Forms\Configuration.es.resx">
       <DependentUpon>Configuration.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Configuration.fr.resx">
+      <DependentUpon>Configuration.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\Configuration.nl.resx">
       <DependentUpon>Configuration.resx</DependentUpon>
     </EmbeddedResource>
@@ -972,6 +1089,9 @@
     <EmbeddedResource Update="Forms\Configuration.sl.resx">
       <DependentUpon>Configuration.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Donate.fr.resx">
+      <DependentUpon>Donate.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\ExitDialog.de.resx">
       <DependentUpon>ExitDialog.resx</DependentUpon>
     </EmbeddedResource>
@@ -979,6 +1099,9 @@
       <DependentUpon>ExitDialog.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\ExitDialog.es.resx">
+      <DependentUpon>ExitDialog.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ExitDialog.fr.resx">
       <DependentUpon>ExitDialog.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\ExitDialog.nl.resx">
@@ -1011,6 +1134,9 @@
     <EmbeddedResource Update="Forms\Help.es.resx">
       <DependentUpon>Help.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Help.fr.resx">
+      <DependentUpon>Help.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\Help.nl.resx">
       <DependentUpon>Help.resx</DependentUpon>
     </EmbeddedResource>
@@ -1030,6 +1156,9 @@
       <DependentUpon>Main.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Main.es.resx">
+      <DependentUpon>Main.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Main.fr.resx">
       <DependentUpon>Main.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Main.nl.resx">
@@ -1053,6 +1182,9 @@
     <EmbeddedResource Update="Forms\Onboarding.es.resx">
       <DependentUpon>Onboarding.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Onboarding.fr.resx">
+      <DependentUpon>Onboarding.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\Onboarding.nl.resx">
       <DependentUpon>Onboarding.resx</DependentUpon>
     </EmbeddedResource>
@@ -1072,6 +1204,9 @@
       <DependentUpon>QuickActions.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\QuickActions\QuickActions.es.resx">
+      <DependentUpon>QuickActions.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\QuickActions\QuickActions.fr.resx">
       <DependentUpon>QuickActions.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\QuickActions\QuickActions.nl.resx">
@@ -1095,6 +1230,9 @@
     <EmbeddedResource Update="Forms\QuickActions\QuickActionsConfig.es.resx">
       <DependentUpon>QuickActionsConfig.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\QuickActions\QuickActionsConfig.fr.resx">
+      <DependentUpon>QuickActionsConfig.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\QuickActions\QuickActionsConfig.nl.resx">
       <DependentUpon>QuickActionsConfig.resx</DependentUpon>
     </EmbeddedResource>
@@ -1114,6 +1252,9 @@
       <DependentUpon>QuickActionsMod.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\QuickActions\QuickActionsMod.es.resx">
+      <DependentUpon>QuickActionsMod.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\QuickActions\QuickActionsMod.fr.resx">
       <DependentUpon>QuickActionsMod.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\QuickActions\QuickActionsMod.nl.resx">
@@ -1137,6 +1278,9 @@
     <EmbeddedResource Update="Forms\Sensors\SensorsConfig.es.resx">
       <DependentUpon>SensorsConfig.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Sensors\SensorsConfig.fr.resx">
+      <DependentUpon>SensorsConfig.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\Sensors\SensorsConfig.nl.resx">
       <DependentUpon>SensorsConfig.resx</DependentUpon>
     </EmbeddedResource>
@@ -1156,6 +1300,9 @@
       <DependentUpon>SensorsMod.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Sensors\SensorsMod.es.resx">
+      <DependentUpon>SensorsMod.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Sensors\SensorsMod.fr.resx">
       <DependentUpon>SensorsMod.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\Sensors\SensorsMod.nl.resx">
@@ -1179,6 +1326,9 @@
     <EmbeddedResource Update="Forms\Service\ServiceConfig.es.resx">
       <DependentUpon>ServiceConfig.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Service\ServiceConfig.fr.resx">
+      <DependentUpon>ServiceConfig.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\Service\ServiceConfig.nl.resx">
       <DependentUpon>ServiceConfig.resx</DependentUpon>
     </EmbeddedResource>
@@ -1200,6 +1350,9 @@
     <EmbeddedResource Update="Forms\UpdatePending.es.resx">
       <DependentUpon>UpdatePending.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\UpdatePending.fr.resx">
+      <DependentUpon>UpdatePending.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\UpdatePending.nl.resx">
       <DependentUpon>UpdatePending.resx</DependentUpon>
     </EmbeddedResource>
@@ -1218,6 +1371,9 @@
     <EmbeddedResource Update="Forms\WebView.es.resx">
       <DependentUpon>WebView.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Forms\WebView.fr.resx">
+      <DependentUpon>WebView.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Forms\WebView.nl.resx">
       <DependentUpon>WebView.resx</DependentUpon>
     </EmbeddedResource>
@@ -1231,6 +1387,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.es.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.fr.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.nl.resx">
@@ -1256,6 +1415,9 @@
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization\Languages.es.resx">
+      <DependentUpon>Languages.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localization\Languages.fr.resx">
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization\Languages.nl.resx">
