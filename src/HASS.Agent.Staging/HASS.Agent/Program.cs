@@ -8,6 +8,7 @@ using HASS.Agent.Managers;
 using HASS.Agent.Settings;
 using HASS.Agent.Shared.Extensions;
 using Serilog;
+using Serilog.Events;
 
 namespace HASS.Agent
 {
@@ -23,21 +24,32 @@ namespace HASS.Agent
             {
                 // syncfusion license
                 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Variables.SyncfusionLicense);
-                
+
                 // enable logging
                 LoggingManager.PrepareLogging(args);
 
                 // get extended logging settings
                 Variables.ExtendedLogging = SettingsManager.GetExtendedLoggingSetting();
 
+#if DEBUG
+                Variables.ExtendedLogging = true;
+                Variables.LevelSwitch.MinimumLevel = LogEventLevel.Debug;
+
+                Log.Debug("[MAIN] DEBUG BUILD - TESTING PURPOSES ONLY");
+
+                // make sure we catch 'm all
+                AppDomain.CurrentDomain.FirstChanceException += LoggingManager.CurrentDomainOnFirstChanceException;
+#else
                 if (Variables.ExtendedLogging)
                 {
+                    Variables.LevelSwitch.MinimumLevel = LogEventLevel.Debug;
                     Log.Information("[MAIN] Extended logging enabled");
 
                     // make sure we catch 'm all
                     AppDomain.CurrentDomain.FirstChanceException += LoggingManager.CurrentDomainOnFirstChanceException;
                 }
-                
+#endif
+
                 // prepare application
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
@@ -49,7 +61,8 @@ namespace HASS.Agent
                 var settingsLoaded = SettingsManager.LoadAsync(!childApp).GetAwaiter().GetResult();
                 if (!settingsLoaded)
                 {
-                    Log.Error("[PROGRAM] Something went wrong while loading the settings. Check appsettings.json, or delete the file to start fresh.");
+                    Log.Error(
+                        "[PROGRAM] Something went wrong while loading the settings. Check appsettings.json, or delete the file to start fresh.");
                     Log.CloseAndFlush();
                     return;
                 }
@@ -87,6 +100,10 @@ namespace HASS.Agent
             catch (Exception ex)
             {
                 Log.Fatal(ex, "[PROGRAM] {err}", ex.Message);
+                Log.CloseAndFlush();
+            }
+            finally
+            {
                 Log.CloseAndFlush();
             }
         }

@@ -23,7 +23,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyVersion>2022.14.0</AssemblyVersion>
-    <FileVersion>2022.13.0</FileVersion>
+    <FileVersion>2022.14.0</FileVersion>
     <RootNamespace>HASS.Agent</RootNamespace>
   </PropertyGroup>
 

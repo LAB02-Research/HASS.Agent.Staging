@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Runtime.ExceptionServices;
 using MQTTnet.Exceptions;
 using Serilog;
+using Serilog.Events;
 
 namespace HASS.Agent.Managers
 {
@@ -20,6 +21,8 @@ namespace HASS.Agent.Managers
         {
             var logName = string.Empty;
             if (args.Any()) logName = $"{args.First(x => !string.IsNullOrEmpty(x))}_";
+
+            Variables.LevelSwitch.MinimumLevel = LogEventLevel.Information;
 
             // prepare a serilog logger
             Log.Logger = new LoggerConfiguration()

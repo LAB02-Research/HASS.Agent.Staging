@@ -22,6 +22,7 @@ using HASS.Agent.Shared.Mqtt;
 using Microsoft.Win32;
 using MQTTnet;
 using WK.Libraries.HotkeyListenerNS;
+using Serilog.Core;
 
 namespace HASS.Agent
 {
@@ -93,6 +94,7 @@ namespace HASS.Agent
         internal static bool ShuttingDown { get; set; } = false;
         internal static bool OnboardingLaunchOnLoginKeyCreated { get; set; } = false;
         internal static bool ExtendedLogging { get; set; } = false;
+        internal static LoggingLevelSwitch LevelSwitch { get; } = new();
 
         /// <summary>
         /// Local IO
