@@ -343,7 +343,8 @@ namespace HASS.Agent.MQTT
                 if ((DateTime.Now - _lastPublishFailedLogged).TotalMinutes < 5) return;
                 _lastPublishFailedLogged = DateTime.Now;
 
-                Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
+                if (Variables.ExtendedLogging) Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes):\r\n{msg}", message.ConvertPayloadToString());
+                else Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
             }
         }
 
@@ -512,8 +513,8 @@ namespace HASS.Agent.MQTT
             if (!Variables.AppSettings.MqttEnabled) return;
             if (_mqttClient is { IsConnected: true })
             {
-                _mqttClient.InternalClient.DisconnectAsync();
-                _mqttClient.Dispose();
+                _mqttClient?.InternalClient?.DisconnectAsync();
+                _mqttClient?.Dispose();
             }
 
             Log.Information("[MQTT] Disconnected");

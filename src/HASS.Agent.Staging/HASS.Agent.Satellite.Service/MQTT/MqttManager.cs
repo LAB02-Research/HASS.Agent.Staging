@@ -312,7 +312,8 @@ namespace HASS.Agent.Satellite.Service.MQTT
                     if ((DateTime.Now - _lastPublishFailedLogged).TotalMinutes < 5) return;
                     _lastPublishFailedLogged = DateTime.Now;
 
-                    Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
+                    if (Variables.ExtendedLogging) Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes):\r\n{msg}", message.ConvertPayloadToString());
+                    else Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
                 }
             }
             catch (Exception ex)

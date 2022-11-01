@@ -26,6 +26,7 @@ namespace HASS.Agent.Managers
 
             // prepare a serilog logger
             Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.ControlledBy(Variables.LevelSwitch)
                 .WriteTo.Async(a =>
                     a.File(Path.Combine(Variables.LogPath, $"[{DateTime.Now:yyyy-MM-dd}] {Variables.ApplicationName}_{logName}.log"),
                         rollingInterval: RollingInterval.Day,

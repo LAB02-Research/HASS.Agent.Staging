@@ -200,7 +200,7 @@ namespace HASS.Agent.Functions
 
                 // flush the log
                 Log.Information("[SYSTEM] Application shutdown complete");
-                Log.CloseAndFlush();
+                await Log.CloseAndFlushAsync();
                 logClosed = true;
             }
             catch (Exception ex)
@@ -210,7 +210,7 @@ namespace HASS.Agent.Functions
                 if (!logClosed)
                 {
                     Log.Error("[SYSTEM] Error shutting down nicely: {msg}", ex.Message);
-                    Log.CloseAndFlush();
+                    await Log.CloseAndFlushAsync();
                 }
             }
             finally

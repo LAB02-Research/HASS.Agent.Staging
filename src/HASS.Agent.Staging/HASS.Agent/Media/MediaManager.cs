@@ -18,6 +18,7 @@ namespace HASS.Agent.Media
     internal static class MediaManager
     {
         private static bool _monitoring = true;
+        private static bool _mediaActive = true;
 
         private static GlobalSystemMediaTransportControlsSessionManager _sessionManager;
 
@@ -92,9 +93,23 @@ namespace HASS.Agent.Media
                     var session = GetCurrentMediaSession();
                     if (session == null)
                     {
-                        // no session found
-                        if (Variables.ExtendedLogging) Log.Warning("[MEDIA] Null object received when requesting CurrentMediaSession");
+                        // no session found, optionally log
+                        if (_mediaActive)
+                        {
+                            _mediaActive = false;
+                            if (Variables.ExtendedLogging) Log.Warning("[MEDIA] No MediaSession active");
+                        }
+
+                        // done
                         continue;
+                    }
+
+                    // new session?
+                    if (!_mediaActive)
+                    {
+                        // yep, optionally log
+                        _mediaActive = true;
+                        if (Variables.ExtendedLogging) Log.Warning("[MEDIA] New MediaSession active");
                     }
 
                     // get the media properties
