@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Globalization;
+using System.Text;
 using HASS.Agent.Enums;
 using HASS.Agent.Forms;
 using HASS.Agent.Forms.ChildApplications;
@@ -75,6 +76,9 @@ namespace HASS.Agent
 
                 // set default font
                 Application.SetDefaultFont(Variables.DefaultFont);
+
+                // register the encoding provider for non-default encodings
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
                 // check to see if we're launched as a child application
                 if (LaunchedAsChildApplication(args))

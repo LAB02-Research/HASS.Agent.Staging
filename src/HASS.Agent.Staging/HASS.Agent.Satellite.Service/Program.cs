@@ -3,6 +3,7 @@ using HASS.Agent.Satellite.Service.Settings;
 using Microsoft.Extensions.Hosting.WindowsServices;
 using Serilog;
 using Serilog.Events;
+using System.Text;
 
 namespace HASS.Agent.Satellite.Service
 {
@@ -12,6 +13,9 @@ namespace HASS.Agent.Satellite.Service
         {
             // initialize serilog
             LoggingManager.PrepareLogging(args);
+
+            // register the encoding provider for non-default encodings
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             Log.Information("[MAIN] Version: {v}", Variables.Version);
 

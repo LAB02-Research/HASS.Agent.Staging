@@ -64,6 +64,7 @@
     <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.50" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="20.3.0.50" />
     <PackageReference Include="Syncfusion.Tools.Windows" Version="20.3.0.50" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

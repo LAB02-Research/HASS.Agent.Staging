@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Text;
 using Serilog;
 
 namespace HASS.Agent.Shared.Managers
@@ -206,6 +208,9 @@ namespace HASS.Agent.Shared.Managers
                     UseShellExecute = false,
                     CreateNoWindow = true,
                     WorkingDirectory = workingDir,
+                    // attempt to set the right encoding
+                    StandardOutputEncoding = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage),
+                    StandardErrorEncoding = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage),
                     // set the right type of arguments
                     Arguments = isScript
                         ? $@"& '{command}'"
