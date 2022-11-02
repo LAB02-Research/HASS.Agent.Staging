@@ -2107,7 +2107,9 @@ Instance: _Total
 You can explore the counters through Windows&apos; &apos;perfmon.exe&apos; tool.</value>
   </data>
   <data name="SensorsManager_ProcessActiveSensorDescription" xml:space="preserve">
-    <value>Provides the number of active instances of the process.</value>
+	  <value>Provides the number of active instances of the process.
+
+Note: don't add the extension (eg. notepad.exe becomes notepad).</value>
   </data>
   <data name="SensorsManager_ServiceStateSensorDescription" xml:space="preserve">
     <value>Returns the state of the provided service: NotFound, Stopped, StartPending, StopPending, Running, ContinuePending, PausePending or Paused.

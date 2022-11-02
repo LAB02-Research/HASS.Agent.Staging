@@ -12,7 +12,14 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     {
         public string ProcessName { get; protected set; }
 
-        public ProcessActiveSensor(string processName, int? updateInterval = null, string name = "processactive", string id = default) : base(name ?? "processactive", updateInterval ?? 10, id) => ProcessName = processName;
+        public ProcessActiveSensor(string processName, int? updateInterval = null, string name = "processactive", string id = default) : base(name ?? "processactive", updateInterval ?? 10, id)
+        {
+            ProcessName = processName;
+
+            // remove common extensions
+            var procLc = ProcessName.ToLower();
+            if (procLc.EndsWith(".exe") || procLc.EndsWith(".cmd") || procLc.EndsWith(".dll")) ProcessName = ProcessName[..^4];
+        }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -34,9 +41,6 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
         public override string GetState()
         {
-            // we don't need the extension
-            if (ProcessName.Contains(".")) ProcessName = Path.GetFileNameWithoutExtension(ProcessName);
-
             // search for our process
             var procs = Process.GetProcessesByName(ProcessName);
             var instanceCount = procs.Any() ? procs.Length : 0;

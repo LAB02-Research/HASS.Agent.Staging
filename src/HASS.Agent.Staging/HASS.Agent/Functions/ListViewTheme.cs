@@ -43,7 +43,7 @@ namespace HASS.Agent.Functions
         private static readonly List<string> IgnorableHeaders = new List<string>
         {
             "low integrity", "filler column", "action", "refresh", "hotkey enabled", "multivalue",
-            "agent compatible", "satellite compatible"
+            "agent compatible", "satellite compatible", "action compatible"
         };
 
         internal static void DrawItem(object sender, DrawListViewItemEventArgs e)
@@ -124,7 +124,7 @@ namespace HASS.Agent.Functions
             }
             
             // draw the text in the right color
-            if (!IgnorableHeaders.Contains(e.Header.Text.ToLower()))
+            if (!IgnorableHeaders.Contains(e.Header.Text.Trim().ToLower()))
             {
                 // regular
                 using var foreBrush = new SolidBrush(ForeColor);

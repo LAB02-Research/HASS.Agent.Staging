@@ -259,7 +259,7 @@ namespace HASS.Agent.Forms.Sensors
                     break;
 
                 case SensorType.WindowStateSensor:
-                    SetProcessGui();
+                    SetWindowGui();
                     break;
 
                 default:
