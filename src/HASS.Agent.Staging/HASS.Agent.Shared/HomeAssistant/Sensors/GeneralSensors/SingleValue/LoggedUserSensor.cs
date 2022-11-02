@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Models.HomeAssistant;
 
@@ -32,9 +33,16 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             // get the active users
             var loggedUsers = SessionsManager.GetLoggedUsers(true);
             var loggedUsersList = loggedUsers as string[] ?? loggedUsers.ToArray();
+            
+            // select the first on the list (if any)
+            var username = string.Empty;
+            if (loggedUsersList.Any()) username = loggedUsersList.First();
 
-            // if there is none, our username, otherwise the first
-            return loggedUsersList.Any() ? Environment.UserName : loggedUsersList.First();
+            // set empty as none
+            if (string.IsNullOrWhiteSpace(username)) username = "None";
+            
+            // send the result
+            return username;
         }
 
         public override string GetAttributes() => string.Empty;

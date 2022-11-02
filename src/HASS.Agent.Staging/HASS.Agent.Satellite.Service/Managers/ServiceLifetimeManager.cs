@@ -57,7 +57,7 @@ namespace HASS.Agent.Satellite.Service.Managers
 
         protected override void OnSessionChange(SessionChangeDescription changeDescription)
         {
-            Log.Information("[LIFETIMEMANAGER] SessionChange: {desc}", changeDescription.Reason.ToString());
+            if (Variables.ExtendedLogging) Log.Information("[LIFETIMEMANAGER] SessionChange: {desc}", changeDescription.Reason.ToString());
 
             switch (changeDescription.Reason)
             {

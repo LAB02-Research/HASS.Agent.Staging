@@ -117,7 +117,7 @@ namespace HASS.Agent.Shared.Functions
         private static string _everyoneAccountName = string.Empty;
 
         /// <summary>
-        /// 
+        /// Gets the localized name of the 'Everyone' account
         /// </summary>
         /// <returns></returns>
         public static string EveryoneLocalizedAccountName()
@@ -135,6 +135,40 @@ namespace HASS.Agent.Shared.Functions
                 Log.Fatal(ex, ex.Message);
                 return "Everyone";
             }
+        }
+
+        private static string _systemAccountName = string.Empty;
+
+        /// <summary>
+        /// Gets the localized name of the 'SYSTEM' account
+        /// </summary>
+        /// <returns></returns>
+        public static string SystemLocalizedAccountName()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(_systemAccountName)) return _systemAccountName;
+
+                // eenmalig ophalen
+                _systemAccountName = Principal.FindByIdentity(new PrincipalContext(ContextType.Machine), IdentityType.Sid, "S-1-5-18")?.Name ?? "SYSTEM";
+                return _systemAccountName;
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, ex.Message);
+                return "SYSTEM";
+            }
+        }
+
+        /// <summary>
+        /// Returns true if the provided or current user is either SYSTEM or a service account
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static bool UserIsSystemOrServiceAccount(string user = "")
+        {
+            if (string.IsNullOrEmpty(user)) user = Environment.UserName;
+            return user == SystemLocalizedAccountName() || user.ToUpper() == $"{Environment.MachineName.ToUpper()}$";
         }
 
         /// <summary>

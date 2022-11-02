@@ -2070,10 +2070,14 @@ Important: Windows&apos; FastBoot option can throw this value off, because that&
 ApplicationStarted, Logoff, SystemShutdown, Resume, Suspend, ConsoleConnect, ConsoleDisconnect, RemoteConnect, RemoteDisconnect, SessionLock, SessionLogoff, SessionLogon, SessionRemoteControl and SessionUnlock.</value>
   </data>
   <data name="SensorsManager_LoggedUserSensorDescription" xml:space="preserve">
-    <value>Returns the name of the currently logged user.</value>
+	  <value>Returns the name of the currently logged user.
+
+This will only show active users, and falls back to 'Empty' if there are none. If there are multiple, the first will be used.</value>
   </data>
   <data name="SensorsManager_LoggedUsersSensorDescription" xml:space="preserve">
-    <value>Returns a json-formatted list of currently logged users.</value>
+	  <value>Returns a json-formatted list of currently logged users.
+
+This will also contain users that aren't active. If you only want the current active user, use the LoggedUser sensor instead.</value>
   </data>
   <data name="SensorsManager_MemoryUsageSensorDescription" xml:space="preserve">
     <value>Provides the amount of used memory as a percentage.</value>

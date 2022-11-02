@@ -12,6 +12,7 @@ using HASS.Agent.Shared.Extensions;
 using MQTTnet;
 using Serilog;
 using MediaPlayerState = HASS.Agent.Enums.MediaPlayerState;
+using Octokit;
 
 namespace HASS.Agent.Media
 {
@@ -129,15 +130,27 @@ namespace HASS.Agent.Media
                         if (Variables.ExtendedLogging) Log.Information("[MEDIA] Now playing: {playing}", Playing);
 
                         // publish the thumbnail
-                        using var reference = await mediaProperties.Thumbnail.OpenReadAsync();
-                        await using var stream = reference.AsStreamForRead();
+                        if (mediaProperties.Thumbnail != null)
+                        {
+                            using var reference = await mediaProperties.Thumbnail.OpenReadAsync();
+                            await using var stream = reference.AsStreamForRead();
 
-                        var haMessageBuilder = new MqttApplicationMessageBuilder()
-                            .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/thumbnail")
-                            .WithPayload(stream)
-                            .WithRetainFlag();
-                    
-                        await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                            var haMessageBuilder = new MqttApplicationMessageBuilder()
+                                .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/thumbnail")
+                                .WithPayload(stream)
+                                .WithRetainFlag();
+
+                            await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                        }
+                        else
+                        {
+                            var haMessageBuilder = new MqttApplicationMessageBuilder()
+                                .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/thumbnail")
+                                .WithPayload(Array.Empty<byte>())
+                                .WithRetainFlag();
+
+                            await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                        }
                     }
 
                     // get and set the playback state

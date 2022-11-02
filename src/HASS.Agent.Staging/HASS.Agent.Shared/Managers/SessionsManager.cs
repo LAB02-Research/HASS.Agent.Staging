@@ -26,6 +26,7 @@ namespace HASS.Agent.Shared.Managers
 
             try
             {
+                var device = $"{Environment.MachineName.ToUpper()}$";
                 var sessionCount = 0;
                 var retVal = WTSEnumerateSessions(serverHandle, 0, 1, ref sessionInfoPtr, ref sessionCount);
                 var dataSize = Marshal.SizeOf(typeof(Cassia.Impl.WTS_SESSION_INFO));
@@ -54,6 +55,7 @@ namespace HASS.Agent.Shared.Managers
                     {
                         var user = Marshal.PtrToStringAnsi(userPtr)?.Trim();
                         if (string.IsNullOrEmpty(user)) continue;
+                        if (SharedHelperFunctions.UserIsSystemOrServiceAccount(user)) continue;
 
                         if (!loggedInUsers.Contains(user)) loggedInUsers.Add(user);
                     }
@@ -88,10 +90,11 @@ namespace HASS.Agent.Shared.Managers
                 {
                     try
                     {
-                        var owner = SharedHelperFunctions.GetProcessOwner(explorer, false);
-                        if (string.IsNullOrEmpty(owner)) continue;
+                        var user = SharedHelperFunctions.GetProcessOwner(explorer, false);
+                        if (string.IsNullOrEmpty(user)) continue;
+                        if (SharedHelperFunctions.UserIsSystemOrServiceAccount(user)) continue;
 
-                        if (!loggedInUsers.Contains(owner)) loggedInUsers.Add(owner);
+                        if (!loggedInUsers.Contains(user)) loggedInUsers.Add(user);
                     }
                     finally
                     {
