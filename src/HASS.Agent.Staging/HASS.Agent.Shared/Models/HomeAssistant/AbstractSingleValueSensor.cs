@@ -78,7 +78,12 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
                     .Build();
 
                 // send it
-                await Variables.MqttManager.PublishAsync(message);
+                var published = await Variables.MqttManager.PublishAsync(message);
+                if (!published)
+                {
+                    // failed, don't store the state
+                    return;
+                }
 
                 // optionally prepare and send attributes
                 if (UseAttributes)
@@ -88,7 +93,12 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
                         .WithPayload(attributes)
                         .Build();
 
-                    await Variables.MqttManager.PublishAsync(message);
+                    published = await Variables.MqttManager.PublishAsync(message);
+                    if (!published)
+                    {
+                        // failed, don't store the state
+                        return;
+                    }
                 }
 
                 // only store the values if the checks are respected

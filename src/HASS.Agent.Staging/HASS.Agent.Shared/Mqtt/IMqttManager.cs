@@ -15,7 +15,7 @@ namespace HASS.Agent.Shared.Mqtt
         bool IsConnected();
         void Initialize();
         void CreateDeviceConfigModel();
-        Task PublishAsync(MqttApplicationMessage message);
+        Task<bool> PublishAsync(MqttApplicationMessage message);
         Task AnnounceAutoDiscoveryConfigAsync(AbstractDiscoverable discoverable, string domain, bool clearConfig = false);
         MqttStatus GetStatus();
         Task AnnounceAvailabilityAsync(bool offline = false);

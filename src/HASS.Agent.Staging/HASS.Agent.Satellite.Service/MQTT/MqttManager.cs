@@ -18,6 +18,7 @@ using MQTTnet.Exceptions;
 using MQTTnet.Extensions.ManagedClient;
 using Serilog;
 using JsonSerializer = System.Text.Json.JsonSerializer;
+using MQTTnet.Client.Publishing;
 
 namespace HASS.Agent.Satellite.Service.MQTT
 {
@@ -301,24 +302,40 @@ namespace HASS.Agent.Satellite.Service.MQTT
         /// <summary>
         /// Publishes the provided message
         /// </summary>
-        public async Task PublishAsync(MqttApplicationMessage message)
+        public async Task<bool> PublishAsync(MqttApplicationMessage message)
         {
             try
             {
-                if (_mqttClient is { IsConnected: true }) await _mqttClient.PublishAsync(message);
-                else
+                if (_mqttClient == null) return false;
+                if (!_mqttClient.IsConnected)
                 {
                     // only log failures once every 5 minutes to minimize log growth
-                    if ((DateTime.Now - _lastPublishFailedLogged).TotalMinutes < 5) return;
+                    if ((DateTime.Now - _lastPublishFailedLogged).TotalMinutes < 5) return false;
                     _lastPublishFailedLogged = DateTime.Now;
 
-                    if (Variables.ExtendedLogging) Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes):\r\n{msg}", message.ConvertPayloadToString());
-                    else Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
+                    if (Variables.ExtendedLogging) Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
+                    return false;
                 }
+
+                // publish away
+                var published = await _mqttClient.PublishAsync(message);
+                if (published.ReasonCode == MqttClientPublishReasonCode.Success) return true;
+
+                // only log failures once every 5 minutes to minimize log growth
+                if ((DateTime.Now - _lastPublishFailedLogged).TotalMinutes < 5) return false;
+                _lastPublishFailedLogged = DateTime.Now;
+
+                if (Variables.ExtendedLogging) Log.Warning("[MQTT] Publishing message failed, reason: [{reason}] {reasonStr}", published.ReasonCode.ToString(), published.ReasonString ?? string.Empty);
+                return false;
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "[MQTT] Error while publishing: {err}", ex.Message);
+                // only log failures once every 5 minutes to minimize log growth
+                if ((DateTime.Now - _lastPublishFailedLogged).TotalMinutes < 5) return false;
+                _lastPublishFailedLogged = DateTime.Now;
+
+                Log.Fatal("[MQTT] Error publishing message: {err}", ex.Message);
+                return false;
             }
         }
 

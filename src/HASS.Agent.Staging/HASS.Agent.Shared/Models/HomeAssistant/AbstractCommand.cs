@@ -60,7 +60,12 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
                     .WithRetainFlag(Variables.MqttManager.UseRetainFlag())
                     .Build();
 
-                await Variables.MqttManager.PublishAsync(message);
+                var published = await Variables.MqttManager.PublishAsync(message);
+                if (!published)
+                {
+                    // failed, don't store the state
+                    return;
+                }
 
                 PreviousPublishedState = state;
                 LastUpdated = DateTime.Now;
