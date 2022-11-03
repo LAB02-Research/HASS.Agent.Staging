@@ -343,8 +343,7 @@ namespace HASS.Agent.MQTT
                 if ((DateTime.Now - _lastPublishFailedLogged).TotalMinutes < 5) return;
                 _lastPublishFailedLogged = DateTime.Now;
 
-                if (Variables.ExtendedLogging) Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes):\r\n{msg}", message.ConvertPayloadToString());
-                else Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
+                if (Variables.ExtendedLogging) Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
             }
         }
 
@@ -656,46 +655,56 @@ namespace HASS.Agent.MQTT
         /// <param name="applicationMessage"></param>
         private static void HandleMessageReceived(MqttApplicationMessage applicationMessage)
         {
-            if (applicationMessage.Topic == $"hass.agent/notifications/{HelperFunctions.GetConfiguredDeviceName()}")
+            try
             {
-                // process as a notification
-                var notification = JsonSerializer.Deserialize<Notification>(applicationMessage.Payload, JsonSerializerOptions)!;
-                _ = Task.Run(() => NotificationManager.ShowNotification(notification));
-                return;
-            } 
-
-            if (applicationMessage.Topic == $"hass.agent/media_player/{HelperFunctions.GetConfiguredDeviceName()}/cmd")
-            {
-                // process as a mediaplyer command
-                var command = JsonSerializer.Deserialize<MqttMediaPlayerCommand>(applicationMessage.Payload, JsonSerializerOptions)!;
-
-                switch (command.Command)
+                if (applicationMessage.Topic == $"hass.agent/notifications/{HelperFunctions.GetConfiguredDeviceName()}")
                 {
-                    case MediaPlayerCommand.PlayMedia:
-                        MediaManager.ProcessMedia(command.Data.GetString());
-                        break;
-                    case MediaPlayerCommand.Seek:
-                        MediaManager.ProcessSeekCommand(TimeSpan.FromSeconds(command.Data.GetDouble()).Ticks);
-                        break;
-                    default:
-                        MediaManager.ProcessCommand(command.Command);
-                        break;
+                    // process as a notification
+                    var notification = JsonSerializer.Deserialize<Notification>(applicationMessage.Payload, JsonSerializerOptions)!;
+                    _ = Task.Run(() => NotificationManager.ShowNotification(notification));
+                    return;
+                } 
+
+                if (applicationMessage.Topic == $"hass.agent/media_player/{HelperFunctions.GetConfiguredDeviceName()}/cmd")
+                {
+                    // process as a mediaplyer command
+                    var command = JsonSerializer.Deserialize<MqttMediaPlayerCommand>(applicationMessage.Payload, JsonSerializerOptions)!;
+
+                    switch (command.Command)
+                    {
+                        case MediaPlayerCommand.PlayMedia:
+                            MediaManager.ProcessMedia(command.Data.GetString());
+                            break;
+                        case MediaPlayerCommand.Seek:
+                            MediaManager.ProcessSeekCommand(TimeSpan.FromSeconds(command.Data.GetDouble()).Ticks);
+                            break;
+                        case MediaPlayerCommand.SetVolume:
+                            MediaManagerCommands.SetVolume(command.Data.GetInt32());
+                            break;
+                        default:
+                            MediaManager.ProcessCommand(command.Command);
+                            break;
+                    }
+                    return;
                 }
-                return;
+
+                if (!Variables.Commands.Any()) return;
+
+                // process as a hass.agent command
+                foreach (var command in Variables.Commands)
+                {
+                    var commandConfig = (CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig();
+
+                    // check for command
+                    if (commandConfig.Command_topic == applicationMessage.Topic) HandleCommandReceived(applicationMessage, command);
+
+                    // check for action
+                    else if (commandConfig.Action_topic == applicationMessage.Topic) HandleActionReceived(applicationMessage, command);
+                }
             }
-
-            if (!Variables.Commands.Any()) return;
-
-            // process as a hass.agent command
-            foreach (var command in Variables.Commands)
+            catch (Exception ex)
             {
-                var commandConfig = (CommandDiscoveryConfigModel)command.GetAutoDiscoveryConfig();
-
-                // check for command
-                if (commandConfig.Command_topic == applicationMessage.Topic) HandleCommandReceived(applicationMessage, command);
-
-                // check for action
-                else if (commandConfig.Action_topic == applicationMessage.Topic) HandleActionReceived(applicationMessage, command);
+                Log.Fatal(ex, "[MQTT] Error while processing received message: {err}", ex.Message);
             }
         }
 

@@ -43,6 +43,8 @@ namespace HASS.Agent.Media
                 return;
             }
 
+            if (!Variables.AppSettings.MqttEnabled) Log.Warning("[MEDIA] MQTT is disabled, only basic media functionality will work");
+
             // try to initialize and prepare Windows' mediaplayer platform
             // todo: optional, but add an OS check - not all OSs support this
             try
@@ -129,27 +131,30 @@ namespace HASS.Agent.Media
                         Playing = title;
                         if (Variables.ExtendedLogging) Log.Information("[MEDIA] Now playing: {playing}", Playing);
 
-                        // publish the thumbnail
-                        if (mediaProperties.Thumbnail != null)
+                        // optionally publish the thumbnail
+                        if (Variables.AppSettings.MqttEnabled)
                         {
-                            using var reference = await mediaProperties.Thumbnail.OpenReadAsync();
-                            await using var stream = reference.AsStreamForRead();
+                            if (mediaProperties.Thumbnail != null)
+                            {
+                                using var reference = await mediaProperties.Thumbnail.OpenReadAsync();
+                                await using var stream = reference.AsStreamForRead();
 
-                            var haMessageBuilder = new MqttApplicationMessageBuilder()
-                                .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/thumbnail")
-                                .WithPayload(stream)
-                                .WithRetainFlag();
+                                var haMessageBuilder = new MqttApplicationMessageBuilder()
+                                    .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/thumbnail")
+                                    .WithPayload(stream)
+                                    .WithRetainFlag();
 
-                            await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
-                        }
-                        else
-                        {
-                            var haMessageBuilder = new MqttApplicationMessageBuilder()
-                                .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/thumbnail")
-                                .WithPayload(Array.Empty<byte>())
-                                .WithRetainFlag();
+                                await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                            }
+                            else
+                            {
+                                var haMessageBuilder = new MqttApplicationMessageBuilder()
+                                    .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/thumbnail")
+                                    .WithPayload(Array.Empty<byte>())
+                                    .WithRetainFlag();
 
-                            await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                                await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                            }
                         }
                     }
 
@@ -176,6 +181,7 @@ namespace HASS.Agent.Media
                     message.Artist = mediaProperties.Artist;
                     message.AlbumArtist = mediaProperties.AlbumArtist;
                     message.AlbumTitle = mediaProperties.AlbumTitle;
+                    message.Volume = MediaManagerCommands.GetVolume();
                     
                     // get timeline info
                     var timeline = session.GetTimelineProperties();
@@ -198,10 +204,13 @@ namespace HASS.Agent.Media
                 finally
                 {
                     // publish our state
-                    var haMessageBuilder = new MqttApplicationMessageBuilder()
-                        .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/state")
-                        .WithPayload(JsonSerializer.Serialize(message, MqttManager.JsonSerializerOptions));
-                    await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                    if (Variables.AppSettings.MqttEnabled)
+                    {
+                        var haMessageBuilder = new MqttApplicationMessageBuilder()
+                            .WithTopic($"hass.agent/media_player/{Variables.DeviceConfig.Name}/state")
+                            .WithPayload(JsonSerializer.Serialize(message, MqttManager.JsonSerializerOptions));
+                        await Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                    }
 
                     // wait a bit
                     await Task.Delay(TimeSpan.FromSeconds(2));
@@ -330,6 +339,11 @@ namespace HASS.Agent.Media
                         if (Variables.ExtendedLogging) Log.Information("[MEDIA] Command received: Previous");
                         MediaManagerCommands.Previous();
                         break;
+
+                    case MediaPlayerCommand.SetVolume:
+                        if (Variables.ExtendedLogging) Log.Information("[MEDIA] Command received: SetVolume");
+                        // not implemented through the API
+                        break;
                 }
             }
             catch (Exception ex)
@@ -390,8 +404,15 @@ namespace HASS.Agent.Media
         /// <param name="position"></param>
         internal static async void ProcessSeekCommand(long position)
         {
-            var session = GetCurrentMediaSession();
-            await session.TryChangePlaybackPositionAsync(position);
+            try
+            {
+                var session = GetCurrentMediaSession();
+                await session.TryChangePlaybackPositionAsync(position);
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "[MEDIA] Error processing seek: {err}", ex.Message);
+            }
         }
     }
 }

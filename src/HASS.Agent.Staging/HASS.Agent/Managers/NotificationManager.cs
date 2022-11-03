@@ -34,6 +34,8 @@ namespace HASS.Agent.Managers
                     return;
                 }
 
+                if (!Variables.AppSettings.MqttEnabled) Log.Warning("[NOTIFIER] MQTT is disabled, not all aspects of actions might work as expected");
+
                 // subscribe to mqtt notifications
                 _ = Task.Run(Variables.MqttManager.SubscribeNotificationsAsync);
 
@@ -131,17 +133,24 @@ namespace HASS.Agent.Managers
                     action = e.Argument
                 });
 
-                var haMessageBuilder = new MqttApplicationMessageBuilder()
-                    .WithTopic($"hass.agent/notifications/{Variables.DeviceConfig.Name}/actions")
-                    .WithPayload(JsonSerializer.Serialize(new
-                    {
-                        action = e.Argument,
-                        input = e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null
-                    }, ApiDeserialization.SerializerOptions));
+                if (Variables.AppSettings.MqttEnabled)
+                {
+                    var haMessageBuilder = new MqttApplicationMessageBuilder()
+                        .WithTopic($"hass.agent/notifications/{Variables.DeviceConfig.Name}/actions")
+                        .WithPayload(JsonSerializer.Serialize(new
+                        {
+                            action = e.Argument,
+                            input = e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null
+                        }, ApiDeserialization.SerializerOptions));
 
-                var mqttTask = Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
-
-                await Task.WhenAny(haEventTask, mqttTask);
+                    var mqttTask = Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+                    await Task.WhenAny(haEventTask, mqttTask);
+                }
+                else
+                {
+                    // just the API task
+                    await haEventTask;
+                }
             }
             catch (Exception ex)
             {
