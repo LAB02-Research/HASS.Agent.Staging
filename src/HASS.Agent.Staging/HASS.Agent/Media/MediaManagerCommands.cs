@@ -73,23 +73,5 @@ namespace HASS.Agent.Media
                 Log.Fatal(ex, "[MEDIA] Error while trying to set volume to {val}: {err}", volume, ex.Message);
             }
         }
-
-        /// <summary>
-        /// Gets the current default audio endpoint's volume level
-        /// </summary>
-        /// <returns></returns>
-        internal static int GetVolume()
-        {
-            try
-            {
-                using var audioDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(DataFlow.eRender, Role.Multimedia);
-                return (int)(audioDevice.AudioEndpointVolume?.MasterVolumeLevelScalar * 100 ?? 0);
-            }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "[MEDIA] Error while trying to get the volume: {err}", ex.Message);
-                return 0;
-            }
-        }
     }
 }

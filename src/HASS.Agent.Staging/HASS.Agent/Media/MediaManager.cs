@@ -175,13 +175,16 @@ namespace HASS.Agent.Media
                         if (Variables.ExtendedLogging) Log.Warning("[MEDIA] Null object received when requesting PlaybackInfo");
                     }
 
+                    // rest is only relevant for mqtt
+                    if (!Variables.AppSettings.MqttEnabled) continue;
+
                     // set info
                     message.State = state;
                     message.Title = mediaProperties.Title;
                     message.Artist = mediaProperties.Artist;
                     message.AlbumArtist = mediaProperties.AlbumArtist;
                     message.AlbumTitle = mediaProperties.AlbumTitle;
-                    message.Volume = MediaManagerCommands.GetVolume();
+                    message.Volume = MediaManagerRequests.GetVolume();
                     
                     // get timeline info
                     var timeline = session.GetTimelineProperties();
