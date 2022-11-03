@@ -35,9 +35,11 @@ namespace HASS.Agent.Managers
                 }
 
                 if (!Variables.AppSettings.MqttEnabled) Log.Warning("[NOTIFIER] MQTT is disabled, not all aspects of actions might work as expected");
-
-                // subscribe to mqtt notifications
-                _ = Task.Run(Variables.MqttManager.SubscribeNotificationsAsync);
+                else
+                {
+                    // subscribe to mqtt notifications
+                    _ = Task.Run(Variables.MqttManager.SubscribeNotificationsAsync);
+                }
 
                 // create a toast notifier
                 _toastNotifier = ToastNotificationManagerCompat.CreateToastNotifier();
@@ -144,6 +146,7 @@ namespace HASS.Agent.Managers
                         }, ApiDeserialization.SerializerOptions));
 
                     var mqttTask = Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
+
                     await Task.WhenAny(haEventTask, mqttTask);
                 }
                 else

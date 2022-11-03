@@ -43,8 +43,6 @@ namespace HASS.Agent.Media
                 return;
             }
 
-            if (!Variables.AppSettings.MqttEnabled) Log.Warning("[MEDIA] MQTT is disabled, only basic media functionality will work");
-
             // try to initialize and prepare Windows' mediaplayer platform
             // todo: optional, but add an OS check - not all OSs support this
             try
@@ -78,8 +76,13 @@ namespace HASS.Agent.Media
 
             // start monitoring playing media
             _ = Task.Run(MediaMonitor);
-
-            _ = Task.Run(Variables.MqttManager.SubscribeMediaCommandsAsync);
+            
+            if (!Variables.AppSettings.MqttEnabled) Log.Warning("[MEDIA] MQTT is disabled, only basic media functionality will work");
+            else
+            {
+                // subscribe to commands
+                _ = Task.Run(Variables.MqttManager.SubscribeMediaCommandsAsync);
+            }
 
             // ready
             Log.Information("[MEDIA] Ready");
