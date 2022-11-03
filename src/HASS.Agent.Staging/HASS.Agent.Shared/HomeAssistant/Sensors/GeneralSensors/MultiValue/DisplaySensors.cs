@@ -59,6 +59,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             if (!Sensors.ContainsKey(primaryDisplayId)) Sensors.Add(primaryDisplayId, primaryDisplaySensor);
             else Sensors[primaryDisplayId] = primaryDisplaySensor;
 
+            // get non-virtual monitor info
+            var monitors = Monitors.All?.ToList() ?? new List<Monitors>();
+
             // process all monitors
             foreach (var display in displays)
             {
@@ -69,17 +72,39 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 // name, remove the backslashes
                 var name = display.DeviceName.Split('\\').Last();
 
+                // prepare values
+                var resolution = $"{display.Bounds.Width}x{display.Bounds.Height}";
+                var virtualResolution = $"{display.Bounds.Width}x{display.Bounds.Height}";
+                var width = display.Bounds.Width;
+                var virtualWidth = display.Bounds.Width;
+                var height = display.Bounds.Height;
+                var virtualHeight = display.Bounds.Height;
+                var rotated = 0;
+
+                if (monitors.Any(x => x.Name == name))
+                {
+                    var monitor = monitors.Find(x => x.Name == name);
+                    resolution = $"{monitor.PhysicalBounds.Width}x{monitor.PhysicalBounds.Height}";
+                    width = monitor.PhysicalBounds.Width;
+                    height = monitor.PhysicalBounds.Height;
+                    rotated = monitor.RotatedDegrees;
+                }
+
                 // prepare the info
                 var displayInfo = new DisplayInfo();
                 displayInfo.Name = name;
-                displayInfo.Resolution = $"{display.Bounds.Width}x{display.Bounds.Height}";
-                displayInfo.Width = display.Bounds.Width;
-                displayInfo.Height = display.Bounds.Height;
+                displayInfo.Resolution = resolution;
+                displayInfo.VirtualResolution = virtualResolution;
+                displayInfo.Width = width;
+                displayInfo.VirtualWidth = virtualWidth;
+                displayInfo.Height = height;
+                displayInfo.VirtualHeight = virtualHeight;
                 displayInfo.BitsPerPixel = display.BitsPerPixel;
                 displayInfo.PrimaryDisplay = displayInfo.PrimaryDisplay;
                 displayInfo.WorkingArea = $"{display.WorkingArea.Width}x{display.WorkingArea.Height}";
                 displayInfo.WorkingAreaWidth = display.WorkingArea.Width;
                 displayInfo.WorkingAreaHeight = display.WorkingArea.Height;
+                displayInfo.RotatedDegrees = rotated;
 
                 // process the sensor
                 var info = JsonConvert.SerializeObject(displayInfo, Formatting.Indented);
