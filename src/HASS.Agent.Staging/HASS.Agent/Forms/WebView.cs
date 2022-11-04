@@ -31,6 +31,9 @@ namespace HASS.Agent.Forms
                 // catch all key presses
                 KeyPreview = true;
 
+                // set the stored variables
+                SetStoredVariables();
+
                 // initialize webview
                 var initialized = await InitializeAsync();
                 if (!initialized)
@@ -39,9 +42,6 @@ namespace HASS.Agent.Forms
                     Close();
                     return;
                 }
-
-                // set the stored variables
-                SetStoredVariables();
 
                 // are we background loading for the tray icon, and not in preview mode?
                 if (_webViewInfo.IsTrayIconWebView && !_webViewInfo.IsTrayIconPreview && Variables.AppSettings.TrayIconWebViewBackgroundLoading)
@@ -197,18 +197,40 @@ namespace HASS.Agent.Forms
         {
             if (IsClosingOrClosed()) return;
 
-            // show ourselves
-            Opacity = 100;
-
-            // optionally force topmost
-            if (_isTrayIcon || _webViewInfo.TopMost)
+            try
             {
-                TopMost = true;
-                BringToFront();
-            }
+                // show ourselves
+                Opacity = 100;
 
-            // reload ui
-            Refresh();
+                // check if we need to move
+                var x = Screen.PrimaryScreen.WorkingArea.Width - Width;
+                var y = Screen.PrimaryScreen.WorkingArea.Height - Height;
+
+                if (x != _webViewInfo.X || y != _webViewInfo.Y)
+                {
+                    // yep
+                    _webViewInfo.X = x;
+                    _webViewInfo.Y = y;
+                    Location = new Point(_webViewInfo.X, _webViewInfo.Y);
+                }
+
+                // optionally force topmost
+                if (_isTrayIcon || _webViewInfo.TopMost)
+                {
+                    TopMost = true;
+                    BringToFront();
+                }
+
+                // reload ui
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                if (IsClosingOrClosed()) return;
+                Log.Error("[WEBVIEW] Error while showing: {err}", ex.Message);
+                _forceClose = true;
+                Close();
+            }
         }
 
         private void WebView_ResizeEnd(object sender, EventArgs e)

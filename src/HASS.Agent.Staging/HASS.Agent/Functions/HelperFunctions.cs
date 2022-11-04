@@ -723,6 +723,45 @@ namespace HASS.Agent.Functions
                     return false;
             }
         }
+
+        /// <summary>
+        /// Ensures that the provided form is visible within the bounds of its screen
+        /// </summary>
+        /// <param name="form"></param>
+        internal static void MakeVisible(Form form)
+        {
+            try
+            {
+                Rectangle rcBounds;
+
+                if (form.Parent != null)
+                {
+                    rcBounds = form.Parent.ClientRectangle;
+                }
+                else
+                {
+                    var screen = Screen.FromControl(form);
+                    rcBounds = screen.Bounds;
+                }
+
+                var rcNewWnd = new Rectangle(form.Left, form.Top, form.Width, form.Height);
+
+                if (rcNewWnd.Right > rcBounds.Right)
+                    rcNewWnd.Offset(rcBounds.Right - rcNewWnd.Right, 0);
+                if (rcNewWnd.Bottom > rcBounds.Bottom)
+                    rcNewWnd.Offset(0, rcBounds.Bottom - rcNewWnd.Bottom);
+                if (rcNewWnd.Left < rcBounds.Left)
+                    rcNewWnd.Offset(rcBounds.Left - rcNewWnd.Left, 0);
+                if (rcNewWnd.Top < rcBounds.Top)
+                    rcNewWnd.Offset(0, rcBounds.Top - rcNewWnd.Top);
+
+                form.SetDesktopBounds(rcNewWnd.Left, rcNewWnd.Top, rcNewWnd.Width, rcNewWnd.Height);
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "[SYSTEM] Unable to make form visible: {err}", ex.Message);
+            }
+        }
     }
 
     public class CamelCaseJsonNamingpolicy : JsonNamingPolicy
