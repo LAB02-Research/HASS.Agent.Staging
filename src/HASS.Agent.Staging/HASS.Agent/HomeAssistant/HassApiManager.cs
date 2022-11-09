@@ -392,6 +392,9 @@ namespace HASS.Agent.HomeAssistant
                 SceneList.Clear();
                 SwitchList.Clear();
                 LightList.Clear();
+                CoverList.Clear();
+                ClimateList.Clear();
+                MediaPlayerList.Clear();
             }
 
             try
