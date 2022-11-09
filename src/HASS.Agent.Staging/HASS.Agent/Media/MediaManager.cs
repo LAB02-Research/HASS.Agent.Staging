@@ -56,6 +56,8 @@ namespace HASS.Agent.Media
                 // prepare the mediaplayer
                 Variables.MediaPlayer.IsLoopingEnabled = false;
                 Variables.MediaPlayer.AutoPlay = false;
+
+                Variables.MediaPlayer.MediaFailed += MediaPlayerOnMediaFailed;
             }
             catch (TypeInitializationException ex)
             {
@@ -393,7 +395,7 @@ namespace HASS.Agent.Media
                 // set the uri source
                 Variables.MediaPlayer.SetUriSource(new Uri(localFile));
 
-                if (Variables.ExtendedLogging) Log.Information("[MEDIAPLAYER] Playing: {file}", Path.GetFileName(localFile));
+                if (Variables.ExtendedLogging) Log.Information("[MEDIA] Playing: {file}", Path.GetFileName(localFile));
 
                 // play it
                 Variables.MediaPlayer.Play();
@@ -418,6 +420,18 @@ namespace HASS.Agent.Media
             catch (Exception ex)
             {
                 Log.Fatal(ex, "[MEDIA] Error processing seek: {err}", ex.Message);
+            }
+        }
+
+        private static void MediaPlayerOnMediaFailed(MediaPlayer sender, MediaPlayerFailedEventArgs args)
+        {
+            try
+            {
+                Log.Fatal(args.ExtendedErrorCode, "[MEDIA] [{code}] Error playing media: {err}", args.Error.ToString(), args.ErrorMessage);
+            }
+            catch
+            {
+                // best effort
             }
         }
     }

@@ -230,7 +230,7 @@ namespace HASS.Agent.Forms.QuickActions
             // 
             // ClmHotKeyEnabled
             // 
-            this.ClmHotKeyEnabled.Text = Languages.QuickActionsConfig_LblHotkey;
+            this.ClmHotKeyEnabled.Text = "Enabled";
             this.ClmHotKeyEnabled.Width = 40;
             // 
             // ClmHotKey

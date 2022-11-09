@@ -43,7 +43,7 @@ namespace HASS.Agent.Functions
         private static readonly List<string> IgnorableHeaders = new List<string>
         {
             "low integrity", "filler column", "action", "refresh", "hotkey enabled", "multivalue",
-            "agent compatible", "satellite compatible", "action compatible"
+            "agent compatible", "satellite compatible", "action compatible", "enabled"
         };
 
         internal static void DrawItem(object sender, DrawListViewItemEventArgs e)
