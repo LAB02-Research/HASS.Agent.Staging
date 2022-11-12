@@ -1993,8 +1993,8 @@ Bitte prüfe die Protokolle und erstelle einen Fehlerbericht auf Github.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="Main_BtnSensorsManage_Ready" xml:space="preserve">
-    <value>Lokale &amp;Sensoren</value>
-    <comment>Fuzzy</comment>
+	  <value>&amp;Sensoren</value>
+	  <comment>Fuzzy</comment>
   </data>
   <data name="Main_BtnCommandsManager_Ready" xml:space="preserve">
     <value>Befehle</value>

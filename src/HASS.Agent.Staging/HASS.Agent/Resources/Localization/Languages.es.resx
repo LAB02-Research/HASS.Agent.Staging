@@ -1881,7 +1881,7 @@ Compruebe el archivo appsettings.json en la subcarpeta &quot;config&quot; o elim
 Por favor, compruebe los registros y haga un informe de errores en GitHub.</value>
   </data>
   <data name="Main_BtnSensorsManage_Ready" xml:space="preserve">
-    <value>&amp;sensores locales</value>
+	  <value>&amp;sensores</value>
   </data>
   <data name="Main_BtnCommandsManager_Ready" xml:space="preserve">
     <value>&amp;comandos</value>

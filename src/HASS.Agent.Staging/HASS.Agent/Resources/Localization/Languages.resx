@@ -973,7 +973,7 @@ Check appsettings.json in the 'config' subfolder, or just delete it to start fre
 Please check the logs and make a bug report on GitHub.</value>
 	</data>
 	<data name="Main_BtnSensorsManage_Ready" xml:space="preserve">
-		<value>Local &amp;Sensors</value>
+		<value>&amp;Sensors</value>
 	</data>
 	<data name="Main_BtnCommandsManager_Ready" xml:space="preserve">
 		<value>&amp;Commands</value>
@@ -2377,26 +2377,11 @@ you can probably use the preset address.</value>
 	<data name="CommandsMod_LblIntegrityInfo" xml:space="preserve">
 		<value>What's this?</value>
 	</data>
-	<data name="CommandsMod_LblSelectedType" xml:space="preserve">
-		<value>Selected Type</value>
-	</data>
 	<data name="CommandsMod_LblService" xml:space="preserve">
 		<value>Service</value>
 	</data>
 	<data name="CommandsMod_LblAgent" xml:space="preserve">
 		<value>agent</value>
-	</data>
-	<data name="CommandsMod_LblSpecificClient" xml:space="preserve">
-		<value>HASS.Agent only!</value>
-	</data>
-	<data name="CommandsMod_LblEntityType" xml:space="preserve">
-		<value>&amp;Entity Type</value>
-	</data>
-	<data name="CommandsMod_LblMqttTopic" xml:space="preserve">
-		<value>Show MQTT Action Topic</value>
-	</data>
-	<data name="CommandsMod_LblActionInfo" xml:space="preserve">
-		<value>Action</value>
 	</data>
 	<data name="CommandsMod_BtnConfigureCommand" xml:space="preserve">
 		<value>Configure Command &amp;Parameters</value>
@@ -2487,9 +2472,6 @@ you can probably use the preset address.</value>
 	</data>
 	<data name="SensorsMod_LblDescription" xml:space="preserve">
 		<value>Description</value>
-	</data>
-	<data name="SensorsMod_LblMultiValue" xml:space="preserve">
-		<value>multivalue</value>
 	</data>
 	<data name="SensorsMod_LblAgent" xml:space="preserve">
 		<value>Agent</value>
@@ -3196,5 +3178,26 @@ Do you want to download the runtime installer?</value>
 	</data>
 	<data name="SystemStateEvent_HassAgentStarted" xml:space="preserve">
 		<value>HassAgentStarted</value>
+	</data>
+	<data name="CommandsMod_LblSelectedType" xml:space="preserve">
+		<value>Selected Type</value>
+	</data>
+	<data name="CommandsMod_LblSpecificClient" xml:space="preserve">
+		<value>HASS.Agent only!</value>
+	</data>
+	<data name="CommandsMod_LblEntityType" xml:space="preserve">
+		<value>&amp;Entity Type</value>
+	</data>
+	<data name="CommandsMod_LblMqttTopic" xml:space="preserve">
+		<value>Show MQTT Action Topic</value>
+	</data>
+	<data name="CommandsMod_LblActionInfo" xml:space="preserve">
+		<value>Action</value>
+	</data>
+	<data name="SensorsMod_LblMultiValue" xml:space="preserve">
+		<value>Multivalue</value>
+	</data>
+	<data name="QuickActionsMod_ClmDomain" xml:space="preserve">
+		<value>domain</value>
 	</data>
 </root>

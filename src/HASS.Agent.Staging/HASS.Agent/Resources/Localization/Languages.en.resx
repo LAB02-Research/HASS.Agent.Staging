@@ -1879,7 +1879,7 @@ Check appsettings.json in the &apos;config&apos; subfolder, or just delete it to
 Please check the logs and make a bug report on GitHub.</value>
   </data>
   <data name="Main_BtnSensorsManage_Ready" xml:space="preserve">
-    <value>Local &amp;Sensors</value>
+	  <value>&amp;Sensors</value>
   </data>
   <data name="Main_BtnCommandsManager_Ready" xml:space="preserve">
     <value>&amp;Commands</value>
@@ -2513,7 +2513,7 @@ This is a costly request, so the recommended interval is 15 minutes (900 seconds
     <value>Loading..</value>
   </data>
   <data name="ComponentStatus_Ok" xml:space="preserve">
-    <value>Running</value>
+	  <value>Running</value>
   </data>
   <data name="ComponentStatus_Stopped" xml:space="preserve">
     <value>Stopped</value>

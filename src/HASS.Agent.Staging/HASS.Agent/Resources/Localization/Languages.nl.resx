@@ -3233,4 +3233,7 @@ Wil je de runtime installatie downloaden?</value>
   <data name="WebView_InitializeAsync_MessageBox2" xml:space="preserve">
     <value>Er is iets mis gegaan bij het initialiseren van de WebView. Controleer je logs en open een GitHub tickets om hulp te krijgen.</value>
   </data>
+  <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
+	  <value>domein</value>
+  </data>
 </root>

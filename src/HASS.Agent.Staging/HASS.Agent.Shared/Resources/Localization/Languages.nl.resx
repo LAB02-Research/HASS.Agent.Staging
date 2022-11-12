@@ -2525,7 +2525,7 @@ Dit is een duur verzoek, dus de aanbevolen interval is 15 minuten (900 seconden)
     <value>Laden</value>
   </data>
   <data name="ComponentStatus_Ok" xml:space="preserve">
-    <value>Ok</value>
+	  <value>Ok</value>
   </data>
   <data name="ComponentStatus_Stopped" xml:space="preserve">
     <value>Gestopt</value>
