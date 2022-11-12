@@ -60,7 +60,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     else Sensors[defaultDeviceStateId] = defaultDeviceStateSensor;
 
                     // default device volume
-                    var masterVolume = (int)(audioDevice.AudioEndpointVolume?.MasterVolumeLevelScalar * 100 ?? 0);
+                    var masterVolume = Convert.ToInt32(Math.Round(audioDevice.AudioEndpointVolume?.MasterVolumeLevelScalar * 100 ?? 0, 0));
                     var defaultDeviceVolumeId = $"{parentSensorSafeName}_default_device_volume";
                     var defaultDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Default Device Volume", defaultDeviceVolumeId, string.Empty, "mdi:speaker", string.Empty, Name);
                     defaultDeviceVolumeSensor.SetState(masterVolume);
