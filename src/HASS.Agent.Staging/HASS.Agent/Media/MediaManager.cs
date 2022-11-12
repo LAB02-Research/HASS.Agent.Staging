@@ -21,6 +21,8 @@ namespace HASS.Agent.Media
         private static bool _monitoring = true;
         private static bool _mediaActive = true;
 
+        private static string _lastError = string.Empty;
+
         private static GlobalSystemMediaTransportControlsSessionManager _sessionManager;
 
         internal static MediaPlayerState State { get; private set; } = MediaPlayerState.Idle;
@@ -204,10 +206,15 @@ namespace HASS.Agent.Media
                     }
 
                     // done
+                    _lastError = string.Empty;
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("[MEDIA] Error while monitoring: {err}", ex.Message);
+                    if (ex.Message != _lastError)
+                    {
+                        _lastError = ex.Message;
+                        Log.Error("[MEDIA] Error while monitoring: {err}", ex.Message);
+                    }
                 }
                 finally
                 {
