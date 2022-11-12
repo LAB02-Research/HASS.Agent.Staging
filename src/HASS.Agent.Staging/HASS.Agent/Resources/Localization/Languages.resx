@@ -2411,7 +2411,7 @@ you can probably use the preset address.</value>
 		<value>&amp;Preview</value>
 	</data>
 	<data name="QuickActionsConfig_LblHotkey" xml:space="preserve">
-		<value>Enabled</value>
+		<value>Hotkey Enabled</value>
 	</data>
 	<data name="QuickActionsConfig_Title" xml:space="preserve">
 		<value>Quick Actions Configuration</value>

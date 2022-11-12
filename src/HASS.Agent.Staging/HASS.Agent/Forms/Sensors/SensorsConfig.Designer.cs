@@ -275,7 +275,7 @@ namespace HASS.Agent.Forms.Sensors
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sensors Configuration";
+            this.Text = Languages.SensorsConfig_Title;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SensorsConfig_FormClosing);
             this.Load += new System.EventHandler(this.SensorsConfig_Load);
             this.ResizeBegin += new System.EventHandler(this.SensorsConfig_ResizeBegin);

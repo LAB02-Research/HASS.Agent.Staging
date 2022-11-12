@@ -81,6 +81,9 @@
     <EmbeddedResource Update="Properties\Resources.nl.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.pl.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.pt-br.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +95,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.sl.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.tr.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization\Languages.de.resx">
@@ -109,6 +115,9 @@
     <EmbeddedResource Update="Resources\Localization\Languages.nl.resx">
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localization\Languages.pl.resx">
+      <DependentUpon>Languages.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization\Languages.pt-br.resx">
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +129,9 @@
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization\Languages.sl.resx">
+      <DependentUpon>Languages.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localization\Languages.tr.resx">
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

@@ -5180,7 +5180,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enabled.
+        ///   Looks up a localized string similar to Hotkey Enabled.
         /// </summary>
         internal static string QuickActionsConfig_LblHotkey {
             get {

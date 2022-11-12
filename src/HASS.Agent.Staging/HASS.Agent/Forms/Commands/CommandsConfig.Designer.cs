@@ -312,7 +312,7 @@ namespace HASS.Agent.Forms.Commands
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Commands Config";
+            this.Text = Languages.CommandsConfig_Title;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CommandsConfig_FormClosing);
             this.Load += new System.EventHandler(this.CommandsConfig_Load);
             this.ResizeBegin += new System.EventHandler(this.CommandsConfig_ResizeBegin);

@@ -265,7 +265,7 @@ namespace HASS.Agent.Forms.QuickActions
             this.LblHotkey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LblHotkey.AutoSize = true;
             this.LblHotkey.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblHotkey.Location = new System.Drawing.Point(831, 449);
+            this.LblHotkey.Location = new System.Drawing.Point(715, 452);
             this.LblHotkey.Name = "LblHotkey";
             this.LblHotkey.Size = new System.Drawing.Size(49, 15);
             this.LblHotkey.TabIndex = 43;
@@ -278,7 +278,7 @@ namespace HASS.Agent.Forms.QuickActions
             this.PbHotKey.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbHotKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.PbHotKey.Image = global::HASS.Agent.Properties.Resources.hotkey_16;
-            this.PbHotKey.Location = new System.Drawing.Point(809, 448);
+            this.PbHotKey.Location = new System.Drawing.Point(693, 451);
             this.PbHotKey.Name = "PbHotKey";
             this.PbHotKey.Size = new System.Drawing.Size(16, 16);
             this.PbHotKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
