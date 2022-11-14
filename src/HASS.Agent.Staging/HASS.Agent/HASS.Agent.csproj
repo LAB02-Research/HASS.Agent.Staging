@@ -12,7 +12,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <Platforms>AnyCPU;x64</Platforms>
     <DebugType>full</DebugType>
-    <Version>2022.14.0-beta1</Version>
+    <Version>2022.15.0-beta1</Version>
     <Company>LAB02 Research</Company>
     <Authors>LAB02 Research</Authors>
     <Description>Windows-based client for Home Assistant. Provides notifications, quick actions, commands, sensors and more. </Description>
@@ -22,8 +22,8 @@
     <RepositoryUrl>https://github.com/LAB02-Research/HASS.Agent</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>2022.14.0</AssemblyVersion>
-    <FileVersion>2022.14.0</FileVersion>
+    <AssemblyVersion>2022.15.0</AssemblyVersion>
+    <FileVersion>2022.15.0</FileVersion>
     <RootNamespace>HASS.Agent</RootNamespace>
   </PropertyGroup>
 
