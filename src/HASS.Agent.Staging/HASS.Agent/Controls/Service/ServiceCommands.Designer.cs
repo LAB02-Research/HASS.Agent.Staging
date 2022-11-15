@@ -66,9 +66,9 @@ namespace HASS.Agent.Controls.Service
             this.LblLowIntegrity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LblLowIntegrity.Location = new System.Drawing.Point(726, 499);
             this.LblLowIntegrity.Name = "LblLowIntegrity";
-            this.LblLowIntegrity.Size = new System.Drawing.Size(73, 15);
+            this.LblLowIntegrity.Size = new System.Drawing.Size(76, 15);
             this.LblLowIntegrity.TabIndex = 51;
-            this.LblLowIntegrity.Text = Languages.ServiceCommands_LblLowIntegrity;
+            this.LblLowIntegrity.Text = "Low Integrity";
             // 
             // PbLowIntegrity
             // 
@@ -130,7 +130,8 @@ namespace HASS.Agent.Controls.Service
             // 
             // ClmLowIntegrity
             // 
-            this.ClmLowIntegrity.Text = Languages.ServiceCommands_LblLowIntegrity;
+            this.ClmLowIntegrity.Tag = "hide";
+            this.ClmLowIntegrity.Text = global::HASS.Agent.Resources.Localization.Languages.ServiceCommands_LblLowIntegrity;
             // 
             // ClmPadding
             // 
@@ -157,7 +158,7 @@ namespace HASS.Agent.Controls.Service
             this.BtnRemove.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnRemove.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnRemove.TabIndex = 2;
-            this.BtnRemove.Text = Languages.ServiceCommands_BtnRemove;
+            this.BtnRemove.Text = global::HASS.Agent.Resources.Localization.Languages.ServiceCommands_BtnRemove;
             this.BtnRemove.UseVisualStyleBackColor = false;
             this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
@@ -181,7 +182,7 @@ namespace HASS.Agent.Controls.Service
             this.BtnModify.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnModify.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnModify.TabIndex = 1;
-            this.BtnModify.Text = Languages.ServiceCommands_BtnModify;
+            this.BtnModify.Text = global::HASS.Agent.Resources.Localization.Languages.ServiceCommands_BtnModify;
             this.BtnModify.UseVisualStyleBackColor = false;
             this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
@@ -205,7 +206,7 @@ namespace HASS.Agent.Controls.Service
             this.BtnAdd.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnAdd.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnAdd.TabIndex = 0;
-            this.BtnAdd.Text = Languages.ServiceCommands_BtnAdd;
+            this.BtnAdd.Text = global::HASS.Agent.Resources.Localization.Languages.ServiceCommands_BtnAdd;
             this.BtnAdd.UseVisualStyleBackColor = false;
             this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
@@ -230,7 +231,7 @@ namespace HASS.Agent.Controls.Service
             this.BtnStore.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnStore.Style.PressedForeColor = System.Drawing.Color.Black;
             this.BtnStore.TabIndex = 3;
-            this.BtnStore.Text = Languages.ServiceCommands_BtnStore;
+            this.BtnStore.Text = global::HASS.Agent.Resources.Localization.Languages.ServiceCommands_BtnStore;
             this.BtnStore.UseVisualStyleBackColor = false;
             this.BtnStore.Click += new System.EventHandler(this.BtnStore_Click);
             // 
@@ -245,7 +246,7 @@ namespace HASS.Agent.Controls.Service
             this.LblStored.Name = "LblStored";
             this.LblStored.Size = new System.Drawing.Size(289, 35);
             this.LblStored.TabIndex = 99;
-            this.LblStored.Text = Languages.ServiceCommands_LblStored;
+            this.LblStored.Text = "commands stored!";
             this.LblStored.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblStored.Visible = false;
             // 

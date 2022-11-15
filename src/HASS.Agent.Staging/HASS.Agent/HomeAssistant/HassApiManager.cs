@@ -332,7 +332,7 @@ namespace HASS.Agent.HomeAssistant
                 {
                     // manual certificate selection
                     if (!File.Exists(clientCertificate)) return (false, Languages.HassApiManager_CheckHassConfig_CertNotFound);
-
+                    
                     handler.ClientCertificateOptions = ClientCertificateOption.Manual;
                     handler.ClientCertificates.Add(new X509Certificate2(clientCertificate));
                 }
@@ -509,7 +509,7 @@ namespace HASS.Agent.HomeAssistant
 
             // ugly fix until new QA system
             if (entity.Domain == HassDomain.Cover && action == HassAction.Stop) actionVal = "stop_cover";
-
+            
             try
             {
                 // check if the states client is up
@@ -688,7 +688,7 @@ namespace HASS.Agent.HomeAssistant
             action = domain switch
             {
                 HassDomain.Cover when action == HassAction.On => HassAction.Open,
-                HassDomain.Cover when action == HassAction.Off => HassAction.Stop,
+                HassDomain.Cover when action == HassAction.Off => HassAction.Close,
                 HassDomain.MediaPlayer when action == HassAction.On => HassAction.Play,
                 HassDomain.MediaPlayer when action == HassAction.Off => HassAction.Stop,
                 _ => action
