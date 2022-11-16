@@ -18,12 +18,12 @@ namespace HASS.Agent.Functions
         /// <param name="query"></param>
         /// <param name="scope"></param>
         /// <returns></returns>
-        internal static TestResult TestWmiQuery(string query, string scope = "")
+        internal static TestResult TestWmiQuery(string query, string scope = "", bool needRound = false, int round = 0)
         {
             try
             {
                 // create a new sensor
-                var wmiSensor = new WmiQuerySensor(query, scope);
+                var wmiSensor = new WmiQuerySensor(query, scope, needRound, round);
 
                 // get the state
                 var value = wmiSensor.GetState();
@@ -49,7 +49,7 @@ namespace HASS.Agent.Functions
         /// <param name="counterName"></param>
         /// <param name="instanceName"></param>
         /// <returns></returns>
-        internal static TestResult TestPerformanceCounter(string categoryName, string counterName, string instanceName)
+        internal static TestResult TestPerformanceCounter(string categoryName, string counterName, string instanceName, bool needRound = false, int? round = null)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace HASS.Agent.Functions
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        internal static TestResult TestPowershell(string command)
+        internal static TestResult TestPowershell(string command, bool needRound = false, int? round = null)
         {
             try
             {

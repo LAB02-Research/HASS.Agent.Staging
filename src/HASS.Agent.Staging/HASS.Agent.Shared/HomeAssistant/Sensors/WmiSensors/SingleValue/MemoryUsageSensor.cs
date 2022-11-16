@@ -9,7 +9,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.WmiSensors.SingleValue
     /// </summary>
     public class MemoryUsageSensor : WmiQuerySensor
     {
-        public MemoryUsageSensor(int? updateInterval = null, string name = "memoryusage", string id = default) : base("SELECT FreePhysicalMemory,TotalVisibleMemorySize FROM Win32_OperatingSystem", string.Empty, updateInterval ?? 30, name ?? "memoryusage", id) { }
+        public MemoryUsageSensor(int? updateInterval = null, string name = "memoryusage", string id = default, bool needRound = false, int? round = null) : base("SELECT FreePhysicalMemory,TotalVisibleMemorySize FROM Win32_OperatingSystem", string.Empty, needRound, round, updateInterval ?? 30, name ?? "memoryusage", id) { }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {

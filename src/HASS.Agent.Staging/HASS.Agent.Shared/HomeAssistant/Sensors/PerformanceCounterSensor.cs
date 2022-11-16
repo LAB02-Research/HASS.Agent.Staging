@@ -17,11 +17,16 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
         public string CounterName;
         public string InstanceName;
 
-        public PerformanceCounterSensor(string categoryName, string counterName, string instanceName, int? updateInterval = null, string name = "performancecountersensor", string id = default) : base(name ?? "performancecountersensor", updateInterval ?? 10, id)
+        public bool NeedRound { get; private set; }
+        public int? Round { get; private set; }
+
+        public PerformanceCounterSensor(string categoryName, string counterName, string instanceName, bool needRound = false, int? round = null, int? updateInterval = null, string name = "performancecountersensor", string id = default) : base(name ?? "performancecountersensor", updateInterval ?? 10, id)
         {
             CategoryName = categoryName;
             CounterName = counterName;
             InstanceName = instanceName;
+            NeedRound = needRound;
+            Round = round;
 
             Counter = PerformanceCounters.GetSingleInstanceCounter(categoryName, counterName);
             if (Counter == null) throw new Exception("PerformanceCounter not found");

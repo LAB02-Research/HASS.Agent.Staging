@@ -67,11 +67,15 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSpecificClient = new System.Windows.Forms.Label();
             this.BtnTest = new Syncfusion.WinForms.Controls.SfButton();
             this.CbNetworkCard = new System.Windows.Forms.ComboBox();
+            this.RoundConfig = new Syncfusion.Windows.Forms.Tools.NumericUpDownExt();
+            this.lblDigit = new System.Windows.Forms.Label();
+            this.CbRdValue = new System.Windows.Forms.CheckBox();
             this.PnlDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbMultiValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAgent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbService)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoundConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnStore
@@ -138,7 +142,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblType.Name = "LblType";
             this.LblType.Size = new System.Drawing.Size(91, 19);
             this.LblType.TabIndex = 3;
-            this.LblType.Text = Languages.SensorsMod_LblType;
+            this.LblType.Text = "Selected Type";
             // 
             // LblName
             // 
@@ -151,7 +155,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(45, 19);
             this.LblName.TabIndex = 10;
-            this.LblName.Text = Languages.SensorsMod_LblName;
+            this.LblName.Text = "&Name";
             // 
             // TbName
             // 
@@ -179,7 +183,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblUpdate.Name = "LblUpdate";
             this.LblUpdate.Size = new System.Drawing.Size(91, 19);
             this.LblUpdate.TabIndex = 13;
-            this.LblUpdate.Text = Languages.SensorsMod_LblUpdate;
+            this.LblUpdate.Text = "&Update every";
             // 
             // LblSeconds
             // 
@@ -192,7 +196,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSeconds.Name = "LblSeconds";
             this.LblSeconds.Size = new System.Drawing.Size(58, 19);
             this.LblSeconds.TabIndex = 15;
-            this.LblSeconds.Text = Languages.SensorsMod_LblSeconds;
+            this.LblSeconds.Text = "seconds";
             // 
             // LblDescription
             // 
@@ -205,7 +209,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblDescription.Name = "LblDescription";
             this.LblDescription.Size = new System.Drawing.Size(78, 19);
             this.LblDescription.TabIndex = 17;
-            this.LblDescription.Text = Languages.SensorsMod_LblDescription;
+            this.LblDescription.Text = "Description";
             // 
             // TbDescription
             // 
@@ -437,7 +441,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblMultiValue.Name = "LblMultiValue";
             this.LblMultiValue.Size = new System.Drawing.Size(63, 15);
             this.LblMultiValue.TabIndex = 29;
-            this.LblMultiValue.Text = Languages.SensorsMod_LblMultiValue;
+            this.LblMultiValue.Text = "Multivalue";
             // 
             // LblAgent
             // 
@@ -503,7 +507,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSpecificClient.Name = "LblSpecificClient";
             this.LblSpecificClient.Size = new System.Drawing.Size(155, 19);
             this.LblSpecificClient.TabIndex = 39;
-            this.LblSpecificClient.Text = Languages.SensorsMod_LblSpecificClient;
+            this.LblSpecificClient.Text = "HASS.Agent only!";
             this.LblSpecificClient.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.LblSpecificClient.Visible = false;
             // 
@@ -551,6 +555,69 @@ namespace HASS.Agent.Forms.Sensors
             this.CbNetworkCard.TabIndex = 3;
             this.CbNetworkCard.Visible = false;
             // 
+            // RoundConfig
+            // 
+            this.RoundConfig.AccessibleDescription = "The amount of digit after the comma . Only accepts numeric values.";
+            this.RoundConfig.AccessibleName = "Round config";
+            this.RoundConfig.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.RoundConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.RoundConfig.BeforeTouchSize = new System.Drawing.Size(51, 25);
+            this.RoundConfig.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.RoundConfig.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.RoundConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RoundConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RoundConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.RoundConfig.Location = new System.Drawing.Point(1095, 402);
+            this.RoundConfig.Maximum = new decimal(new int[] {
+            86400,
+            0,
+            0,
+            0});
+            this.RoundConfig.MaxLength = 10;
+            this.RoundConfig.MetroColor = System.Drawing.SystemColors.WindowFrame;
+            this.RoundConfig.Name = "RoundConfig";
+            this.RoundConfig.Size = new System.Drawing.Size(51, 25);
+            this.RoundConfig.TabIndex = 41;
+            this.RoundConfig.Tag = "";
+            this.RoundConfig.ThemeName = "Metro";
+            this.RoundConfig.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.RoundConfig.Visible = false;
+            this.RoundConfig.VisualStyle = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            // 
+            // lblDigit
+            // 
+            this.lblDigit.AccessibleDescription = "Update interval time unit.";
+            this.lblDigit.AccessibleName = "Update interval time unit";
+            this.lblDigit.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+            this.lblDigit.AutoSize = true;
+            this.lblDigit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDigit.Location = new System.Drawing.Point(1152, 404);
+            this.lblDigit.Name = "lblDigit";
+            this.lblDigit.Size = new System.Drawing.Size(141, 19);
+            this.lblDigit.TabIndex = 42;
+            this.lblDigit.Text = "digit after the comma";
+            this.lblDigit.Visible = false;
+            // 
+            // CbRdValue
+            // 
+            this.CbRdValue.AccessibleDescription = "Round the value";
+            this.CbRdValue.AccessibleName = "";
+            this.CbRdValue.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.CbRdValue.AutoSize = true;
+            this.CbRdValue.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbRdValue.Location = new System.Drawing.Point(955, 402);
+            this.CbRdValue.Name = "CbRdValue";
+            this.CbRdValue.Size = new System.Drawing.Size(68, 23);
+            this.CbRdValue.TabIndex = 43;
+            this.CbRdValue.Text = "&Round";
+            this.CbRdValue.UseVisualStyleBackColor = true;
+            this.CbRdValue.Visible = false;
+            this.CbRdValue.CheckedChanged += new System.EventHandler(this.CbRdValue_CheckedChanged);
+            // 
             // SensorsMod
             // 
             this.AccessibleDescription = "Create or modify a sensor.";
@@ -563,6 +630,9 @@ namespace HASS.Agent.Forms.Sensors
             this.CaptionFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(1319, 477);
+            this.Controls.Add(this.CbRdValue);
+            this.Controls.Add(this.lblDigit);
+            this.Controls.Add(this.RoundConfig);
             this.Controls.Add(this.CbNetworkCard);
             this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.LblSpecificClient);
@@ -599,7 +669,7 @@ namespace HASS.Agent.Forms.Sensors
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = Languages.SensorsMod_Title;
+            this.Text = "Sensor";
             this.Load += new System.EventHandler(this.SensorMod_Load);
             this.ResizeEnd += new System.EventHandler(this.SensorsMod_ResizeEnd);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SensorsMod_KeyUp);
@@ -609,6 +679,7 @@ namespace HASS.Agent.Forms.Sensors
             ((System.ComponentModel.ISupportInitialize)(this.PbMultiValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAgent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbService)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoundConfig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -650,6 +721,9 @@ namespace HASS.Agent.Forms.Sensors
         private ColumnHeader ClmId;
         private Syncfusion.WinForms.Controls.SfButton BtnTest;
         private ComboBox CbNetworkCard;
+        private Syncfusion.Windows.Forms.Tools.NumericUpDownExt RoundConfig;
+        private Label lblDigit;
+        internal CheckBox CbRdValue;
     }
 }
 
