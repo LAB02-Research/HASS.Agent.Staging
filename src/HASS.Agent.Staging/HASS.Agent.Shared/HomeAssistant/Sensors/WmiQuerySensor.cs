@@ -1,5 +1,7 @@
-﻿using System.Management;
+﻿using System;
+using System.Management;
 using HASS.Agent.Shared.Models.HomeAssistant;
+using static System.Windows.Forms.AxHost;
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors
 {
@@ -10,14 +12,18 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
     {
         public string Query { get; private set; }
         public string Scope { get; private set; }
+        public bool NeedRound { get; private set; }
+        public int? Round { get; private set; }
 
         protected readonly ObjectQuery ObjectQuery;
         protected readonly ManagementObjectSearcher Searcher;
 
-        public WmiQuerySensor(string query, string scope = "", int? updateInterval = null, string name = "wmiquerysensor", string id = default) : base(name ?? "wmiquerysensor", updateInterval ?? 10, id)
+        public WmiQuerySensor(string query, string scope = "", bool needRound = false, int? round = null, int? updateInterval = null, string name = "wmiquerysensor", string id = default) : base(name ?? "wmiquerysensor", updateInterval ?? 10, id)
         {
             Query = query;
             Scope = scope;
+            NeedRound = needRound;
+            Round = round;
 
             // prepare query
             ObjectQuery = new ObjectQuery(Query);
@@ -72,6 +78,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
                     managementBaseObject?.Dispose();
                 }
             }
+            if (NeedRound && double.TryParse(retValue, out double tmp)) { retValue = Math.Round(tmp, (int)Round).ToString(); }
             return retValue;
         }
 

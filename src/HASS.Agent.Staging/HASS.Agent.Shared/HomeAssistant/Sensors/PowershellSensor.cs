@@ -12,10 +12,14 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
     public class PowershellSensor : AbstractSingleValueSensor
     {
         public string Command { get; private set; }
+        public bool NeedRound { get; private set; }
+        public int? Round { get; private set; }
 
-        public PowershellSensor(string command, int? updateInterval = null, string name = "powershellsensor", string id = default) : base(name ?? "powershellsensor", updateInterval ?? 10, id)
+        public PowershellSensor(string command, bool needRound = false, int? round = null, int? updateInterval = null, string name = "powershellsensor", string id = default) : base(name ?? "powershellsensor", updateInterval ?? 10, id)
         {
             Command = command;
+            NeedRound = needRound;
+            Round = round;
         }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
