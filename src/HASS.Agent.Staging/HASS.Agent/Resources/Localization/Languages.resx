@@ -3219,13 +3219,13 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
-  <data name="SensorsMod_ChkRound" xml:space="preserve">
-    <value>Round</value>
-  </data>
-  <data name="SensorsMod_LblRound" xml:space="preserve">
-    <value>digit after the comma</value>
-  </data>
   <data name="SensorsMod_BtnStore_MessageBox12" xml:space="preserve">
     <value>Please provide a number between 0 and 20!</value>
+  </data>
+  <data name="SensorsMod_LblDigits" xml:space="preserve">
+	  <value>digits after the comma</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
+	  <value>&amp;Round</value>
   </data>
 </root>

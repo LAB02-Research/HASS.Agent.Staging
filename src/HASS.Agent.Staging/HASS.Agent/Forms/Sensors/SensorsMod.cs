@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net.NetworkInformation;
 using Syncfusion.Windows.Forms;
 using HASS.Agent.Functions;
 using HASS.Agent.Models.Internal;
@@ -151,16 +152,16 @@ namespace HASS.Agent.Forms.Sensors
                 case SensorType.WmiQuerySensor:
                     TbSetting1.Text = Sensor.Query;
                     TbSetting2.Text = Sensor.Scope;
-                    CbRdValue.Checked = Sensor.ApplyRounding;
-                    RoundConfig.Text = Sensor.Round?.ToString() ?? "2";
+                    CbApplyRounding.Checked = Sensor.ApplyRounding;
+                    NumRound.Text = Sensor.Round?.ToString() ?? "2";
                     break;
 
                 case SensorType.PerformanceCounterSensor:
                     TbSetting1.Text = Sensor.Category;
                     TbSetting2.Text = Sensor.Counter;
                     TbSetting3.Text = Sensor.Instance;
-                    CbRdValue.Checked = Sensor.ApplyRounding;
-                    RoundConfig.Text = Sensor.Round?.ToString() ?? "2";
+                    CbApplyRounding.Checked = Sensor.ApplyRounding;
+                    NumRound.Text = Sensor.Round?.ToString() ?? "2";
                     break;
 
                 case SensorType.ProcessActiveSensor:
@@ -173,8 +174,8 @@ namespace HASS.Agent.Forms.Sensors
 
                 case SensorType.PowershellSensor:
                     TbSetting1.Text = Sensor.Query;
-                    CbRdValue.Checked = Sensor.ApplyRounding;
-                    RoundConfig.Text = Sensor.Round?.ToString() ?? "2";
+                    CbApplyRounding.Checked = Sensor.ApplyRounding;
+                    NumRound.Text = Sensor.Round?.ToString() ?? "2";
                     break;
 
                 case SensorType.NetworkSensors:
@@ -232,9 +233,9 @@ namespace HASS.Agent.Forms.Sensors
 
             TbSelectedType.Text = sensorCard.SensorType.ToString();
             TbDescription.Text = sensorCard.Description;
-            CbRdValue.Visible = false;
-            RoundConfig.Visible = false;
-            lblDigit.Visible = false;
+            CbApplyRounding.Visible = false;
+            NumRound.Visible = false;
+            LblDigits.Visible = false;
 
             // process the interface
             switch (sensorCard.SensorType)
@@ -299,6 +300,7 @@ namespace HASS.Agent.Forms.Sensors
         /// <summary>
         /// Change the UI to a 'wmi query' type
         /// </summary>
+        [SuppressMessage("ReSharper", "InvertIf")]
         private void SetWmiGui()
         {
             Invoke(new MethodInvoker(delegate
@@ -316,13 +318,11 @@ namespace HASS.Agent.Forms.Sensors
                 BtnTest.Text = Languages.SensorsMod_BtnTest_Wmi;
                 BtnTest.Visible = true;
 
-                CbRdValue.Text = Languages.SensorsMod_ChkRound;
-                CbRdValue.Visible = true;
-                lblDigit.Text = Languages.SensorsMod_LblRound;
-                if (CbRdValue.Checked) 
+                CbApplyRounding.Visible = true;
+                if (CbApplyRounding.Checked)
                 {
-                    RoundConfig.Visible = true;
-                    lblDigit.Visible = true;
+                    NumRound.Visible = true;
+                    LblDigits.Visible = true;
                 }
             }));
         }
@@ -330,6 +330,7 @@ namespace HASS.Agent.Forms.Sensors
         /// <summary>
         /// Change the UI to a 'powershell command' type
         /// </summary>
+        [SuppressMessage("ReSharper", "InvertIf")]
         private void SetPowershellGui()
         {
             Invoke(new MethodInvoker(delegate
@@ -342,14 +343,12 @@ namespace HASS.Agent.Forms.Sensors
 
                 BtnTest.Text = Languages.SensorsMod_SensorsMod_BtnTest_Powershell;
                 BtnTest.Visible = true;
-
-                CbRdValue.Text = Languages.SensorsMod_ChkRound;
-                CbRdValue.Visible = true;
-                lblDigit.Text = Languages.SensorsMod_LblRound;
-                if (CbRdValue.Checked)
+                
+                CbApplyRounding.Visible = true;
+                if (CbApplyRounding.Checked)
                 {
-                    RoundConfig.Visible = true;
-                    lblDigit.Visible = true;
+                    NumRound.Visible = true;
+                    LblDigits.Visible = true;
                 }
             }));
         }
@@ -357,6 +356,7 @@ namespace HASS.Agent.Forms.Sensors
         /// <summary>
         /// Change the UI to a 'performance counter' type
         /// </summary>
+        [SuppressMessage("ReSharper", "InvertIf")]
         private void SetPerformanceCounterGui()
         {
             Invoke(new MethodInvoker(delegate
@@ -380,17 +380,12 @@ namespace HASS.Agent.Forms.Sensors
 
                 BtnTest.Text = Languages.SensorsMod_BtnTest_PerformanceCounter;
                 BtnTest.Visible = true;
-
-                CbRdValue.Text = Languages.SensorsMod_ChkRound;
-                CbRdValue.Visible = true;
-
-                CbRdValue.Text = Languages.SensorsMod_ChkRound;
-                CbRdValue.Visible = true;
-                lblDigit.Text = Languages.SensorsMod_LblRound;
-                if (CbRdValue.Checked)
+                
+                CbApplyRounding.Visible = true;
+                if (CbApplyRounding.Checked)
                 {
-                    RoundConfig.Visible = true;
-                    lblDigit.Visible = true;
+                    NumRound.Visible = true;
+                    LblDigits.Visible = true;
                 }
             }));
         }
@@ -462,6 +457,11 @@ namespace HASS.Agent.Forms.Sensors
                 LblSetting3.Visible = false;
                 TbSetting3.Text = string.Empty;
                 TbSetting3.Visible = false;
+
+                CbApplyRounding.Checked = false;
+                CbApplyRounding.Visible = false;
+                NumRound.Visible = false;
+                LblDigits.Visible = false;
 
                 BtnTest.Visible = false;
             }));
@@ -558,18 +558,19 @@ namespace HASS.Agent.Forms.Sensors
             }
 
             // get and check round value
-            var needRound = CbRdValue.Checked;
+            var applyRounding = CbApplyRounding.Checked;
             int? round = null;
-            if (needRound) 
+            if (applyRounding) 
             { 
-                round = (int)RoundConfig.Value;
+                round = (int)NumRound.Value;
                 if (round is < 0 or > 20)
                 {
                     MessageBoxAdv.Show(this, Languages.SensorsMod_BtnStore_MessageBox12, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ActiveControl = RoundConfig;
+                    ActiveControl = NumRound;
                     return;
                 }
             }
+
             // check and set optional settings
             switch (sensorCard.SensorType)
             {
@@ -678,7 +679,7 @@ namespace HASS.Agent.Forms.Sensors
             Sensor.Type = sensorCard.SensorType;
             Sensor.Name = name;
             Sensor.UpdateInterval = interval;
-            Sensor.ApplyRounding = needRound;
+            Sensor.ApplyRounding = applyRounding;
             Sensor.Round = round;
 
             // done
@@ -792,8 +793,8 @@ namespace HASS.Agent.Forms.Sensors
             // prepare values
             var query = TbSetting1.Text.Trim();
             var scope = TbSetting2.Text.Trim();
-            var needRound = CbRdValue.Checked;
-            var round = (int)RoundConfig.Value;
+            var applyRounding = CbApplyRounding.Checked;
+            var round = (int)NumRound.Value;
 
             if (string.IsNullOrEmpty(query))
             {
@@ -817,7 +818,7 @@ namespace HASS.Agent.Forms.Sensors
             BtnTest.Enabled = false;
 
             // execute the test
-            var result = await Task.Run(() => SensorTester.TestWmiQuery(query, scope, needRound, round));
+            var result = await Task.Run(() => SensorTester.TestWmiQuery(query, scope, applyRounding, round));
 
             BtnTest.Enabled = true;
 
@@ -841,8 +842,8 @@ namespace HASS.Agent.Forms.Sensors
             var category = TbSetting1.Text.Trim();
             var counter = TbSetting2.Text.Trim();
             var instance = TbSetting3.Text.Trim();
-            var needRound = CbRdValue.Checked;
-            var round = (int)RoundConfig.Value;
+            var applyRounding = CbApplyRounding.Checked;
+            var round = (int)NumRound.Value;
 
             if (string.IsNullOrEmpty(category) || string.IsNullOrEmpty(counter))
             {
@@ -853,7 +854,7 @@ namespace HASS.Agent.Forms.Sensors
             BtnTest.Enabled = false;
 
             // execute the test
-            var result = await Task.Run((() => SensorTester.TestPerformanceCounter(category, counter, instance, needRound, round)));
+            var result = await Task.Run((() => SensorTester.TestPerformanceCounter(category, counter, instance, applyRounding, round)));
 
             BtnTest.Enabled = true;
 
@@ -875,8 +876,8 @@ namespace HASS.Agent.Forms.Sensors
         {
             // prepare values
             var command = TbSetting1.Text.Trim();
-            var needRound = CbRdValue.Checked;
-            var round = (int)RoundConfig.Value;
+            var applyRounding = CbApplyRounding.Checked;
+            var round = (int)NumRound.Value;
 
             if (string.IsNullOrEmpty(command))
             {
@@ -887,7 +888,7 @@ namespace HASS.Agent.Forms.Sensors
             BtnTest.Enabled = false;
 
             // execute the test
-            var result = await Task.Run((() => SensorTester.TestPowershell(command, needRound, round)));
+            var result = await Task.Run((() => SensorTester.TestPowershell(command, applyRounding, round)));
 
             BtnTest.Enabled = true;
 
@@ -907,15 +908,15 @@ namespace HASS.Agent.Forms.Sensors
 
         private void CbRdValue_CheckedChanged(object sender, EventArgs e)
         {
-            if (RoundConfig.Visible == true)
+            if (NumRound.Visible == true)
             { 
-                RoundConfig.Visible = false;
-                lblDigit.Visible = false; 
+                NumRound.Visible = false;
+                LblDigits.Visible = false; 
             }
             else
             { 
-                RoundConfig.Visible = true;
-                lblDigit.Visible = true;
+                NumRound.Visible = true;
+                LblDigits.Visible = true;
             }
         }
     }

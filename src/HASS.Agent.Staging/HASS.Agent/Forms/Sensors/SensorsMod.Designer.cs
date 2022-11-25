@@ -67,15 +67,15 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSpecificClient = new System.Windows.Forms.Label();
             this.BtnTest = new Syncfusion.WinForms.Controls.SfButton();
             this.CbNetworkCard = new System.Windows.Forms.ComboBox();
-            this.RoundConfig = new Syncfusion.Windows.Forms.Tools.NumericUpDownExt();
-            this.lblDigit = new System.Windows.Forms.Label();
-            this.CbRdValue = new System.Windows.Forms.CheckBox();
+            this.NumRound = new Syncfusion.Windows.Forms.Tools.NumericUpDownExt();
+            this.LblDigits = new System.Windows.Forms.Label();
+            this.CbApplyRounding = new System.Windows.Forms.CheckBox();
             this.PnlDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbMultiValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAgent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbService)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RoundConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumRound)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnStore
@@ -87,7 +87,7 @@ namespace HASS.Agent.Forms.Sensors
             this.BtnStore.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnStore.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnStore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnStore.Location = new System.Drawing.Point(0, 439);
+            this.BtnStore.Location = new System.Drawing.Point(0, 456);
             this.BtnStore.Name = "BtnStore";
             this.BtnStore.Size = new System.Drawing.Size(1319, 38);
             this.BtnStore.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -109,7 +109,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSetting1.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSetting1.AutoSize = true;
             this.LblSetting1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSetting1.Location = new System.Drawing.Point(566, 235);
+            this.LblSetting1.Location = new System.Drawing.Point(566, 288);
             this.LblSetting1.Name = "LblSetting1";
             this.LblSetting1.Size = new System.Drawing.Size(63, 19);
             this.LblSetting1.TabIndex = 12;
@@ -125,7 +125,7 @@ namespace HASS.Agent.Forms.Sensors
             this.TbSetting1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbSetting1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbSetting1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbSetting1.Location = new System.Drawing.Point(566, 257);
+            this.TbSetting1.Location = new System.Drawing.Point(566, 310);
             this.TbSetting1.Name = "TbSetting1";
             this.TbSetting1.Size = new System.Drawing.Size(328, 25);
             this.TbSetting1.TabIndex = 2;
@@ -142,7 +142,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblType.Name = "LblType";
             this.LblType.Size = new System.Drawing.Size(91, 19);
             this.LblType.TabIndex = 3;
-            this.LblType.Text = "Selected Type";
+            this.LblType.Text = Languages.SensorsMod_LblType;
             // 
             // LblName
             // 
@@ -155,7 +155,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(45, 19);
             this.LblName.TabIndex = 10;
-            this.LblName.Text = "&Name";
+            this.LblName.Text = Languages.SensorsMod_LblName;
             // 
             // TbName
             // 
@@ -179,11 +179,11 @@ namespace HASS.Agent.Forms.Sensors
             this.LblUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblUpdate.AutoSize = true;
             this.LblUpdate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblUpdate.Location = new System.Drawing.Point(566, 158);
+            this.LblUpdate.Location = new System.Drawing.Point(566, 174);
             this.LblUpdate.Name = "LblUpdate";
             this.LblUpdate.Size = new System.Drawing.Size(91, 19);
             this.LblUpdate.TabIndex = 13;
-            this.LblUpdate.Text = "&Update every";
+            this.LblUpdate.Text = Languages.SensorsMod_LblUpdate;
             // 
             // LblSeconds
             // 
@@ -192,11 +192,11 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSeconds.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSeconds.AutoSize = true;
             this.LblSeconds.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSeconds.Location = new System.Drawing.Point(763, 158);
+            this.LblSeconds.Location = new System.Drawing.Point(763, 174);
             this.LblSeconds.Name = "LblSeconds";
             this.LblSeconds.Size = new System.Drawing.Size(58, 19);
             this.LblSeconds.TabIndex = 15;
-            this.LblSeconds.Text = "seconds";
+            this.LblSeconds.Text = Languages.SensorsMod_LblSeconds;
             // 
             // LblDescription
             // 
@@ -209,7 +209,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblDescription.Name = "LblDescription";
             this.LblDescription.Size = new System.Drawing.Size(78, 19);
             this.LblDescription.TabIndex = 17;
-            this.LblDescription.Text = "Description";
+            this.LblDescription.Text = Languages.SensorsMod_LblDescription;
             // 
             // TbDescription
             // 
@@ -249,7 +249,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSetting2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSetting2.AutoSize = true;
             this.LblSetting2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSetting2.Location = new System.Drawing.Point(566, 288);
+            this.LblSetting2.Location = new System.Drawing.Point(566, 341);
             this.LblSetting2.Name = "LblSetting2";
             this.LblSetting2.Size = new System.Drawing.Size(63, 19);
             this.LblSetting2.TabIndex = 21;
@@ -265,7 +265,7 @@ namespace HASS.Agent.Forms.Sensors
             this.TbSetting2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbSetting2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbSetting2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbSetting2.Location = new System.Drawing.Point(566, 310);
+            this.TbSetting2.Location = new System.Drawing.Point(566, 363);
             this.TbSetting2.Name = "TbSetting2";
             this.TbSetting2.Size = new System.Drawing.Size(328, 25);
             this.TbSetting2.TabIndex = 5;
@@ -278,7 +278,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSetting3.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSetting3.AutoSize = true;
             this.LblSetting3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSetting3.Location = new System.Drawing.Point(566, 341);
+            this.LblSetting3.Location = new System.Drawing.Point(566, 394);
             this.LblSetting3.Name = "LblSetting3";
             this.LblSetting3.Size = new System.Drawing.Size(63, 19);
             this.LblSetting3.TabIndex = 23;
@@ -294,7 +294,7 @@ namespace HASS.Agent.Forms.Sensors
             this.TbSetting3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbSetting3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbSetting3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbSetting3.Location = new System.Drawing.Point(566, 363);
+            this.TbSetting3.Location = new System.Drawing.Point(566, 416);
             this.TbSetting3.Name = "TbSetting3";
             this.TbSetting3.Size = new System.Drawing.Size(328, 25);
             this.TbSetting3.TabIndex = 6;
@@ -313,7 +313,7 @@ namespace HASS.Agent.Forms.Sensors
             this.NumInterval.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NumInterval.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NumInterval.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.NumInterval.Location = new System.Drawing.Point(673, 156);
+            this.NumInterval.Location = new System.Drawing.Point(673, 172);
             this.NumInterval.Maximum = new decimal(new int[] {
             86400,
             0,
@@ -423,7 +423,7 @@ namespace HASS.Agent.Forms.Sensors
             this.PbMultiValue.AccessibleName = "Multivalue icon";
             this.PbMultiValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbMultiValue.Image = global::HASS.Agent.Properties.Resources.multivalue_16;
-            this.PbMultiValue.Location = new System.Drawing.Point(182, 394);
+            this.PbMultiValue.Location = new System.Drawing.Point(182, 397);
             this.PbMultiValue.Name = "PbMultiValue";
             this.PbMultiValue.Size = new System.Drawing.Size(16, 16);
             this.PbMultiValue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -437,11 +437,11 @@ namespace HASS.Agent.Forms.Sensors
             this.LblMultiValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblMultiValue.AutoSize = true;
             this.LblMultiValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblMultiValue.Location = new System.Drawing.Point(204, 395);
+            this.LblMultiValue.Location = new System.Drawing.Point(204, 398);
             this.LblMultiValue.Name = "LblMultiValue";
             this.LblMultiValue.Size = new System.Drawing.Size(63, 15);
             this.LblMultiValue.TabIndex = 29;
-            this.LblMultiValue.Text = "Multivalue";
+            this.LblMultiValue.Text = Languages.SensorsMod_LblMultiValue;
             // 
             // LblAgent
             // 
@@ -450,7 +450,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblAgent.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblAgent.AutoSize = true;
             this.LblAgent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblAgent.Location = new System.Drawing.Point(34, 395);
+            this.LblAgent.Location = new System.Drawing.Point(34, 398);
             this.LblAgent.Name = "LblAgent";
             this.LblAgent.Size = new System.Drawing.Size(39, 15);
             this.LblAgent.TabIndex = 31;
@@ -462,7 +462,7 @@ namespace HASS.Agent.Forms.Sensors
             this.PbAgent.AccessibleName = "Agent icon";
             this.PbAgent.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbAgent.Image = global::HASS.Agent.Properties.Resources.agent_16;
-            this.PbAgent.Location = new System.Drawing.Point(12, 394);
+            this.PbAgent.Location = new System.Drawing.Point(12, 397);
             this.PbAgent.Name = "PbAgent";
             this.PbAgent.Size = new System.Drawing.Size(16, 16);
             this.PbAgent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -476,11 +476,11 @@ namespace HASS.Agent.Forms.Sensors
             this.LblService.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblService.AutoSize = true;
             this.LblService.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblService.Location = new System.Drawing.Point(116, 395);
+            this.LblService.Location = new System.Drawing.Point(116, 398);
             this.LblService.Name = "LblService";
             this.LblService.Size = new System.Drawing.Size(44, 15);
             this.LblService.TabIndex = 33;
-            this.LblService.Text = "Service";
+            this.LblService.Text = Languages.SensorsMod_LblService;
             // 
             // PbService
             // 
@@ -488,7 +488,7 @@ namespace HASS.Agent.Forms.Sensors
             this.PbService.AccessibleName = "Service icon";
             this.PbService.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbService.Image = global::HASS.Agent.Properties.Resources.service_16;
-            this.PbService.Location = new System.Drawing.Point(94, 394);
+            this.PbService.Location = new System.Drawing.Point(94, 397);
             this.PbService.Name = "PbService";
             this.PbService.Size = new System.Drawing.Size(16, 16);
             this.PbService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -507,7 +507,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSpecificClient.Name = "LblSpecificClient";
             this.LblSpecificClient.Size = new System.Drawing.Size(155, 19);
             this.LblSpecificClient.TabIndex = 39;
-            this.LblSpecificClient.Text = "HASS.Agent only!";
+            this.LblSpecificClient.Text = Languages.SensorsMod_LblSpecificClient;
             this.LblSpecificClient.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.LblSpecificClient.Visible = false;
             // 
@@ -516,13 +516,12 @@ namespace HASS.Agent.Forms.Sensors
             this.BtnTest.AccessibleDescription = "Tests the provided values to see if they return the expected value.";
             this.BtnTest.AccessibleName = "Test";
             this.BtnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BtnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnTest.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnTest.Location = new System.Drawing.Point(566, 402);
+            this.BtnTest.Location = new System.Drawing.Point(955, 416);
             this.BtnTest.Name = "BtnTest";
-            this.BtnTest.Size = new System.Drawing.Size(328, 24);
+            this.BtnTest.Size = new System.Drawing.Size(354, 25);
             this.BtnTest.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnTest.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnTest.Style.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -549,74 +548,74 @@ namespace HASS.Agent.Forms.Sensors
             this.CbNetworkCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.CbNetworkCard.FormattingEnabled = true;
             this.CbNetworkCard.IntegralHeight = false;
-            this.CbNetworkCard.Location = new System.Drawing.Point(566, 258);
+            this.CbNetworkCard.Location = new System.Drawing.Point(566, 311);
             this.CbNetworkCard.Name = "CbNetworkCard";
             this.CbNetworkCard.Size = new System.Drawing.Size(328, 26);
             this.CbNetworkCard.TabIndex = 4;
             this.CbNetworkCard.Visible = false;
             // 
-            // RoundConfig
+            // NumRound
             // 
-            this.RoundConfig.AccessibleDescription = "The amount of digit after the comma . Only accepts numeric values.";
-            this.RoundConfig.AccessibleName = "Round digits";
-            this.RoundConfig.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.RoundConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.RoundConfig.BeforeTouchSize = new System.Drawing.Size(83, 25);
-            this.RoundConfig.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.RoundConfig.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.RoundConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RoundConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RoundConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.RoundConfig.Location = new System.Drawing.Point(673, 199);
-            this.RoundConfig.Maximum = new decimal(new int[] {
+            this.NumRound.AccessibleDescription = "The amount of digit after the comma . Only accepts numeric values.";
+            this.NumRound.AccessibleName = "Round digits";
+            this.NumRound.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.NumRound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.NumRound.BeforeTouchSize = new System.Drawing.Size(83, 25);
+            this.NumRound.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.NumRound.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.NumRound.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NumRound.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NumRound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.NumRound.Location = new System.Drawing.Point(673, 231);
+            this.NumRound.Maximum = new decimal(new int[] {
             86400,
             0,
             0,
             0});
-            this.RoundConfig.MaxLength = 10;
-            this.RoundConfig.MetroColor = System.Drawing.SystemColors.WindowFrame;
-            this.RoundConfig.Name = "RoundConfig";
-            this.RoundConfig.Size = new System.Drawing.Size(83, 25);
-            this.RoundConfig.TabIndex = 3;
-            this.RoundConfig.Tag = "";
-            this.RoundConfig.ThemeName = "Metro";
-            this.RoundConfig.Value = new decimal(new int[] {
+            this.NumRound.MaxLength = 10;
+            this.NumRound.MetroColor = System.Drawing.SystemColors.WindowFrame;
+            this.NumRound.Name = "NumRound";
+            this.NumRound.Size = new System.Drawing.Size(83, 25);
+            this.NumRound.TabIndex = 3;
+            this.NumRound.Tag = "";
+            this.NumRound.ThemeName = "Metro";
+            this.NumRound.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.RoundConfig.Visible = false;
-            this.RoundConfig.VisualStyle = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            this.NumRound.Visible = false;
+            this.NumRound.VisualStyle = Syncfusion.Windows.Forms.VisualStyle.Metro;
             // 
-            // lblDigit
+            // LblDigits
             // 
-            this.lblDigit.AccessibleDescription = "Digits description";
-            this.lblDigit.AccessibleName = "Digits description";
-            this.lblDigit.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-            this.lblDigit.AutoSize = true;
-            this.lblDigit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDigit.Location = new System.Drawing.Point(763, 201);
-            this.lblDigit.Name = "lblDigit";
-            this.lblDigit.Size = new System.Drawing.Size(141, 19);
-            this.lblDigit.TabIndex = 42;
-            this.lblDigit.Text = "digit after the comma";
-            this.lblDigit.Visible = false;
+            this.LblDigits.AccessibleDescription = "Digits description";
+            this.LblDigits.AccessibleName = "Digits description";
+            this.LblDigits.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+            this.LblDigits.AutoSize = true;
+            this.LblDigits.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblDigits.Location = new System.Drawing.Point(763, 233);
+            this.LblDigits.Name = "LblDigits";
+            this.LblDigits.Size = new System.Drawing.Size(141, 19);
+            this.LblDigits.TabIndex = 42;
+            this.LblDigits.Text = Languages.SensorsMod_LblDigits;
+            this.LblDigits.Visible = false;
             // 
-            // CbRdValue
+            // CbApplyRounding
             // 
-            this.CbRdValue.AccessibleDescription = "Enable rounding the value to the provided digits";
-            this.CbRdValue.AccessibleName = "Round option";
-            this.CbRdValue.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.CbRdValue.AutoSize = true;
-            this.CbRdValue.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbRdValue.Location = new System.Drawing.Point(566, 199);
-            this.CbRdValue.Name = "CbRdValue";
-            this.CbRdValue.Size = new System.Drawing.Size(68, 23);
-            this.CbRdValue.TabIndex = 43;
-            this.CbRdValue.Text = "&Round";
-            this.CbRdValue.UseVisualStyleBackColor = true;
-            this.CbRdValue.Visible = false;
-            this.CbRdValue.CheckedChanged += new System.EventHandler(this.CbRdValue_CheckedChanged);
+            this.CbApplyRounding.AccessibleDescription = "Enable rounding the value to the provided digits";
+            this.CbApplyRounding.AccessibleName = "Round option";
+            this.CbApplyRounding.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.CbApplyRounding.AutoSize = true;
+            this.CbApplyRounding.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbApplyRounding.Location = new System.Drawing.Point(566, 231);
+            this.CbApplyRounding.Name = "CbApplyRounding";
+            this.CbApplyRounding.Size = new System.Drawing.Size(68, 23);
+            this.CbApplyRounding.TabIndex = 43;
+            this.CbApplyRounding.Text = Languages.SensorsMod_CbApplyRounding;
+            this.CbApplyRounding.UseVisualStyleBackColor = true;
+            this.CbApplyRounding.Visible = false;
+            this.CbApplyRounding.CheckedChanged += new System.EventHandler(this.CbRdValue_CheckedChanged);
             // 
             // SensorsMod
             // 
@@ -629,10 +628,10 @@ namespace HASS.Agent.Forms.Sensors
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.CaptionFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1319, 477);
-            this.Controls.Add(this.CbRdValue);
-            this.Controls.Add(this.lblDigit);
-            this.Controls.Add(this.RoundConfig);
+            this.ClientSize = new System.Drawing.Size(1319, 494);
+            this.Controls.Add(this.CbApplyRounding);
+            this.Controls.Add(this.LblDigits);
+            this.Controls.Add(this.NumRound);
             this.Controls.Add(this.CbNetworkCard);
             this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.LblSpecificClient);
@@ -669,7 +668,7 @@ namespace HASS.Agent.Forms.Sensors
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sensor";
+            this.Text = Languages.SensorsMod_Title;
             this.Load += new System.EventHandler(this.SensorMod_Load);
             this.ResizeEnd += new System.EventHandler(this.SensorsMod_ResizeEnd);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SensorsMod_KeyUp);
@@ -679,7 +678,7 @@ namespace HASS.Agent.Forms.Sensors
             ((System.ComponentModel.ISupportInitialize)(this.PbMultiValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAgent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbService)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RoundConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumRound)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -721,9 +720,9 @@ namespace HASS.Agent.Forms.Sensors
         private ColumnHeader ClmId;
         private Syncfusion.WinForms.Controls.SfButton BtnTest;
         private ComboBox CbNetworkCard;
-        private Syncfusion.Windows.Forms.Tools.NumericUpDownExt RoundConfig;
-        private Label lblDigit;
-        internal CheckBox CbRdValue;
+        private Syncfusion.Windows.Forms.Tools.NumericUpDownExt NumRound;
+        private Label LblDigits;
+        internal CheckBox CbApplyRounding;
     }
 }
 
