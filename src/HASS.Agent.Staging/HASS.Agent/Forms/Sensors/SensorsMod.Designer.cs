@@ -179,7 +179,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblUpdate.AutoSize = true;
             this.LblUpdate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblUpdate.Location = new System.Drawing.Point(566, 174);
+            this.LblUpdate.Location = new System.Drawing.Point(566, 158);
             this.LblUpdate.Name = "LblUpdate";
             this.LblUpdate.Size = new System.Drawing.Size(91, 19);
             this.LblUpdate.TabIndex = 13;
@@ -192,7 +192,7 @@ namespace HASS.Agent.Forms.Sensors
             this.LblSeconds.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSeconds.AutoSize = true;
             this.LblSeconds.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSeconds.Location = new System.Drawing.Point(786, 174);
+            this.LblSeconds.Location = new System.Drawing.Point(763, 158);
             this.LblSeconds.Name = "LblSeconds";
             this.LblSeconds.Size = new System.Drawing.Size(58, 19);
             this.LblSeconds.TabIndex = 15;
@@ -268,7 +268,7 @@ namespace HASS.Agent.Forms.Sensors
             this.TbSetting2.Location = new System.Drawing.Point(566, 310);
             this.TbSetting2.Name = "TbSetting2";
             this.TbSetting2.Size = new System.Drawing.Size(328, 25);
-            this.TbSetting2.TabIndex = 4;
+            this.TbSetting2.TabIndex = 5;
             this.TbSetting2.Visible = false;
             // 
             // LblSetting3
@@ -297,7 +297,7 @@ namespace HASS.Agent.Forms.Sensors
             this.TbSetting3.Location = new System.Drawing.Point(566, 363);
             this.TbSetting3.Name = "TbSetting3";
             this.TbSetting3.Size = new System.Drawing.Size(328, 25);
-            this.TbSetting3.TabIndex = 5;
+            this.TbSetting3.TabIndex = 6;
             this.TbSetting3.Visible = false;
             // 
             // NumInterval
@@ -313,7 +313,7 @@ namespace HASS.Agent.Forms.Sensors
             this.NumInterval.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NumInterval.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NumInterval.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.NumInterval.Location = new System.Drawing.Point(673, 172);
+            this.NumInterval.Location = new System.Drawing.Point(673, 156);
             this.NumInterval.Maximum = new decimal(new int[] {
             86400,
             0,
@@ -530,7 +530,7 @@ namespace HASS.Agent.Forms.Sensors
             this.BtnTest.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnTest.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.BtnTest.Style.PressedForeColor = System.Drawing.Color.Black;
-            this.BtnTest.TabIndex = 6;
+            this.BtnTest.TabIndex = 8;
             this.BtnTest.Text = global::HASS.Agent.Resources.Localization.Languages.SensorsMod_BtnTest;
             this.BtnTest.UseVisualStyleBackColor = false;
             this.BtnTest.Visible = false;
@@ -552,22 +552,22 @@ namespace HASS.Agent.Forms.Sensors
             this.CbNetworkCard.Location = new System.Drawing.Point(566, 258);
             this.CbNetworkCard.Name = "CbNetworkCard";
             this.CbNetworkCard.Size = new System.Drawing.Size(328, 26);
-            this.CbNetworkCard.TabIndex = 3;
+            this.CbNetworkCard.TabIndex = 4;
             this.CbNetworkCard.Visible = false;
             // 
             // RoundConfig
             // 
             this.RoundConfig.AccessibleDescription = "The amount of digit after the comma . Only accepts numeric values.";
-            this.RoundConfig.AccessibleName = "Round config";
+            this.RoundConfig.AccessibleName = "Round digits";
             this.RoundConfig.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
             this.RoundConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.RoundConfig.BeforeTouchSize = new System.Drawing.Size(51, 25);
+            this.RoundConfig.BeforeTouchSize = new System.Drawing.Size(83, 25);
             this.RoundConfig.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.RoundConfig.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.RoundConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RoundConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RoundConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.RoundConfig.Location = new System.Drawing.Point(1095, 402);
+            this.RoundConfig.Location = new System.Drawing.Point(673, 199);
             this.RoundConfig.Maximum = new decimal(new int[] {
             86400,
             0,
@@ -576,8 +576,8 @@ namespace HASS.Agent.Forms.Sensors
             this.RoundConfig.MaxLength = 10;
             this.RoundConfig.MetroColor = System.Drawing.SystemColors.WindowFrame;
             this.RoundConfig.Name = "RoundConfig";
-            this.RoundConfig.Size = new System.Drawing.Size(51, 25);
-            this.RoundConfig.TabIndex = 41;
+            this.RoundConfig.Size = new System.Drawing.Size(83, 25);
+            this.RoundConfig.TabIndex = 3;
             this.RoundConfig.Tag = "";
             this.RoundConfig.ThemeName = "Metro";
             this.RoundConfig.Value = new decimal(new int[] {
@@ -590,12 +590,12 @@ namespace HASS.Agent.Forms.Sensors
             // 
             // lblDigit
             // 
-            this.lblDigit.AccessibleDescription = "Update interval time unit.";
-            this.lblDigit.AccessibleName = "Update interval time unit";
+            this.lblDigit.AccessibleDescription = "Digits description";
+            this.lblDigit.AccessibleName = "Digits description";
             this.lblDigit.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.lblDigit.AutoSize = true;
             this.lblDigit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDigit.Location = new System.Drawing.Point(1152, 404);
+            this.lblDigit.Location = new System.Drawing.Point(763, 201);
             this.lblDigit.Name = "lblDigit";
             this.lblDigit.Size = new System.Drawing.Size(141, 19);
             this.lblDigit.TabIndex = 42;
@@ -604,12 +604,12 @@ namespace HASS.Agent.Forms.Sensors
             // 
             // CbRdValue
             // 
-            this.CbRdValue.AccessibleDescription = "Round the value";
-            this.CbRdValue.AccessibleName = "";
+            this.CbRdValue.AccessibleDescription = "Enable rounding the value to the provided digits";
+            this.CbRdValue.AccessibleName = "Round option";
             this.CbRdValue.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.CbRdValue.AutoSize = true;
             this.CbRdValue.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbRdValue.Location = new System.Drawing.Point(955, 402);
+            this.CbRdValue.Location = new System.Drawing.Point(566, 199);
             this.CbRdValue.Name = "CbRdValue";
             this.CbRdValue.Size = new System.Drawing.Size(68, 23);
             this.CbRdValue.TabIndex = 43;

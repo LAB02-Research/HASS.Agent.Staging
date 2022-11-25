@@ -7,7 +7,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.PerfCounterSensors.SingleValue
     /// </summary>
     public class CpuLoadSensor : PerformanceCounterSensor
     {
-        public CpuLoadSensor(int? updateInterval = null, string name = "cpuload", string id = default, bool needRound = false, int? round = null) : base("Processor", "% Processor Time", "_Total", needRound, round, updateInterval ?? 30, name ?? "cpuload", id) { }
+        public CpuLoadSensor(int? updateInterval = null, string name = "cpuload", string id = default, bool applyRounding = false, int? round = null) : base("Processor", "% Processor Time", "_Total", applyRounding, round, updateInterval ?? 30, name ?? "cpuload", id) { }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {

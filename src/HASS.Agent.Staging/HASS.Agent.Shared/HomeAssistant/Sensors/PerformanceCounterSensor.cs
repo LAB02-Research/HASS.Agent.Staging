@@ -13,19 +13,19 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
     {
         protected PerformanceCounter Counter = null;
 
-        public string CategoryName;
-        public string CounterName;
-        public string InstanceName;
+        public string CategoryName { get; private set; }
+        public string CounterName { get; private set; }
+        public string InstanceName { get; private set; }
 
-        public bool NeedRound { get; private set; }
+        public bool ApplyRounding { get; private set; }
         public int? Round { get; private set; }
 
-        public PerformanceCounterSensor(string categoryName, string counterName, string instanceName, bool needRound = false, int? round = null, int? updateInterval = null, string name = "performancecountersensor", string id = default) : base(name ?? "performancecountersensor", updateInterval ?? 10, id)
+        public PerformanceCounterSensor(string categoryName, string counterName, string instanceName, bool applyRounding = false, int? round = null, int? updateInterval = null, string name = "performancecountersensor", string id = default) : base(name ?? "performancecountersensor", updateInterval ?? 10, id)
         {
             CategoryName = categoryName;
             CounterName = counterName;
             InstanceName = instanceName;
-            NeedRound = needRound;
+            ApplyRounding = applyRounding;
             Round = round;
 
             Counter = PerformanceCounters.GetSingleInstanceCounter(categoryName, counterName);
@@ -54,8 +54,20 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/availability"
             });
         }
-        
-        public override string GetState() => Math.Round(Counter.NextValue()).ToString(CultureInfo.InvariantCulture);
+
+        public override string GetState()
+        {
+            var nextVal = Counter.NextValue();
+
+            // optionally apply rounding
+            if (ApplyRounding && Round != null && double.TryParse(nextVal.ToString(CultureInfo.CurrentCulture), out var dblValue))
+            {
+                return Math.Round(dblValue, (int)Round).ToString(CultureInfo.CurrentCulture);
+            }
+
+            // done
+            return Math.Round(Counter.NextValue()).ToString(CultureInfo.CurrentCulture);
+        }
 
         public override string GetAttributes() => string.Empty;
     }

@@ -151,7 +151,7 @@ namespace HASS.Agent.Forms.Sensors
                 case SensorType.WmiQuerySensor:
                     TbSetting1.Text = Sensor.Query;
                     TbSetting2.Text = Sensor.Scope;
-                    CbRdValue.Checked = Sensor.NeedRound;
+                    CbRdValue.Checked = Sensor.ApplyRounding;
                     RoundConfig.Text = Sensor.Round?.ToString() ?? "2";
                     break;
 
@@ -159,7 +159,7 @@ namespace HASS.Agent.Forms.Sensors
                     TbSetting1.Text = Sensor.Category;
                     TbSetting2.Text = Sensor.Counter;
                     TbSetting3.Text = Sensor.Instance;
-                    CbRdValue.Checked = Sensor.NeedRound;
+                    CbRdValue.Checked = Sensor.ApplyRounding;
                     RoundConfig.Text = Sensor.Round?.ToString() ?? "2";
                     break;
 
@@ -173,7 +173,7 @@ namespace HASS.Agent.Forms.Sensors
 
                 case SensorType.PowershellSensor:
                     TbSetting1.Text = Sensor.Query;
-                    CbRdValue.Checked = Sensor.NeedRound;
+                    CbRdValue.Checked = Sensor.ApplyRounding;
                     RoundConfig.Text = Sensor.Round?.ToString() ?? "2";
                     break;
 
@@ -678,7 +678,7 @@ namespace HASS.Agent.Forms.Sensors
             Sensor.Type = sensorCard.SensorType;
             Sensor.Name = name;
             Sensor.UpdateInterval = interval;
-            Sensor.NeedRound = needRound;
+            Sensor.ApplyRounding = needRound;
             Sensor.Round = round;
 
             // done

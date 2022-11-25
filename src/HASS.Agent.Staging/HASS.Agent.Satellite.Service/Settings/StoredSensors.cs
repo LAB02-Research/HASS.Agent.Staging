@@ -136,10 +136,10 @@ namespace HASS.Agent.Satellite.Service.Settings
                     abstractSensor = new GpuTemperatureSensor(sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
                 case SensorType.WmiQuerySensor:
-                    abstractSensor = new WmiQuerySensor(sensor.Query, sensor.Scope, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    abstractSensor = new WmiQuerySensor(sensor.Query, sensor.Scope, sensor.ApplyRounding, sensor.Round, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
                 case SensorType.PerformanceCounterSensor:
-                    abstractSensor = new PerformanceCounterSensor(sensor.Category, sensor.Counter, sensor.Instance, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    abstractSensor = new PerformanceCounterSensor(sensor.Category, sensor.Counter, sensor.Instance, sensor.ApplyRounding, sensor.Round, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
                 case SensorType.ProcessActiveSensor:
                     abstractSensor = new ProcessActiveSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
@@ -154,7 +154,7 @@ namespace HASS.Agent.Satellite.Service.Settings
                     abstractSensor = new LoggedUserSensor(sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
                 case SensorType.PowershellSensor:
-                    abstractSensor = new PowershellSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    abstractSensor = new PowershellSensor(sensor.Query, sensor.ApplyRounding, sensor.Round, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
                 case SensorType.WindowStateSensor:
                     abstractSensor = new WindowStateSensor(sensor.Query, sensor.Name, sensor.UpdateInterval, sensor.Id.ToString());
@@ -229,7 +229,9 @@ namespace HASS.Agent.Satellite.Service.Settings
                             Type = type,
                             UpdateInterval = wmiSensor.UpdateIntervalSeconds,
                             Scope = wmiSensor.Scope,
-                            Query = wmiSensor.Query
+                            Query = wmiSensor.Query,
+                            ApplyRounding = wmiSensor.ApplyRounding,
+                            Round = wmiSensor.Round,
                         };
                     }
 
@@ -257,7 +259,9 @@ namespace HASS.Agent.Satellite.Service.Settings
                             UpdateInterval = performanceCounterSensor.UpdateIntervalSeconds,
                             Category = performanceCounterSensor.CategoryName,
                             Counter = performanceCounterSensor.CounterName,
-                            Instance = performanceCounterSensor.InstanceName
+                            Instance = performanceCounterSensor.InstanceName,
+                            ApplyRounding = performanceCounterSensor.ApplyRounding,
+                            Round = performanceCounterSensor.Round,
                         };
                     }
 
@@ -296,7 +300,9 @@ namespace HASS.Agent.Satellite.Service.Settings
                             Name = powershellSensor.Name,
                             Type = type,
                             UpdateInterval = powershellSensor.UpdateIntervalSeconds,
-                            Query = powershellSensor.Command
+                            Query = powershellSensor.Command,
+                            ApplyRounding = powershellSensor.ApplyRounding,
+                            Round = powershellSensor.Round
                         };
                     }
 
