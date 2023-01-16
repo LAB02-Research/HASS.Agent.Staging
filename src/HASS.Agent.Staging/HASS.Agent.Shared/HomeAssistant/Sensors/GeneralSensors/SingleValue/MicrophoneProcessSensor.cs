@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.Models.HomeAssistant;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 {
@@ -10,12 +12,18 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class MicrophoneProcessSensor : AbstractSingleValueSensor
     {
-        public MicrophoneProcessSensor(int? updateInterval = null, string name = "microphoneprocess", string id = default) : base(name ?? "microphoneprocess", updateInterval ?? 10, id)
+        public MicrophoneProcessSensor(int? updateInterval = null, string name = "microphoneprocess", string id = default, bool useAttributes = true) : base(name ?? "microphoneprocess", updateInterval ?? 10, id, useAttributes)
         {
             //
         }
 
+        private Dictionary<string, string> processes = new Dictionary<string, string>();
+
+        private string _attributes = string.Empty;
+
         public override string GetState() => MicrophoneProcess();
+        public void SetAttributes(string value) => _attributes = string.IsNullOrWhiteSpace(value) ? "{}" : value;
+        public override string GetAttributes() => _attributes;
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -24,7 +32,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             var deviceConfig = Variables.MqttManager.GetDeviceConfigModel();
             if (deviceConfig == null) return null;
 
-            return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
+            var model = new SensorDiscoveryConfigModel()
             {
                 Name = Name,
                 Unique_id = Id,
@@ -32,37 +40,47 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability",
                 Icon = "mdi:microphone"
-            });
+            };
+
+            if (UseAttributes)
+            {
+                model.Json_attributes_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/attributes";
+                model.Json_attributes_template = "{{ value_json | tojson }}";
+            }
+
+            return SetAutoDiscoveryConfigModel(model);
         }
 
-        public override string GetAttributes() => string.Empty;
-
-        private static string MicrophoneProcess()
+        private string MicrophoneProcess()
         {
             const string regKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone";
-            (bool, string) inUse;
+
+            this.processes.Clear();
 
             // first local machine
             using (var key = Registry.LocalMachine.OpenSubKey(regKey))
             {
-                inUse = CheckRegForMicrophoneInUse(key);
-                if (inUse.Item1) return inUse.Item2;
+                CheckRegForMicrophoneInUse(key);
             }
 
             // then current user
             using (var key = Registry.CurrentUser.OpenSubKey(regKey))
             {
-                inUse = CheckRegForMicrophoneInUse(key);
-                if (inUse.Item1) return inUse.Item2;
+                CheckRegForMicrophoneInUse(key);
+            }
+
+            if (this.processes.Count > 0)
+            {
+                _attributes = JsonConvert.SerializeObject(this.processes, Formatting.Indented);
             }
 
             // nope
-            return string.Empty;
+            return this.processes.Count.ToString();
         }
 
-        private static (bool active, string application) CheckRegForMicrophoneInUse(RegistryKey key)
+        private void CheckRegForMicrophoneInUse(RegistryKey key)
         {
-            if (key == null) return (false, string.Empty);
+            if (key == null) return;
 
             foreach (var subKeyName in key.GetSubKeyNames())
             {
@@ -81,7 +99,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                             ? (long)(subKey.GetValue("LastUsedTimeStop") ?? -1)
                             : -1;
 
-                        if (endTime <= 0) return (true, SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name));
+                        if (endTime <= 0)
+                        {
+                            this.processes.Add(SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name), "on");
+                        }
                     }
                 }
                 else
@@ -90,11 +111,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                     if (subKey == null || !subKey.GetValueNames().Contains("LastUsedTimeStop")) continue;
 
                     var endTime = subKey.GetValue("LastUsedTimeStop") is long ? (long)(subKey.GetValue("LastUsedTimeStop") ?? -1) : -1;
-                    if (endTime <= 0) return (true, SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name));
+                    if (endTime <= 0)
+                    {
+                        this.processes.Add(SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name), "on");
+                    }
                 }
             }
-
-            return (false, string.Empty);
         }
     }
 }
