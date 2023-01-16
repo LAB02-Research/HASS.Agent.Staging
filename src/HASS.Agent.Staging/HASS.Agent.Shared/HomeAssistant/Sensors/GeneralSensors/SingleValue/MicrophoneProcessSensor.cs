@@ -45,10 +45,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             if (UseAttributes)
             {
                 model.Json_attributes_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/attributes";
-                model.Json_attributes_template = "{{ value_json | tojson }}";
             }
 
-            return SetAutoDiscoveryConfigModel(model);
+            return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(model);
         }
 
         private string MicrophoneProcess()

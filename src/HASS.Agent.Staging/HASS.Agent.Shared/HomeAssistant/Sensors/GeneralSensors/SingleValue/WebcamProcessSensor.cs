@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 {
     /// <summary>
-    /// Sensor indicating whether the mic is in use
+    /// Sensor indicating whether the webcam is in use
     /// </summary>
     public class WebcamProcessSensor : AbstractSingleValueSensor
     {
@@ -45,10 +45,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             if (UseAttributes)
             {
                 model.Json_attributes_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/attributes";
-                model.Json_attributes_template = "{{ value_json | tojson }}";
             }
 
-            return SetAutoDiscoveryConfigModel(model);
+            return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(model);
         }
 
         private string WebcamProcess()
@@ -80,7 +79,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
         private void CheckRegForWebcamInUse(RegistryKey key)
         {
-            if (key == null) return; ;
+            if (key == null) return;
 
             foreach (var subKeyName in key.GetSubKeyNames())
             {
