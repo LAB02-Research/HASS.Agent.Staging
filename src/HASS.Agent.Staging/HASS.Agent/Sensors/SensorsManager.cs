@@ -3,7 +3,6 @@ using HASS.Agent.Models.Internal;
 using HASS.Agent.Resources.Localization;
 using HASS.Agent.Settings;
 using HASS.Agent.Shared.Enums;
-using HASS.Agent.Shared.Extensions;
 using HASS.Agent.Shared.Models.Config;
 using Serilog;
 
@@ -64,6 +63,7 @@ namespace HASS.Agent.Sensors
             // unpublish the autodisco's
             if (SingleValueSensorsPresent()) foreach (var sensor in Variables.SingleValueSensors) await sensor.UnPublishAutoDiscoveryConfigAsync();
             if (MultiValueSensorsPresent()) foreach (var sensor in Variables.MultiValueSensors) await sensor.UnPublishAutoDiscoveryConfigAsync();
+            if (SingleBinarySensorsPresent()) foreach (var sensor in Variables.SingleBinaryValueSensors) await sensor.UnPublishAutoDiscoveryConfigAsync();
         }
 
         /// <summary>
@@ -111,6 +111,15 @@ namespace HASS.Agent.Sensors
                             }
                         }
 
+                        if (SingleBinarySensorsPresent())
+                        {
+                            foreach (var sensor in Variables.SingleBinaryValueSensors.TakeWhile(_ => !_pause).TakeWhile(_ => _active))
+                            {
+                                if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected) continue;
+                                await sensor.PublishAutoDiscoveryConfigAsync();
+                            }
+                        }
+
                         if (MultiValueSensorsPresent())
                         {
                             foreach (var sensor in Variables.MultiValueSensors.TakeWhile(_ => !_pause).TakeWhile(_ => _active))
@@ -130,6 +139,16 @@ namespace HASS.Agent.Sensors
                     if (SingleValueSensorsPresent())
                     {
                         foreach (var sensor in Variables.SingleValueSensors.TakeWhile(_ => !_pause).TakeWhile(_ => _active))
+                        {
+                            if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected) continue;
+                            await sensor.PublishStateAsync(!firstRun);
+                        }
+                    }
+
+                    // publish sensor states (they have their own time-based scheduling)
+                    if (SingleBinarySensorsPresent())
+                    {
+                        foreach (var sensor in Variables.SingleBinaryValueSensors.TakeWhile(_ => !_pause).TakeWhile(_ => _active))
                         {
                             if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected) continue;
                             await sensor.PublishStateAsync(!firstRun);
@@ -179,6 +198,12 @@ namespace HASS.Agent.Sensors
                     foreach (var sensor in Variables.MultiValueSensors) sensor.ResetChecks();
                 }
 
+                // reset single-binary-value sensors
+                if (SingleBinarySensorsPresent())
+                {
+                    foreach (var sensor in Variables.SingleBinaryValueSensors) sensor.ResetChecks();
+                }
+
                 // done
             }
             catch (Exception ex)
@@ -221,6 +246,16 @@ namespace HASS.Agent.Sensors
                             Variables.SingleValueSensors.RemoveAt(Variables.SingleValueSensors.FindIndex(x => x.Id == abstractSensor.Id));
 
                             Log.Information("[SENSORS] Removed single-value sensor: {sensor}", abstractSensor.Name);
+                        }
+                        else if (sensor.IsSingleBinaryValue()) {
+                            var abstractSensor = StoredSensors.ConvertConfiguredToAbstractSingleBinaryValue(sensor);
+
+                            // remove and unregister
+                            await abstractSensor.UnPublishAutoDiscoveryConfigAsync();
+                            Variables.SingleValueSensors.RemoveAt(Variables.SingleBinaryValueSensors.FindIndex(x => x.Id == abstractSensor.Id));
+
+                            Log.Information("[SENSORS] Removed single-binary-value sensor: {sensor}", abstractSensor.Name);
+
                         }
                         else
                         {
@@ -267,6 +302,37 @@ namespace HASS.Agent.Sensors
                         await abstractSensor.PublishStateAsync(false);
 
                         Log.Information("[SENSORS] Modified single-value sensor: {sensor}", abstractSensor.Name);
+                    }
+                    else if (sensor.IsSingleBinaryValue())
+                    {
+                        var abstractSensor = StoredSensors.ConvertConfiguredToAbstractSingleBinaryValue(sensor);
+                        if (Variables.SingleBinaryValueSensors.All(x => x.Id != abstractSensor.Id))
+                        {
+                            // new, add and register
+                            Variables.SingleBinaryValueSensors.Add(abstractSensor);
+                            await abstractSensor.PublishAutoDiscoveryConfigAsync();
+                            await abstractSensor.PublishStateAsync(false);
+
+                            Log.Information("[SENSORS] Added single-binary-value sensor: {sensor}", abstractSensor.Name);
+                            continue;
+                        }
+
+                        // existing, update and re-register
+                        var currentSensorIndex = Variables.SingleBinaryValueSensors.FindIndex(x => x.Id == abstractSensor.Id);
+                        if (Variables.SingleBinaryValueSensors[currentSensorIndex].Name != abstractSensor.Name)
+                        {
+                            // name changed, unregister
+                            Log.Information("[SENSORS] Single-binary-value sensor changed name, re-registering as new entity: {old} to {new}", Variables.SingleBinaryValueSensors[currentSensorIndex].Name, abstractSensor.Name);
+
+                            await Variables.SingleBinaryValueSensors[currentSensorIndex].UnPublishAutoDiscoveryConfigAsync();
+                        }
+
+                        Variables.SingleBinaryValueSensors[currentSensorIndex] = abstractSensor;
+                        await abstractSensor.PublishAutoDiscoveryConfigAsync();
+                        await abstractSensor.PublishStateAsync(false);
+
+                        Log.Information("[SENSORS] Modified single-value sensor: {sensor}", abstractSensor.Name);
+
                     }
                     else
                     {
@@ -323,7 +389,8 @@ namespace HASS.Agent.Sensors
 
         private static bool SingleValueSensorsPresent() => Variables.SingleValueSensors != null && Variables.SingleValueSensors.Any();
         private static bool MultiValueSensorsPresent() => Variables.MultiValueSensors != null && Variables.MultiValueSensors.Any();
-
+        private static bool SingleBinarySensorsPresent() => Variables.SingleBinaryValueSensors != null && Variables.SingleBinaryValueSensors.Any();
+ 
         /// <summary>
         /// Returns default information for the specified sensor type, or null if not found
         /// </summary>
@@ -421,6 +488,14 @@ namespace HASS.Agent.Sensors
             sensorInfoCard = new SensorInfoCard(SensorType.GeoLocationSensor,
                 Languages.SensorsManager_GeoLocationSensorDescription,
                 30, false, true, false);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
+            sensorInfoCard = new SensorInfoCard(SensorType.ScreenshotSensor,
+                "screeeeeenshotsensor",
+                30, false, true, true, false);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 

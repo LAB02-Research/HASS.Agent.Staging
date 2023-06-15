@@ -548,6 +548,16 @@ namespace HASS.Agent.Forms.Sensors
                 }
             }
 
+            if (!_serviceMode && Variables.SingleBinaryValueSensors.Any(x => string.Equals(x.Name, name, StringComparison.InvariantCultureIgnoreCase) && x.Id != Sensor.Id.ToString()))
+            {
+                var confirm = MessageBoxAdv.Show(this, "MULTIPASSPHOTO!XXX", Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm != DialogResult.Yes)
+                {
+                    ActiveControl = TbName;
+                    return;
+                }
+            }
+
             // get and check update interval
             var interval = (int)NumInterval.Value;
             if (interval is < 1 or > 43200)

@@ -399,7 +399,7 @@ namespace HASS.Agent.MQTT
                 // add payload
                 if (clearConfig) messageBuilder.WithPayload(Array.Empty<byte>());
                 else messageBuilder.WithPayload(JsonSerializer.Serialize(discoverable.GetAutoDiscoveryConfig(), discoverable.GetAutoDiscoveryConfig().GetType(), JsonSerializerOptions));
-
+                //https://www.home-assistant.io/integrations/mqtt/#testing-your-setup
                 // publish disco config
                 await PublishAsync(messageBuilder.Build());
             }
