@@ -490,15 +490,7 @@ namespace HASS.Agent.Sensors
                 30, false, true, false);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
-
-            // =================================
-
-            sensorInfoCard = new SensorInfoCard(SensorType.ScreenshotSensor,
-                "screeeeeenshotsensor",
-                30, false, true, true, false);
-
-            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
-
+            
             // =================================
 
             sensorInfoCard = new SensorInfoCard(SensorType.GpuLoadSensor,
@@ -632,6 +624,14 @@ namespace HASS.Agent.Sensors
             sensorInfoCard = new SensorInfoCard(SensorType.ProcessActiveSensor,
                 Languages.SensorsManager_ProcessActiveSensorDescription,
                 10, false, true, true);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
+            sensorInfoCard = new SensorInfoCard(SensorType.ScreenshotSensor,
+                Languages.SensorsManager_ScreenshotSensorsDescription,
+                30, false, true, true, false);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 

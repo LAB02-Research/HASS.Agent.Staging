@@ -3219,4 +3219,7 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Proporciona una captura de pantalla.</value>
+  </data>
 </root>

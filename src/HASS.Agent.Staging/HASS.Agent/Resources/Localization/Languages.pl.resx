@@ -3332,4 +3332,7 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Zrzut ekranu</value>
   </data>
+  <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
+	  <value>Udostępnia zrzut ekranu.</value>
+  </data>
 </root>

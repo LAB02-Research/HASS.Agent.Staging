@@ -3287,4 +3287,8 @@ Home Assistant.
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Предоставляет снимок экрана.
+</value>
+  </data>
 </root>

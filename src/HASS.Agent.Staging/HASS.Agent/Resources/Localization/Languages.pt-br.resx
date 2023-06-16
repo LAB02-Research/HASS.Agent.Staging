@@ -3269,4 +3269,7 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Captura de tela</value>
   </data>
+  <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
+	  <value>Fornece uma captura de tela.</value>
+  </data>
 </root>

@@ -3346,4 +3346,7 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Screenshot</value>
   </data>
+  <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
+	  <value>Gibt einen Screenshot des aktuellen Bildschirminhalts zurück.</value>
+  </data>
 </root>
