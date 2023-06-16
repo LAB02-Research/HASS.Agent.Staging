@@ -252,7 +252,7 @@ namespace HASS.Agent.Sensors
 
                             // remove and unregister
                             await abstractSensor.UnPublishAutoDiscoveryConfigAsync();
-                            Variables.SingleValueSensors.RemoveAt(Variables.SingleBinaryValueSensors.FindIndex(x => x.Id == abstractSensor.Id));
+                            Variables.SingleBinaryValueSensors.RemoveAt(Variables.SingleBinaryValueSensors.FindIndex(x => x.Id == abstractSensor.Id));
 
                             Log.Information("[SENSORS] Removed single-binary-value sensor: {sensor}", abstractSensor.Name);
 
