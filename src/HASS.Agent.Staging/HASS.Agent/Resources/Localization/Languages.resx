@@ -3223,9 +3223,12 @@ Do you want to download the runtime installer?</value>
     <value>Please provide a number between 0 and 20!</value>
   </data>
   <data name="SensorsMod_LblDigits" xml:space="preserve">
-	  <value>digits after the comma</value>
+    <value>digits after the comma</value>
   </data>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
-	  <value>&amp;Round</value>
+    <value>&amp;Round</value>
+  </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+    <value>Screenshot</value>
   </data>
 </root>

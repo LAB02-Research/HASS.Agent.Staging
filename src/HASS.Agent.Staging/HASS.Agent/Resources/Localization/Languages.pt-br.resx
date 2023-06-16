@@ -3266,4 +3266,7 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Desconhecido</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Captura de tela</value>
+  </data>
 </root>

@@ -6545,29 +6545,16 @@ namespace HASS.Agent.Resources.Localization {
                 return ResourceManager.GetString("SensorType_DummySensor", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to GeoLocation.
         /// </summary>
-        internal static string SensorType_GeoLocationSensor
-        {
-            get
-            {
+        internal static string SensorType_GeoLocationSensor {
+            get {
                 return ResourceManager.GetString("SensorType_GeoLocationSensor", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Screenshot.
-        /// </summary>
-        internal static string SensorType_Screenshot
-        {
-            get
-            {
-                return ResourceManager.GetString("SensorType_Screenshot", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to GpuLoad.
         /// </summary>
@@ -6718,6 +6705,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorType_ProcessActiveSensor {
             get {
                 return ResourceManager.GetString("SensorType_ProcessActiveSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot.
+        /// </summary>
+        internal static string SensorType_ScreenshotSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ScreenshotSensor", resourceCulture);
             }
         }
         
