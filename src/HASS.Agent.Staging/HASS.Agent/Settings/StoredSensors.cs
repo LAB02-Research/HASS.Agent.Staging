@@ -208,7 +208,7 @@ namespace HASS.Agent.Settings
             switch (sensor.Type)
             {
                 case SensorType.ScreenshotSensor:
-                    abstractSensor = new ScreenshotSensor(sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    abstractSensor = new ScreenshotSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-binary-value sensor type: {type}", sensor.Name, sensor.Type.ToString());

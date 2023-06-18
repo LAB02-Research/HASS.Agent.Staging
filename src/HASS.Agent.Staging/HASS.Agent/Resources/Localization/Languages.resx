@@ -3232,6 +3232,9 @@ Do you want to download the runtime installer?</value>
     <value>Screenshot</value>
   </data>
   <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
-	  <value>Provides a screenshot image</value>
+    <value>Provides a screenshot image</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
+    <value>Screen Number (0 to Number of Screens)</value>
   </data>
 </root>

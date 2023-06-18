@@ -6191,6 +6191,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Screen Number (0 to Number of Screens).
+        /// </summary>
+        internal static string SensorsMod_LblSetting1_ScreenNumber {
+            get {
+                return ResourceManager.GetString("SensorsMod_LblSetting1_ScreenNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Service.
         /// </summary>
         internal static string SensorsMod_LblSetting1_Service {

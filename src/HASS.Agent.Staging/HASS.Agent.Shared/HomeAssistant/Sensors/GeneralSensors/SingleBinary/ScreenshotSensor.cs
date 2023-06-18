@@ -13,7 +13,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class ScreenshotSensor : AbstractSingleBinarySensor
     {
-        public ScreenshotSensor(int? updateInterval = 10, string name = "screenshot", string id = default) : base(name ?? "screenshot", updateInterval ?? 30, id) { }
+        public int ScreenNumber { get; protected set; }
+
+        public ScreenshotSensor(string screenNumber, int? updateInterval = 10, string name = "screenshot", string id = default) : base(name ?? "screenshot", updateInterval ?? 30, id)
+        {
+            ScreenNumber = int.TryParse(screenNumber, out _) ? Convert.ToInt32(screenNumber) : 0;
+        }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -38,16 +43,21 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     public override byte[] GetState()
     {
         int screenCount = Screen.AllScreens.Length;
-        return CaptureMyScreen();
+        int requestedScreen = ScreenNumber;
+        if (screenCount <= requestedScreen)
+        {
+            requestedScreen = 0;
+        }
+        return CaptureScreen(requestedScreen);
     }
 
     public override string GetAttributes() => string.Empty;
 
-    private byte[] CaptureMyScreen()
+    private byte[] CaptureScreen(int screenIndex)
     {
         try
         {
-            return CaptureJpgFile();
+            return CapturePngFile(screenIndex);
         }
         catch (Exception ex)
         {
@@ -56,11 +66,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
         }
     }
 
-    private static byte[] CaptureJpgFile()
+    private static byte[] CapturePngFile(int screenIndex)
     {
-        Rectangle captureRectangle = Screen.AllScreens[0].Bounds;
+        Rectangle captureRectangle = Screen.AllScreens[screenIndex].Bounds;
 
-        Bitmap captureBitmap = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height, PixelFormat.Format32bppArgb);
+        Bitmap captureBitmap = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[screenIndex].Bounds.Height, PixelFormat.Format32bppArgb);
         Graphics captureGraphics = Graphics.FromImage(captureBitmap);
         captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top,
             0, 0, captureRectangle.Size);
