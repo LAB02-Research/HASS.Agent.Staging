@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using HASS.Agent.Shared.Models.HomeAssistant;
+using Serilog;
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 {
@@ -40,47 +41,47 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             });
         }
 
-    public override byte[] GetState()
-    {
-        int screenCount = Screen.AllScreens.Length;
-        int requestedScreen = ScreenNumber;
-        if (screenCount <= requestedScreen)
+        public override byte[] GetState()
         {
+            int screenCount = Screen.AllScreens.Length;
+            int requestedScreen = ScreenNumber;
+            if (screenCount > requestedScreen) return CaptureScreen(requestedScreen);
+            
+            Log.Warning("[SCREENSHOT] Error capturing screen {index}- revert to capturing screen 0", requestedScreen);
             requestedScreen = 0;
+            return CaptureScreen(requestedScreen);
         }
-        return CaptureScreen(requestedScreen);
-    }
 
-    public override string GetAttributes() => string.Empty;
+        public override string GetAttributes() => string.Empty;
 
-    private byte[] CaptureScreen(int screenIndex)
-    {
-        try
+        private byte[] CaptureScreen(int screenIndex)
         {
-            return CapturePngFile(screenIndex);
+            try
+            {
+                return CapturePngFile(screenIndex);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
-        catch (Exception ex)
+
+        private static byte[] CapturePngFile(int screenIndex)
         {
-            MessageBox.Show(ex.Message);
-            return null;
+            Rectangle captureRectangle = Screen.AllScreens[screenIndex].Bounds;
+
+            Bitmap captureBitmap = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[screenIndex].Bounds.Height, PixelFormat.Format32bppArgb);
+            Graphics captureGraphics = Graphics.FromImage(captureBitmap);
+            captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top,
+                0, 0, captureRectangle.Size);
+
+            byte[] captureByteArray = null;
+            using var ms = new MemoryStream();
+            captureBitmap.Save(ms, ImageFormat.Png);
+            captureByteArray = ms.ToArray();
+            return captureByteArray;
         }
     }
-
-    private static byte[] CapturePngFile(int screenIndex)
-    {
-        Rectangle captureRectangle = Screen.AllScreens[screenIndex].Bounds;
-
-        Bitmap captureBitmap = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[screenIndex].Bounds.Height, PixelFormat.Format32bppArgb);
-        Graphics captureGraphics = Graphics.FromImage(captureBitmap);
-        captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top,
-            0, 0, captureRectangle.Size);
-
-        byte[] captureByteArray = null;
-        using var ms = new MemoryStream();
-        captureBitmap.Save(ms, ImageFormat.Png);
-        captureByteArray = ms.ToArray();
-        return captureByteArray;
-    }
-}
 }
 
