@@ -28,6 +28,19 @@ namespace HASS.Agent.Extensions
         /// </summary>
         /// <param name="sensorType"></param>
         /// <returns></returns>
-        public static bool IsSingleValue(this SensorType sensorType) => !SensorsManager.SensorInfoCards[sensorType].MultiValue;
+        public static bool IsSingleValue(this SensorType sensorType) => (!SensorsManager.SensorInfoCards[sensorType].MultiValue && !SensorsManager.SensorInfoCards[sensorType].SingleBinary);
+        /// <summary>
+        /// Returns TRUE if the configured sensor is single-value
+        /// </summary>
+        /// <param name="configuredSensor"></param>
+        /// <returns></returns>
+        public static bool IsSingleBinaryValue(this ConfiguredSensor configuredSensor) => configuredSensor.Type.IsSingleBinaryValue();
+
+        /// <summary>
+        /// Returns TRUE if the sensor-type is single-value
+        /// </summary>
+        /// <param name="sensorType"></param>
+        /// <returns></returns>
+        public static bool IsSingleBinaryValue(this SensorType sensorType) => (SensorsManager.SensorInfoCards[sensorType].SingleBinary);
     }
 }

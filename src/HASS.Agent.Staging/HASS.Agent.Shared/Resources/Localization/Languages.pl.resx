@@ -3329,4 +3329,7 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Udostępnia zrzut ekranu.</value>
+  </data>
 </root>
