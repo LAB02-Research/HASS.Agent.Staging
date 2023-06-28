@@ -11,19 +11,25 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
     public abstract class DiscoveryConfigModel
     {
         /// <summary>
-        /// (Optional) Information about the device this sensor is a part of to tie it into the device registry. Only works through MQTT discovery and when unique_id is set.
+        /// (Optional) Information about the device this entity is a part of to tie it into the device registry. Only works through MQTT discovery and when unique_id is set.
         /// </summary>
         /// <value></value>
         public DeviceConfigModel Device { get; set; }
 
         /// <summary>
-        /// (Optional) The name of the MQTT sensor. Defaults to MQTT Sensor in hass.
+        /// (Optional) The name of the MQTT entity. Defaults to its name.
         /// </summary>
         /// <value></value>
         public string Name { get; set; }
 
         /// <summary>
-        /// The MQTT topic subscribed to receive sensor values.
+        /// (Optional) The friendly name of the MQTT entity. Defaults to its name.
+        /// </summary>
+        /// <value></value>
+        public string FriendlyName { get; set; }
+        
+        /// <summary>
+        /// The MQTT topic subscribed to receive entity values.
         /// </summary>
         /// <value></value>
         public string State_topic { get; set; }

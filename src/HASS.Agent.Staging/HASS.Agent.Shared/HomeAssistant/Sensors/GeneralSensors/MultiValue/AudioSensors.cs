@@ -19,6 +19,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
     /// </summary>
     public class AudioSensors : AbstractMultiValueSensor
     {
+        private const string DefaultName = "audio";
         private static readonly Dictionary<int, string> ApplicationNames = new Dictionary<int, string>();
         private bool _errorPrinted = false;
 
@@ -26,7 +27,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
         public sealed override Dictionary<string, AbstractSingleValueSensor> Sensors { get; protected set; } = new Dictionary<string, AbstractSingleValueSensor>();
 
-        public AudioSensors(int? updateInterval = null, string name = "audio", string id = default) : base(name ?? "audio", updateInterval ?? 20, id)
+        public AudioSensors(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 20, id)
         {
             _updateInterval = updateInterval ?? 20;
 

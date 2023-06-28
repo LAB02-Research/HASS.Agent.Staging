@@ -17,13 +17,15 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.MultiValue
     /// </summary>
     public class PrintersSensors : AbstractMultiValueSensor
     {
+        private const string DefaultName = "printers";
+
         private bool _errorPrinted = false;
 
         private readonly int _updateInterval;
 
         public sealed override Dictionary<string, AbstractSingleValueSensor> Sensors { get; protected set; } = new();
 
-        public PrintersSensors(int? updateInterval = null, string name = "printers", string id = default) : base(name ?? "printers", updateInterval ?? 20, id)
+        public PrintersSensors(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 20, id)
         {
             _updateInterval = updateInterval ?? 20;
 

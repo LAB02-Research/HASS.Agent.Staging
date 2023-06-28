@@ -7,6 +7,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
     /// </summary>
     public class MediaPreviousCommand : KeyCommand
     {
-        public MediaPreviousCommand(string name = "Previous", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VK_MEDIA_PREV_TRACK, name ?? "Previous", entityType, id) { }
+        private const string DefaultName = "previous";
+
+        public MediaPreviousCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VK_MEDIA_PREV_TRACK, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
     }
 }

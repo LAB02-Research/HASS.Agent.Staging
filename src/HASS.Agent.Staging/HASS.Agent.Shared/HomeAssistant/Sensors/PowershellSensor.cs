@@ -12,11 +12,13 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
     /// </summary>
     public class PowershellSensor : AbstractSingleValueSensor
     {
+        private const string DefaultName = "powershellsensor";
+
         public string Command { get; private set; }
         public bool ApplyRounding { get; private set; }
         public int? Round { get; private set; }
 
-        public PowershellSensor(string command, bool applyRounding = false, int? round = null, int? updateInterval = null, string name = "powershellsensor", string id = default) : base(name ?? "powershellsensor", updateInterval ?? 10, id)
+        public PowershellSensor(string command, bool applyRounding = false, int? round = null, int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
         {
             Command = command;
             ApplyRounding = applyRounding;
@@ -33,6 +35,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{Name}/state",

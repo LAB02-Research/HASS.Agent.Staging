@@ -11,9 +11,10 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class BluetoothDevicesSensor : AbstractSingleValueSensor
     {
+        private const string DefaultName = "bluetoothdevices";
         private string _attributes = "{}";
 
-        public BluetoothDevicesSensor(int? updateInterval = 30, string name = "bluetoothdevices", string id = default) : base(name ?? "bluetoothdevices", updateInterval ?? 30, id)
+        public BluetoothDevicesSensor(int? updateInterval = 30, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 30, id)
         {
             UseAttributes = true;
         }
@@ -28,6 +29,7 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",

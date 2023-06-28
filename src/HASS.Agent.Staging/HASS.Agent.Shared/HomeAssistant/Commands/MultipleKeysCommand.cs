@@ -12,10 +12,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class MultipleKeysCommand : AbstractCommand
     {
+        private const string DefaultName = "multiplekeys";
+
         public string State { get; protected set; }
         public List<string> Keys { get; set; }
 
-        public MultipleKeysCommand(List<string> keys, string name = "MultipleKeys", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "MultipleKeys", entityType, id)
+        public MultipleKeysCommand(List<string> keys, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
         {
             Keys = keys;
             State = "OFF";
@@ -31,6 +33,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             return new CommandDiscoveryConfigModel
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability",
                 Command_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/set",

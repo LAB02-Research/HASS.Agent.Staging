@@ -13,6 +13,7 @@ namespace HASS.Agent.Shared.Models.Config
         [JsonConverter(typeof(StringEnumConverter))]
         public SensorType Type { get; set; }
         public Guid Id { get; set; } = Guid.Empty;
+        public string FriendlyName { get; set; } = string.Empty;
         public int? UpdateInterval { get; set; }
         public string Query { get; set; } = string.Empty;
         public string Scope { get; set; }

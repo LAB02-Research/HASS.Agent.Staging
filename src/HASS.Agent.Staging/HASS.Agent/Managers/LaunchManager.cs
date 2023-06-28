@@ -21,11 +21,11 @@ namespace HASS.Agent.Managers
                 var val = (string)key?.GetValue(Variables.ApplicationName, string.Empty);
                 if (string.IsNullOrWhiteSpace(val)) return false;
 
-                return val == Variables.ApplicationExecutable;
+                return val.Contains(Variables.ApplicationExecutable);
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "[REG] Unable to get status of run-on-login: {msg}", ex.Message);
+                Log.Fatal(ex, "[LAUNCH] Unable to get status of run-on-login: {msg}", ex.Message);
                 return false;
             }
         }
@@ -41,14 +41,14 @@ namespace HASS.Agent.Managers
                 using var localKey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegView);
                 using var key = localKey.CreateSubKey(RunKey, true);
                 key.OpenSubKey("Run", true);
-                key.SetValue(Variables.ApplicationName, Variables.ApplicationExecutable, RegistryValueKind.String);
+                key.SetValue(Variables.ApplicationName, $"\"{Variables.ApplicationExecutable}\"", RegistryValueKind.String);
                 key.Flush();
 
                 return true;
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "[REG] Unable to set executable as run-on-login: {msg}", ex.Message);
+                Log.Fatal(ex, "[LAUNCH] Unable to set executable as run-on-login: {msg}", ex.Message);
                 return false;
             }
         }
@@ -70,7 +70,7 @@ namespace HASS.Agent.Managers
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "[REG] Unable to remove executable from run-on-login: {msg}", ex.Message);
+                Log.Fatal(ex, "[LAUNCH] Unable to remove executable from run-on-login: {msg}", ex.Message);
                 return false;
             }
         }

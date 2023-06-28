@@ -15,7 +15,18 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue.Data
         private string _value = string.Empty;
         private string _attributes = string.Empty;
 
-        public DataTypeStringSensor(int? updateInterval, string name, string id, string deviceClass, string icon, string unitOfMeasurement, string multiValueSensorName, bool useAttributes = false) : base(name, updateInterval ?? 30, id, useAttributes)
+        public DataTypeStringSensor(int? updateInterval, string name, string friendlyName, string id, string deviceClass, string icon, string unitOfMeasurement, string multiValueSensorName, bool useAttributes = false) : base(name, friendlyName, updateInterval ?? 30, id, useAttributes)
+        {
+            TopicName = multiValueSensorName;
+
+            _deviceClass = deviceClass;
+            _unitOfMeasurement = unitOfMeasurement;
+            _icon = icon;
+
+            ObjectId = id;
+        }
+
+        public DataTypeStringSensor(int? updateInterval, string name, string id, string deviceClass, string icon, string unitOfMeasurement, string multiValueSensorName, bool useAttributes = false) : base(name, name, updateInterval ?? 30, id, useAttributes)
         {
             TopicName = multiValueSensorName;
 

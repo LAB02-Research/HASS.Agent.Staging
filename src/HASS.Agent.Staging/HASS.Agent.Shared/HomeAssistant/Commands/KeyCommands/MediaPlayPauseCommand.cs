@@ -7,6 +7,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
     /// </summary>
     public class MediaPlayPauseCommand : KeyCommand
     {
-        public MediaPlayPauseCommand(string name = "PlayPause", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VK_MEDIA_PLAY_PAUSE, name ?? "PlayPause", entityType, id) { }
+        private const string DefaultName = "playpause";
+
+        public MediaPlayPauseCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VK_MEDIA_PLAY_PAUSE, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
     }
 }

@@ -8,6 +8,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.CustomCommands
     /// </summary>
     public class SleepCommand : CustomCommand
     {
-        public SleepCommand(string name = "Sleep", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("Rundll32.exe powrprof.dll,SetSuspendState 0,1,0", false, name ?? "Sleep", entityType, id) => State = "OFF";
+        private const string DefaultName = "sleep";
+
+        public SleepCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("Rundll32.exe powrprof.dll,SetSuspendState 0,1,0", false, name ?? DefaultName, friendlyName ?? null, entityType, id) => State = "OFF";
     }
 }

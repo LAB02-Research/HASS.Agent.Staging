@@ -9,10 +9,12 @@ namespace HASS.Agent.HomeAssistant.Commands.InternalCommands
 {
     internal class LaunchUrlCommand : InternalCommand
     {
+        private const string DefaultName = "launchurl";
+
         private readonly string _url = string.Empty;
         private readonly bool _incognito;
 
-        internal LaunchUrlCommand(string name = "LaunchUrl", string urlInfo = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "LaunchUrl", urlInfo, entityType, id)
+        internal LaunchUrlCommand(string name = DefaultName, string friendlyName = DefaultName, string urlInfo = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, urlInfo, entityType, id)
         {
             CommandConfig = urlInfo;
             State = "OFF";

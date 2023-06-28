@@ -8,6 +8,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
     /// </summary>
     public class MonitorWakeCommand : KeyCommand
     {
-        public MonitorWakeCommand(string name = "MonitorWake", CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(KEY_UP, name ?? "MonitorWake", entityType, id) { }
+        private const string DefaultName = "monitorwake";
+
+        public MonitorWakeCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(KEY_UP, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
     }
 }

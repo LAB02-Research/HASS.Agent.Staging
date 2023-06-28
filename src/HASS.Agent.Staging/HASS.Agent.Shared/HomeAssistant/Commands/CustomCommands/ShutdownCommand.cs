@@ -7,6 +7,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.CustomCommands
     /// </summary>
     public class ShutdownCommand : CustomCommand
     {
-        public ShutdownCommand(string name = "Shutdown", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("shutdown /s", false, name ?? "Shutdown", entityType, id) => State = "OFF";
+        private const string DefaultName = "shutdown";
+
+        public ShutdownCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("shutdown /s", false, name ?? DefaultName, friendlyName ?? null, entityType, id) => State = "OFF";
     }
 }

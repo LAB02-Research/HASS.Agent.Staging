@@ -11,6 +11,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     /// </summary>
     public class PowershellCommand : AbstractCommand
     {
+        private const string DefaultName = "powershell";
+
         public string Command { get; protected set; }
         public string State { get; protected set; }
         public Process Process { get; set; }
@@ -18,7 +20,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
         private readonly bool _isScript = false;
         private readonly string _descriptor = "command";
 
-        public PowershellCommand(string command, string name = "Powershell", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "Powershell", entityType, id)
+        public PowershellCommand(string command, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
         {
             Command = command;
             if (Command.ToLower().EndsWith(".ps1"))
@@ -77,6 +79,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             return new CommandDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability",
                 Command_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/set",

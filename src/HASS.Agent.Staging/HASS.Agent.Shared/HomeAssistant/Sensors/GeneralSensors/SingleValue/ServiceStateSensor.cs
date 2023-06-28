@@ -9,9 +9,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class ServiceStateSensor : AbstractSingleValueSensor
     {
+        private const string DefaultName = "servicestate";
         public string ServiceName { get; protected set; }
 
-        public ServiceStateSensor(string serviceName, int? updateInterval = null, string name = "servicestate", string id = default) : base(name ?? "servicestate", updateInterval ?? 10, id)
+        public ServiceStateSensor(string serviceName, int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
         {
             ServiceName = serviceName;
         }
@@ -26,6 +27,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
