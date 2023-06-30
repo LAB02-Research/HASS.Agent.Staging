@@ -54,14 +54,17 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
         public override string GetState()
         {
-            if (_gpu == null) return "NotSupported";
+            if (_gpu == null)
+                return null;
 
             _gpu.Update();
+
             var sensor = _gpu.Sensors.FirstOrDefault(s => s.SensorType == SensorType.Temperature);
 
-            if (sensor?.Value == null) return "NotSupported";
+            if (sensor?.Value == null)
+                return null;
 
-            return sensor.Value.HasValue ? sensor.Value.Value.ToString("#.##", CultureInfo.InvariantCulture) : "Unknown";
+            return sensor.Value.HasValue ? sensor.Value.Value.ToString("#.##", CultureInfo.InvariantCulture) : null;
         }
 
         public override string GetAttributes() => string.Empty;
