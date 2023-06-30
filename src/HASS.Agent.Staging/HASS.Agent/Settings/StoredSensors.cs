@@ -124,7 +124,7 @@ namespace HASS.Agent.Settings
                     abstractSensor = new NamedWindowSensor(sensor.WindowName, sensor.Name, sensor.FriendlyName, sensor.UpdateInterval, sensor.Id.ToString());
                     break;
                 case SensorType.LastActiveSensor:
-                    abstractSensor = new LastActiveSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    abstractSensor = new LastActiveSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
                 case SensorType.LastSystemStateChangeSensor:
                     abstractSensor = new LastSystemStateChangeSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
@@ -356,7 +356,21 @@ namespace HASS.Agent.Settings
                     };
                 }
 
-                default:
+				case LastActiveSensor lastActiveSensor:
+					{
+						_ = Enum.TryParse<SensorType>(lastActiveSensor.GetType().Name, out var type);
+						return new ConfiguredSensor
+						{
+							Id = Guid.Parse(lastActiveSensor.Id),
+							Name = lastActiveSensor.Name,
+							FriendlyName = lastActiveSensor.FriendlyName,
+							Type = type,
+							UpdateInterval = lastActiveSensor.UpdateIntervalSeconds,
+							Query = lastActiveSensor.Query
+						};
+					}
+
+				default:
                 {
                     _ = Enum.TryParse<SensorType>(sensor.GetType().Name, out var type);
                     return new ConfiguredSensor

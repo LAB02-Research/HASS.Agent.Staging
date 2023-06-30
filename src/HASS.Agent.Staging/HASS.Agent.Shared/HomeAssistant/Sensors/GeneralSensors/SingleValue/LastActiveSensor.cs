@@ -1,80 +1,112 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using HASS.Agent.Shared.Extensions;
+using HASS.Agent.Shared.Managers;
 using HASS.Agent.Shared.Models.HomeAssistant;
 
 namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 {
-    /// <summary>
-    /// Sensor containing the last moment the user provided any input
-    /// </summary>
-    public class LastActiveSensor : AbstractSingleValueSensor
-    {
-        private const string DefaultName = "lastactive";
-        private DateTime _lastActive = DateTime.MinValue;
+	/// <summary>
+	/// Sensor containing the last moment the user provided any input
+	/// </summary>
+	public class LastActiveSensor : AbstractSingleValueSensor
+	{
+		private const string DefaultName = "lastactive";
 
-        public LastActiveSensor(int? updateInterval = 10, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id) { }
+		private DateTime _lastActive = DateTime.MinValue;
 
-        public override DiscoveryConfigModel GetAutoDiscoveryConfig()
-        {
-            if (Variables.MqttManager == null) return null;
+		public string Query { get; private set; }
 
-            var deviceConfig = Variables.MqttManager.GetDeviceConfigModel();
-            if (deviceConfig == null) return null;
+		public LastActiveSensor(string updateOnResume, int? updateInterval = 10, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
+		{
+			Query = updateOnResume;
+		}
 
-            return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
-            {
-                Name = Name,
-                FriendlyName = FriendlyName,
-                Unique_id = Id,
-                Device = deviceConfig,
-                State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
-                Icon = "mdi:clock-time-three-outline",
-                Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/availability",
-                Device_class = "timestamp"
-            });
-        }
+		public override DiscoveryConfigModel GetAutoDiscoveryConfig()
+		{
+			if (Variables.MqttManager == null)
+				return null;
 
-        public override string GetState()
-        {
-            // changed to min. 1 sec difference
-            // source: https://github.com/sleevezipper/hass-workstation-service/pull/156
-            var lastInput = GetLastInputTime();
-            if ((_lastActive - lastInput).Duration().TotalSeconds > 1) _lastActive = lastInput;
+			var deviceConfig = Variables.MqttManager.GetDeviceConfigModel();
+			if (deviceConfig == null)
+				return null;
 
-            return _lastActive.ToTimeZoneString();
-        }
+			return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
+			{
+				Name = Name,
+				FriendlyName = FriendlyName,
+				Unique_id = Id,
+				Device = deviceConfig,
+				State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
+				Icon = "mdi:clock-time-three-outline",
+				Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/availability",
+				Device_class = "timestamp"
+			});
+		}
 
-        public override string GetAttributes() => string.Empty;
+		public override string GetState()
+		{
+			if (SharedSystemStateManager.LastEventOccurrence.TryGetValue(Enums.SystemStateEvent.Resume, out var lastWakeEvent))
+			{
+				if (Query == "1" && (DateTime.Now - lastWakeEvent).TotalMinutes < 1)
+				{
+					var lastInputBefore = GetLastInputTime();
 
-        private static DateTime GetLastInputTime()
-        {
-            var lastInputInfo = new LASTINPUTINFO();
-            lastInputInfo.cbSize = Marshal.SizeOf(lastInputInfo);
-            lastInputInfo.dwTime = 0;
+					var currentPosition = Cursor.Position;
+					Cursor.Position = new Point(Cursor.Position.X - 50, Cursor.Position.Y - 50);
+					//Cursor.Position = currentPosition;
+					Cursor.Position = new Point(Cursor.Position.X + 60, Cursor.Position.Y + 60);
 
-            var envTicks = Environment.TickCount;
+					var lastInputAfter = GetLastInputTime();
 
-            if (!GetLastInputInfo(ref lastInputInfo)) return DateTime.Now;
-            var lastInputTick = Convert.ToDouble(lastInputInfo.dwTime);
+					MessageBox.Show($"moving mouse as the device was woken from sleep, previous: {lastInputBefore}, now: {lastInputAfter}");
+				}
+			}
 
-            var idleTime = envTicks - lastInputTick;
-            return idleTime > 0 ? DateTime.Now - TimeSpan.FromMilliseconds(idleTime) : DateTime.Now;
-        }
-        
-        [DllImport("User32.dll")]
-        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+			// changed to min. 1 sec difference
+			// source: https://github.com/sleevezipper/hass-workstation-service/pull/156
+			var lastInput = GetLastInputTime();
+			if ((_lastActive - lastInput).Duration().TotalSeconds > 1)
+				_lastActive = lastInput;
 
-        [StructLayout(LayoutKind.Sequential)]
-        // ReSharper disable once InconsistentNaming
-        private struct LASTINPUTINFO
-        {
-            private static readonly int SizeOf = Marshal.SizeOf(typeof(LASTINPUTINFO));
+			return _lastActive.ToTimeZoneString();
+		}
 
-            [MarshalAs(UnmanagedType.U4)]
-            public int cbSize;
-            [MarshalAs(UnmanagedType.U4)]
-            public uint dwTime;
-        }
-    }
+		public override string GetAttributes() => string.Empty;
+
+		private static DateTime GetLastInputTime()
+		{
+			var lastInputInfo = new LASTINPUTINFO();
+			lastInputInfo.cbSize = Marshal.SizeOf(lastInputInfo);
+			lastInputInfo.dwTime = 0;
+
+			var envTicks = Environment.TickCount;
+
+			if (!GetLastInputInfo(ref lastInputInfo))
+				return DateTime.Now;
+
+			var lastInputTick = Convert.ToDouble(lastInputInfo.dwTime);
+
+			var idleTime = envTicks - lastInputTick;
+			return idleTime > 0 ? DateTime.Now - TimeSpan.FromMilliseconds(idleTime) : DateTime.Now;
+		}
+
+		[DllImport("User32.dll")]
+		private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+		[StructLayout(LayoutKind.Sequential)]
+		// ReSharper disable once InconsistentNaming
+		private struct LASTINPUTINFO
+		{
+			private static readonly int SizeOf = Marshal.SizeOf(typeof(LASTINPUTINFO));
+
+			[MarshalAs(UnmanagedType.U4)]
+			public int cbSize;
+			[MarshalAs(UnmanagedType.U4)]
+			public uint dwTime;
+		}
+	}
 }
