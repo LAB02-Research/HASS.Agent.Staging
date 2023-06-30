@@ -402,6 +402,7 @@ namespace HASS.Agent.Settings
                         {
                             Id = Guid.Parse(sensor.Id),
                             Name = sensor.Name,
+                            FriendlyName = sensor.FriendlyName,
                             Type = type,
                             UpdateInterval = sensor.UpdateIntervalSeconds
                         };
