@@ -1170,7 +1170,7 @@ Currently takes the volume of your default device.</value>
     <value>Provides the current temperature of the first GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Provides a datetime value containing the last moment the user provided any input.</value>
+    <value>Provides a datetime value containing the last moment the user provided any inputX.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Provides a datetime value containing the last moment the system (re)booted.
@@ -3228,8 +3228,10 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
     <value>&amp;Round</value>
   </data>
-  <data name="SensorsMod_CbSetting1_LastActive" xml:space="preserve">
-    <value>Update last active event when resumed
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Update last
+active event
+when resumed
 from sleep/hibernation</value>
   </data>
 </root>

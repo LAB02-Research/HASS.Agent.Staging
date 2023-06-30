@@ -190,7 +190,7 @@ namespace HASS.Agent.Forms.Sensors
 					break;
 
 				case SensorType.LastActiveSensor:
-					CbSetting1.Checked = Sensor.Query == "1";
+					CbApplyRounding.Checked = Sensor.Query == "1";
 					break;
 			}
 		}
@@ -456,8 +456,14 @@ namespace HASS.Agent.Forms.Sensors
 			{
 				SetEmptyGui();
 
-				CbSetting1.Text = Languages.SensorsMod_CbSetting1_LastActive;
-				CbSetting1.Visible = true;
+				CbApplyRounding.Text = Languages.SensorsMod_CbApplyRounding_LastActive;
+				LblDigits.Text = Languages.SensorsMod_LblSeconds;
+				CbApplyRounding.Visible = true;
+				if (CbApplyRounding.Checked)
+				{
+					NumRound.Visible = true;
+					LblDigits.Visible = true;
+				}
 			}));
 		}
 
@@ -483,12 +489,12 @@ namespace HASS.Agent.Forms.Sensors
 				TbSetting3.Text = string.Empty;
 				TbSetting3.Visible = false;
 
+				CbApplyRounding.Text = Languages.SensorsMod_CbApplyRounding;
 				CbApplyRounding.Checked = false;
 				CbApplyRounding.Visible = false;
 				NumRound.Visible = false;
+				LblDigits.Text = Languages.SensorsMod_LblDigits;
 				LblDigits.Visible = false;
-
-				CbSetting1.Visible = false;
 
 				BtnTest.Visible = false;
 			}));
@@ -705,7 +711,7 @@ namespace HASS.Agent.Forms.Sensors
 					break;
 
 				case SensorType.LastActiveSensor:
-					Sensor.Query = CbSetting1.Checked ? "1" : "0";
+					Sensor.Query = CbApplyRounding.Checked ? "1" : "0";
 					break;
 			}
 

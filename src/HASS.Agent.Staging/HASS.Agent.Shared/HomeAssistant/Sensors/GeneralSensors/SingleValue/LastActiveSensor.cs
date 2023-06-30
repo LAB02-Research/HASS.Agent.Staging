@@ -49,20 +49,17 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
 		public override string GetState()
 		{
-			if (SharedSystemStateManager.LastEventOccurrence.TryGetValue(Enums.SystemStateEvent.Resume, out var lastWakeEvent))
+			if (SharedSystemStateManager.LastEventOccurrence.TryGetValue(Enums.SystemStateEvent.Resume, out var lastWakeEventDate))
 			{
-				if (Query == "1" && (DateTime.Now - lastWakeEvent).TotalMinutes < 1)
+				if (Query == "1" && (DateTime.Now - lastWakeEventDate).TotalSeconds < 15)
 				{
-					var lastInputBefore = GetLastInputTime();
-
 					var currentPosition = Cursor.Position;
 					Cursor.Position = new Point(Cursor.Position.X - 50, Cursor.Position.Y - 50);
-					//Cursor.Position = currentPosition;
-					Cursor.Position = new Point(Cursor.Position.X + 60, Cursor.Position.Y + 60);
+					Cursor.Position = currentPosition;
 
 					var lastInputAfter = GetLastInputTime();
 
-					MessageBox.Show($"moving mouse as the device was woken from sleep, previous: {lastInputBefore}, now: {lastInputAfter}");
+					MessageBox.Show($"moving mouse as the device was woken from sleep, wake: {lastWakeEventDate}, now: {lastInputAfter}");
 				}
 			}
 

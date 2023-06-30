@@ -73,7 +73,6 @@ namespace HASS.Agent.Forms.Sensors
 			LblFriendlyName = new Label();
 			TbFriendlyName = new TextBox();
 			LblOptional1 = new Label();
-			CbSetting1 = new CheckBox();
 			PnlDescription.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)NumInterval).BeginInit();
 			((System.ComponentModel.ISupportInitialize)PbMultiValue).BeginInit();
@@ -636,21 +635,6 @@ namespace HASS.Agent.Forms.Sensors
 			LblOptional1.TabIndex = 46;
 			LblOptional1.Text = "optional";
 			// 
-			// CbSetting1
-			// 
-			CbSetting1.AccessibleDescription = "Sensor specific configuration.";
-			CbSetting1.AccessibleName = "Setting 4";
-			CbSetting1.AccessibleRole = AccessibleRole.CheckButton;
-			CbSetting1.AutoSize = true;
-			CbSetting1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-			CbSetting1.Location = new Point(566, 262);
-			CbSetting1.Name = "CbSetting1";
-			CbSetting1.Size = new Size(68, 23);
-			CbSetting1.TabIndex = 47;
-			CbSetting1.Text = "Enable";
-			CbSetting1.UseVisualStyleBackColor = true;
-			CbSetting1.Visible = false;
-			// 
 			// SensorsMod
 			// 
 			AccessibleDescription = "Create or modify a sensor.";
@@ -663,13 +647,12 @@ namespace HASS.Agent.Forms.Sensors
 			CaptionFont = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
 			CaptionForeColor = Color.FromArgb(241, 241, 241);
 			ClientSize = new Size(1318, 493);
-			Controls.Add(CbSetting1);
+			Controls.Add(LblDigits);
+			Controls.Add(NumRound);
 			Controls.Add(LblOptional1);
 			Controls.Add(LblFriendlyName);
 			Controls.Add(TbFriendlyName);
 			Controls.Add(CbApplyRounding);
-			Controls.Add(LblDigits);
-			Controls.Add(NumRound);
 			Controls.Add(CbNetworkCard);
 			Controls.Add(BtnTest);
 			Controls.Add(LblSpecificClient);
@@ -763,7 +746,6 @@ namespace HASS.Agent.Forms.Sensors
 		private Label LblFriendlyName;
 		private TextBox TbFriendlyName;
 		private Label LblOptional1;
-		internal CheckBox CbSetting1;
 	}
 }
 
