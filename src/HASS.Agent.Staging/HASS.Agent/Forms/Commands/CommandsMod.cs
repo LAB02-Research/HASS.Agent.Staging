@@ -138,6 +138,9 @@ namespace HASS.Agent.Forms.Commands
             TbName.Text = Command.Name;
             if (!string.IsNullOrWhiteSpace(TbName.Text)) TbName.SelectionStart = TbName.Text.Length;
 
+            // set the friendly name
+            TbFriendlyName.Text = Command.FriendlyName;
+
             // set the entity type
             var entityId = (int)Command.EntityType;
             CbEntityType.SelectedItem = new KeyValuePair<int, string>(entityId, _commandEntityTypes[entityId]);
@@ -238,6 +241,9 @@ namespace HASS.Agent.Forms.Commands
                 ActiveControl = TbName;
                 return;
             }
+
+            // get the friendly name
+            var friendlyName = string.IsNullOrEmpty(TbName.Text.Trim()) ? null : TbName.Text.Trim();
 
             // name contains illegal chars?
             var sanitized = SharedHelperFunctions.GetSafeValue(name);
@@ -425,6 +431,7 @@ namespace HASS.Agent.Forms.Commands
             Command.Type = commandCard.CommandType;
             Command.EntityType = entityType;
             Command.Name = name;
+            Command.FriendlyName = friendlyName;
 
             // done
             DialogResult = DialogResult.OK;
@@ -828,6 +835,9 @@ namespace HASS.Agent.Forms.Commands
             TbName.Enabled = false;
             TbName.Text = string.Empty;
 
+            TbFriendlyName.Enabled = false;
+            TbFriendlyName.Text = string.Empty;
+
             SetEmptyGui();
 
             BtnStore.Enabled = false;
@@ -849,6 +859,7 @@ namespace HASS.Agent.Forms.Commands
             LblSpecificClient.Visible = false;
 
             TbName.Enabled = true;
+            TbFriendlyName.Enabled = true;
             BtnStore.Enabled = true;
         }
 

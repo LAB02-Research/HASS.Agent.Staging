@@ -7,6 +7,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.CustomCommands
     /// </summary>
     public class LogOffCommand : CustomCommand
     {
-        public LogOffCommand(string name = "LogOff", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("shutdown /l", false, name ?? "LogOff", entityType, id) => State = "OFF";
+        private const string DefaultName = "logoff";
+
+        public LogOffCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("shutdown /l", false, name ?? DefaultName, friendlyName ?? null, entityType, id) => State = "OFF";
     }
 }

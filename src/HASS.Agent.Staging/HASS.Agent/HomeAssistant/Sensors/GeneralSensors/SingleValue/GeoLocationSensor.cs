@@ -8,7 +8,8 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class GeoLocationSensor : AbstractSingleValueSensor
     {
-        public GeoLocationSensor(int? updateInterval = 10, string name = "geolocation", string id = default) : base(name ?? "geolocation", updateInterval ?? 30, id) { }
+        private const string DefaultName = "geolocation";
+        public GeoLocationSensor(int? updateInterval = 10, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 30, id) { }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -20,6 +21,7 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",

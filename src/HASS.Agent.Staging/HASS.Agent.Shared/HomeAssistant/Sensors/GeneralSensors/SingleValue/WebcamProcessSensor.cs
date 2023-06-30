@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.Models.HomeAssistant;
@@ -12,12 +12,14 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class WebcamProcessSensor : AbstractSingleValueSensor
     {
-        public WebcamProcessSensor(int? updateInterval = null, string name = "webcamprocess", string id = default, bool useAttributes = true) : base(name ?? "webcamprocess", updateInterval ?? 10, id, useAttributes)
+        private const string DefaultName = "webcamprocess";
+
+        public WebcamProcessSensor(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default, bool useAttributes = true) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id, useAttributes)
         {
             //
         }
 
-        private Dictionary<string, string> processes = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> _processes = new Dictionary<string, string>();
 
         private string _attributes = string.Empty;
 
@@ -35,6 +37,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             var model = new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
@@ -54,7 +57,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
         {
             const string regKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam";
 
-            this.processes.Clear();
+            _processes.Clear();
 
             // first local machine
             using (var key = Registry.LocalMachine.OpenSubKey(regKey))
@@ -68,13 +71,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                 CheckRegForWebcamInUse(key);
             }
 
-            if (this.processes.Count > 0)
-            {
-                _attributes = JsonConvert.SerializeObject(this.processes, Formatting.Indented);
-            }
+            // add processes as attributes
+            if (_processes.Count > 0) _attributes = JsonConvert.SerializeObject(_processes, Formatting.Indented);
 
-            // nope
-            return this.processes.Count.ToString();
+            // return the count
+            return _processes.Count.ToString();
         }
 
         private void CheckRegForWebcamInUse(RegistryKey key)
@@ -100,7 +101,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
                         if (endTime <= 0)
                         {
-                            this.processes.Add(SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name), "on");
+                            _processes.Add(SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name), "on");
                         }
                     }
                 }
@@ -112,7 +113,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
                     var endTime = subKey.GetValue("LastUsedTimeStop") is long ? (long)(subKey.GetValue("LastUsedTimeStop") ?? -1) : -1;
                     if (endTime <= 0)
                     {
-                        this.processes.Add(SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name), "on");
+                        _processes.Add(SharedHelperFunctions.ParseRegWebcamMicApplicationName(subKey.Name), "on");
                     }
                 }
             }

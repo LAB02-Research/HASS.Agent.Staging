@@ -12,6 +12,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class KeyCommand : AbstractCommand
     {
+        private const string DefaultName = "key";
+
         public const int KEYEVENTF_EXTENTEDKEY = 1;
         public const int KEYEVENTF_KEYUP = 0;
         public const int VK_MEDIA_NEXT_TRACK = 0xB0;
@@ -25,7 +27,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
         public string State { get; protected set; }
         public byte KeyCode { get; set; }
 
-        public KeyCommand(byte keyCode, string name = "Key", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "Key", entityType, id)
+        public KeyCommand(byte keyCode, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
         {
             KeyCode = keyCode;
             State = "OFF";
@@ -41,6 +43,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             return new CommandDiscoveryConfigModel
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability",
                 Command_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/set",

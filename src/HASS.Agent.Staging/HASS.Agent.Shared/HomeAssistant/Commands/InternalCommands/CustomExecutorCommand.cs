@@ -11,7 +11,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
     /// </summary>
     public class CustomExecutorCommand : InternalCommand
     {
-        public CustomExecutorCommand(string name = "CustomExecutor", string command = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "CustomExecutor", command, entityType, id)
+        private const string DefaultName = "customexecutor";
+
+        public CustomExecutorCommand(string name = DefaultName, string friendlyName = DefaultName, string command = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, command, entityType, id)
         {
             CommandConfig = command;
             State = "OFF";

@@ -10,9 +10,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class GpuLoadSensor : AbstractSingleValueSensor
     {
+        private const string DefaultName = "gpuload";
         private readonly IHardware _gpu;
 
-        public GpuLoadSensor(int? updateInterval = null, string name = "gpuload", string id = default) : base(name ?? "gpuload", updateInterval ?? 30, id)
+        public GpuLoadSensor(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 30, id)
         {
             var computer = new Computer
             {
@@ -41,6 +42,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",

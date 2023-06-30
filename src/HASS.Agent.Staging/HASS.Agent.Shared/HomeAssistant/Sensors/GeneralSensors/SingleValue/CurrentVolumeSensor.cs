@@ -10,7 +10,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class CurrentVolumeSensor : AbstractSingleValueSensor
     {
-        public CurrentVolumeSensor(int? updateInterval = null, string name = "currentvolume", string id = default) : base(name ?? "currentvolume", updateInterval ?? 15, id) { }
+        private const string DefaultName = "currentvolume";
+
+        public CurrentVolumeSensor(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 15, id) { }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -22,6 +24,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",

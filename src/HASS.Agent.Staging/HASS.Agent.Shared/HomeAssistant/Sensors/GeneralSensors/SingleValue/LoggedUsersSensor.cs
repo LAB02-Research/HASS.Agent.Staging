@@ -16,7 +16,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class LoggedUsersSensor : AbstractSingleValueSensor
     {
-        public LoggedUsersSensor(int? updateInterval = null, string name = "loggedusers", string id = default) : base(name ?? "loggedusers", updateInterval ?? 30, id) { }
+        private const string DefaultName = "loggedusers";
+
+        public LoggedUsersSensor(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 30, id) { }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
         {
@@ -28,6 +30,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",

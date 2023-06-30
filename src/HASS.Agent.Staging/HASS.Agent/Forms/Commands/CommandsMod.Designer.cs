@@ -67,6 +67,9 @@ namespace HASS.Agent.Forms.Commands
             this.PbActionInfo = new System.Windows.Forms.PictureBox();
             this.BtnConfigureCommand = new Syncfusion.WinForms.Controls.SfButton();
             this.TbKeyCode = new System.Windows.Forms.TextBox();
+            this.LblOptional1 = new System.Windows.Forms.Label();
+            this.LblFriendlyName = new System.Windows.Forms.Label();
+            this.TbFriendlyName = new System.Windows.Forms.TextBox();
             this.PnlDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAgent)).BeginInit();
@@ -82,9 +85,10 @@ namespace HASS.Agent.Forms.Commands
             this.BtnStore.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnStore.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnStore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnStore.Location = new System.Drawing.Point(0, 450);
+            this.BtnStore.Location = new System.Drawing.Point(0, 561);
+            this.BtnStore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnStore.Name = "BtnStore";
-            this.BtnStore.Size = new System.Drawing.Size(1319, 38);
+            this.BtnStore.Size = new System.Drawing.Size(1647, 48);
             this.BtnStore.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnStore.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnStore.Style.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -106,9 +110,10 @@ namespace HASS.Agent.Forms.Commands
             this.TbSetting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbSetting.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbSetting.Location = new System.Drawing.Point(566, 239);
+            this.TbSetting.Location = new System.Drawing.Point(708, 302);
+            this.TbSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TbSetting.Name = "TbSetting";
-            this.TbSetting.Size = new System.Drawing.Size(328, 25);
+            this.TbSetting.Size = new System.Drawing.Size(410, 30);
             this.TbSetting.TabIndex = 3;
             this.TbSetting.Visible = false;
             // 
@@ -122,9 +127,10 @@ namespace HASS.Agent.Forms.Commands
             this.TbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbName.Location = new System.Drawing.Point(566, 173);
+            this.TbName.Location = new System.Drawing.Point(708, 175);
+            this.TbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TbName.Name = "TbName";
-            this.TbName.Size = new System.Drawing.Size(328, 25);
+            this.TbName.Size = new System.Drawing.Size(410, 30);
             this.TbName.TabIndex = 2;
             // 
             // LblSetting
@@ -134,11 +140,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblSetting.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSetting.AutoSize = true;
             this.LblSetting.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSetting.Location = new System.Drawing.Point(566, 217);
+            this.LblSetting.Location = new System.Drawing.Point(708, 275);
+            this.LblSetting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblSetting.Name = "LblSetting";
-            this.LblSetting.Size = new System.Drawing.Size(93, 19);
+            this.LblSetting.Size = new System.Drawing.Size(115, 23);
             this.LblSetting.TabIndex = 12;
-            this.LblSetting.Text = Languages.CommandsMod_LblSetting;
+            this.LblSetting.Text = "&Configuration";
             this.LblSetting.Visible = false;
             // 
             // LblName
@@ -148,11 +155,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblName.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblName.AutoSize = true;
             this.LblName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblName.Location = new System.Drawing.Point(566, 151);
+            this.LblName.Location = new System.Drawing.Point(708, 148);
+            this.LblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(45, 19);
+            this.LblName.Size = new System.Drawing.Size(56, 23);
             this.LblName.TabIndex = 10;
-            this.LblName.Text = Languages.CommandsMod_LblName;
+            this.LblName.Text = "&Name";
             // 
             // PnlDescription
             // 
@@ -161,9 +169,10 @@ namespace HASS.Agent.Forms.Commands
             this.PnlDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PnlDescription.Controls.Add(this.TbDescription);
             this.PnlDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PnlDescription.Location = new System.Drawing.Point(955, 39);
+            this.PnlDescription.Location = new System.Drawing.Point(1194, 49);
+            this.PnlDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PnlDescription.Name = "PnlDescription";
-            this.PnlDescription.Size = new System.Drawing.Size(354, 375);
+            this.PnlDescription.Size = new System.Drawing.Size(442, 468);
             this.PnlDescription.TabIndex = 21;
             // 
             // TbDescription
@@ -178,9 +187,10 @@ namespace HASS.Agent.Forms.Commands
             this.TbDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.TbDescription.Location = new System.Drawing.Point(0, 0);
+            this.TbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TbDescription.Name = "TbDescription";
             this.TbDescription.ReadOnly = true;
-            this.TbDescription.Size = new System.Drawing.Size(352, 373);
+            this.TbDescription.Size = new System.Drawing.Size(440, 466);
             this.TbDescription.TabIndex = 18;
             this.TbDescription.Text = "";
             this.TbDescription.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.TbDescription_LinkClicked);
@@ -192,11 +202,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblDescription.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblDescription.AutoSize = true;
             this.LblDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblDescription.Location = new System.Drawing.Point(955, 19);
+            this.LblDescription.Location = new System.Drawing.Point(1194, 24);
+            this.LblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblDescription.Name = "LblDescription";
-            this.LblDescription.Size = new System.Drawing.Size(78, 19);
+            this.LblDescription.Size = new System.Drawing.Size(96, 23);
             this.LblDescription.TabIndex = 20;
-            this.LblDescription.Text = Languages.CommandsMod_LblDescription;
+            this.LblDescription.Text = "Description";
             // 
             // CbRunAsLowIntegrity
             // 
@@ -205,9 +216,10 @@ namespace HASS.Agent.Forms.Commands
             this.CbRunAsLowIntegrity.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.CbRunAsLowIntegrity.AutoSize = true;
             this.CbRunAsLowIntegrity.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbRunAsLowIntegrity.Location = new System.Drawing.Point(566, 292);
+            this.CbRunAsLowIntegrity.Location = new System.Drawing.Point(708, 368);
+            this.CbRunAsLowIntegrity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CbRunAsLowIntegrity.Name = "CbRunAsLowIntegrity";
-            this.CbRunAsLowIntegrity.Size = new System.Drawing.Size(160, 23);
+            this.CbRunAsLowIntegrity.Size = new System.Drawing.Size(195, 27);
             this.CbRunAsLowIntegrity.TabIndex = 4;
             this.CbRunAsLowIntegrity.Text = global::HASS.Agent.Resources.Localization.Languages.CommandsMod_CbRunAsLowIntegrity;
             this.CbRunAsLowIntegrity.UseVisualStyleBackColor = true;
@@ -220,11 +232,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblIntegrityInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.LblIntegrityInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblIntegrityInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.LblIntegrityInfo.Location = new System.Drawing.Point(739, 296);
+            this.LblIntegrityInfo.Location = new System.Drawing.Point(924, 373);
+            this.LblIntegrityInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblIntegrityInfo.Name = "LblIntegrityInfo";
-            this.LblIntegrityInfo.Size = new System.Drawing.Size(155, 15);
+            this.LblIntegrityInfo.Size = new System.Drawing.Size(194, 19);
             this.LblIntegrityInfo.TabIndex = 27;
-            this.LblIntegrityInfo.Text = Languages.CommandsMod_LblIntegrityInfo;
+            this.LblIntegrityInfo.Text = "What\'s this?";
             this.LblIntegrityInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LblIntegrityInfo.Visible = false;
             this.LblIntegrityInfo.Click += new System.EventHandler(this.LblIntegrityInfo_Click);
@@ -236,9 +249,10 @@ namespace HASS.Agent.Forms.Commands
             this.CbCommandSpecific.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.CbCommandSpecific.AutoSize = true;
             this.CbCommandSpecific.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbCommandSpecific.Location = new System.Drawing.Point(566, 333);
+            this.CbCommandSpecific.Location = new System.Drawing.Point(708, 419);
+            this.CbCommandSpecific.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CbCommandSpecific.Name = "CbCommandSpecific";
-            this.CbCommandSpecific.Size = new System.Drawing.Size(34, 23);
+            this.CbCommandSpecific.Size = new System.Drawing.Size(39, 27);
             this.CbCommandSpecific.TabIndex = 5;
             this.CbCommandSpecific.Text = "-";
             this.CbCommandSpecific.UseVisualStyleBackColor = true;
@@ -250,9 +264,10 @@ namespace HASS.Agent.Forms.Commands
             this.LblInfo.AccessibleName = "Command extra info";
             this.LblInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo.Location = new System.Drawing.Point(566, 268);
+            this.LblInfo.Location = new System.Drawing.Point(708, 338);
+            this.LblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblInfo.Name = "LblInfo";
-            this.LblInfo.Size = new System.Drawing.Size(328, 168);
+            this.LblInfo.Size = new System.Drawing.Size(410, 210);
             this.LblInfo.TabIndex = 29;
             this.LblInfo.Text = "-";
             this.LblInfo.Visible = false;
@@ -276,11 +291,12 @@ namespace HASS.Agent.Forms.Commands
             this.LvCommands.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LvCommands.HideSelection = true;
             this.LvCommands.LargeImageList = this.ImgLv;
-            this.LvCommands.Location = new System.Drawing.Point(12, 15);
+            this.LvCommands.Location = new System.Drawing.Point(15, 19);
+            this.LvCommands.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LvCommands.MultiSelect = false;
             this.LvCommands.Name = "LvCommands";
             this.LvCommands.OwnerDraw = true;
-            this.LvCommands.Size = new System.Drawing.Size(516, 399);
+            this.LvCommands.Size = new System.Drawing.Size(644, 498);
             this.LvCommands.SmallImageList = this.ImgLv;
             this.LvCommands.TabIndex = 30;
             this.LvCommands.UseCompatibleStateImageBehavior = false;
@@ -337,10 +353,11 @@ namespace HASS.Agent.Forms.Commands
             this.TbSelectedType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbSelectedType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbSelectedType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbSelectedType.Location = new System.Drawing.Point(566, 40);
+            this.TbSelectedType.Location = new System.Drawing.Point(708, 50);
+            this.TbSelectedType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TbSelectedType.Name = "TbSelectedType";
             this.TbSelectedType.ReadOnly = true;
-            this.TbSelectedType.Size = new System.Drawing.Size(328, 25);
+            this.TbSelectedType.Size = new System.Drawing.Size(410, 30);
             this.TbSelectedType.TabIndex = 0;
             // 
             // LblSelectedType
@@ -350,11 +367,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblSelectedType.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSelectedType.AutoSize = true;
             this.LblSelectedType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSelectedType.Location = new System.Drawing.Point(566, 18);
+            this.LblSelectedType.Location = new System.Drawing.Point(708, 22);
+            this.LblSelectedType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblSelectedType.Name = "LblSelectedType";
-            this.LblSelectedType.Size = new System.Drawing.Size(91, 19);
+            this.LblSelectedType.Size = new System.Drawing.Size(114, 23);
             this.LblSelectedType.TabIndex = 31;
-            this.LblSelectedType.Text = Languages.CommandsMod_LblSelectedType;
+            this.LblSelectedType.Text = "Selected Type";
             // 
             // LblService
             // 
@@ -363,9 +381,10 @@ namespace HASS.Agent.Forms.Commands
             this.LblService.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblService.AutoSize = true;
             this.LblService.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblService.Location = new System.Drawing.Point(116, 421);
+            this.LblService.Location = new System.Drawing.Point(145, 526);
+            this.LblService.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblService.Name = "LblService";
-            this.LblService.Size = new System.Drawing.Size(44, 15);
+            this.LblService.Size = new System.Drawing.Size(56, 20);
             this.LblService.TabIndex = 37;
             this.LblService.Text = "Service";
             // 
@@ -375,7 +394,8 @@ namespace HASS.Agent.Forms.Commands
             this.PbService.AccessibleName = "Service icon";
             this.PbService.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbService.Image = global::HASS.Agent.Properties.Resources.service_16;
-            this.PbService.Location = new System.Drawing.Point(94, 420);
+            this.PbService.Location = new System.Drawing.Point(118, 525);
+            this.PbService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PbService.Name = "PbService";
             this.PbService.Size = new System.Drawing.Size(16, 16);
             this.PbService.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -389,9 +409,10 @@ namespace HASS.Agent.Forms.Commands
             this.LblAgent.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblAgent.AutoSize = true;
             this.LblAgent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblAgent.Location = new System.Drawing.Point(34, 421);
+            this.LblAgent.Location = new System.Drawing.Point(42, 526);
+            this.LblAgent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblAgent.Name = "LblAgent";
-            this.LblAgent.Size = new System.Drawing.Size(39, 15);
+            this.LblAgent.Size = new System.Drawing.Size(49, 20);
             this.LblAgent.TabIndex = 35;
             this.LblAgent.Text = "Agent";
             // 
@@ -401,7 +422,8 @@ namespace HASS.Agent.Forms.Commands
             this.PbAgent.AccessibleName = "Agent icon";
             this.PbAgent.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbAgent.Image = global::HASS.Agent.Properties.Resources.agent_16;
-            this.PbAgent.Location = new System.Drawing.Point(12, 420);
+            this.PbAgent.Location = new System.Drawing.Point(15, 525);
+            this.PbAgent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PbAgent.Name = "PbAgent";
             this.PbAgent.Size = new System.Drawing.Size(16, 16);
             this.PbAgent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -416,11 +438,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblSpecificClient.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblSpecificClient.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblSpecificClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.LblSpecificClient.Location = new System.Drawing.Point(739, 18);
+            this.LblSpecificClient.Location = new System.Drawing.Point(924, 22);
+            this.LblSpecificClient.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblSpecificClient.Name = "LblSpecificClient";
-            this.LblSpecificClient.Size = new System.Drawing.Size(155, 19);
+            this.LblSpecificClient.Size = new System.Drawing.Size(194, 24);
             this.LblSpecificClient.TabIndex = 38;
-            this.LblSpecificClient.Text = Languages.CommandsMod_LblSpecificClient;
+            this.LblSpecificClient.Text = "HASS.Agent only!";
             this.LblSpecificClient.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.LblSpecificClient.Visible = false;
             // 
@@ -438,9 +461,10 @@ namespace HASS.Agent.Forms.Commands
             this.CbEntityType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.CbEntityType.FormattingEnabled = true;
             this.CbEntityType.IntegralHeight = false;
-            this.CbEntityType.Location = new System.Drawing.Point(566, 106);
+            this.CbEntityType.Location = new System.Drawing.Point(708, 112);
+            this.CbEntityType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CbEntityType.Name = "CbEntityType";
-            this.CbEntityType.Size = new System.Drawing.Size(328, 26);
+            this.CbEntityType.Size = new System.Drawing.Size(409, 30);
             this.CbEntityType.TabIndex = 1;
             this.CbEntityType.SelectedIndexChanged += new System.EventHandler(this.CbEntityType_SelectedIndexChanged);
             // 
@@ -451,11 +475,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblEntityType.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.LblEntityType.AutoSize = true;
             this.LblEntityType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblEntityType.Location = new System.Drawing.Point(566, 84);
+            this.LblEntityType.Location = new System.Drawing.Point(708, 85);
+            this.LblEntityType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblEntityType.Name = "LblEntityType";
-            this.LblEntityType.Size = new System.Drawing.Size(76, 19);
+            this.LblEntityType.Size = new System.Drawing.Size(93, 23);
             this.LblEntityType.TabIndex = 40;
-            this.LblEntityType.Text = Languages.CommandsMod_LblEntityType;
+            this.LblEntityType.Text = "&Entity Type";
             // 
             // LblMqttTopic
             // 
@@ -465,11 +490,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblMqttTopic.AutoSize = true;
             this.LblMqttTopic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblMqttTopic.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.LblMqttTopic.Location = new System.Drawing.Point(955, 421);
+            this.LblMqttTopic.Location = new System.Drawing.Point(1194, 526);
+            this.LblMqttTopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblMqttTopic.Name = "LblMqttTopic";
-            this.LblMqttTopic.Size = new System.Drawing.Size(161, 19);
+            this.LblMqttTopic.Size = new System.Drawing.Size(199, 23);
             this.LblMqttTopic.TabIndex = 41;
-            this.LblMqttTopic.Text = Languages.CommandsMod_LblMqttTopic;
+            this.LblMqttTopic.Text = "Show MQTT Action Topic";
             this.LblMqttTopic.Visible = false;
             this.LblMqttTopic.Click += new System.EventHandler(this.LblMqttTopic_Click);
             // 
@@ -481,11 +507,12 @@ namespace HASS.Agent.Forms.Commands
             this.LblActionInfo.AutoSize = true;
             this.LblActionInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblActionInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.LblActionInfo.Location = new System.Drawing.Point(197, 421);
+            this.LblActionInfo.Location = new System.Drawing.Point(246, 526);
+            this.LblActionInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblActionInfo.Name = "LblActionInfo";
-            this.LblActionInfo.Size = new System.Drawing.Size(42, 15);
+            this.LblActionInfo.Size = new System.Drawing.Size(52, 20);
             this.LblActionInfo.TabIndex = 43;
-            this.LblActionInfo.Text = Languages.CommandsMod_LblActionInfo;
+            this.LblActionInfo.Text = "Action";
             this.LblActionInfo.Click += new System.EventHandler(this.LblActionInfo_Click);
             // 
             // PbActionInfo
@@ -495,7 +522,8 @@ namespace HASS.Agent.Forms.Commands
             this.PbActionInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
             this.PbActionInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbActionInfo.Image = global::HASS.Agent.Properties.Resources.action_16;
-            this.PbActionInfo.Location = new System.Drawing.Point(175, 420);
+            this.PbActionInfo.Location = new System.Drawing.Point(219, 525);
+            this.PbActionInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PbActionInfo.Name = "PbActionInfo";
             this.PbActionInfo.Size = new System.Drawing.Size(16, 16);
             this.PbActionInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -511,9 +539,10 @@ namespace HASS.Agent.Forms.Commands
             this.BtnConfigureCommand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnConfigureCommand.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnConfigureCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnConfigureCommand.Location = new System.Drawing.Point(566, 371);
+            this.BtnConfigureCommand.Location = new System.Drawing.Point(708, 475);
+            this.BtnConfigureCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnConfigureCommand.Name = "BtnConfigureCommand";
-            this.BtnConfigureCommand.Size = new System.Drawing.Size(328, 43);
+            this.BtnConfigureCommand.Size = new System.Drawing.Size(410, 43);
             this.BtnConfigureCommand.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnConfigureCommand.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.BtnConfigureCommand.Style.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -536,26 +565,73 @@ namespace HASS.Agent.Forms.Commands
             this.TbKeyCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbKeyCode.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbKeyCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TbKeyCode.Location = new System.Drawing.Point(566, 239);
+            this.TbKeyCode.Location = new System.Drawing.Point(708, 302);
+            this.TbKeyCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TbKeyCode.Name = "TbKeyCode";
             this.TbKeyCode.ReadOnly = true;
-            this.TbKeyCode.Size = new System.Drawing.Size(328, 25);
+            this.TbKeyCode.Size = new System.Drawing.Size(410, 30);
             this.TbKeyCode.TabIndex = 44;
-            this.TbKeyCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbKeyCode_KeyDown);
             this.TbKeyCode.Visible = false;
+            this.TbKeyCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbKeyCode_KeyDown);
+            // 
+            // LblOptional1
+            // 
+            this.LblOptional1.AccessibleDescription = "Indicates that the friendly name is optional.";
+            this.LblOptional1.AccessibleName = "Friendly name optional";
+            this.LblOptional1.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+            this.LblOptional1.AutoSize = true;
+            this.LblOptional1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblOptional1.Location = new System.Drawing.Point(1052, 214);
+            this.LblOptional1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblOptional1.Name = "LblOptional1";
+            this.LblOptional1.Size = new System.Drawing.Size(65, 20);
+            this.LblOptional1.TabIndex = 49;
+            this.LblOptional1.Text = "optional";
+            // 
+            // LblFriendlyName
+            // 
+            this.LblFriendlyName.AccessibleDescription = "Command friendly name textbox description";
+            this.LblFriendlyName.AccessibleName = "Command friendly name description";
+            this.LblFriendlyName.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+            this.LblFriendlyName.AutoSize = true;
+            this.LblFriendlyName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblFriendlyName.Location = new System.Drawing.Point(708, 211);
+            this.LblFriendlyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblFriendlyName.Name = "LblFriendlyName";
+            this.LblFriendlyName.Size = new System.Drawing.Size(117, 23);
+            this.LblFriendlyName.TabIndex = 48;
+            this.LblFriendlyName.Text = "&Friendly name";
+            // 
+            // TbFriendlyName
+            // 
+            this.TbFriendlyName.AccessibleDescription = "The friendly name as which the command will show up in Home Assistant.";
+            this.TbFriendlyName.AccessibleName = "Command friendly name";
+            this.TbFriendlyName.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.TbFriendlyName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.TbFriendlyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TbFriendlyName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TbFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.TbFriendlyName.Location = new System.Drawing.Point(708, 238);
+            this.TbFriendlyName.Margin = new System.Windows.Forms.Padding(4);
+            this.TbFriendlyName.Name = "TbFriendlyName";
+            this.TbFriendlyName.Size = new System.Drawing.Size(410, 30);
+            this.TbFriendlyName.TabIndex = 47;
             // 
             // CommandsMod
             // 
             this.AccessibleDescription = "Create or modify a command.";
             this.AccessibleName = "Command mod";
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.CaptionFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1319, 488);
+            this.ClientSize = new System.Drawing.Size(1647, 609);
+            this.Controls.Add(this.LblOptional1);
+            this.Controls.Add(this.LblFriendlyName);
+            this.Controls.Add(this.TbFriendlyName);
             this.Controls.Add(this.TbKeyCode);
             this.Controls.Add(this.BtnConfigureCommand);
             this.Controls.Add(this.LblActionInfo);
@@ -586,13 +662,14 @@ namespace HASS.Agent.Forms.Commands
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.Name = "CommandsMod";
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = Languages.CommandsMod_Title;
+            this.Text = "Command";
             this.Load += new System.EventHandler(this.CommandsMod_Load);
             this.ResizeEnd += new System.EventHandler(this.CommandsMod_ResizeEnd);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CommandsMod_KeyUp);
@@ -642,6 +719,9 @@ namespace HASS.Agent.Forms.Commands
         private ColumnHeader ClmSensorId;
         private Syncfusion.WinForms.Controls.SfButton BtnConfigureCommand;
         private TextBox TbKeyCode;
+        private Label LblOptional1;
+        private Label LblFriendlyName;
+        private TextBox TbFriendlyName;
     }
 }
 

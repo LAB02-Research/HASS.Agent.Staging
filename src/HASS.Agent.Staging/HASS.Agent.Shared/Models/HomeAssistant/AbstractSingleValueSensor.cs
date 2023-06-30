@@ -16,10 +16,11 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         public string PreviousPublishedState { get; protected set; } = string.Empty;
         public string PreviousPublishedAttributes { get; protected set; } = string.Empty;
 
-        protected AbstractSingleValueSensor(string name, int updateIntervalSeconds = 10, string id = default, bool useAttributes = false)
+        protected AbstractSingleValueSensor(string name, string friendlyName, int updateIntervalSeconds = 10, string id = default, bool useAttributes = false)
         {
             Id = id == null || id == Guid.Empty.ToString() ? Guid.NewGuid().ToString() : id;
             Name = name;
+            FriendlyName = friendlyName;
             UpdateIntervalSeconds = updateIntervalSeconds;
             Domain = "sensor";
             UseAttributes = useAttributes;
@@ -56,7 +57,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
                 {
                     if (LastUpdated.HasValue && LastUpdated.Value.AddSeconds(UpdateIntervalSeconds) > DateTime.Now) return;
                 }
-            
+
                 // get the current state/attributes
                 var state = GetState();
                 var attributes = GetAttributes();
@@ -75,6 +76,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
                 var message = new MqttApplicationMessageBuilder()
                     .WithTopic(autoDiscoConfig.State_topic)
                     .WithPayload(state)
+                    .WithRetainFlag(Variables.MqttManager.UseRetainFlag())
                     .Build();
 
                 // send it
@@ -91,6 +93,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
                     message = new MqttApplicationMessageBuilder()
                         .WithTopic(autoDiscoConfig.Json_attributes_topic)
                         .WithPayload(attributes)
+                        .WithRetainFlag(Variables.MqttManager.UseRetainFlag())
                         .Build();
 
                     published = await Variables.MqttManager.PublishAsync(message);

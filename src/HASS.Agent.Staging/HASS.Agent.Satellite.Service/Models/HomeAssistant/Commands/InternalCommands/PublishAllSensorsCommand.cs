@@ -6,7 +6,9 @@ namespace HASS.Agent.Satellite.Service.Models.HomeAssistant.Commands.InternalCom
 {
     internal class PublishAllSensorsCommand : InternalCommand
     {
-        internal PublishAllSensorsCommand(string name = "PublishAllSensors", CommandEntityType entityType = CommandEntityType.Switch, string? id = default) : base(name, string.Empty, entityType, id)
+        private const string DefaultName = "publishallsensors";
+
+        internal PublishAllSensorsCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string? id = default) : base(name ?? DefaultName, friendlyName ?? null, string.Empty, entityType, id)
         {
             State = "OFF";
         }

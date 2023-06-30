@@ -14,7 +14,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class MonitorSleepCommand : InternalCommand
     {
-        public MonitorSleepCommand(string name = "MonitorSleep", CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(name ?? "MonitorSleep", string.Empty, entityType, id)
+        private const string DefaultName = "monitorsleep";
+
+        public MonitorSleepCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(name ?? DefaultName, friendlyName ?? null, string.Empty, entityType, id)
         {
             State = "OFF";
         }

@@ -7,6 +7,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
     /// </summary>
     public class MediaVolumeUpCommand : KeyCommand
     {
-        public MediaVolumeUpCommand(string name = "VolumeUp", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VK_VOLUME_UP, name ?? "VolumeUp", entityType, id) { }
+        private const string DefaultName = "volumeup";
+
+        public MediaVolumeUpCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VK_VOLUME_UP, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
     }
 }

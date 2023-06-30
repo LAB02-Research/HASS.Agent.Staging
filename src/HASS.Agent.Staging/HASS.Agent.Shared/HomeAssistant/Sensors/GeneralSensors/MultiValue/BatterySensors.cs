@@ -12,11 +12,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
     /// </summary>
     public class BatterySensors : AbstractMultiValueSensor
     {
+        private const string DefaultName = "battery";
         private readonly int _updateInterval;
 
         public sealed override Dictionary<string, AbstractSingleValueSensor> Sensors { get; protected set; } = new Dictionary<string, AbstractSingleValueSensor>();
 
-        public BatterySensors(int? updateInterval = null, string name = "battery", string id = default) : base(name ?? "battery", updateInterval ?? 30, id)
+        public BatterySensors(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 30, id)
         {
             _updateInterval = updateInterval ?? 30;
 

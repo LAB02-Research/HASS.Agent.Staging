@@ -7,6 +7,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.CustomCommands
     /// </summary>
     public class HibernateCommand : CustomCommand
     {
-        public HibernateCommand(string name = "Hibernate", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("shutdown /h", false, name ?? "Hibernate", entityType, id) => State = "OFF";
+        private const string DefaultName = "hibernate";
+
+        public HibernateCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base("shutdown /h", false, name ?? DefaultName, friendlyName ?? null, entityType, id) => State = "OFF";
     }
 }

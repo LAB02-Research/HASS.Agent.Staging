@@ -2795,7 +2795,7 @@ Note: this is not required for the new integration to function. Only enable and 
     <value>Manage Satellite Service</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
-	  <value>To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+	  <value>To use notifications, you need to install and configure the HASS.Agent integration in
 Home Assistant.
 
 This is very easy using HACS, but you can also install manually. Visit the link below for more

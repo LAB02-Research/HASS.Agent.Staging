@@ -8,10 +8,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     /// </summary>
     public class InternalCommand : AbstractCommand
     {
+        private const string DefaultName = "internal";
+
         public string State { get; protected set; }
         public string CommandConfig { get; protected set; }
 
-        public InternalCommand(string name = "Internal", string commandConfig = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "Internal", entityType, id)
+        public InternalCommand(string name = DefaultName, string friendlyName = DefaultName, string commandConfig = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
         {
             State = "OFF";
             CommandConfig = commandConfig;
@@ -45,6 +47,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             return new CommandDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability",
                 Command_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/set",

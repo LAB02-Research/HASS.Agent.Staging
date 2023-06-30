@@ -9,7 +9,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
     /// </summary>
     public class WebcamActiveSensor : AbstractSingleValueSensor
     {
-        public WebcamActiveSensor(int? updateInterval = null, string name = "webcamactive", string id = default) : base(name ?? "webcamactive", updateInterval ?? 10, id)
+        private const string DefaultName = "webcamactive";
+
+        public WebcamActiveSensor(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
         {
             Domain = "binary_sensor";
         }
@@ -31,6 +33,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{Name}/state",

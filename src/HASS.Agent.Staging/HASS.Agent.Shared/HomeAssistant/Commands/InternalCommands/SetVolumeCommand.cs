@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -16,9 +17,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
     [SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
     public class SetVolumeCommand : InternalCommand
     {
+        private const string DefaultName = "setvolume";
         private static float _volume = -1f;
 
-        public SetVolumeCommand(string name = "SetVolume", string volume = "", CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(name ?? "SetVolume", volume, entityType, id)
+        public SetVolumeCommand(string name = DefaultName, string friendlyName = DefaultName, string volume = "", CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(name ?? DefaultName, friendlyName ?? null, volume, entityType, id)
         {
             if (!string.IsNullOrWhiteSpace(volume))
             {

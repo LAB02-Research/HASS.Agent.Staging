@@ -16,6 +16,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
     /// </summary>
     public class NetworkSensors : AbstractMultiValueSensor
     {
+        private const string DefaultName = "network";
         private readonly int _updateInterval;
 
         public string NetworkCard { get; protected set; }
@@ -23,7 +24,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
         public sealed override Dictionary<string, AbstractSingleValueSensor> Sensors { get; protected set; } = new Dictionary<string, AbstractSingleValueSensor>();
 
-        public NetworkSensors(int? updateInterval = null, string name = "network", string networkCard = "*", string id = default) : base(name ?? "network", updateInterval ?? 30, id)
+        public NetworkSensors(int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string networkCard = "*", string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 30, id)
         {
             _updateInterval = updateInterval ?? 30;
 

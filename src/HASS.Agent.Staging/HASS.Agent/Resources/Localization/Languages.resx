@@ -2089,7 +2089,7 @@ Do you want to enable it?</value>
     <value>You can choose what modules you want to enable. They require HA integrations, but don't worry, the next page will give you more info on how to set them up.</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
-    <value>To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+	  <value>To use notifications, you need to install and configure the HASS.Agent integration in
 Home Assistant.
 
 This is very easy using HACS, but you can also install manually. Visit the link below for more

@@ -11,12 +11,14 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     /// </summary>
     public class CustomCommand : AbstractCommand
     {
+        private const string DefaultName = "custom";
+        
         public string Command { get; protected set; }
         public string State { get; protected set; }
         public bool RunAsLowIntegrity { get; protected set; }
         public Process Process { get; set; } = null;
 
-        public CustomCommand(string command, bool runAsLowIntegrity, string name = "Custom", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "Custom", entityType, id)
+        public CustomCommand(string command, bool runAsLowIntegrity, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
         {
             Command = command;
             RunAsLowIntegrity = runAsLowIntegrity;
@@ -75,6 +77,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             return new CommandDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/sensor/{deviceConfig.Name}/availability",
                 Command_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/set",

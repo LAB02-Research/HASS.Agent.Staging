@@ -9,6 +9,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
     {
         public string Domain { get; set; } = "switch";
         public string Name { get; set; } = string.Empty;
+        public string FriendlyName { get; set; } = null;
         public string TopicName { get; set; } = string.Empty;
 
         private string _objectId = string.Empty;

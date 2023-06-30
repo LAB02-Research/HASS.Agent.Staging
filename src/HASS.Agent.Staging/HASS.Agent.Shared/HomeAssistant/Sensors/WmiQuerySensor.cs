@@ -10,6 +10,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
     /// </summary>
     public class WmiQuerySensor : AbstractSingleValueSensor
     {
+        private const string DefaultName = "wmiquerysensor";
+
         public string Query { get; private set; }
         public string Scope { get; private set; }
         public bool ApplyRounding { get; private set; }
@@ -18,7 +20,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
         protected readonly ObjectQuery ObjectQuery;
         protected readonly ManagementObjectSearcher Searcher;
 
-        public WmiQuerySensor(string query, string scope = "", bool applyRounding = false, int? round = null, int? updateInterval = null, string name = "wmiquerysensor", string id = default) : base(name ?? "wmiquerysensor", updateInterval ?? 10, id)
+        public WmiQuerySensor(string query, string scope = "", bool applyRounding = false, int? round = null, int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
         {
             Query = query;
             Scope = scope;
@@ -49,6 +51,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{Name}/state",

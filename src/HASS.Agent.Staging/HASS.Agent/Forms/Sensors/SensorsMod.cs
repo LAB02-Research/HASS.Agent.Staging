@@ -139,6 +139,9 @@ namespace HASS.Agent.Forms.Sensors
             TbName.Text = Sensor.Name;
             if (!string.IsNullOrWhiteSpace(TbName.Text)) TbName.SelectionStart = TbName.Text.Length;
 
+            // set the friendly name
+            TbFriendlyName.Text = Sensor.FriendlyName;
+
             // set interval
             NumInterval.Text = Sensor.UpdateInterval?.ToString() ?? "10";
 
@@ -532,6 +535,9 @@ namespace HASS.Agent.Forms.Sensors
                 return;
             }
 
+            // get friendly name
+            var friendlyName = string.IsNullOrEmpty(TbFriendlyName.Text.Trim()) ? null : TbFriendlyName.Text.Trim();
+
             // name contains illegal chars?
             var sanitized = SharedHelperFunctions.GetSafeValue(name);
             if (sanitized != name)
@@ -718,6 +724,7 @@ namespace HASS.Agent.Forms.Sensors
             // set values
             Sensor.Type = sensorCard.SensorType;
             Sensor.Name = name;
+            Sensor.FriendlyName = friendlyName;
             Sensor.UpdateInterval = interval;
             Sensor.ApplyRounding = applyRounding;
             Sensor.Round = round;
@@ -786,6 +793,9 @@ namespace HASS.Agent.Forms.Sensors
             TbName.Enabled = false;
             TbName.Text = string.Empty;
 
+            TbFriendlyName.Enabled = false;
+            TbFriendlyName.Text = string.Empty;
+
             SetEmptyGui();
 
             BtnStore.Enabled = false;
@@ -807,6 +817,7 @@ namespace HASS.Agent.Forms.Sensors
             LblSpecificClient.Visible = false;
 
             TbName.Enabled = true;
+            TbFriendlyName.Enabled = true;
             BtnStore.Enabled = true;
         }
 

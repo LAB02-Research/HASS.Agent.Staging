@@ -11,6 +11,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
     /// </summary>
     public class PerformanceCounterSensor : AbstractSingleValueSensor
     {
+        private const string DefaultName = "performancecountersensor";
+
         protected PerformanceCounter Counter = null;
 
         public string CategoryName { get; private set; }
@@ -20,7 +22,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
         public bool ApplyRounding { get; private set; }
         public int? Round { get; private set; }
 
-        public PerformanceCounterSensor(string categoryName, string counterName, string instanceName, bool applyRounding = false, int? round = null, int? updateInterval = null, string name = "performancecountersensor", string id = default) : base(name ?? "performancecountersensor", updateInterval ?? 10, id)
+        public PerformanceCounterSensor(string categoryName, string counterName, string instanceName, bool applyRounding = false, int? round = null, int? updateInterval = null, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
         {
             CategoryName = categoryName;
             CounterName = counterName;
@@ -48,6 +50,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
             return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel
             {
                 Name = Name,
+                FriendlyName = FriendlyName,
                 Unique_id = Id,
                 Device = deviceConfig,
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{Name}/state",

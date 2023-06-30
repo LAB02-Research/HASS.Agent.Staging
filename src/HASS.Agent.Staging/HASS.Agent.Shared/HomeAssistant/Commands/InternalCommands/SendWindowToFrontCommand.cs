@@ -12,7 +12,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
     /// </summary>
     public class SendWindowToFrontCommand : InternalCommand
     {
-        public SendWindowToFrontCommand(string name = "SendWindowToFront", string process = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? "SendWindowToFront", process, entityType, id)
+        private const string DefaultName = "sendwindowtofront";
+
+        public SendWindowToFrontCommand(string name = DefaultName, string friendlyName = DefaultName, string process = "", CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, process, entityType, id)
         {
             CommandConfig = process;
             State = "OFF";
