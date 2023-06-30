@@ -1730,6 +1730,9 @@
     <EmbeddedResource Update="Resources\Localization\Languages.de.resx">
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localization\Languages.en.resx">
+	  <DependentUpon>Languages.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization\Languages.es.resx">
       <DependentUpon>Languages.resx</DependentUpon>
     </EmbeddedResource>
