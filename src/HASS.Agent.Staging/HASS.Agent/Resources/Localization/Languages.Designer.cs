@@ -4444,7 +4444,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -5641,7 +5641,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provides a datetime value containing the last moment the user provided any input..
+        ///   Looks up a localized string similar to Provides a datetime value containing the last moment the user provided input.
+        ///
+        ///Optionally updates the sensor with current date, when system has been woken from sleep/hibernation in configuerd time window and no user activity was performed..
         /// </summary>
         internal static string SensorsManager_LastActiveSensorDescription {
             get {
@@ -6061,6 +6063,17 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_CbApplyRounding {
             get {
                 return ResourceManager.GetString("SensorsMod_CbApplyRounding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Force action
+        ///when system
+        ///wakes from sleep/hibernation.
+        /// </summary>
+        internal static string SensorsMod_CbApplyRounding_LastActive {
+            get {
+                return ResourceManager.GetString("SensorsMod_CbApplyRounding_LastActive", resourceCulture);
             }
         }
         

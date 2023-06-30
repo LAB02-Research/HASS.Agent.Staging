@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConfigExternalTools_LblInfo1" xml:space="preserve">
-    <value>Op deze pagina kun je koppelingen met externe programma&apos;s configureren.</value>
+    <value>Op deze pagina kun je koppelingen met externe programma's configureren.</value>
   </data>
   <data name="ConfigExternalTools_LblBrowserName" xml:space="preserve">
     <value>browser naam</value>
   </data>
   <data name="ConfigExternalTools_LblInfo2" xml:space="preserve">
-    <value>‎Standaard start HASS.Agent URL&apos;s met je standaardbrowser. Als je wilt, kun je ook een specifieke browser configureren. Daarnaast kan je de argumenten configureren die worden gebruikt om in privémodus te starten.‎</value>
+    <value>‎Standaard start HASS.Agent URL's met je standaardbrowser. Als je wilt, kun je ook een specifieke browser configureren. Daarnaast kan je de argumenten configureren die worden gebruikt om in privémodus te starten.‎</value>
   </data>
   <data name="ConfigExternalTools_LblBrowserBinary" xml:space="preserve">
     <value>browser binary</value>
@@ -137,7 +137,7 @@
   </data>
   <data name="ConfigExternalTools_LblInfo3" xml:space="preserve">
     <value>Je kunt HASS.Agent configureren om een eigen uitvoerder te gebruiken, zoals perl of python.
-Gebruik het &apos;eigen uitvoerder&apos; commando om &apos;m te starten.</value>
+Gebruik het 'eigen uitvoerder' commando om 'm te starten.</value>
   </data>
   <data name="ConfigExternalTools_LblCustomExecutorName" xml:space="preserve">
     <value>eigen uitvoerder naam</value>
@@ -149,7 +149,7 @@ Gebruik het &apos;eigen uitvoerder&apos; commando om &apos;m te starten.</value>
     <value>&amp;test</value>
   </data>
   <data name="ConfigGeneral_LblInfo4" xml:space="preserve">
-    <value>HASS.Agent wacht even voordat je een bericht krijgt over een verbroken verbinding met MQTT of HA&apos;s API.
+    <value>HASS.Agent wacht even voordat je een bericht krijgt over een verbroken verbinding met MQTT of HA's API.
 Je kunt het aantal seconden hier instellen.</value>
   </data>
   <data name="ConfigGeneral_LblDisconGraceSeconds" xml:space="preserve">
@@ -187,11 +187,11 @@ Je automatiseringen en scripts blijven werken.‎</value>
     <value>&amp;test verbinding</value>
   </data>
   <data name="ConfigHomeAssistantApi_LblInfo1" xml:space="preserve">
-    <value>Om te leren welke entiteiten je geconfigureerd hebt, en om snelle acties te versturen, gebruikt HASS.Agent Home Assistant&apos;s API.
+    <value>Om te leren welke entiteiten je geconfigureerd hebt, en om snelle acties te versturen, gebruikt HASS.Agent Home Assistant's API.
 
-Geef een &apos;long-lived access token&apos; op, en het adres van je Home Assistant installatie.
+Geef een 'long-lived access token' op, en het adres van je Home Assistant installatie.
 
-Je kunt zo&apos;n token krijgen via je profiel pagina. Blader naar onderaan de pagina en klik op &apos;TOKEN AANMAKEN&apos;.</value>
+Je kunt zo'n token krijgen via je profiel pagina. Blader naar onderaan de pagina en klik op 'TOKEN AANMAKEN'.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigHomeAssistantApi_LblApiToken" xml:space="preserve">
@@ -229,7 +229,7 @@ Op deze manier kun je, wat je ook aan het doen bent op je machine, altijd commun
   <data name="ConfigLocalStorage_LblInfo1" xml:space="preserve">
     <value>Sommige objecten, zoals afbeeldingen getoond in notificaties, moeten tijdelijk lokaal opgeslagen worden. Je kunt het aantal dagen dat ze bewaard worden instellen, voordat HASS.Agent ze verwijdert.
 
-Voer &apos;0&apos; in om ze permanent te behouden.</value>
+Voer '0' in om ze permanent te behouden.</value>
   </data>
   <data name="ConfigLogging_LblInfo1" xml:space="preserve">
     <value>Uitgebreide logging biedt uitgebreidere logging, voor het geval dat de standaard logging niet voldoende is. Het is belangrijk te weten dat het inschakelen hiervan ervoor zorgt dat de logbestanden flink groeien, en zou dus alleen gebruikt moeten worden als je vermoedt dat er iets mis is met HASS.Agent of als een ontwikkelaar het vraagt.</value>
@@ -263,7 +263,7 @@ Voer &apos;0&apos; in om ze permanent te behouden.</value>
     <value>(leeglaten bij twijfel)</value>
   </data>
   <data name="ConfigMqtt_LblInfo1" xml:space="preserve">
-    <value>Commando&apos;s en sensoren worden verstuurd via MQTT, net als notificaties en mediaspeler functies als je de nieuwe integratie gebruikt.
+    <value>Commando's en sensoren worden verstuurd via MQTT, net als notificaties en mediaspeler functies als je de nieuwe integratie gebruikt.
 
 Geef hier de inloggegevens van je server op. Als je de HA addon gebruikt, kun je waarschijnlijk de vooringevulde gegevens gebruiken.
 
@@ -324,8 +324,8 @@ Notitie: deze instellingen (behalve de cliënt id) zullen ook toegepast worden o
     <value>cert&amp;ificaat fouten voor afbeeldingen negeren</value>
   </data>
   <data name="ConfigService_LblInfo1" xml:space="preserve">
-    <value>De satelliet service laat je sensoren en commando&apos;s uitvoeren, zelfs wanneer er geen gebruiker ingelogd is.
-Gebruik de &apos;satelliet service&apos; knop in het hoofdscherm om &apos;m te beheren.</value>
+    <value>De satelliet service laat je sensoren en commando's uitvoeren, zelfs wanneer er geen gebruiker ingelogd is.
+Gebruik de 'satelliet service' knop in het hoofdscherm om 'm te beheren.</value>
   </data>
   <data name="ConfigService_LblServiceStatusInfo" xml:space="preserve">
     <value>service status:</value>
@@ -346,8 +346,8 @@ Gebruik de &apos;satelliet service&apos; knop in het hoofdscherm om &apos;m te b
     <value>se&amp;rvice herinstalleren</value>
   </data>
   <data name="ConfigService_LblInfo2" xml:space="preserve">
-    <value>Als je de service niet configureert, doet hij niks. Je kunt alsnog kiezen om &apos;m helemaal uit te schakelen.
-De installer zal de uitgeschakelde service met rust laten (als je &apos;m verwijdert, zal de installer hem terugzetten).</value>
+    <value>Als je de service niet configureert, doet hij niks. Je kunt alsnog kiezen om 'm helemaal uit te schakelen.
+De installer zal de uitgeschakelde service met rust laten (als je 'm verwijdert, zal de installer hem terugzetten).</value>
   </data>
   <data name="ConfigService_LblInfo3" xml:space="preserve">
     <value>Je kunt proberen om de service opnieuw te installeren als hij niet goed werkt. 
@@ -362,7 +362,7 @@ Je configuratie en entiteiten blijven bewaard.</value>
   <data name="ConfigStartup_LblInfo1" xml:space="preserve">
     <value>HASS.Agent kan starten als je inlogt via het register van je gebruikersprofiel.
 
-Aangezien HASS.Agent gebruiker-gebaseerd is, als je &apos;m voor een andere gebruiker wilt starten, kun je daar de configuratie uitvoeren.</value>
+Aangezien HASS.Agent gebruiker-gebaseerd is, als je 'm voor een andere gebruiker wilt starten, kun je daar de configuratie uitvoeren.</value>
   </data>
   <data name="ConfigStartup_BtnSetStartOnLogin" xml:space="preserve">
     <value>start-bij-inlogg&amp;en inschakelen</value>
@@ -392,11 +392,11 @@ Je krijgt een notificatie (eenmalig per update) om je te laten weten dat er een 
   <data name="OnboardingWelcome_LblInfo1" xml:space="preserve">
     <value>Het lijkt erop dat dit de eerste keer is dat je HASS.Agent start.
 
-Als je wilt, kunnen we de configuratie doorlopen. Zo niet, klik dan op &apos;sluiten&apos;.</value>
+Als je wilt, kunnen we de configuratie doorlopen. Zo niet, klik dan op 'sluiten'.</value>
   </data>
   <data name="OnboardingWelcome_LblInfo2" xml:space="preserve">
     <value>Apparaatnaam wordt gebruikt om je machine te identificeren binnen HA.
-Het wordt ook gebruikt om een voorvoegsel voor te stellen voor je commando&apos;s en sensoren.</value>
+Het wordt ook gebruikt om een voorvoegsel voor te stellen voor je commando's en sensoren.</value>
   </data>
   <data name="OnboardingWelcome_LblDeviceName" xml:space="preserve">
     <value>apparaat&amp;naam</value>
@@ -437,7 +437,7 @@ Wil je deze functionaliteit inschakelen?</value>
   <data name="OnboardingIntegration_LblInfo1" xml:space="preserve">
     <value>Om notificaties te gebruiken, moet je de HASS.Agent-Notifier integratie installeren en configureren in Home Assistant.
 
-Dit is simpel met HACS, maar je kunt &apos;m ook handmatig installeren.
+Dit is simpel met HACS, maar je kunt 'm ook handmatig installeren.
 Bezoek de onderstaande link voor meer informatie.</value>
   </data>
   <data name="OnboardingApi_LblApiToken" xml:space="preserve">
@@ -447,11 +447,11 @@ Bezoek de onderstaande link voor meer informatie.</value>
     <value>server &amp;uri (zou al goed moeten zijn)</value>
   </data>
   <data name="OnboardingApi_LblInfo1" xml:space="preserve">
-    <value>Om te leren welke entiteiten je geconfigureerd hebt, en om snelle acties te versturen, gebruikt HASS.Agent Home Assistant&apos;s API.
+    <value>Om te leren welke entiteiten je geconfigureerd hebt, en om snelle acties te versturen, gebruikt HASS.Agent Home Assistant's API.
 
-Geef een &apos;long-lived access token&apos; op, en het adres van je Home Assistant installatie.
+Geef een 'long-lived access token' op, en het adres van je Home Assistant installatie.
 
-Je kunt zo&apos;n token krijgen via je profiel pagina. Blader naar onderaan de pagina en klik op &apos;TOKEN AANMAKEN&apos;.</value>
+Je kunt zo'n token krijgen via je profiel pagina. Blader naar onderaan de pagina en klik op 'TOKEN AANMAKEN'.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="OnboardingApi_BtnTest" xml:space="preserve">
@@ -473,7 +473,7 @@ Je kunt zo&apos;n token krijgen via je profiel pagina. Blader naar onderaan de p
     <value>ip adres of hostname</value>
   </data>
   <data name="OnboardingMqtt_LblInfo1" xml:space="preserve">
-    <value>Commando&apos;s en sensoren worden via MQTT verstuurd. De notificaties- en mediaspeler integratie gebruikt het ook.
+    <value>Commando's en sensoren worden via MQTT verstuurd. De notificaties- en mediaspeler integratie gebruikt het ook.
 
 Tip: als je de HA addon gebruikt, kan je het vooringevulde adres waarschijnlijk gebruiken - geef alleen nog credenties.</value>
     <comment>Fuzzy</comment>
@@ -555,10 +555,10 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>nieuwe toevoegen</value>
   </data>
   <data name="ServiceCommands_BtnStore" xml:space="preserve">
-    <value>ver&amp;stuur en activeer commando&apos;s</value>
+    <value>ver&amp;stuur en activeer commando's</value>
   </data>
   <data name="ServiceCommands_LblStored" xml:space="preserve">
-    <value>commando&apos;s opgeslagen!</value>
+    <value>commando's opgeslagen!</value>
   </data>
   <data name="ServiceConnect_BtnRetryAuthId" xml:space="preserve">
     <value>toep&amp;assen</value>
@@ -579,7 +579,7 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>Configuratie ophalen</value>
   </data>
   <data name="ServiceGeneral_LblInfo1" xml:space="preserve">
-    <value>Deze pagina bevat generieke configuratie opties. Blader door de tabbladen bovenaan voor MQTT instellingen, sensoren en commando&apos;s.</value>
+    <value>Deze pagina bevat generieke configuratie opties. Blader door de tabbladen bovenaan voor MQTT instellingen, sensoren en commando's.</value>
   </data>
   <data name="ServiceGeneral_LblAuthId" xml:space="preserve">
     <value>auth id</value>
@@ -643,7 +643,7 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>(leeglaten bij twijfel)</value>
   </data>
   <data name="ServiceMqtt_LblInfo1" xml:space="preserve">
-    <value>Commando&apos;s en sensoren worden verstuurd via MQTT. Geef de inloggegevens op voor je server. Als je de HA addon gebruikt, kan je waarschijnlijk het vooringevulde adres gebruiken.</value>
+    <value>Commando's en sensoren worden verstuurd via MQTT. Geef de inloggegevens op voor je server. Als je de HA addon gebruikt, kan je waarschijnlijk het vooringevulde adres gebruiken.</value>
   </data>
   <data name="ServiceMqtt_LblDiscoPrefix" xml:space="preserve">
     <value>discovery voorvoegsel</value>
@@ -781,7 +781,7 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>nieuwe toevoegen</value>
   </data>
   <data name="CommandsConfig_BtnStore" xml:space="preserve">
-    <value>op&amp;slaan en activeren commando&apos;s</value>
+    <value>op&amp;slaan en activeren commando's</value>
   </data>
   <data name="CommandsConfig_ClmName" xml:space="preserve">
     <value>naam</value>
@@ -796,7 +796,7 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>actie</value>
   </data>
   <data name="CommandsConfig_Title" xml:space="preserve">
-    <value>Commando&apos;s Config</value>
+    <value>Commando's Config</value>
   </data>
   <data name="CommandsMod_BtnStore" xml:space="preserve">
     <value>commando op&amp;slaan</value>
@@ -811,7 +811,7 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>omschrijving</value>
   </data>
   <data name="CommandsMod_CbRunAsLowIntegrity" xml:space="preserve">
-    <value>uitvoe&amp;ren als &apos;verlaagde integriteit&apos;</value>
+    <value>uitvoe&amp;ren als 'verlaagde integriteit'</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo" xml:space="preserve">
     <value>wat is dit?</value>
@@ -993,7 +993,7 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>     MQTT     </value>
   </data>
   <data name="ServiceConfig_TabCommands" xml:space="preserve">
-    <value>     Commando&apos;s     </value>
+    <value>     Commando's     </value>
   </data>
   <data name="ServiceConfig_TabSensors" xml:space="preserve">
     <value>     Sensoren     </value>
@@ -1008,10 +1008,10 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>Een Windows-gebaseerde cliënt voor het Home Assistant platform.</value>
   </data>
   <data name="About_LblInfo3" xml:space="preserve">
-    <value>Deze applicatie is open source en volledig gratis. Bekijk de project-pagina&apos;s van de gebruikte componenten voor hun individuele licenties.</value>
+    <value>Deze applicatie is open source en volledig gratis. Bekijk de project-pagina's van de gebruikte componenten voor hun individuele licenties.</value>
   </data>
   <data name="About_LblInfo4" xml:space="preserve">
-    <value>Een oprechte &apos;bedankt&apos; voor de ontwikkelaars van deze projecten, die zo aardig waren om hun harde werken te delen met de rest van de stervelingen ..</value>
+    <value>Een oprechte 'bedankt' voor de ontwikkelaars van deze projecten, die zo aardig waren om hun harde werken te delen met de rest van de stervelingen ..</value>
   </data>
   <data name="About_LblInfo5" xml:space="preserve">
     <value>En natuurlijk; bedankt Paulus Shoutsen en het hele team van ontwikkelaars dat Home Assistant gebouwd hebben en onderhouden :-)</value>
@@ -1092,7 +1092,7 @@ Bedankt voor het gebruiken van HASS.Agent, hopelijk heb je er wat aan :-)</value
     <value>sluiten</value>
   </data>
   <data name="Help_LblInfo1" xml:space="preserve">
-    <value>Zit je vast tijdens het gebruik van HASS.Agent, heb je hulp nodig bij het integreren van sensoren/commando&apos;s of heb je een top idee voor de volgende versie?
+    <value>Zit je vast tijdens het gebruik van HASS.Agent, heb je hulp nodig bij het integreren van sensoren/commando's of heb je een top idee voor de volgende versie?
 
 Er zijn een paar kanalen waar je ons kunt bereiken:</value>
   </data>
@@ -1136,7 +1136,7 @@ Er zijn een paar kanalen waar je ons kunt bereiken:</value>
     <value>lokale sensoren beheren</value>
   </data>
   <data name="Main_TsCommands" xml:space="preserve">
-    <value>commando&apos;s beheren</value>
+    <value>commando's beheren</value>
   </data>
   <data name="Main_CheckForUpdates" xml:space="preserve">
     <value>controleren op updates</value>
@@ -1186,7 +1186,7 @@ Er zijn een paar kanalen waar je ons kunt bereiken:</value>
     <value>satelliet service:</value>
   </data>
   <data name="Main_LblCommands" xml:space="preserve">
-    <value>commando&apos;s:</value>
+    <value>commando's:</value>
   </data>
   <data name="Main_LblSensors" xml:space="preserve">
     <value>sensoren:</value>
@@ -1233,12 +1233,12 @@ Er zijn een paar kanalen waar je ons kunt bereiken:</value>
   <data name="CommandsManager_CustomCommandDescription" xml:space="preserve">
     <value>Een eigen commando uitvoeren.
 
-Deze commando&apos;s draaien zonder speciale privileges. Om met verhoogde privileges uit te voeren, maak een Geplande Taak en gebruik &apos;schtasks /Run /TN &quot;TaskName&quot;&apos; als commando om the taak uit te voeren.
+Deze commando's draaien zonder speciale privileges. Om met verhoogde privileges uit te voeren, maak een Geplande Taak en gebruik 'schtasks /Run /TN "TaskName"' als commando om the taak uit te voeren.
 
-Of schakel &apos;uitvoeren met verlaagde integriteit&apos; in voor een strictere uitvoering.</value>
+Of schakel 'uitvoeren met verlaagde integriteit' in voor een strictere uitvoering.</value>
   </data>
   <data name="CommandsManager_CustomExecutorCommandDescription" xml:space="preserve">
-    <value>Voert het commando uit via de geconfigureerde eigen executor (in Configuratie -&gt; Externe Programma&apos;s).
+    <value>Voert het commando uit via de geconfigureerde eigen executor (in Configuratie -&gt; Externe Programma's).
 
 Je commando wordt onveranderd toegevoegd als argument, dus je moet je eigen haakjes etc. toevoegen indien nodig.</value>
   </data>
@@ -1248,7 +1248,7 @@ Je commando wordt onveranderd toegevoegd als argument, dus je moet je eigen haak
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
     <value>Simuleert een enkele toetsaanslag.
 
-Klik op het &apos;keycode&apos; veld en druk de toets in die je gesimuleerd wilt hebben. De corresponderende keycode wordt voor je ingevuld.
+Klik op het 'keycode' veld en druk de toets in die je gesimuleerd wilt hebben. De corresponderende keycode wordt voor je ingevuld.
 
 Als je meer toetsen nodig hebt en/of extra opties zoals CTRL, gebruik dan de MeerdereToetsen commando.</value>
     <comment>Fuzzy</comment>
@@ -1256,9 +1256,9 @@ Als je meer toetsen nodig hebt en/of extra opties zoals CTRL, gebruik dan de Mee
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">
     <value>Opent de opgegeven URL, normaliter in je standaard browser.
 
-Om &apos;privémodus&apos; te gebruiken, moet je een specifieke browser toevoegen in Configuratie -&gt; Externe Programma&apos;s.
+Om 'privémodus' te gebruiken, moet je een specifieke browser toevoegen in Configuratie -&gt; Externe Programma's.
 
-Als je alleen een scherm wilt met een specifieke URL (niet een complete browser), gebruik dan een &apos;WebView&apos; commando.</value>
+Als je alleen een scherm wilt met een specifieke URL (niet een complete browser), gebruik dan een 'WebView' commando.</value>
   </data>
   <data name="CommandsManager_LockCommandDescription" xml:space="preserve">
     <value>Vergrendelt de huidige sessie.</value>
@@ -1267,22 +1267,22 @@ Als je alleen een scherm wilt met een specifieke URL (niet een complete browser)
     <value>Logt de huidige sessie uit.</value>
   </data>
   <data name="CommandsManager_MediaMuteCommandDescription" xml:space="preserve">
-    <value>Simuleert de &apos;demp&apos; (mute) knop.</value>
+    <value>Simuleert de 'demp' (mute) knop.</value>
   </data>
   <data name="CommandsManager_MediaNextCommandDescription" xml:space="preserve">
-    <value>Simuleert de &apos;media volgende&apos; knop.</value>
+    <value>Simuleert de 'media volgende' knop.</value>
   </data>
   <data name="CommandsManager_MediaPlayPauseCommandDescription" xml:space="preserve">
-    <value>Simuleert de &apos;media afspelen/pauze&apos; knop.</value>
+    <value>Simuleert de 'media afspelen/pauze' knop.</value>
   </data>
   <data name="CommandsManager_MediaPreviousCommandDescription" xml:space="preserve">
-    <value>Simuleert de &apos;media vorige&apos; knop.</value>
+    <value>Simuleert de 'media vorige' knop.</value>
   </data>
   <data name="CommandsManager_MediaVolumeDownCommandDescription" xml:space="preserve">
-    <value>Simuleert de &apos;volume lager&apos; knop.</value>
+    <value>Simuleert de 'volume lager' knop.</value>
   </data>
   <data name="CommandsManager_MediaVolumeUpCommandDescription" xml:space="preserve">
-    <value>Simuleert de &apos;volume hoger&apos; knop.</value>
+    <value>Simuleert de 'volume hoger' knop.</value>
   </data>
   <data name="CommandsManager_MultipleKeysCommandDescription" xml:space="preserve">
     <value>Simuleert het indrukken van meerdere toetsen:
@@ -1291,7 +1291,7 @@ Je moet [ ] om elke toets heen zetten, anders kan HASS.Agent ze niet onderscheid
 
 Er zijn een paar trucs die je kunt gebruiken:
 
-- Als je een haakje wilt indrukken, &apos;escape&apos; die dan, dus [ is [\[] en ] is [\]]
+- Als je een haakje wilt indrukken, 'escape' die dan, dus [ is [\[] en ] is [\]]
 
 - Speciale tekens moeten tussen { }, zoals {TAB} of {UP}
 
@@ -1316,12 +1316,12 @@ Handig om bijvoorbeeld HASS.Agent te forceren om al je sensoren te updaten na ee
   <data name="CommandsManager_RestartCommandDescription" xml:space="preserve">
     <value>Herstart de machine na één minuut.
 
-Tip: per ongeluk geactiveerd? Voer &apos;shutdown /a&apos; uit om te annuleren.</value>
+Tip: per ongeluk geactiveerd? Voer 'shutdown /a' uit om te annuleren.</value>
   </data>
   <data name="CommandsManager_ShutdownCommandDescription" xml:space="preserve">
     <value>Sluit de machine af na één minuut.
 
-Tip: per ongeluk geactiveerd? Voer &apos;shutdown /a&apos; uit om te annuleren.</value>
+Tip: per ongeluk geactiveerd? Voer 'shutdown /a' uit om te annuleren.</value>
   </data>
   <data name="CommandsManager_SleepCommandDescription" xml:space="preserve">
     <value>Zet de machine in slaap modus.
@@ -1331,7 +1331,7 @@ Info: vanwege een limiet van Windows, werkt dit alleen als hibernation uitgescha
 Je kunt iets als NirCmd (http://www.nirsoft.net/utils/nircmd.html) gebruiken om dit te omzeilen.</value>
   </data>
   <data name="ConfigExternalTools_BtnExternalBrowserIncognitoTest_MessageBox1" xml:space="preserve">
-    <value>Voer de locatie van je browser&apos;s binary in (.exe bestand).</value>
+    <value>Voer de locatie van je browser's binary in (.exe bestand).</value>
   </data>
   <data name="ConfigExternalTools_ConfigExternalTools_BtnExternalBrowserIncognitoTest_MessageBox2" xml:space="preserve">
     <value>De opgegeven binary is niet gevonden.</value>
@@ -1350,7 +1350,7 @@ Controleer de logs voor meer info.</value>
     <value>Voer een geldige API sleutel in.</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox2" xml:space="preserve">
-    <value>Voeg je Home Assistant&apos;s URI in.</value>
+    <value>Voeg je Home Assistant's URI in.</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox3" xml:space="preserve">
     <value>Kan niet verbinden, de volgende error werd opgegeven:
@@ -1385,7 +1385,7 @@ Ter info: dit test alleen of lokaal notificaties getoond kunnen worden!</value>
   <data name="ConfigNotifications_BtnExecutePortReservation_MessageBox1" xml:space="preserve">
     <value>Er ging iets mis!
 
-Probeer handmatig het vereiste commando uit te voeren. Die is gekopieerd naar je klembord, je hoeft &apos;m alleen maar te plakken in een &apos;command prompt&apos; met verhoogde privileges.
+Probeer handmatig het vereiste commando uit te voeren. Die is gekopieerd naar je klembord, je hoeft 'm alleen maar te plakken in een 'command prompt' met verhoogde privileges.
 
 Vergeet niet om de poort van je firewall regel ook aan te passen.</value>
   </data>
@@ -1410,7 +1410,7 @@ Vergeet niet om de poort van je firewall regel ook aan te passen.</value>
 Controleer de HASS.Agent (niet de service) logs voor meer info.</value>
   </data>
   <data name="ConfigService_BtnStartService_MessageBox1" xml:space="preserve">
-    <value>De service staat op &apos;uitgeschakeld&apos;, dus kan niet gestart worden.
+    <value>De service staat op 'uitgeschakeld', dus kan niet gestart worden.
 
 Schakel eerst de service in, en probeer het dan opnieuw.</value>
   </data>
@@ -1478,7 +1478,7 @@ Controleer de logs voor meer info.</value>
     <value>Vul een geldige API sleutel in.</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox2" xml:space="preserve">
-    <value>Vul Home Assistant&apos;s URI in.</value>
+    <value>Vul Home Assistant's URI in.</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox3" xml:space="preserve">
     <value>Kan niet verbinden, de volgende error was teruggegeven:
@@ -1494,7 +1494,7 @@ Home Assistant versie: {0}</value>
     <value>testen ..</value>
   </data>
   <data name="ServiceCommands_BtnStore_MessageBox1" xml:space="preserve">
-    <value>Er is iets mis gegaan bij het opslaan van de commando&apos;s, controleer de logs voor meer info.</value>
+    <value>Er is iets mis gegaan bij het opslaan van de commando's, controleer de logs voor meer info.</value>
   </data>
   <data name="ServiceCommands_BtnStore_Storing" xml:space="preserve">
     <value>opslaan en registreren, ogenblik geduld ..</value>
@@ -1506,9 +1506,9 @@ Home Assistant versie: {0}</value>
     <value>verbinden met de service is gefaald</value>
   </data>
   <data name="ServiceConnect_FailedMessage" xml:space="preserve">
-    <value>The service is niet gevonden! Je kunt &apos;m installeren en beheren vanuit het configuratie paneel.
+    <value>The service is niet gevonden! Je kunt 'm installeren en beheren vanuit het configuratie paneel.
 
-Wanneer hij weer draait, kun je hier terugkomen om de commando&apos;s en sensoren te configureren.</value>
+Wanneer hij weer draait, kun je hier terugkomen om de commando's en sensoren te configureren.</value>
   </data>
   <data name="ServiceConnect_CommunicationFailed" xml:space="preserve">
     <value>communiceren met de service is gefaald</value>
@@ -1543,10 +1543,10 @@ Je kunt de logs openen en de service beheren via het configuratie paneel.</value
 Je kunt de logs openen en de service beheren via het configuratie paneel.</value>
   </data>
   <data name="ServiceConnect_CommandsFailed" xml:space="preserve">
-    <value>ophalen geconfigureerde commando&apos;s gefaald</value>
+    <value>ophalen geconfigureerde commando's gefaald</value>
   </data>
   <data name="ServiceConnect_CommandsFailedMessage" xml:space="preserve">
-    <value>De service heeft een fout teruggegeven tijdens het ophalen van de opgeslagen commando&apos;s. Controleer de logs voor meer info.
+    <value>De service heeft een fout teruggegeven tijdens het ophalen van de opgeslagen commando's. Controleer de logs voor meer info.
 
 Je kunt de logs openen en de service beheren via het configuratie paneel.</value>
   </data>
@@ -1586,7 +1586,7 @@ Leeglaten om ze allemaal te laten verbinden.</value>
   <data name="ServiceGeneral_LblDeviceNameInfo_MessageBox1" xml:space="preserve">
     <value>Met deze naam registreert de satelliet service zichzelf bij Home Assistant.
 
-Standaard is het je PC naam plus &apos;-satellite&apos;.</value>
+Standaard is het je PC naam plus '-satellite'.</value>
   </data>
   <data name="ServiceGeneral_LblDisconGraceInfo_MessageBox1" xml:space="preserve">
     <value>De hoeveelheid tijd dat de satelliet service wacht voordat hij een verbroken verbinding met de MQTT broker meldt.</value>
@@ -1644,7 +1644,7 @@ Controleer de logs voor meer informatie.</value>
     <value>opslaan en registreren, ogenblik geduld ..</value>
   </data>
   <data name="CommandsConfig_BtnStore_MessageBox1" xml:space="preserve">
-    <value>Er is iets mis gegaan bij het opslaan van de commando&apos;s, controleer de logs voor meer info.</value>
+    <value>Er is iets mis gegaan bij het opslaan van de commando's, controleer de logs voor meer info.</value>
   </data>
   <data name="CommandsMod_Title_NewCommand" xml:space="preserve">
     <value>Nieuwe Commando</value>
@@ -1668,12 +1668,12 @@ Controleer de logs voor meer informatie.</value>
     <value>Er is al een commando met die naam. Weet je zeker dat je door wilt gaan?</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox4" xml:space="preserve">
-    <value>Als je geen commando invult, kun je deze entiteit alleen gebruiken met een &apos;actie&apos; waarde via Home Assistant. Uitvoeren in de huidige vorm doet niks.
+    <value>Als je geen commando invult, kun je deze entiteit alleen gebruiken met een 'actie' waarde via Home Assistant. Uitvoeren in de huidige vorm doet niks.
 
 Weet je zeker dat je dit wilt?</value>
   </data>
   <data name="CommandsMod_MessageBox_Action" xml:space="preserve">
-    <value>Als je geen commando of script invult, kun je deze entiteit alleen gebruiken met een &apos;actie&apos; waarde via Home Assistant. Uitvoeren in de huidige vorm doet niks.
+    <value>Als je geen commando of script invult, kun je deze entiteit alleen gebruiken met een 'actie' waarde via Home Assistant. Uitvoeren in de huidige vorm doet niks.
 
 Weet je zeker dat je dit wilt?</value>
   </data>
@@ -1684,7 +1684,7 @@ Weet je zeker dat je dit wilt?</value>
     <value>Controleer van keys gefaald: {0}</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox7" xml:space="preserve">
-    <value>Als je geen URL invult, kun je deze entiteit alleen gebruiken met een &apos;actie&apos; waarde via Home Assistant. Uitvoeren in de huidige vorm doet niks.
+    <value>Als je geen URL invult, kun je deze entiteit alleen gebruiken met een 'actie' waarde via Home Assistant. Uitvoeren in de huidige vorm doet niks.
 
 Weet je zeker dat je dit wilt?</value>
   </data>
@@ -1730,10 +1730,10 @@ configureer een executor, anders kan het commando niet uitvoeren</value>
     <value>Dat betekent dat het alleen bestanden kan opslaan en aanpassen op bepaalde plekken,</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg3" xml:space="preserve">
-    <value>zoals de &apos;%USERPROFILE%\AppData\LocalLow&apos; map of</value>
+    <value>zoals de '%USERPROFILE%\AppData\LocalLow' map of</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg4" xml:space="preserve">
-    <value>de &apos;HKEY_CURRENT_USER\Software\AppDataLow&apos; register sleutel.</value>
+    <value>de 'HKEY_CURRENT_USER\Software\AppDataLow' register sleutel.</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg5" xml:space="preserve">
     <value>Je kunt het beste je commando testen om zeker te weten dat hij hier niet door wordt beïnvloed.</value>
@@ -1847,11 +1847,11 @@ configureer een executor, anders kan het commando niet uitvoeren</value>
   <data name="Configuration_ProcessChanges_MessageBox1" xml:space="preserve">
     <value>Je hebt je apparaatnaam aangepast.
 
-Al je sensoren en commando&apos;s worden nu ongepubliceerd, waarna HASS.Agent zal herstarten en ze daarna opnieuw zal publiceren.
+Al je sensoren en commando's worden nu ongepubliceerd, waarna HASS.Agent zal herstarten en ze daarna opnieuw zal publiceren.
 
 Geen zorgen, ze behouden hun huidige namen, dus al je automatiseringen en scripts blijven werken.
 
-Ter info: de naam zal &apos;opgeschoond&apos; worden, wat betekent dat alles behalve letters, cijfers en spaties wordt omgezet naar een laag streepje. Dit is vereist door HA.</value>
+Ter info: de naam zal 'opgeschoond' worden, wat betekent dat alles behalve letters, cijfers en spaties wordt omgezet naar een laag streepje. Dit is vereist door HA.</value>
   </data>
   <data name="Configuration_ProcessChanges_MessageBox2" xml:space="preserve">
     <value>Je hebt de poort van de lokale API aangepast. Deze nieuwe poort moet gereserveerd wordt.
@@ -1862,7 +1862,7 @@ Je krijgt een UAC verzoek te zien om dat te doen, deze graag toestemming geven.<
   <data name="Configuration_ProcessChanges_MessageBox3" xml:space="preserve">
     <value>Er is iets misgegaan!
 
-Voer het vereiste commando handmatig uit. Hij is gekopieerd naar je klembord, je hoeft &apos;m alleen maar te plakken in een &apos;command prompt&apos; met verhoogde privileges.
+Voer het vereiste commando handmatig uit. Hij is gekopieerd naar je klembord, je hoeft 'm alleen maar te plakken in een 'command prompt' met verhoogde privileges.
 
 Vergeet niet om de poort van je firewall regel ook aan te passen.</value>
   </data>
@@ -1883,7 +1883,7 @@ Wil je nu herstarten?</value>
   <data name="Main_Load_MessageBox1" xml:space="preserve">
     <value>Er is iets misgegaan bij het laden van je instellingen.
 
-Controleer appsettings.json in de &apos;config&apos; subfolder, or verwijder &apos;m gewoon om schoon te starten.</value>
+Controleer appsettings.json in de 'config' subfolder, or verwijder 'm gewoon om schoon te starten.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="Main_Load_MessageBox2" xml:space="preserve">
@@ -1896,7 +1896,7 @@ Controleer de logs en rapporteer eventuele bugs op GitHub.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="Main_BtnCommandsManager_Ready" xml:space="preserve">
-    <value>&amp;commando&apos;s</value>
+    <value>&amp;commando's</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="Main_Checking" xml:space="preserve">
@@ -2039,7 +2039,7 @@ Controleer of er niet nog een andere instantie van HASS.Agent actief is, en of d
   <data name="SensorsManager_AudioSensorsDescription" xml:space="preserve">
     <value>Geeft informatie over meerdere aspecten van het geluid van je apparaat:
 
-Huidige piek volumeniveau (kan gebruikt worden als een simpele &apos;speelt er iets&apos; waarde).
+Huidige piek volumeniveau (kan gebruikt worden als een simpele 'speelt er iets' waarde).
 
 Standaard geluidsapparaat: naam, status en volume.
 
@@ -2073,12 +2073,14 @@ Pakt momenteel het volume van je standaardapparaat.</value>
     <value>Geeft de huidige temperatuur van de eerste GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Geeft een datetime waarde met het laatste moment dat de gebruiker invoer geleverd heeft.</value>
+    <value>Biedt een datum/tijd-waarde die de laatste keer bevat dat de gebruiker iets heeft ingevoerd.
+
+Werkt de sensor optioneel bij met de huidige datum waarop het systeem wordt gewekt uit slaap/slaapstand in het geconfigureerde tijdvenster en er geen gebruikersactiviteit is uitgevoerd.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Geeft een datetime waarde met het laatste moment dat het systeem (her)startte.
 
-Belangrijk: Windows&apos; FastBoot optie kan deze waarde beïnvloeden, omdat dat een vorm van hibernation is. Je kunt het uitschakelen via Energiebeheer. Het maakt niet veel verschil voor moderne machines met SSDs, maar het uitschakelen ervan zorgt ervoor dat je altijd een schone lei hebt na een herstart.</value>
+Belangrijk: Windows' FastBoot optie kan deze waarde beïnvloeden, omdat dat een vorm van hibernation is. Je kunt het uitschakelen via Energiebeheer. Het maakt niet veel verschil voor moderne machines met SSDs, maar het uitschakelen ervan zorgt ervoor dat je altijd een schone lei hebt na een herstart.</value>
   </data>
   <data name="SensorsManager_LastSystemStateChangeSensorDescription" xml:space="preserve">
     <value>Geeft de volgende systeemstatus veranderingen:
@@ -2120,7 +2122,7 @@ Categorie: Processor
 Teller: % Processor Time
 Instance: _Total
 
-Je kunt de tellers verkennen via Windows&apos; &apos;perfmon.exe&apos; applicatie.</value>
+Je kunt de tellers verkennen via Windows' 'perfmon.exe' applicatie.</value>
   </data>
   <data name="SensorsManager_ProcessActiveSensorDescription" xml:space="preserve">
     <value>Geeft het aantal actieve instanties van het proces.</value>
@@ -2129,7 +2131,7 @@ Je kunt de tellers verkennen via Windows&apos; &apos;perfmon.exe&apos; applicati
   <data name="SensorsManager_ServiceStateSensorDescription" xml:space="preserve">
     <value>Geeft de staat van de opgegeven service: NotFound, Stopped, StartPending, StopPending, Running, ContinuePending, PausePending or Paused.
 
-Zorg dat je de &apos;Service naam&apos; geeft, niet de &apos;Weergavenaam&apos;.</value>
+Zorg dat je de 'Service naam' geeft, niet de 'Weergavenaam'.</value>
   </data>
   <data name="SensorsManager_SessionStateSensorDescription" xml:space="preserve">
     <value>Geeft de huidige sessie staat:
@@ -2155,7 +2157,7 @@ Notitie: als hij gebruikt wordt in de satelliet service, zal hij geen gebruikers
     <comment>Fuzzy</comment>
   </data>
   <data name="SensorsManager_WindowsUpdatesSensorsDescription" xml:space="preserve">
-    <value>Geeft een sensor met het aantal beschikbare driver updates, een sensor met het aantal beschikbare software updates, een sensor met info over de beschikbare driver updates (titel, kb, artikel id&apos;s, verborgen, type en categorieën) en een sensor met hetzelfde voor de beschikbare software updates.
+    <value>Geeft een sensor met het aantal beschikbare driver updates, een sensor met het aantal beschikbare software updates, een sensor met info over de beschikbare driver updates (titel, kb, artikel id's, verborgen, type en categorieën) en een sensor met hetzelfde voor de beschikbare software updates.
 
 Dit is een duur verzoek, dus de aanbevolen interval is 15 minuten (900 seconden). Maar de ondergrens is 10 minuten, als je een lagere waarde geeft krijg je de laatst-bekende lijst terug.</value>
     <comment>Fuzzy</comment>
@@ -2179,12 +2181,12 @@ Dit is een duur verzoek, dus de aanbevolen interval is 15 minuten (900 seconden)
 {0}</value>
   </data>
   <data name="StoredCommands_Load_MessageBox1" xml:space="preserve">
-    <value>Fout tijdens laden commando&apos;s:
+    <value>Fout tijdens laden commando's:
 
 {0}</value>
   </data>
   <data name="StoredCommands_Store_MessageBox1" xml:space="preserve">
-    <value>Fout tijdens opslaan commando&apos;s:
+    <value>Fout tijdens opslaan commando's:
 
 {0}</value>
   </data>
@@ -2609,7 +2611,7 @@ Wil je alsnog met de huidige waardes testen?</value>
     <value>ApplicatieGestart</value>
   </data>
   <data name="ServiceGeneral_LblInfo2" xml:space="preserve">
-    <value>Je kunt de satelliet service gebruiken om sensoren en commando&apos;s uit te voeren zonder ingelogd te hoeven zijn. Niet alle types zijn beschikbaar, bijvoorbeeld het &apos;LanceerUrl&apos; commando kan alleen als regulier commando toegevoegd worden.</value>
+    <value>Je kunt de satelliet service gebruiken om sensoren en commando's uit te voeren zonder ingelogd te hoeven zijn. Niet alle types zijn beschikbaar, bijvoorbeeld het 'LanceerUrl' commando kan alleen als regulier commando toegevoegd worden.</value>
   </data>
   <data name="SensorsConfig_ClmValue" xml:space="preserve">
     <value>laatst bekende waarde</value>
@@ -2628,24 +2630,24 @@ Controleer of er geen andere HASS.Agent instanties actief zijn, en of de poort b
   <data name="CommandsManager_WebViewCommandDescription" xml:space="preserve">
     <value>Toont een scherm met de opgegeven URL.
 
-Dit wijkt af van het &apos;LanceerUrl&apos; commando in dat het geen volledige browser laadt, alleen de opgegeven URL in een eigen scherm.
+Dit wijkt af van het 'LanceerUrl' commando in dat het geen volledige browser laadt, alleen de opgegeven URL in een eigen scherm.
 
 Je kunt dit bijvoorbeeld gebruiken om snel een dashboard van Home Assistant te tonen.
 
 Standaard slaat hij cookies oneindig op, dus je hoeft maar één keer in te loggen.</value>
   </data>
   <data name="HassDomain_HASSAgentCommands" xml:space="preserve">
-    <value>HASS.Agent Commando&apos;s</value>
+    <value>HASS.Agent Commando's</value>
   </data>
   <data name="CommandsManager_CommandsManager_SendWindowToFrontCommandDescription" xml:space="preserve">
-    <value>Zoekt het opgegeven proces, en probeert z&apos;n hoofdscherm naar de voorgrond te halen.
+    <value>Zoekt het opgegeven proces, en probeert z'n hoofdscherm naar de voorgrond te halen.
 
 Als de applicatie geminimaliseerd is, wordt hij hersteld.
 
-Voorbeeld: als je VLC naar de voorgrond wilt sturen, gebruik dan &apos;vlc&apos;.</value>
+Voorbeeld: als je VLC naar de voorgrond wilt sturen, gebruik dan 'vlc'.</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox8" xml:space="preserve">
-    <value>Als je het commando niet configureert, kan je deze entiteit alleen gebruiken met een &apos;actie&apos; waarde via Home Assistant en hij toont met de standaard instellingen. Uitvoeren zonder een actie doet niks.
+    <value>Als je het commando niet configureert, kan je deze entiteit alleen gebruiken met een 'actie' waarde via Home Assistant en hij toont met de standaard instellingen. Uitvoeren zonder een actie doet niks.
 
 Weet je zeker dat je dit wilt?</value>
   </data>
@@ -2687,7 +2689,7 @@ Ter info: deze melding toont éénmalig.</value>
     <value>lokal&amp;e api uitvoeren</value>
   </data>
   <data name="ConfigLocalApi_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent heeft z&apos;n eigen lokale API, zodat Home Assistant verzoeken kan sturen (bijvoorbeeld om een notificatie te versturen). Je kunt hem hier globlaal configureren, en daarna kun je de afhankelijke onderdelen configureren (momenteel notificaties en mediaspeler).
+    <value>HASS.Agent heeft z'n eigen lokale API, zodat Home Assistant verzoeken kan sturen (bijvoorbeeld om een notificatie te versturen). Je kunt hem hier globlaal configureren, en daarna kun je de afhankelijke onderdelen configureren (momenteel notificaties en mediaspeler).
 
 Notitie: dit is niet vereist om de nieuwe integratie te laten werken. Alleen inschakelen en gebruiken als je geen MQTT gebruikt.</value>
     <comment>Fuzzy</comment>
@@ -2741,14 +2743,14 @@ Notitie: dit is niet vereist om de nieuwe integratie te laten werken. Alleen ins
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigMediaPlayer_LblLocalApiDisabled" xml:space="preserve">
-    <value>de lokale API is uitgeschakeld, maar de mediaspeler heeft &apos;m nodig om te functioneren</value>
+    <value>de lokale API is uitgeschakeld, maar de mediaspeler heeft 'm nodig om te functioneren</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigMqtt_CbMqttTls" xml:space="preserve">
     <value>&amp;TLS</value>
   </data>
   <data name="ConfigNotifications_LblLocalApiDisabled" xml:space="preserve">
-    <value>de lokale API is uitgeschakeld, maar de mediaspeler heeft &apos;m nodig om te functioneren</value>
+    <value>de lokale API is uitgeschakeld, maar de mediaspeler heeft 'm nodig om te functioneren</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigTrayIcon_BtnShowWebViewPreview" xml:space="preserve">
@@ -2785,10 +2787,10 @@ Notitie: dit is niet vereist om de nieuwe integratie te laten werken. Alleen ins
     <value>Systeemvak Pictogram</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg1" xml:space="preserve">
-    <value>Je invoertaal &apos;{0}&apos; staat erom bekend te botsen met de standaard CTRL-ALT-Q sneltoets. Stel daarom je eigen in.</value>
+    <value>Je invoertaal '{0}' staat erom bekend te botsen met de standaard CTRL-ALT-Q sneltoets. Stel daarom je eigen in.</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg2" xml:space="preserve">
-    <value>Je invoertaal &apos;{0}&apos; is onbekend, en kan botsen met de standaard CTRL-ALT-Q sneltoets. Controleer dit voor de zekerheid. Als het zo is, overweeg dan een ticket te openen op GitHub om &apos;m aan de lijst toe te laten voegen.</value>
+    <value>Je invoertaal '{0}' is onbekend, en kan botsen met de standaard CTRL-ALT-Q sneltoets. Controleer dit voor de zekerheid. Als het zo is, overweeg dan een ticket te openen op GitHub om 'm aan de lijst toe te laten voegen.</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg1" xml:space="preserve">
     <value>geen toetsen gevonden</value>
@@ -2800,7 +2802,7 @@ Notitie: dit is niet vereist om de nieuwe integratie te laten werken. Alleen ins
     <value>fout tijdens verwerken toetsen, controleer de logs voor meer info</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg4" xml:space="preserve">
-    <value>het aantal &apos;[&apos; haakjes komt niet overeen met het aantal &apos;]&apos; haakjes ({0} tegenover {1})</value>
+    <value>het aantal '[' haakjes komt niet overeen met het aantal ']' haakjes ({0} tegenover {1})</value>
   </data>
   <data name="Help_LblDocumentation" xml:space="preserve">
     <value>Documentatie</value>
@@ -2852,7 +2854,7 @@ Dit is makkelijk via HACS, maar je kunt ook handmatig installeren. Bezoek de lin
     <value>activeer &amp;notificaties</value>
   </data>
   <data name="OnboardingLocalApi_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent gebruikt z&apos;n eigen ingebouwde API, zodat Home Assistant verzoeken kan sturen (zoals notificaties of tekst-naar-spraak).
+    <value>HASS.Agent gebruikt z'n eigen ingebouwde API, zodat Home Assistant verzoeken kan sturen (zoals notificaties of tekst-naar-spraak).
 
 Wil je dit activeren?</value>
   </data>
@@ -2860,7 +2862,7 @@ Wil je dit activeren?</value>
     <value>Je kunt kiezen welke modules te wilt activeren. Ze vereisen HA integraties, maar geen zorgen, de volgende pagina geeft je meer info over hoe je ze in kunt stellen.</value>
   </data>
   <data name="OnboardingLocalApi_LblTip1" xml:space="preserve">
-    <value>Ter info: 5115 is de standaard poort, verander &apos;m alleen als je dit ook in Home Assistant hebt gedaan.</value>
+    <value>Ter info: 5115 is de standaard poort, verander 'm alleen als je dit ook in Home Assistant hebt gedaan.</value>
   </data>
   <data name="OnboardingMqtt_CbMqttTls" xml:space="preserve">
     <value>&amp;TLS</value>
@@ -2903,7 +2905,7 @@ Wil je die versie gebruiken?</value>
     <value>grootte</value>
   </data>
   <data name="WebViewCommandConfig_LblTip1" xml:space="preserve">
-    <value>tip: druk op &apos;esc&apos; om een webview te sluiten</value>
+    <value>tip: druk op 'esc' om een webview te sluiten</value>
   </data>
   <data name="WebViewCommandConfig_LblUrl" xml:space="preserve">
     <value>&amp;URL</value>
@@ -2926,7 +2928,7 @@ Controleer of het keycode veld focus heeft, en druk dan op de toets die je gesim
     <value>status notificaties inschakelen</value>
   </data>
   <data name="ConfigGeneral_LblInfo5" xml:space="preserve">
-    <value>HASS.Agent zal je apparaatnaam opschonen, om zeker te zijn dat HA &apos;m accepteert. Je kunt dit uitschakelen als je zeker weet dat je naam wordt geaccepteerd.</value>
+    <value>HASS.Agent zal je apparaatnaam opschonen, om zeker te zijn dat HA 'm accepteert. Je kunt dit uitschakelen als je zeker weet dat je naam wordt geaccepteerd.</value>
   </data>
   <data name="ConfigGeneral_LblInfo6" xml:space="preserve">
     <value>Als je wilt, kun je status notificaties compleet uitschakelen. HASS.Agent zal je niet melden dat een verbinding verbroken of hersteld is.</value>
@@ -2934,7 +2936,7 @@ Controleer of het keycode veld focus heeft, en druk dan op de toets die je gesim
   <data name="Configuration_ProcessChanges_MessageBox6" xml:space="preserve">
     <value>Je hebt je apparaatnaam aangepast.
 
-Al je sensoren en commando&apos;s worden nu ongepubliceerd, waarna HASS.Agent zal herstarten en ze daarna opnieuw zal publiceren.
+Al je sensoren en commando's worden nu ongepubliceerd, waarna HASS.Agent zal herstarten en ze daarna opnieuw zal publiceren.
 
 Geen zorgen, ze behouden hun huidige namen, dus al je automatiseringen en scripts blijven werken.
 
@@ -2998,7 +3000,7 @@ Ter info: je hebt opschoning uitgeschakeld, dus verzeker je ervan dat je apparaa
     <value>Zet alle beeldschermen in slaap (laag energieverbruik) modus.</value>
   </data>
   <data name="CommandsManager_MonitorWakeCommandDescription" xml:space="preserve">
-    <value>Probeert alle beeldschermen wakker te maken door de &apos;pijl omhoog&apos; knop te simuleren.</value>
+    <value>Probeert alle beeldschermen wakker te maken door de 'pijl omhoog' knop te simuleren.</value>
   </data>
   <data name="CommandsManager_SetVolumeCommandDescription" xml:space="preserve">
     <value>Stelt de volume van de huidige standaard geluidapparaat in op het opgegeven niveau.</value>
@@ -3010,7 +3012,7 @@ Ter info: je hebt opschoning uitgeschakeld, dus verzeker je ervan dat je apparaa
     <value>Commando</value>
   </data>
   <data name="CommandsMod_MessageBox_Action2" xml:space="preserve">
-    <value>Als je geen volume waarde invult, kun je deze entiteit alleen gebruiken met een &apos;actie&apos; waarde via Home Assistant. Zonder activeren doet niks.
+    <value>Als je geen volume waarde invult, kun je deze entiteit alleen gebruiken met een 'actie' waarde via Home Assistant. Zonder activeren doet niks.
 
 Weet je zeker dat je dit wilt?</value>
   </data>
@@ -3025,12 +3027,12 @@ Wil je deze variant gebruiken?</value>
     <value>Je API token ziet er verkeerd uit. Controleer dat je de hele token geselecteerd hebt (geen CTRL+A of dubbelklik gebruiken). 
 Er zouden drie secties moeten zijn (gescheiden door twee punten).
 
-Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
+Weet je zeker dat je 'm zo wilt gebruiken?</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox6" xml:space="preserve">
-    <value>Je URI ziet er verkeerd uit. Het zou moeten lijken op &apos;http://homeassistant.local:8123&apos; of &apos;https://192.168.0.1:8123&apos;.
+    <value>Je URI ziet er verkeerd uit. Het zou moeten lijken op 'http://homeassistant.local:8123' of 'https://192.168.0.1:8123'.
 
-Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
+Weet je zeker dat je 'm zo wilt gebruiken?</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_Testing" xml:space="preserve">
     <value>testen ..</value>
@@ -3042,7 +3044,7 @@ Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
     <value>mqtt inschakelen</value>
   </data>
   <data name="ConfigMqtt_LblMqttDisabledWarning" xml:space="preserve">
-    <value>zonder mqtt, zullen commando&apos;s en sensoren niet werken!</value>
+    <value>zonder mqtt, zullen commando's en sensoren niet werken!</value>
   </data>
   <data name="ConfigNotifications_LblConnectivityDisabled" xml:space="preserve">
     <value>zowel de lokale API als MQTT zijn uitgeschakeld, maar de integratie heeft ten minste één nodig om te werken</value>
@@ -3053,10 +3055,10 @@ Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
   <data name="ConfigService_BtnManageService_MessageBox1" xml:space="preserve">
     <value>De service is momenteel gestopt, dus je kunt hem niet configureren.
 
-Zorg dat je &apos;m eerst geactiveerd en gestart hebt.</value>
+Zorg dat je 'm eerst geactiveerd en gestart hebt.</value>
   </data>
   <data name="ConfigService_LblInfo5" xml:space="preserve">
-    <value>Als je de service wilt beheren (commando&apos;s en sensors toevoegen, instellingen aanpassen) dan kan dat hier, of door de &apos;satellite service&apos; knop op het hoofdscherm.</value>
+    <value>Als je de service wilt beheren (commando's en sensors toevoegen, instellingen aanpassen) dan kan dat hier, of door de 'satellite service' knop op het hoofdscherm.</value>
   </data>
   <data name="ConfigTrayIcon_CbWebViewShowMenuOnLeftClick" xml:space="preserve">
     <value>toon standaard menu bij linker muisknop klik</value>
@@ -3065,17 +3067,17 @@ Zorg dat je &apos;m eerst geactiveerd en gestart hebt.</value>
     <value>Je Home Assistant API token ziet er verkeerd uit. Controleer dat je de hele token geselecteerd hebt (geen CTRL+A of dubbelklik gebruiken). 
 Er zouden drie secties moeten zijn (gescheiden door twee punten).
 
-Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
+Weet je zeker dat je 'm zo wilt gebruiken?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox2" xml:space="preserve">
-    <value>Je Home Assistant URI ziet er verkeerd uit. Het zou moeten lijken op &apos;http://homeassistant.local:8123&apos; of &apos;https://192.168.0.1:8123&apos;.
+    <value>Je Home Assistant URI ziet er verkeerd uit. Het zou moeten lijken op 'http://homeassistant.local:8123' of 'https://192.168.0.1:8123'.
 
-Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
+Weet je zeker dat je 'm zo wilt gebruiken?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox3" xml:space="preserve">
-    <value>Je MQTT broker URI ziet er verkeerd uit. Het zou moeten lijken op &apos;homeassistant.local&apos; or &apos;192.168.0.1&apos;.
+    <value>Je MQTT broker URI ziet er verkeerd uit. Het zou moeten lijken op 'homeassistant.local' or '192.168.0.1'.
 
-Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
+Weet je zeker dat je 'm zo wilt gebruiken?</value>
   </data>
   <data name="Donate_BtnClose" xml:space="preserve">
     <value>sluiten</value>
@@ -3088,7 +3090,7 @@ Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
 
 Het ontwikkelen en onderhouden van deze tool (en alles wat erbij komt kijken, zoals support, deze vertaling en de documentatie) neemt een hoop tijd in beslag.
 
-Zoals de meeste ontwikkelaars draai ik op caffeïne - dus als je &apos;t kunt missen, wordt een kop koffie altijd erg gewaardeerd!</value>
+Zoals de meeste ontwikkelaars draai ik op caffeïne - dus als je 't kunt missen, wordt een kop koffie altijd erg gewaardeerd!</value>
   </data>
   <data name="Donate_Title" xml:space="preserve">
     <value>Doneren</value>
@@ -3103,15 +3105,15 @@ Zoals de meeste ontwikkelaars draai ik op caffeïne - dus als je &apos;t kunt mi
     <value>Je API token ziet er verkeerd uit. Controleer dat je de hele token geselecteerd hebt (geen CTRL+A of dubbelklik gebruiken). 
 Er zouden drie secties moeten zijn (gescheiden door twee punten).
 
-Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
+Weet je zeker dat je 'm zo wilt gebruiken?</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox6" xml:space="preserve">
-    <value>Je URI ziet er verkeerd uit. Het zou moeten lijken op &apos;http://homeassistant.local:8123&apos; of &apos;https://192.168.0.1:8123&apos;.
+    <value>Je URI ziet er verkeerd uit. Het zou moeten lijken op 'http://homeassistant.local:8123' of 'https://192.168.0.1:8123'.
 
-Weet je zeker dat je &apos;m zo wilt gebruiken?</value>
+Weet je zeker dat je 'm zo wilt gebruiken?</value>
   </data>
   <data name="OnboardingDone_LblInfo6" xml:space="preserve">
-    <value>Het ontwikkelen en onderhouden van deze tool (en alles wat erbij komt kijken, zoals support, deze vertaling en de documentatie) neemt een hoop tijd in beslag. Zoals de meeste ontwikkelaars draai ik op caffeïne - dus als je &apos;t kunt missen, wordt een kop koffie altijd erg gewaardeerd!</value>
+    <value>Het ontwikkelen en onderhouden van deze tool (en alles wat erbij komt kijken, zoals support, deze vertaling en de documentatie) neemt een hoop tijd in beslag. Zoals de meeste ontwikkelaars draai ik op caffeïne - dus als je 't kunt missen, wordt een kop koffie altijd erg gewaardeerd!</value>
   </data>
   <data name="OnboardingDone_LblTip2" xml:space="preserve">
     <value>Tip: andere donatie methodes zijn beschikbaar in het Over scherm.</value>
@@ -3143,9 +3145,9 @@ Toont alleen apparaten die zijn gezien sinds het laatste rapport, oftewel, zodra
   <data name="SensorsManager_GeoLocationSensorDescription" xml:space="preserve">
     <value>Geeft je huidige latitude, longitude en altitude als een kommagescheiden waarde.
 
-Verzeker dat Windows&apos; localisatieservices ingeschakeld zijn!
+Verzeker dat Windows' localisatieservices ingeschakeld zijn!
 
-Afhankelijk van je Windows versie, kan dit gevonden worden in het nieuwe configuratiescherm -&gt; &apos;privacy en beveiliging&apos; -&gt; &apos;locatie&apos;.</value>
+Afhankelijk van je Windows versie, kan dit gevonden worden in het nieuwe configuratiescherm -&gt; 'privacy en beveiliging' -&gt; 'locatie'.</value>
   </data>
   <data name="SensorsManager_MicrophoneProcessSensorDescription" xml:space="preserve">
     <value>Geeft de naam van het proces dat momenteel de microfoon gebruikt.
@@ -3231,7 +3233,7 @@ Wil je de logmap openen?</value>
     <value>error tijdens instellen opstartmodus, controleer logs</value>
   </data>
   <data name="WebView_InitializeAsync_MessageBox1" xml:space="preserve">
-    <value>Microsoft&apos;s WebView2 runtime is niet op je machine gevonden. Normaliter handelt de installatie dit af, maar je kunt het ook handmatig installeren.
+    <value>Microsoft's WebView2 runtime is niet op je machine gevonden. Normaliter handelt de installatie dit af, maar je kunt het ook handmatig installeren.
 
 Wil je de runtime installatie downloaden?</value>
   </data>
@@ -3240,5 +3242,10 @@ Wil je de runtime installatie downloaden?</value>
   </data>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domein</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Forceer actie
+wanneer
+systeem ontwaakt uit slaap/winterslaap</value>
   </data>
 </root>
