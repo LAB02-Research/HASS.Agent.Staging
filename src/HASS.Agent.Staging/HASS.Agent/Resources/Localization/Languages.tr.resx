@@ -2828,4 +2828,9 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Eylemi zorla
+ne zaman 
+sistem uykudan/hazırda bekletme modundan uyanır</value>
+  </data>
 </root>

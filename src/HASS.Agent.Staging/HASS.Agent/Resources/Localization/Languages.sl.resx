@@ -3370,4 +3370,9 @@ Ali želite prenesti runtime installer?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Neznano</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Delovanje
+sile ko sistem
+se zbudi iz spanja/hibernacije</value>
+  </data>
 </root>

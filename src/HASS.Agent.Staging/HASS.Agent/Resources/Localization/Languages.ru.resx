@@ -3289,4 +3289,10 @@ Home Assistant.
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Силовое
+действие
+когда система
+пробуждается от сна/гибернации</value>
+  </data>
 </root>

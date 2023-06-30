@@ -3243,4 +3243,9 @@ Wil je de runtime installatie downloaden?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domein</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Forceer actie
+wanneer
+systeem ontwaakt uit slaap/winterslaap</value>
+  </data>
 </root>

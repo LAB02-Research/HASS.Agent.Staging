@@ -3268,4 +3268,9 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Desconhecido</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Forçar ação
+quando
+sistema acorda do modo de suspensão/hibernação</value>
+  </data>
 </root>

@@ -3331,4 +3331,9 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Wymuś akcję
+po wybudzeniu
+ze snu/hibernacji.</value>
+  </data>
 </root>

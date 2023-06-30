@@ -3221,4 +3221,9 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Forzar acción
+cuando el
+sistema se despierta del sueño/hibernación</value>
+  </data>
 </root>

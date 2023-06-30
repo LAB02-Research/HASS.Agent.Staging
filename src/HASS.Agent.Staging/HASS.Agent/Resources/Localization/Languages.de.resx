@@ -3345,4 +3345,10 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Aktion
+erzwingen
+wenn System
+erwacht aus dem Schlaf/Winterschlaf</value>
+  </data>
 </root>

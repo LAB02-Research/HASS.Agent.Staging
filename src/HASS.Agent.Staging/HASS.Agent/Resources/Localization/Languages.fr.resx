@@ -3254,4 +3254,9 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Action forcée
+quand le
+système se réveille du sommeil/de l'hibernation</value>
+  </data>
 </root>
