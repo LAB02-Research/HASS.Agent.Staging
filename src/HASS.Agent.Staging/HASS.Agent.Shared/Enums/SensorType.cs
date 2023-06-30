@@ -55,6 +55,10 @@ namespace HASS.Agent.Shared.Enums
         [EnumMember(Value = "GeoLocationSensor")]
         GeoLocationSensor,
 
+        [LocalizedDescription("SensorType_ScreenshotSensor", typeof(Languages))]
+        [EnumMember(Value = "ScreenshotSensor")]
+        ScreenshotSensor,
+
         [LocalizedDescription("SensorType_GpuLoadSensor", typeof(Languages))]
         [EnumMember(Value = "GpuLoadSensor")]
         GpuLoadSensor,

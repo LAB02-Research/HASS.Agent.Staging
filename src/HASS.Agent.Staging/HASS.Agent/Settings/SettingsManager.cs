@@ -168,6 +168,7 @@ namespace HASS.Agent.Settings
                 Variables.Commands = new List<AbstractCommand>();
                 Variables.SingleValueSensors = new List<AbstractSingleValueSensor>();
                 Variables.MultiValueSensors = new List<AbstractMultiValueSensor>();
+                Variables.SingleBinaryValueSensors = new List<AbstractSingleBinarySensor>();
 
                 // default settings
                 Variables.AppSettings = new AppSettings();

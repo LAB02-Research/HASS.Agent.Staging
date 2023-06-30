@@ -69,5 +69,6 @@ namespace HASS.Agent.Satellite.Service
         internal static List<AbstractCommand> Commands { get; set; } = new();
         internal static List<AbstractSingleValueSensor> SingleValueSensors { get; set; } = new();
         internal static List<AbstractMultiValueSensor> MultiValueSensors { get; set; } = new();
+        internal static List<AbstractSingleBinarySensor> SingleBinaryValueSensors { get; set; } = new();
     }
 }
