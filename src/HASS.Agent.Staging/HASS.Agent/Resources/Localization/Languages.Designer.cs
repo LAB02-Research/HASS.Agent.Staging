@@ -516,8 +516,7 @@ namespace HASS.Agent.Resources.Localization {
         ///- Special keys go between { }, like {TAB} or {UP}
         ///
         ///- Put a + in front of a key to add SHIFT, ^ for CTRL and % for ALT. So, +C is SHIFT-C. Or, +(CD) is SHIFT-C and SHIFT-D, while +CD is SHIFT-C and D
-        ///
-        /// [rest of string was truncated]&quot;;.
+        ///        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CommandsManager_MultipleKeysCommandDescription {
             get {
@@ -5642,7 +5641,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provides a datetime value containing the last moment the user provided any inputX..
+        ///   Looks up a localized string similar to Provides a datetime value containing the last moment the user provided input.
+        ///
+        ///Optionally updates the sensor with current date, when system has been woken from sleep/hibernation in configuerd time window and no user activity was performed..
         /// </summary>
         internal static string SensorsManager_LastActiveSensorDescription {
             get {
@@ -6066,10 +6067,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update last
-        ///active event
-        ///when resumed
-        ///from sleep/hibernation.
+        ///   Looks up a localized string similar to Force action
+        ///when system
+        ///wakes from sleep/hibernation.
         /// </summary>
         internal static string SensorsMod_CbApplyRounding_LastActive {
             get {

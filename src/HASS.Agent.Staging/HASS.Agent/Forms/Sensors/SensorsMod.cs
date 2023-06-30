@@ -10,6 +10,7 @@ using HASS.Agent.Shared.Extensions;
 using HASS.Agent.Shared.Models.Config;
 using Serilog;
 using HASS.Agent.Shared.Functions;
+using HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue;
 
 namespace HASS.Agent.Forms.Sensors
 {
@@ -190,7 +191,8 @@ namespace HASS.Agent.Forms.Sensors
 					break;
 
 				case SensorType.LastActiveSensor:
-					CbApplyRounding.Checked = Sensor.Query == "1";
+					CbApplyRounding.Checked = Sensor.ApplyRounding;
+					NumRound.Text = Sensor.Round?.ToString() ?? LastActiveSensor.DefaultTimeWindow.ToString(); ;
 					break;
 			}
 		}
@@ -458,6 +460,7 @@ namespace HASS.Agent.Forms.Sensors
 
 				CbApplyRounding.Text = Languages.SensorsMod_CbApplyRounding_LastActive;
 				LblDigits.Text = Languages.SensorsMod_LblSeconds;
+				NumRound.Text = LastActiveSensor.DefaultTimeWindow.ToString();
 				CbApplyRounding.Visible = true;
 				if (CbApplyRounding.Checked)
 				{
@@ -708,10 +711,6 @@ namespace HASS.Agent.Forms.Sensors
 						return;
 					}
 					Sensor.Query = windowprocess;
-					break;
-
-				case SensorType.LastActiveSensor:
-					Sensor.Query = CbApplyRounding.Checked ? "1" : "0";
 					break;
 			}
 

@@ -18,11 +18,15 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
 		private DateTime _lastActive = DateTime.MinValue;
 
-		public string Query { get; private set; }
+		public const int DefaultTimeWindow = 15;
 
-		public LastActiveSensor(string updateOnResume, int? updateInterval = 10, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
+		public bool ApplyRounding { get; private set; }
+		public int Round { get; private set; }
+
+		public LastActiveSensor(bool updateOnResume, int? updateOnResumeTimeWindow, int? updateInterval = 10, string name = DefaultName, string friendlyName = DefaultName, string id = default) : base(name ?? DefaultName, friendlyName ?? null, updateInterval ?? 10, id)
 		{
-			Query = updateOnResume;
+			ApplyRounding = updateOnResume;
+			Round = updateOnResumeTimeWindow ?? 30;
 		}
 
 		public override DiscoveryConfigModel GetAutoDiscoveryConfig()
@@ -49,23 +53,25 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.SingleValue
 
 		public override string GetState()
 		{
-			if (SharedSystemStateManager.LastEventOccurrence.TryGetValue(Enums.SystemStateEvent.Resume, out var lastWakeEventDate))
+			var lastInput = GetLastInputTime();
+
+			if (ApplyRounding)
 			{
-				if (Query == "1" && (DateTime.Now - lastWakeEventDate).TotalSeconds < 15)
+				if (SharedSystemStateManager.LastEventOccurrence.TryGetValue(Enums.SystemStateEvent.Resume, out var lastWakeEventDate) // was there a wake event
+					&& DateTime.Compare(lastInput, lastWakeEventDate) < 0 // was the last input before the last wake event
+					&& (DateTime.Now - lastWakeEventDate).TotalSeconds < Round) // are we within the time window
 				{
+
 					var currentPosition = Cursor.Position;
-					Cursor.Position = new Point(Cursor.Position.X - 50, Cursor.Position.Y - 50);
+					Cursor.Position = new Point(Cursor.Position.X - 10, Cursor.Position.Y - 10);
 					Cursor.Position = currentPosition;
 
-					var lastInputAfter = GetLastInputTime();
-
-					MessageBox.Show($"moving mouse as the device was woken from sleep, wake: {lastWakeEventDate}, now: {lastInputAfter}");
+					lastInput = GetLastInputTime();
 				}
 			}
 
 			// changed to min. 1 sec difference
 			// source: https://github.com/sleevezipper/hass-workstation-service/pull/156
-			var lastInput = GetLastInputTime();
 			if ((_lastActive - lastInput).Duration().TotalSeconds > 1)
 				_lastActive = lastInput;
 
