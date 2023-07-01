@@ -52,7 +52,7 @@ namespace HASS.Agent.Forms.Sensors
             // make a copy of the current sensors
             _sensors = Variables.SingleValueSensors.Select(StoredSensors.ConvertAbstractSingleValueToConfigured).Where(configuredSensor => configuredSensor != null).ToList();
             _sensors = _sensors.Concat(Variables.MultiValueSensors.Select(StoredSensors.ConvertAbstractMultiValueToConfigured).Where(configuredSensor => configuredSensor != null)).ToList();
-
+            _sensors = _sensors.Concat(Variables.SingleBinaryValueSensors.Select(StoredSensors.ConvertAbstractSingleBinaryToConfigured).Where(configuredSensor => configuredSensor != null)).ToList();
             // show them
             UpdateSensorsList();
         }

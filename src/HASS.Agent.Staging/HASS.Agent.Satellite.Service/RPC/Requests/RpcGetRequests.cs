@@ -187,7 +187,10 @@ namespace HASS.Agent.Satellite.Service.RPC
             };
 
             // add the sensors
-            var sensors = Variables.SingleValueSensors.Select(StoredSensors.ConvertAbstractSingleValueToConfigured).Concat(Variables.MultiValueSensors.Select(StoredSensors.ConvertAbstractMultiValueToConfigured));
+            var sensors = Variables.SingleValueSensors.Select(StoredSensors.ConvertAbstractSingleValueToConfigured)
+                .Concat(Variables.MultiValueSensors.Select(StoredSensors.ConvertAbstractMultiValueToConfigured))
+                .Concat(Variables.SingleBinaryValueSensors.Select(StoredSensors.ConvertAbstractSingleBinaryValueToConfigured));
+            
             foreach (var sensor in sensors.Select(y => y?.ConvertToRpcConfiguredSensor())) response.ConfiguredServerSensors.Add(sensor);
 
             // done

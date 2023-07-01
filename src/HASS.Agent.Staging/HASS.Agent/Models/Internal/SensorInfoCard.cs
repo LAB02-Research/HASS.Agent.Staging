@@ -17,6 +17,10 @@ namespace HASS.Agent.Models.Internal
         }
 
         public SensorInfoCard(SensorType sensorType, string description, int refreshTimer, bool multiValue, bool agentCompatible, bool satelliteCompatible)
+        : this(sensorType, description, refreshTimer, multiValue, false, agentCompatible, satelliteCompatible)
+        { }
+
+        public SensorInfoCard(SensorType sensorType, string description, int refreshTimer, bool multiValue, bool singleBinaryValue, bool agentCompatible, bool satelliteCompatible)
         {
             var (key, name) = sensorType.GetLocalizedDescriptionAndKey();
 
@@ -28,6 +32,7 @@ namespace HASS.Agent.Models.Internal
             Description = description;
             RefreshTimer = refreshTimer;
             MultiValue = multiValue;
+            SingleBinary = singleBinaryValue;
             AgentCompatible = agentCompatible;
             SatelliteCompatible = satelliteCompatible;
         }
@@ -39,8 +44,9 @@ namespace HASS.Agent.Models.Internal
 
         public string Description { get; set; }
         public int RefreshTimer { get; set; }
-        
+
         public bool MultiValue { get; set; }
+        public bool SingleBinary { get; set; }
 
         public bool AgentCompatible { get; set; }
         public bool SatelliteCompatible { get; set; }

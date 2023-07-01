@@ -1204,6 +1204,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MonitorScreenSaverActivate.
+        /// </summary>
+        internal static string CommandType_MonitorScreenSaverCommand {
+            get {
+                return ResourceManager.GetString("CommandType_MonitorScreenSaverCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MonitorSleep.
         /// </summary>
         internal static string CommandType_MonitorSleepCommand {
@@ -6678,6 +6687,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string SensorType_ProcessActiveSensor {
             get {
                 return ResourceManager.GetString("SensorType_ProcessActiveSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SensorType_ScreenshotSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ScreenshotSensor", resourceCulture);
             }
         }
         

@@ -397,6 +397,14 @@ namespace HASS.Agent.Commands
 
             // =================================
 
+            commandInfoCard = new CommandInfoCard(CommandType.MonitorScreenSaverCommand,
+                Languages.CommandsManager_MonitorScreenSaverCommandDescription,
+                true, false, false);
+
+            CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
+
+            // =================================
+
             commandInfoCard = new CommandInfoCard(CommandType.MonitorSleepCommand,
                 Languages.CommandsManager_MonitorSleepCommandDescription,
                 true, false, false);

@@ -188,6 +188,9 @@ namespace HASS.Agent.Forms.Sensors
                 case SensorType.WindowStateSensor:
                     TbSetting1.Text = Sensor.Query;
                     break;
+                case SensorType.ScreenshotSensor:
+                    TbSetting1.Text = Sensor.Query;
+                    break;
             }
         }
 
@@ -258,7 +261,9 @@ namespace HASS.Agent.Forms.Sensors
                 case SensorType.ProcessActiveSensor:
                     SetProcessGui();
                     break;
-
+                case SensorType.ScreenshotSensor:
+                    SetScreenNumberGui();
+                    break;
                 case SensorType.ServiceStateSensor:
                     SetServiceStateGui();
                     break;
@@ -274,7 +279,6 @@ namespace HASS.Agent.Forms.Sensors
                 case SensorType.WindowStateSensor:
                     SetWindowGui();
                     break;
-
                 default:
                     SetEmptyGui();
                     break;
@@ -404,6 +408,22 @@ namespace HASS.Agent.Forms.Sensors
 
                 LblSetting1.Text = Languages.SensorsMod_LblSetting1_Process;
                 LblSetting1.Visible = true;
+                TbSetting1.Visible = true;
+            }));
+        }
+
+        /// <summary>
+        /// Change the UI to a 'process active' type
+        /// </summary>
+        private void SetScreenNumberGui()
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                SetEmptyGui();
+
+                LblSetting1.Text = Languages.SensorsMod_LblSetting1_ScreenNumber;
+                LblSetting1.Visible = true;
+                TbSetting1.Text = string.Empty;
                 TbSetting1.Visible = true;
             }));
         }
@@ -554,6 +574,16 @@ namespace HASS.Agent.Forms.Sensors
                 }
             }
 
+            if (!_serviceMode && Variables.SingleBinaryValueSensors.Any(x => string.Equals(x.Name, name, StringComparison.InvariantCultureIgnoreCase) && x.Id != Sensor.Id.ToString()))
+            {
+                var confirm = MessageBoxAdv.Show(this, Languages.SensorsMod_BtnStore_MessageBox5, Variables.MessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm != DialogResult.Yes)
+                {
+                    ActiveControl = TbName;
+                    return;
+                }
+            }
+
             // get and check update interval
             var interval = (int)NumInterval.Value;
             if (interval is < 1 or > 43200)
@@ -669,6 +699,16 @@ namespace HASS.Agent.Forms.Sensors
                     Sensor.Query = TbSetting1.Text.Trim();
                     break;
 
+                case SensorType.ScreenshotSensor:
+                    var screenNumber = TbSetting1.Text.Trim();
+                    if (string.IsNullOrEmpty(screenNumber))
+                    {
+                        MessageBoxAdv.Show(this, Languages.SensorsMod_BtnStore_MessageBox10, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ActiveControl = TbSetting1;
+                        return;
+                    }
+                    Sensor.Query = screenNumber;
+                    break;
                 case SensorType.WindowStateSensor:
                     var windowprocess = TbSetting1.Text.Trim();
                     if (string.IsNullOrEmpty(windowprocess))

@@ -487,6 +487,24 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MonitorScreensaverActivate.
+        /// </summary>
+        internal static string CommandsManager_MonitorScreenSaverCommand {
+            get {
+                return ResourceManager.GetString("CommandsManager_MonitorScreenSaverCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activates default screensaver.
+        /// </summary>
+        internal static string CommandsManager_MonitorScreenSaverCommandDescription {
+            get {
+                return ResourceManager.GetString("CommandsManager_MonitorScreenSaverCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Puts all monitors in sleep (low power) mode..
         /// </summary>
         internal static string CommandsManager_MonitorSleepCommandDescription {
@@ -1200,6 +1218,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string CommandType_MediaVolumeUpCommand {
             get {
                 return ResourceManager.GetString("CommandType_MediaVolumeUpCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MonitorScreenSaverActivate.
+        /// </summary>
+        internal static string CommandType_MonitorScreenSaverCommand {
+            get {
+                return ResourceManager.GetString("CommandType_MonitorScreenSaverCommand", resourceCulture);
             }
         }
         
@@ -4444,7 +4471,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -5804,6 +5831,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provides a screenshot image.
+        /// </summary>
+        internal static string SensorsManager_ScreenshotSensorsDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_ScreenshotSensorsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Returns the state of the provided service: NotFound, Stopped, StartPending, StopPending, Running, ContinuePending, PausePending or Paused.
         ///
         ///Make sure to provide the &apos;Service name&apos;, not the &apos;Display name&apos;..
@@ -6178,6 +6214,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_LblSetting1_Process {
             get {
                 return ResourceManager.GetString("SensorsMod_LblSetting1_Process", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen Number (0 to Number of Screens).
+        /// </summary>
+        internal static string SensorsMod_LblSetting1_ScreenNumber {
+            get {
+                return ResourceManager.GetString("SensorsMod_LblSetting1_ScreenNumber", resourceCulture);
             }
         }
         
@@ -6705,6 +6750,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorType_ProcessActiveSensor {
             get {
                 return ResourceManager.GetString("SensorType_ProcessActiveSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot.
+        /// </summary>
+        internal static string SensorType_ScreenshotSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ScreenshotSensor", resourceCulture);
             }
         }
         

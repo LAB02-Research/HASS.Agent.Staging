@@ -138,6 +138,9 @@ namespace HASS.Agent.Satellite.Service.Settings
                 case CommandType.SendWindowToFrontCommand:
                     abstractCommand = new SendWindowToFrontCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
                     break;
+                case CommandType.MonitorScreenSaverCommand:
+                    abstractCommand = new MonitorScreenSaverCommand(command.Name, command.FriendlyName, command.EntityType, command.Id.ToString());
+                    break;
                 case CommandType.MonitorSleepCommand:
                     abstractCommand = new MonitorSleepCommand(command.Name, command.FriendlyName, command.EntityType, command.Id.ToString());
                     break;

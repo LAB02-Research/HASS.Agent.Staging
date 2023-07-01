@@ -2089,7 +2089,7 @@ Do you want to enable it?</value>
     <value>You can choose what modules you want to enable. They require HA integrations, but don't worry, the next page will give you more info on how to set them up.</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
-	  <value>To use notifications, you need to install and configure the HASS.Agent integration in
+    <value>To use notifications, you need to install and configure the HASS.Agent integration in
 Home Assistant.
 
 This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -3223,9 +3223,27 @@ Do you want to download the runtime installer?</value>
     <value>Please provide a number between 0 and 20!</value>
   </data>
   <data name="SensorsMod_LblDigits" xml:space="preserve">
-	  <value>digits after the comma</value>
+    <value>digits after the comma</value>
   </data>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
-	  <value>&amp;Round</value>
+    <value>&amp;Round</value>
+  </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+    <value>Screenshot</value>
+  </data>
+  <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
+    <value>Provides a screenshot image</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
+    <value>Screen Number (0 to Number of Screens)</value>
+  </data>
+  <data name="CommandsManager_MonitorScreenSaverCommand" xml:space="preserve">
+    <value>MonitorScreensaverActivate</value>
+  </data>
+  <data name="CommandsManager_MonitorScreenSaverCommandDescription" xml:space="preserve">
+    <value>Activates default screensaver</value>
+  </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>MonitorScreenSaverActivate</value>
   </data>
 </root>

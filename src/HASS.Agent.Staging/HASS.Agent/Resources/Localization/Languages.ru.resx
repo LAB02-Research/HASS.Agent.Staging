@@ -3287,4 +3287,16 @@ Home Assistant.
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>скриншот</value>
+  </data>
+  <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
+	  <value>Предоставляет снимок экрана.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
+	  <value>Номер нужного экрана (0 для первого экрана, 1 для второго и т.д.)</value>
+  </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Активировать заставку</value>
+  </data>
 </root>

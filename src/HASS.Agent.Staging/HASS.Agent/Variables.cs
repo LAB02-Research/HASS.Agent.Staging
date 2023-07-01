@@ -131,6 +131,7 @@ namespace HASS.Agent
         internal static List<QuickAction> QuickActions { get; set; }
         internal static List<AbstractCommand> Commands { get; set; }
         internal static List<AbstractSingleValueSensor> SingleValueSensors { get; set; }
+        internal static List<AbstractSingleBinarySensor> SingleBinaryValueSensors { get; set; }
         internal static List<AbstractMultiValueSensor> MultiValueSensors { get; set; }
     }
 }

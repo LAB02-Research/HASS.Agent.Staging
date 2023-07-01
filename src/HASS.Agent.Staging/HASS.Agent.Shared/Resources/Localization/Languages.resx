@@ -3200,4 +3200,10 @@ Do you want to download the runtime installer?</value>
 	<data name="QuickActionsMod_ClmDomain" xml:space="preserve">
 		<value>domain</value>
 	</data>
+	<data name="SensorType_ScreenshotSensor" xml:space="preserve">
+		<value />
+	</data>
+	<data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+		<value>MonitorScreenSaverActivate</value>
+	</data>
 </root>

@@ -157,6 +157,9 @@ namespace HASS.Agent.Settings
                 case CommandType.WebViewCommand:
                     abstractCommand = new WebViewCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
                     break;
+                case CommandType.MonitorScreenSaverCommand:
+                    abstractCommand = new MonitorScreenSaverCommand(command.Name, command.FriendlyName, command.EntityType, command.Id.ToString());
+                    break;
                 case CommandType.MonitorSleepCommand:
                     abstractCommand = new MonitorSleepCommand(command.Name, command.FriendlyName, command.EntityType, command.Id.ToString());
                     break;
