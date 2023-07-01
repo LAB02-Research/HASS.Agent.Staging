@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
 	<UseWPF>true</UseWPF>
@@ -25,6 +25,7 @@
     <AssemblyVersion>2022.15.0</AssemblyVersion>
     <FileVersion>2022.15.0</FileVersion>
     <RootNamespace>HASS.Agent</RootNamespace>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -108,27 +109,13 @@
     <Compile Update="Controls\Service\ServiceGeneral.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Forms\Donate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\ChildApplications\ServiceSetState.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\ChildApplications\ServiceReinstall.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Commands\CommandConfig\WebViewCommandConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Commands\CommandConfig\CommandMqttTopic.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\WebView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Service\ServiceConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="Forms\Donate.cs" />
+    <Compile Update="Forms\ChildApplications\ServiceSetState.cs" />
+    <Compile Update="Forms\ChildApplications\ServiceReinstall.cs" />
+    <Compile Update="Forms\Commands\CommandConfig\WebViewCommandConfig.cs" />
+    <Compile Update="Forms\Commands\CommandConfig\CommandMqttTopic.cs" />
+    <Compile Update="Forms\WebView.cs" />
+    <Compile Update="Forms\Service\ServiceConfig.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
