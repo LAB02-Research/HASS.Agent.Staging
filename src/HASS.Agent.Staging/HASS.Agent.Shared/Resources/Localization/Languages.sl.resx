@@ -3371,4 +3371,7 @@ Ali želite prenesti runtime installer?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Zagotavlja posnetek zaslona.</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Aktivacija ohranjevalnika zaslona</value>
+  </data>
 </root>

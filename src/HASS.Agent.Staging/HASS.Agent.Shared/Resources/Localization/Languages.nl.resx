@@ -3244,4 +3244,7 @@ Wil je de runtime installatie downloaden?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Geeft een schermafbeelding.</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Screensaver activeren</value>
+  </data>
 </root>

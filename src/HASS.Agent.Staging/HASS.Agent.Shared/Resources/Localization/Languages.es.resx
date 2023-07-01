@@ -3222,4 +3222,7 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Proporciona una captura de pantalla.</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>MonitorScreenSaverActivate</value>
+  </data>
 </root>

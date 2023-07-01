@@ -2089,7 +2089,7 @@ Do you want to enable it?</value>
     <value>You can choose what modules you want to enable. They require HA integrations, but don't worry, the next page will give you more info on how to set them up.</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
-	  <value>To use notifications, you need to install and configure the HASS.Agent integration in
+    <value>To use notifications, you need to install and configure the HASS.Agent integration in
 Home Assistant.
 
 This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -3236,5 +3236,14 @@ Do you want to download the runtime installer?</value>
   </data>
   <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
     <value>Screen Number (0 to Number of Screens)</value>
+  </data>
+  <data name="CommandsManager_MonitorScreenSaverCommand" xml:space="preserve">
+    <value>MonitorScreensaverActivate</value>
+  </data>
+  <data name="CommandsManager_MonitorScreenSaverCommandDescription" xml:space="preserve">
+    <value>Activates default screensaver</value>
+  </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>MonitorScreenSaverActivate</value>
   </data>
 </root>

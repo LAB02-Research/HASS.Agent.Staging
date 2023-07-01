@@ -3270,4 +3270,7 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
 	  <value>Fornece uma captura de tela.
 </value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Ativar o protetor de tela</value>
+  </data>
 </root>

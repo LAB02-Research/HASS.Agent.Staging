@@ -3255,4 +3255,7 @@ Do you want to download the runtime installer?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Fournit une capture d'écran.</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Activer l'économiseur d'écran</value>
+  </data>
 </root>

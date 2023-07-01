@@ -3332,4 +3332,7 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Udostępnia zrzut ekranu.</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Aktywuj wygaszacz ekranu</value>
+  </data>
 </root>

@@ -2829,4 +2829,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Bir ekran görüntüsü sağlar.</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Ekran Koruyucuyu Etkinleştir</value>
+  </data>
 </root>

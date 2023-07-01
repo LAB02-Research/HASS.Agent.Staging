@@ -3352,4 +3352,7 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
 	  <value>Nummer des gewünschten Screens (0 für ersten Screen, 1 für zweiten etc.)</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Screensaver aktivieren</value>
+  </data>
 </root>

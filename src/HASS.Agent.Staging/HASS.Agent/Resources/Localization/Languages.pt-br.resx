@@ -3275,4 +3275,7 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
 	  <value>Número da tela desejada (0 para a primeira tela, 1 para a segunda etc.)</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Ativar o protetor de ecrã</value>
+  </data>
 </root>

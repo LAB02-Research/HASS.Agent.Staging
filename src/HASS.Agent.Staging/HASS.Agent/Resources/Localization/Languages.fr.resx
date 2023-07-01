@@ -3261,4 +3261,7 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
 	  <value>Numéro de l'écran souhaité (0 pour le premier écran, 1 pour le deuxième, etc.)</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Activer l'économiseur d'écran</value>
+  </data>
 </root>

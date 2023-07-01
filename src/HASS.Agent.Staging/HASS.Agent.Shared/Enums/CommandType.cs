@@ -61,6 +61,10 @@ namespace HASS.Agent.Shared.Enums
         [EnumMember(Value = "MediaVolumeUpCommand")]
         MediaVolumeUpCommand,
 
+        [LocalizedDescription("CommandType_MonitorScreenSaverCommand", typeof(Languages))]
+        [EnumMember(Value = "MonitorScreenSaverCommand")]
+        MonitorScreenSaverCommand,
+
         [LocalizedDescription("CommandType_MonitorSleepCommand", typeof(Languages))]
         [EnumMember(Value = "MonitorSleepCommand")]
         MonitorSleepCommand,

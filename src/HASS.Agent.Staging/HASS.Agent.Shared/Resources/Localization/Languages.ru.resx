@@ -3291,4 +3291,7 @@ Home Assistant.
 	  <value>Предоставляет снимок экрана.
 </value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>Активировать заставку</value>
+  </data>
 </root>

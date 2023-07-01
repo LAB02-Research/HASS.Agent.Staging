@@ -1204,6 +1204,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MonitorScreenSaverActivate.
+        /// </summary>
+        internal static string CommandType_MonitorScreenSaverCommand {
+            get {
+                return ResourceManager.GetString("CommandType_MonitorScreenSaverCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MonitorSleep.
         /// </summary>
         internal static string CommandType_MonitorSleepCommand {

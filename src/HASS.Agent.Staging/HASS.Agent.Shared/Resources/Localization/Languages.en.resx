@@ -3222,4 +3222,7 @@ Do you want to download the runtime installer?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Screenshot</value>
   </data>
+  <data name="CommandType_MonitorScreenSaverCommand" xml:space="preserve">
+	  <value>MonitorScreenSaverActivate</value>
+  </data>
 </root>
