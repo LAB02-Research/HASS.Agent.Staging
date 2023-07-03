@@ -453,6 +453,14 @@ namespace HASS.Agent.Commands
 
             // =================================
 
+            commandInfoCard = new CommandInfoCard(CommandType.SwitchDesktopCommand,
+                Languages.CommandsManager_SwitchDesktopCommandDescription,
+                true, false, true);
+
+            // =================================
+
+            CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
+
             commandInfoCard = new CommandInfoCard(CommandType.SetVolumeCommand,
                 Languages.CommandsManager_SetVolumeCommandDescription,
                 true, true, true);
@@ -482,6 +490,7 @@ namespace HASS.Agent.Commands
                 true, false, true);
 
             CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
+            
         }
     }
 }
