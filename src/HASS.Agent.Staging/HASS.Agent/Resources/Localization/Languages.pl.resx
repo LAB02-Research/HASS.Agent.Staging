@@ -3329,10 +3329,10 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Włącza podany wirtualny pulpit.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Zwraca identyfikator aktualnie aktywnego pulpitu wirtualnego.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Aktywuje podany pulpit wirtualny. Identyfikator pulpitu można pobrać z czujnika „ActiveDesktop”.</value>
   </data>
 </root>

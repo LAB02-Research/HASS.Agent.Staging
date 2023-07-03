@@ -3343,10 +3343,10 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Aktiviert den bereitgestellten virtuellen Desktop.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Stellt die ID des aktuell aktiven virtuellen Desktops bereit.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Aktiviert den bereitgestellten virtuellen Desktop. Die Desktop-ID kann vom „ActiveDesktop“-Sensor abgerufen werden.</value>
   </data>
 </root>

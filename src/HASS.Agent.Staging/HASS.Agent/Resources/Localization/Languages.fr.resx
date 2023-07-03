@@ -3252,10 +3252,10 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Active le bureau virtuel fourni.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Fournit l'ID du bureau virtuel actuellement actif.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Active le bureau virtuel fourni. L'ID du bureau peut être récupéré à partir du capteur "ActiveDesktop".</value>
   </data>
 </root>

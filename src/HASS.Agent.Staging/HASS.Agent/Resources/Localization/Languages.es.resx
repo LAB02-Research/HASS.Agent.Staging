@@ -3219,10 +3219,10 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Activa el escritorio virtual proporcionado.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Proporciona el ID del escritorio virtual actualmente activo.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Activa el escritorio virtual proporcionado. Desktop ID se puede recuperar del sensor "ActiveDesktop".</value>
   </data>
 </root>

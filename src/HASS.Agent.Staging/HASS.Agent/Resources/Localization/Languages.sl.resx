@@ -3368,10 +3368,10 @@ Ali želite prenesti runtime installer?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Neznano</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Aktivira ponujeno navidezno namizje.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Zagotavlja ID trenutno aktivnega navideznega namizja.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Aktivira ponujeno navidezno namizje. ID namizja je mogoče pridobiti iz senzorja "ActiveDesktop".</value>
   </data>
 </root>

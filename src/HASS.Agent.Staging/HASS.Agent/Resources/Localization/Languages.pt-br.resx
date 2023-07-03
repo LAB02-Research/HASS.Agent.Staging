@@ -3266,10 +3266,10 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Desconhecido</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Ativa a área de trabalho virtual fornecida.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Fornece a ID da área de trabalho virtual atualmente ativa.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Ativa a área de trabalho virtual fornecida. A ID da área de trabalho pode ser recuperada do sensor "ActiveDesktop".</value>
   </data>
 </root>

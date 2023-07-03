@@ -3287,10 +3287,10 @@ Home Assistant.
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Активирует предоставленный виртуальный рабочий стол.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Предоставляет идентификатор текущего активного виртуального рабочего стола.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Активирует предоставленный виртуальный рабочий стол. Идентификатор рабочего стола можно получить с датчика ActiveDesktop.</value>
   </data>
 </root>

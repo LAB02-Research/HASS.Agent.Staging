@@ -2826,10 +2826,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Sağlanan Sanal Masaüstünü etkinleştirir.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Şu anda etkin olan sanal masaüstünün kimliğini sağlar.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Sağlanan Sanal Masaüstünü etkinleştirir. Masaüstü Kimliği "ActiveDesktop" sensöründen alınabilir.</value>
   </data>
 </root>

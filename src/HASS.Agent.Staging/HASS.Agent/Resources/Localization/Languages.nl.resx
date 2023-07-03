@@ -3241,10 +3241,10 @@ Wil je de runtime installatie downloaden?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domein</value>
   </data>
-  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Activeert het meegeleverde virtuele bureaublad.</value>
-  </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Geeft de ID van het momenteel actieve virtuele bureaublad.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Activeert het meegeleverde virtuele bureaublad. Desktop-ID kan worden opgehaald van de "ActiveDesktop"-sensor.</value>
   </data>
 </root>
