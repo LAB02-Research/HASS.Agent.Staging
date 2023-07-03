@@ -811,10 +811,10 @@ you can probably use the preset address.</value>
     <value>Description</value>
   </data>
   <data name="CommandsMod_CbRunAsLowIntegrity" xml:space="preserve">
-    <value>&amp;Run as &apos;Low Integrity&apos;</value>
+    <value>&amp;Run as 'Low Integrity'</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo" xml:space="preserve">
-    <value>What&apos;s this?</value>
+    <value>What's this?</value>
   </data>
   <data name="CommandsMod_ClmSensorName" xml:space="preserve">
     <value>  Type</value>
@@ -1214,7 +1214,7 @@ report bugs or get involved in general chit-chat!</value>
     <value>Fetching info, please wait..</value>
   </data>
   <data name="UpdatePending_LblNewReleaseInfo" xml:space="preserve">
-    <value>There&apos;s a new release available:</value>
+    <value>There's a new release available:</value>
   </data>
   <data name="UpdatePending_LblInfo1" xml:space="preserve">
     <value>Release notes</value>
@@ -1264,22 +1264,22 @@ If you just want a window with a specific URL (not an entire browser), use a 'We
     <value>Logs off the current session.</value>
   </data>
   <data name="CommandsManager_MediaMuteCommandDescription" xml:space="preserve">
-    <value>Simulates &apos;Mute&apos; key.</value>
+    <value>Simulates 'Mute' key.</value>
   </data>
   <data name="CommandsManager_MediaNextCommandDescription" xml:space="preserve">
-    <value>Simulates &apos;Media Next&apos; key.</value>
+    <value>Simulates 'Media Next' key.</value>
   </data>
   <data name="CommandsManager_MediaPlayPauseCommandDescription" xml:space="preserve">
-    <value>Simulates &apos;Media Pause/Play&apos; key.</value>
+    <value>Simulates 'Media Pause/Play' key.</value>
   </data>
   <data name="CommandsManager_MediaPreviousCommandDescription" xml:space="preserve">
-    <value>Simulates &apos;Media Previous&apos; key.</value>
+    <value>Simulates 'Media Previous' key.</value>
   </data>
   <data name="CommandsManager_MediaVolumeDownCommandDescription" xml:space="preserve">
-    <value>Simulates &apos;Volume Down&apos; key.</value>
+    <value>Simulates 'Volume Down' key.</value>
   </data>
   <data name="CommandsManager_MediaVolumeUpCommandDescription" xml:space="preserve">
-    <value>Simulates &apos;Volume Up&apos; key.</value>
+    <value>Simulates 'Volume Up' key.</value>
   </data>
   <data name="CommandsManager_MultipleKeysCommandDescription" xml:space="preserve">
 	  <value>Simulates pressing mulitple keys.
@@ -1328,7 +1328,7 @@ Note: due to a limitation in Windows, this only works if hibernation is disabled
 You can use something like NirCmd (http://www.nirsoft.net/utils/nircmd.html) to circumvent this.</value>
   </data>
   <data name="ConfigExternalTools_BtnExternalBrowserIncognitoTest_MessageBox1" xml:space="preserve">
-    <value>Please enter the location of your browser&apos;s binary! (.exe file)</value>
+    <value>Please enter the location of your browser's binary! (.exe file)</value>
   </data>
   <data name="ConfigExternalTools_ConfigExternalTools_BtnExternalBrowserIncognitoTest_MessageBox2" xml:space="preserve">
     <value>The browser binary provided could not be found, please ensure the path is correct and try again.</value>
@@ -1347,7 +1347,7 @@ Please check the logs for more information.</value>
     <value>Please enter a valid API key!</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox2" xml:space="preserve">
-    <value>Please enter a value for your Home Assistant&apos;s URI.</value>
+    <value>Please enter a value for your Home Assistant's URI.</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox3" xml:space="preserve">
 	  <value>Unable to connect, the following error was returned:
@@ -1462,7 +1462,7 @@ Check the HASS.Agent (not the service) logs for more information.</value>
     <value>Activating Start-on-Login..</value>
   </data>
   <data name="OnboardingStartup_Failed" xml:space="preserve">
-    <value>Something went wrong. You can try again, or skip to the next page and retry after HASS.Agent&apos;s restart.</value>
+    <value>Something went wrong. You can try again, or skip to the next page and retry after HASS.Agent's restart.</value>
   </data>
   <data name="OnboardingStartup_BtnSetLaunchOnLogin_2" xml:space="preserve">
     <value>Enable Start-on-Login</value>
@@ -1471,7 +1471,7 @@ Check the HASS.Agent (not the service) logs for more information.</value>
     <value>Please provide a valid API key.</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox2" xml:space="preserve">
-    <value>Please enter your Home Assistant&apos;s URI.</value>
+    <value>Please enter your Home Assistant's URI.</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox3" xml:space="preserve">
 	  <value>Unable to connect, the following error was returned:
@@ -1721,19 +1721,19 @@ Please configure an executor or your command will not run.</value>
     <value>This means it will only be able to save and modify files in certain locations,</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg3" xml:space="preserve">
-    <value>such as the &apos;%USERPROFILE%\AppData\LocalLow&apos; folder or</value>
+    <value>such as the '%USERPROFILE%\AppData\LocalLow' folder or</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg4" xml:space="preserve">
-    <value>the &apos;HKEY_CURRENT_USER\Software\AppDataLow&apos; registry key.</value>
+    <value>the 'HKEY_CURRENT_USER\Software\AppDataLow' registry key.</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg5" xml:space="preserve">
-    <value>You should test your command to make sure it&apos;s not influenced by this!</value>
+    <value>You should test your command to make sure it's not influenced by this!</value>
   </data>
   <data name="CommandsMod_SpecificClient" xml:space="preserve">
     <value>{0} only!</value>
   </data>
   <data name="CommandsMod_LblMqttTopic_MessageBox1" xml:space="preserve">
-    <value>The MQTT manager hasn&apos;t been configured properly, or hasn&apos;t yet completed its startup.</value>
+    <value>The MQTT manager hasn't been configured properly, or hasn't yet completed its startup.</value>
   </data>
   <data name="QuickActions_CheckHassManager_MessageBox1" xml:space="preserve">
     <value>Unable to fetch your entities because of missing config, please enter the required values in the config screen.</value>
@@ -1888,10 +1888,10 @@ Please check the logs and make a bug report on GitHub.</value>
     <value>Checking..</value>
   </data>
   <data name="Main_CheckForUpdate_MessageBox1" xml:space="preserve">
-    <value>You&apos;re running the latest version: {0}{1}</value>
+    <value>You're running the latest version: {0}{1}</value>
   </data>
   <data name="UpdatePending_NewBetaRelease" xml:space="preserve">
-    <value>There&apos;s a new BETA release available:</value>
+    <value>There's a new BETA release available:</value>
   </data>
   <data name="UpdatePending_Title_Beta" xml:space="preserve">
     <value>HASS.Agent BETA Update</value>
@@ -2088,7 +2088,7 @@ This will also contain users that aren't active. If you only want the current ac
 Note: if used in the satellite service, it won't detect userspace applications.</value>
   </data>
   <data name="SensorsManager_NamedWindowSensorDescription" xml:space="preserve">
-    <value>Provides an ON/OFF value based on whether the window is currently open (doesn&apos;t have to be active).</value>
+    <value>Provides an ON/OFF value based on whether the window is currently open (doesn't have to be active).</value>
   </data>
   <data name="SensorsManager_NetworkSensorsDescription" xml:space="preserve">
 	  <value>Provides card info, configuration, transfer- &amp; package statistics and addresses (ip, mac, dhcp, dns) of the selected network card(s).
@@ -2592,7 +2592,7 @@ Do you still want to use the current values?</value>
     <value>ApplicationStarted</value>
   </data>
   <data name="ServiceGeneral_LblInfo2" xml:space="preserve">
-    <value>You can use the satellite service to run sensors and commands without having to be logged in. Not all types are available, for instance the &apos;LaunchUrl&apos; command can only be added as a regular command.</value>
+    <value>You can use the satellite service to run sensors and commands without having to be logged in. Not all types are available, for instance the 'LaunchUrl' command can only be added as a regular command.</value>
   </data>
   <data name="SensorsConfig_ClmValue" xml:space="preserve">
     <value>Last Known Value</value>
@@ -2708,7 +2708,7 @@ Note: this is not required for the new integration to function. Only enable and 
     <value>&amp;Enable Media Player Functionality</value>
   </data>
   <data name="ConfigMediaPlayer_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent can act as a media player for Home Assistant, so you&apos;ll be able to see and control any media that&apos;s playing, and send text-to-speech. If you have MQTT enabled, your device will automatically get added. Otherwise, manually configure the integration to use the local API.</value>
+    <value>HASS.Agent can act as a media player for Home Assistant, so you'll be able to see and control any media that's playing, and send text-to-speech. If you have MQTT enabled, your device will automatically get added. Otherwise, manually configure the integration to use the local API.</value>
   </data>
   <data name="ConfigMediaPlayer_LblInfo2" xml:space="preserve">
 	  <value>If something is not working, make sure you try the following steps:
@@ -2762,10 +2762,10 @@ Note: this is not required for the new integration to function. Only enable and 
     <value>Tray Icon</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg1" xml:space="preserve">
-    <value>Your input language &apos;{0}&apos; is known to collide with the default CTRL-ALT-Q hotkey. Please set your own.</value>
+    <value>Your input language '{0}' is known to collide with the default CTRL-ALT-Q hotkey. Please set your own.</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg2" xml:space="preserve">
-    <value>Your input language &apos;{0}&apos; is unknown, and might collide with the default CTRL-ALT-Q hotkey. Please check to be sure. If it does, consider opening a ticket on GitHub so it can be added to the list.</value>
+    <value>Your input language '{0}' is unknown, and might collide with the default CTRL-ALT-Q hotkey. Please check to be sure. If it does, consider opening a ticket on GitHub so it can be added to the list.</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg1" xml:space="preserve">
     <value>No keys found</value>
@@ -2777,7 +2777,7 @@ Note: this is not required for the new integration to function. Only enable and 
     <value>Error while parsing keys, please check the logs for more information.</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg4" xml:space="preserve">
-    <value>The number of open brackets (&apos;[&apos;) does not correspond to the number of closed brackets. (&apos;]&apos;)! ({0} to {1})</value>
+    <value>The number of open brackets ('[') does not correspond to the number of closed brackets. (']')! ({0} to {1})</value>
   </data>
   <data name="Help_LblDocumentation" xml:space="preserve">
     <value>Documentation</value>
@@ -2810,7 +2810,7 @@ information.</value>
 -Restart Home Assistant</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo3" xml:space="preserve">
-    <value>The same goes for the media player, this integration allows you to control your device as a media_player entity, see what&apos;s playing and send text-to-speech.</value>
+    <value>The same goes for the media player, this integration allows you to control your device as a media_player entity, see what's playing and send text-to-speech.</value>
   </data>
   <data name="OnboardingIntegrations_LblMediaPlayerIntegration" xml:space="preserve">
     <value>HASS.Agent-MediaPlayer GitHub Page</value>
@@ -2833,7 +2833,7 @@ information.</value>
 Do you want to enable it?</value>
   </data>
   <data name="OnboardingLocalApi_LblInfo2" xml:space="preserve">
-    <value>You can choose what modules you want to enable. They require HA integrations, but don&apos;t worry, the next page will give you more info on how to set them up.</value>
+    <value>You can choose what modules you want to enable. They require HA integrations, but don't worry, the next page will give you more info on how to set them up.</value>
   </data>
   <data name="OnboardingLocalApi_LblTip1" xml:space="preserve">
     <value>Note: 5115 is the default port, only change it if you changed it in Home Assistant.</value>
@@ -2864,10 +2864,10 @@ Do you want to use that version?</value>
     <value>&amp;Always show centered in screen</value>
   </data>
   <data name="WebViewCommandConfig_CbShowTitleBar" xml:space="preserve">
-    <value>Show the window&apos;s &amp;title bar</value>
+    <value>Show the window's &amp;title bar</value>
   </data>
   <data name="WebViewCommandConfig_CbTopMost" xml:space="preserve">
-    <value>Set window as &apos;Always on &amp;Top&apos;</value>
+    <value>Set window as 'Always on &amp;Top'</value>
   </data>
   <data name="WebViewCommandConfig_LblInfo1" xml:space="preserve">
     <value>Drag and resize this window to set the size and location of your webview command.</value>
@@ -2902,7 +2902,7 @@ Please ensure the keycode field is in focus and press the key you want simulated
     <value>Enable State Notifications</value>
   </data>
   <data name="ConfigGeneral_LblInfo5" xml:space="preserve">
-    <value>HASS.Agent will sanitize your device name to make sure HA will accept it, you can overrule this rule below if you&apos;re sure that your name will be accepted as-is.</value>
+    <value>HASS.Agent will sanitize your device name to make sure HA will accept it, you can overrule this rule below if you're sure that your name will be accepted as-is.</value>
   </data>
   <data name="ConfigGeneral_LblInfo6" xml:space="preserve">
     <value>HASS.Agent sends notifications when the state of a module changes, you can adjust whether or not you want to receive these notifications below.</value>
@@ -2974,7 +2974,7 @@ Note: You disabled sanitation, so make sure your device name is accepted by Home
     <value>Puts all monitors in sleep (low power) mode.</value>
   </data>
   <data name="CommandsManager_MonitorWakeCommandDescription" xml:space="preserve">
-    <value>Tries to wake up all monitors by simulating a &apos;arrow up&apos; keypress.</value>
+    <value>Tries to wake up all monitors by simulating a 'arrow up' keypress.</value>
   </data>
   <data name="CommandsManager_SetVolumeCommandDescription" xml:space="preserve">
     <value>Sets the volume of the current default audiodevice to the specified level.</value>
@@ -3033,7 +3033,7 @@ Are you sure you want to use this URI anyway?</value>
 Please start the service first in order to configure it.</value>
   </data>
   <data name="ConfigService_LblInfo5" xml:space="preserve">
-    <value>If you want to manage the service (add commands and sensor, change settings) you can do so here, or by using the &apos;satellite service&apos; button on the main window.</value>
+    <value>If you want to manage the service (add commands and sensor, change settings) you can do so here, or by using the 'satellite service' button on the main window.</value>
   </data>
   <data name="ConfigTrayIcon_CbWebViewShowMenuOnLeftClick" xml:space="preserve">
     <value>Show default menu on mouse left-click</value>
@@ -3218,5 +3218,11 @@ Do you want to download the runtime installer?</value>
   </data>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
 	  <value>domain</value>
+  </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>SwitchDesktop</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>ActiveDesktop</value>
   </data>
 </root>
