@@ -593,6 +593,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activates provided Virtual Desktop..
+        /// </summary>
+        internal static string CommandsManager_SwitchDesktopCommandDescription {
+            get {
+                return ResourceManager.GetString("CommandsManager_SwitchDesktopCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shows a window with the provided URL.
         ///
         ///This differs from the &apos;LaunchUrl&apos; command in that it doesn&apos;t load a full-fledged browser, just the provided URL in its own window.
@@ -4444,7 +4453,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -5506,6 +5515,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provides the ID of the currently active virtual desktop..
+        /// </summary>
+        internal static string SensorsManager_ActiveDesktopSensorDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_ActiveDesktopSensorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provides the title of the current active window..
         /// </summary>
         internal static string SensorsManager_ActiveWindowSensorDescription {
@@ -6453,6 +6471,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_WmiTestFailed {
             get {
                 return ResourceManager.GetString("SensorsMod_WmiTestFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActiveDesktop.
+        /// </summary>
+        internal static string SensorType_ActiveDesktopSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ActiveDesktopSensor", resourceCulture);
             }
         }
         

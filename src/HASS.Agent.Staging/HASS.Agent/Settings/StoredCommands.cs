@@ -154,6 +154,9 @@ namespace HASS.Agent.Settings
                 case CommandType.SendWindowToFrontCommand:
                     abstractCommand = new SendWindowToFrontCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
                     break;
+                case CommandType.SwitchDesktopCommand:
+                    abstractCommand = new SwitchDesktopCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
+                    break;
                 case CommandType.WebViewCommand:
                     abstractCommand = new WebViewCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
                     break;
