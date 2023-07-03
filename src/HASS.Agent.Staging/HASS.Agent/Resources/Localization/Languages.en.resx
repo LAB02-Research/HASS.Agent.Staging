@@ -3220,7 +3220,7 @@ Do you want to download the runtime installer?</value>
 	  <value>domain</value>
   </data>
   <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
-    <value>Activates provided Virtual Desktop. Desktop ID can be retrieved from "ActiveDesktop" sensor.</value>
+    <value>Activates provided Virtual Desktop. Desktop ID can be retrieved from the "ActiveDesktop" sensor.</value>
   </data>
   <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
     <value>Provides the ID of the currently active virtual desktop.</value>
