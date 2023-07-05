@@ -21,6 +21,7 @@ using HASS.Agent.Shared.Functions;
 using Serilog;
 using Syncfusion.Windows.Forms;
 using WK.Libraries.HotkeyListenerNS;
+using NativeMethods = HASS.Agent.Functions.NativeMethods;
 using QuickActionsConfig = HASS.Agent.Forms.QuickActions.QuickActionsConfig;
 using Task = System.Threading.Tasks.Task;
 

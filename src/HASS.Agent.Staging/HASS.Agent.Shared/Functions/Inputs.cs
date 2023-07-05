@@ -15,9 +15,9 @@ namespace HASS.Agent.Shared.Functions
         [StructLayout(LayoutKind.Sequential)]
         public struct INPUT
         {
-            internal InputType type;
-            internal InputUnion U;
-            internal static int Size
+            public InputType type;
+            public InputUnion U;
+            public static int Size
             {
                 get { return Marshal.SizeOf(typeof(INPUT)); }
             }
@@ -34,22 +34,22 @@ namespace HASS.Agent.Shared.Functions
         public struct InputUnion
         {
             [FieldOffset(0)]
-            internal MOUSEINPUT mi;
+            public MOUSEINPUT mi;
             [FieldOffset(0)]
-            internal KEYBDINPUT ki;
+            public KEYBDINPUT ki;
             [FieldOffset(0)]
-            internal HARDWAREINPUT hi;
+            public HARDWAREINPUT hi;
         }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct MOUSEINPUT
         {
-            internal int dx;
-            internal int dy;
-            internal int mouseData;
-            internal MOUSEEVENTF dwFlags;
-            internal uint time;
-            internal UIntPtr dwExtraInfo;
+            public int dx;
+            public int dy;
+            public int mouseData;
+            public MOUSEEVENTF dwFlags;
+            public uint time;
+            public UIntPtr dwExtraInfo;
         }
 
         [Flags]
@@ -74,11 +74,11 @@ namespace HASS.Agent.Shared.Functions
         [StructLayout(LayoutKind.Sequential)]
         public struct KEYBDINPUT
         {
-            internal VirtualKeyShort wVk;
-            internal ScanCodeShort wScan;
-            internal KEYEVENTF dwFlags;
-            internal int time;
-            internal UIntPtr dwExtraInfo;
+            public VirtualKeyShort wVk;
+            public ScanCodeShort wScan;
+            public KEYEVENTF dwFlags;
+            public int time;
+            public UIntPtr dwExtraInfo;
         }
 
         [Flags]
@@ -791,7 +791,7 @@ namespace HASS.Agent.Shared.Functions
             ///</summary>
             OEM_CLEAR = 0xFE
         }
-        internal enum ScanCodeShort : short
+        public enum ScanCodeShort : short
         {
             LBUTTON = 0,
             RBUTTON = 0,
