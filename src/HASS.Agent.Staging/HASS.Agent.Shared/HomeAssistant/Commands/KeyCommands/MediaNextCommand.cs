@@ -1,4 +1,5 @@
 ﻿using HASS.Agent.Shared.Enums;
+using static HASS.Agent.Shared.Functions.Inputs;
 
 namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
 {
@@ -9,6 +10,6 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
     {
         private const string DefaultName = "next";
 
-        public MediaNextCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VK_MEDIA_NEXT_TRACK, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
+        public MediaNextCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(VirtualKeyShort.MEDIA_NEXT_TRACK, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
     }
 }

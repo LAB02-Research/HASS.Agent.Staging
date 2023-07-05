@@ -13,6 +13,7 @@ using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.Models.Config;
 using HASS.Agent.Shared.Models.Internal;
 using Newtonsoft.Json;
+using static HASS.Agent.Shared.Functions.Inputs;
 
 namespace HASS.Agent.Forms.Commands
 {
@@ -309,14 +310,14 @@ namespace HASS.Agent.Forms.Commands
                         ActiveControl = TbKeyCode;
                         return;
                     }
-                    var parsed = int.TryParse(keycodeStr, out var keycode);
+                    var parsed = short.TryParse(keycodeStr, out var keycode);
                     if (!parsed)
                     {
                         MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_MessageBox9, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         ActiveControl = TbKeyCode;
                         return;
                     }
-                    Command.KeyCode = (byte)keycode;
+                    Command.KeyCode = (VirtualKeyShort)keycode;
                     break;
 
                 case CommandType.MultipleKeysCommand:

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using HASS.Agent.Shared.Enums;
 using HASS.Agent.Shared.Models.HomeAssistant;
 using Serilog;
+using static HASS.Agent.Shared.Functions.Inputs;
 using static HASS.Agent.Shared.Functions.NativeMethods;
 
 namespace HASS.Agent.Shared.HomeAssistant.Commands
@@ -17,18 +18,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     {
         private const string DefaultName = "key";
 
-        public const int VK_MEDIA_NEXT_TRACK = 0xB0; //todo: fix
-        public const int VK_MEDIA_PLAY_PAUSE = 0xB3; //todo: fix
-        public const int VK_MEDIA_PREV_TRACK = 0xB1; //todo: fix
-        public const int VK_VOLUME_MUTE = 0xAD; //todo: fix
-        public const int VK_VOLUME_UP = 0xAF; //todo: fix
-        public const int VK_VOLUME_DOWN = 0xAE; //todo: fix
-        public const int KEY_UP = 38;  //todo: fix
-
         public string State { get; protected set; }
-        public byte KeyCode { get; set; }
+        
+        public VirtualKeyShort KeyCode { get; set; }
 
-        public KeyCommand(byte keyCode, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
+        public KeyCommand(VirtualKeyShort keyCode, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
         {
             KeyCode = keyCode;
             State = "OFF";
