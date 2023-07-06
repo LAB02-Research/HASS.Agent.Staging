@@ -9,40 +9,55 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Serilog;
 using Google.Protobuf.WellKnownTypes;
+using static HASS.Agent.Shared.Functions.Inputs;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
+using HASS.Agent.Shared.Functions;
 
 namespace HASS.Agent.Media
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal static class MediaManagerCommands
     {
-        [DllImport("user32.dll")]
-        private static extern void keybd_event(byte virtualKey, byte scanCode, uint flags, IntPtr extraInfo);
+        private const string LogTag = "mediamanager";
+        internal static void KeyPress(VirtualKeyShort keyCode)
+        {
+            var inputs = new INPUT[2];
+            inputs[0].type = InputType.INPUT_KEYBOARD;
+            inputs[0].U.ki.wVk = keyCode;
+            inputs[0].U.ki.dwFlags = KEYEVENTF.EXTENDEDKEY;
 
-        private const int KEYEVENTF_EXTENTEDKEY = 1;
-        private const int KEYEVENTF_KEYUP = 0;
-        private const int VK_MEDIA_NEXT_TRACK = 0xB0;
-        private const int VK_MEDIA_PLAY_PAUSE = 0xB3;
-        private const int VK_MEDIA_PREV_TRACK = 0xB1;
-        private const int VK_MEDIA_STOP = 0xB2;
-        private const int VK_VOLUME_MUTE = 0xAD;
-        private const int VK_VOLUME_UP = 0xAF;
-        private const int VK_VOLUME_DOWN = 0xAE;
+            inputs[1].type = InputType.INPUT_KEYBOARD;
+            inputs[1].U.ki.wVk = keyCode;
+            inputs[1].U.ki.dwFlags = KEYEVENTF.KEYUP | KEYEVENTF.EXTENDEDKEY;
 
-        internal static void VolumeUp() => keybd_event(VK_VOLUME_UP, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
+            var ret = NativeMethods.SendInput((uint)inputs.Length, inputs, INPUT.Size);
+            if (ret != inputs.Length)
+            {
+                var error = Marshal.GetLastWin32Error();
+                Log.Error($"[{LogTag}] Error simulating key press for {keyCode}: {error}");
+            }
+        }
+        internal static void VolumeUp() => KeyPress(VirtualKeyShort.VOLUME_UP);
 
-        internal static void VolumeDown() => keybd_event(VK_VOLUME_DOWN, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
+        internal static void VolumeDown() => KeyPress(VirtualKeyShort.VOLUME_DOWN);
 
-        internal static void Mute() => keybd_event(VK_VOLUME_MUTE, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
 
-        internal static void Play() => keybd_event(VK_MEDIA_PLAY_PAUSE, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
+        internal static void Mute() => KeyPress(VirtualKeyShort.VOLUME_MUTE);
 
-        internal static void Pause() => keybd_event(VK_MEDIA_PLAY_PAUSE, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
 
-        internal static void Stop() => keybd_event(VK_MEDIA_STOP, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
+        internal static void Play() => KeyPress(VirtualKeyShort.MEDIA_PLAY_PAUSE);
 
-        internal static void Next() => keybd_event(VK_MEDIA_NEXT_TRACK, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
 
-        internal static void Previous() => keybd_event(VK_MEDIA_PREV_TRACK, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
+        internal static void Pause() => KeyPress(VirtualKeyShort.MEDIA_PLAY_PAUSE);
+
+
+        internal static void Stop() => KeyPress(VirtualKeyShort.MEDIA_STOP);
+
+
+        internal static void Next() => KeyPress(VirtualKeyShort.MEDIA_NEXT_TRACK);
+
+
+        internal static void Previous() => KeyPress(VirtualKeyShort.MEDIA_PREV_TRACK);
 
         /// <summary>
         /// Sets the volume to the provided value (0-100)

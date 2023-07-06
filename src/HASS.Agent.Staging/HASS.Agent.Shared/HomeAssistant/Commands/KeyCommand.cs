@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using HASS.Agent.Shared.Enums;
 using HASS.Agent.Shared.Models.HomeAssistant;
+using Serilog;
+using static HASS.Agent.Shared.Functions.Inputs;
+using static HASS.Agent.Shared.Functions.NativeMethods;
 
 namespace HASS.Agent.Shared.HomeAssistant.Commands
 {
@@ -14,20 +18,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
     {
         private const string DefaultName = "key";
 
-        public const int KEYEVENTF_EXTENTEDKEY = 1;
-        public const int KEYEVENTF_KEYUP = 0;
-        public const int VK_MEDIA_NEXT_TRACK = 0xB0;
-        public const int VK_MEDIA_PLAY_PAUSE = 0xB3;
-        public const int VK_MEDIA_PREV_TRACK = 0xB1;
-        public const int VK_VOLUME_MUTE = 0xAD;
-        public const int VK_VOLUME_UP = 0xAF;
-        public const int VK_VOLUME_DOWN = 0xAE;
-        public const int KEY_UP = 38;
-
         public string State { get; protected set; }
-        public byte KeyCode { get; set; }
+        
+        public VirtualKeyShort KeyCode { get; set; }
 
-        public KeyCommand(byte keyCode, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
+        public KeyCommand(VirtualKeyShort keyCode, string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Switch, string id = default) : base(name ?? DefaultName, friendlyName ?? null, entityType, id)
         {
             KeyCode = keyCode;
             State = "OFF";
@@ -52,9 +47,6 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
                 Device = deviceConfig
             };
         }
-        
-        [DllImport("user32.dll")]
-        public static extern void keybd_event(byte virtualKey, byte scanCode, uint flags, IntPtr extraInfo);
 
         public override string GetState() => State;
 
@@ -65,10 +57,23 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
 
         public override void TurnOn()
         {
-            State = "OFF";
+            State = "ON";
 
-            keybd_event(KeyCode, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
-            
+            var inputs = new INPUT[2];
+            inputs[0].type = InputType.INPUT_KEYBOARD;
+            inputs[0].U.ki.wVk = KeyCode;
+
+            inputs[1].type = InputType.INPUT_KEYBOARD;
+            inputs[1].U.ki.wVk = KeyCode;
+            inputs[1].U.ki.dwFlags = KEYEVENTF.KEYUP;
+
+            var ret = SendInput((uint)inputs.Length, inputs, INPUT.Size);
+            if (ret != inputs.Length)
+            {
+                var error = Marshal.GetLastWin32Error();
+                Log.Error($"[{DefaultName}] Error simulating key press for {KeyCode}: {error}");
+            }
+
             State = "OFF";
         }
 

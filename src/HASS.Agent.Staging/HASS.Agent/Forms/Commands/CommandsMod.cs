@@ -13,6 +13,8 @@ using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.Models.Config;
 using HASS.Agent.Shared.Models.Internal;
 using Newtonsoft.Json;
+using static HASS.Agent.Shared.Functions.Inputs;
+using Mono.Unix.Native;
 
 namespace HASS.Agent.Forms.Commands
 {
@@ -120,7 +122,7 @@ namespace HASS.Agent.Forms.Commands
         {
             // load the card
             var commandCard = CommandsManager.CommandInfoCards[Command.Type];
-            
+
             // select it as well
             foreach (ListViewItem lvi in LvCommands.Items)
             {
@@ -309,14 +311,15 @@ namespace HASS.Agent.Forms.Commands
                         ActiveControl = TbKeyCode;
                         return;
                     }
-                    var parsed = int.TryParse(keycodeStr, out var keycode);
+
+                    var parsed = Enum.TryParse(keycodeStr, out VirtualKeyShort enumKeycode);
                     if (!parsed)
                     {
                         MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_MessageBox9, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         ActiveControl = TbKeyCode;
                         return;
                     }
-                    Command.KeyCode = (byte)keycode;
+                    Command.KeyCode = enumKeycode;
                     break;
 
                 case CommandType.MultipleKeysCommand:
@@ -436,7 +439,7 @@ namespace HASS.Agent.Forms.Commands
             // done
             DialogResult = DialogResult.OK;
         }
-        
+
         private void LvCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_loading) return;
@@ -630,7 +633,7 @@ namespace HASS.Agent.Forms.Commands
 
                 TbSetting.Text = string.Empty;
                 TbSetting.Visible = true;
-                
+
                 CbCommandSpecific.CheckState = CheckState.Unchecked;
                 CbCommandSpecific.Text = Languages.CommandsMod_CbCommandSpecific_Incognito;
 
@@ -881,7 +884,7 @@ namespace HASS.Agent.Forms.Commands
 
             var item = (KeyValuePair<int, string>)CbEntityType.SelectedItem;
             var entityType = (CommandEntityType)item.Key;
-            
+
             var deviceConfig = Variables.MqttManager?.GetDeviceConfigModel();
             if (deviceConfig == null)
             {
@@ -935,7 +938,7 @@ namespace HASS.Agent.Forms.Commands
 
         private void TbKeyCode_KeyDown(object sender, KeyEventArgs e)
         {
-            TbKeyCode.Text = e.KeyValue.ToString();
+            TbKeyCode.Text = Enum.GetName(typeof(VirtualKeyShort), e.KeyValue);
         }
     }
 }

@@ -363,6 +363,7 @@ Your command is provided as an argument 'as is', so you have to supply your own 
     <value>Simulates a single keypress.
 
 Click on the 'keycode' textbox and press the key you want simulated. The corresponding keycode will be entered for you.
+For TAB key please use LCTRL+TAB.
 
 If you need more keys and/or modifiers like CTRL, use the MultipleKeys command.</value>
   </data>
