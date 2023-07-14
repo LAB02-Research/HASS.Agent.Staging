@@ -12,7 +12,7 @@ namespace HASS.Agent.Forms.QuickActions
     public partial class QuickActions : MetroForm
     {
         public event EventHandler ClearFocus;
-        
+
         private readonly List<QuickAction> _quickActions = new();
         private readonly List<QuickActionPanelControl> _quickActionPanelControls = new();
 
@@ -73,7 +73,7 @@ namespace HASS.Agent.Forms.QuickActions
 
             _columns = columns;
             _rows = rows;
-            
+
             // prepare our panel
             PnlActions.AutoSize = true;
 
@@ -84,7 +84,7 @@ namespace HASS.Agent.Forms.QuickActions
             PnlActions.RowCount = _rows;
 
             PnlActions.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
-            
+
             // resize window
             Width = 152 * columns + 20;
             Height = 255 * rows + 30;
@@ -111,7 +111,7 @@ namespace HASS.Agent.Forms.QuickActions
                 // store position
                 if (!_rowColumnCounts.ContainsKey(currentRow)) _rowColumnCounts.Add(currentRow, currentColumn);
                 else _rowColumnCounts[currentRow] = currentColumn;
-                
+
                 // add to the panel
                 PnlActions.Controls.Add(quickAction, currentColumn, currentRow);
 
@@ -242,7 +242,14 @@ namespace HASS.Agent.Forms.QuickActions
                 if (keyData == Keys.Down)
                 {
                     // is there a next row?
-                    if (_selectedRow == _rows - 1) return true;
+                    if (_selectedRow == _rows - 1)
+                    {
+                        var nextControl = _quickActionPanelControls.Find(x => x.Row == 0 && x.Column == _selectedColumn);
+
+                        nextControl.QuickActionControl.OnFocus();
+                        _selectedRow = 0;
+                        return true;
+                    }
 
                     // jep, select the control below (or the last)
                     _selectedRow++;
@@ -264,7 +271,14 @@ namespace HASS.Agent.Forms.QuickActions
                 {
                     // is there a next column?
                     var maxColumnsForRow = _rowColumnCounts[_selectedRow];
-                    if (_selectedColumn == maxColumnsForRow) return true;
+                    if (_selectedColumn == maxColumnsForRow)
+                    {
+                        var nextControl = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == 0);
+
+                        nextControl.QuickActionControl.OnFocus();
+                        _selectedColumn = 0;
+                        return true;
+                    }
 
                     // jep, select the control to the right
                     _selectedColumn++;
@@ -276,7 +290,15 @@ namespace HASS.Agent.Forms.QuickActions
                 if (keyData == Keys.Left)
                 {
                     // is there a previous column?
-                    if (_selectedColumn == 0) return true;
+                    if (_selectedColumn == 0)
+                    {
+                        var maxColumnsForRow = _rowColumnCounts[_selectedRow];
+                        var nextControl = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == maxColumnsForRow);
+
+                        nextControl.QuickActionControl.OnFocus();
+                        _selectedColumn = maxColumnsForRow;
+                        return true;
+                    }
 
                     // jep, select the control to the left
                     _selectedColumn--;
@@ -288,7 +310,15 @@ namespace HASS.Agent.Forms.QuickActions
                 if (keyData == Keys.Up)
                 {
                     // is there a previous row?
-                    if (_selectedRow == 0) return true;
+                    if (_selectedRow == 0)
+                    {
+                        var nextRow = _rows - 1;
+                        var nextControl = _quickActionPanelControls.Find(x => x.Row == nextRow && x.Column == _selectedColumn);
+
+                        nextControl.QuickActionControl.OnFocus();
+                        _selectedRow = nextRow;
+                        return true;
+                    }
 
                     // jep, select the control above (or the last)
                     _selectedRow--;
