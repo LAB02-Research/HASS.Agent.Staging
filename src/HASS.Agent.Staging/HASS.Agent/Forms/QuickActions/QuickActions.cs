@@ -56,6 +56,9 @@ namespace HASS.Agent.Forms.QuickActions
             // check hass status
             var hass = await CheckHassManagerAsync();
             if (!hass) CloseWindow();
+
+            // select first item
+            _quickActionPanelControls.Find(x => x.Row == 0 && x.Column == 0)?.QuickActionControl.OnFocus();
         }
 
         /// <summary>
@@ -343,6 +346,33 @@ namespace HASS.Agent.Forms.QuickActions
 
             // ignore the rest
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        /// <summary>
+        /// Selects next Quick Action item following right->down->up pattern
+        /// </summary>
+        public void SelectNextQuickActionItem()
+        {
+            var maxColumnsForRow = _rowColumnCounts[_selectedRow];
+
+            // are we at the end of the row?
+            if (_selectedColumn == maxColumnsForRow)
+            {
+                // wrap up to first row if there is nothing below
+                if (_selectedRow == (_rows - 1)) { _selectedRow = 0; } else { _selectedRow++; }
+
+                var nextControl = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == 0);
+
+                nextControl.QuickActionControl.OnFocus();
+                _selectedColumn = 0;
+                return;
+            }
+
+            // select the control to the right
+            _selectedColumn++;
+            var control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
+            control?.QuickActionControl.OnFocus();
+            return;
         }
 
         /// <summary>
