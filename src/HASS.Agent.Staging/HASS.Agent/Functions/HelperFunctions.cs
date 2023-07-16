@@ -360,9 +360,9 @@ namespace HASS.Agent.Functions
         /// <summary>
         /// Checks whether the provided form is already opened
         /// </summary>
-        /// <param name="formname"></param>
+        /// <param name="formName"></param>
         /// <returns></returns>
-        internal static bool CheckIfFormIsOpen(string formname) => Application.OpenForms.Cast<Form>().Any(form => form?.Name == formname);
+        internal static bool CheckIfFormIsOpen(string formName) => Application.OpenForms.Cast<Form>().Any(form => form?.Name == formName);
 
         internal static Form GetForm(string formName) => Application.OpenForms.Cast<Form>().FirstOrDefault(x => x.Name == formName);
 
