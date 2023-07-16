@@ -488,7 +488,7 @@ namespace HASS.Agent.Functions
             // show a new webview from within the UI thread
             LaunchTrayIconCustomWebView(webViewInfo);
         }
-        
+
         private static void LaunchTrayIconBackgroundLoadedWebView()
         {
             Variables.MainForm.Invoke(new MethodInvoker(delegate
@@ -568,14 +568,12 @@ namespace HASS.Agent.Functions
         /// <summary>
         /// Attempts to bring the provided form to the foreground if it's open
         /// </summary>
-        /// <param name="formName"></param>
+        /// <param name="form"></param>
         /// <returns></returns>
-        internal static async Task<bool> TryBringToFront(string formName)
+        internal static async Task<bool> TryBringToFront(Form form)
         {
             try
             {
-                // is it open?
-                var form = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x.Name == formName);
                 if (form == null) return false;
 
                 // yep, check if we need to undo minimized
@@ -588,6 +586,25 @@ namespace HASS.Agent.Functions
 
                 // done
                 return true;
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, ex.Message);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Attempts to bring the provided form to the foreground if it's open
+        /// </summary>
+        /// <param name="formName"></param>
+        /// <returns></returns>
+        internal static async Task<bool> TryBringToFront(string formName)
+        {
+            try
+            {
+                var form = GetForm(formName);
+                return await TryBringToFront(form);
             }
             catch (Exception ex)
             {
@@ -644,16 +661,16 @@ namespace HASS.Agent.Functions
                 return false;
             }
         }
-        
+
         /// <summary>
         /// Returns the configured device name, or a safe version of the machinename if nothing's stored
         /// </summary>
         /// <returns></returns>
         internal static string GetConfiguredDeviceName() =>
-            string.IsNullOrEmpty(Variables.AppSettings?.DeviceName) 
-                ? SharedHelperFunctions.GetSafeDeviceName() 
+            string.IsNullOrEmpty(Variables.AppSettings?.DeviceName)
+                ? SharedHelperFunctions.GetSafeDeviceName()
                 : SharedHelperFunctions.GetSafeValue(Variables.AppSettings.DeviceName);
-        
+
         /// <summary>
         /// Checks whether the process is currently running under the current user, by default ignoring the current process
         /// </summary>
