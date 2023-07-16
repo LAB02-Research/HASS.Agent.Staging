@@ -138,11 +138,6 @@ namespace HASS.Agent.Forms.QuickActions
             }
         }
 
-        private void QuickActionControl_MouseEnter(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void QuickActionItemMouseEnter(object sender, EventArgs e)
         {
             var position = PnlActions.GetPositionFromControl(sender as QuickActionControl);
