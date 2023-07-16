@@ -108,6 +108,9 @@ namespace HASS.Agent.Forms.QuickActions
                     Row = currentRow
                 };
 
+                // update position when item is selected by mouse cursor
+                panelControl.QuickActionControl.MouseEnter += QuickActionItemMouseEnter;
+
                 // add to list
                 _quickActionPanelControls.Add(panelControl);
 
@@ -127,6 +130,19 @@ namespace HASS.Agent.Forms.QuickActions
                     if (currentRow < rows - 1) currentRow++;
                 }
             }
+        }
+
+        private void QuickActionControl_MouseEnter(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void QuickActionItemMouseEnter(object sender, EventArgs e)
+        {
+            var position = PnlActions.GetPositionFromControl(sender as QuickActionControl);
+            _selectedColumn = position.Column;
+            _selectedRow = position.Row;
+            return;
         }
 
         /// <summary>
