@@ -58,7 +58,13 @@ namespace HASS.Agent.Forms.QuickActions
             if (!hass) CloseWindow();
 
             // select first item
-            _quickActionPanelControls.Find(x => x.Row == 0 && x.Column == 0)?.QuickActionControl.OnFocus();
+            var control = _quickActionPanelControls.Find(x => x.Row == 0 && x.Column == 0);
+            if(control != null)
+            {
+                control.QuickActionControl.OnFocus();
+                _selectedColumn = 0;
+                _selectedRow = 0;
+            }
         }
 
         /// <summary>
