@@ -364,6 +364,8 @@ namespace HASS.Agent.Functions
         /// <returns></returns>
         internal static bool CheckIfFormIsOpen(string formname) => Application.OpenForms.Cast<Form>().Any(form => form?.Name == formname);
 
+        internal static Form GetForm(string formName) => Application.OpenForms.Cast<Form>().FirstOrDefault(x => x.Name == formName);
+
         /// <summary>
         /// Launches the url with the user's custom browser if provided, or the system's default
         /// </summary>
