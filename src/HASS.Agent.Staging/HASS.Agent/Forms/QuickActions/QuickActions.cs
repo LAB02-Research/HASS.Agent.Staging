@@ -26,7 +26,10 @@ namespace HASS.Agent.Forms.QuickActions
 
         public QuickActions(List<QuickAction> quickActions)
         {
-            foreach (var quickAction in quickActions) _quickActions.Add(quickAction);
+            foreach (var quickAction in quickActions)
+            {
+                _quickActions.Add(quickAction);
+            }
 
             InitializeComponent();
         }
@@ -55,16 +58,11 @@ namespace HASS.Agent.Forms.QuickActions
 
             // check hass status
             var hass = await CheckHassManagerAsync();
-            if (!hass) CloseWindow();
+            if (!hass)
+                CloseWindow();
 
             // select first item
-            var control = _quickActionPanelControls.Find(x => x.Row == 0 && x.Column == 0);
-            if(control != null)
-            {
-                control.QuickActionControl.OnFocus();
-                _selectedColumn = 0;
-                _selectedRow = 0;
-            }
+            SelectQuickActionItem(0, 0);
         }
 
         /// <summary>
@@ -86,20 +84,29 @@ namespace HASS.Agent.Forms.QuickActions
             // prepare our panel
             PnlActions.AutoSize = true;
 
-            for (var c = 0; c <= _columns; c++) PnlActions.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 152));
             PnlActions.ColumnCount = _columns;
-
-            for (var r = 0; r <= _columns; r++) PnlActions.RowStyles.Add(new RowStyle(SizeType.Absolute, 255));
             PnlActions.RowCount = _rows;
 
             PnlActions.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+
+            for (var c = 0; c <= _columns; c++)
+            {
+                PnlActions.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 152));
+            }
+
+            for (var r = 0; r <= _columns; r++)
+            {
+                PnlActions.RowStyles.Add(new RowStyle(SizeType.Absolute, 255));
+            }
 
             // resize window
             Width = 152 * columns + 20;
             Height = 255 * rows + 30;
 
-            if (columns > 1) Width += 5 * (columns - 1);
-            if (rows > 1) Height += 5 * (rows - 1);
+            if (columns > 1)
+                Width += 5 * (columns - 1);
+            if (rows > 1)
+                Height += 5 * (rows - 1);
 
             // add the quickactions as controls
             var currentColumn = 0;
@@ -121,19 +128,29 @@ namespace HASS.Agent.Forms.QuickActions
                 _quickActionPanelControls.Add(panelControl);
 
                 // store position
-                if (!_rowColumnCounts.ContainsKey(currentRow)) _rowColumnCounts.Add(currentRow, currentColumn);
-                else _rowColumnCounts[currentRow] = currentColumn;
+                if (!_rowColumnCounts.ContainsKey(currentRow))
+                {
+                    _rowColumnCounts.Add(currentRow, currentColumn);
+                }
+                else
+                {
+                    _rowColumnCounts[currentRow] = currentColumn;
+                }
 
                 // add to the panel
                 PnlActions.Controls.Add(quickAction, currentColumn, currentRow);
 
                 // set next column & row
-                if (currentColumn < columns - 1) currentColumn++;
+                if (currentColumn < columns - 1)
+                {
+                    currentColumn++;
+                }
                 else
                 {
                     // on to the next row (if there is one)
                     currentColumn = 0;
-                    if (currentRow < rows - 1) currentRow++;
+                    if (currentRow < rows - 1)
+                        currentRow++;
                 }
             }
         }
@@ -151,8 +168,10 @@ namespace HASS.Agent.Forms.QuickActions
         /// </summary>
         internal void CloseWindow()
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             Invoke(new MethodInvoker(delegate
             {
@@ -204,8 +223,10 @@ namespace HASS.Agent.Forms.QuickActions
         /// <param name="loading"></param>
         private void SetGuiLoading(bool loading)
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             Invoke(new MethodInvoker(delegate
             {
@@ -237,6 +258,25 @@ namespace HASS.Agent.Forms.QuickActions
         }
 
         /// <summary>
+        /// Selects QuickAction item at given position
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        private bool SelectQuickActionItem(int row, int column)
+        {
+            var control = _quickActionPanelControls.Find(x => x.Row == row && x.Column == column);
+            if (control == null)
+                return false;
+
+            control.QuickActionControl.OnFocus();
+            _selectedColumn = column;
+            _selectedRow = row;
+
+            return true;
+        }
+
+        /// <summary>
         /// Intercepts and processes the arrow keys
         /// </summary>
         /// <param name="msg"></param>
@@ -246,113 +286,81 @@ namespace HASS.Agent.Forms.QuickActions
         {
             try
             {
-                // if never pressed before ..
+                // should not happen, but select first item if nothing is selected
                 if (_selectedColumn == -1)
                 {
-                    // .. always select first one
-                    var control = _quickActionPanelControls.Find(x => x.Row == 0 && x.Column == 0);
-                    if (control == null) return true;
+                    SelectQuickActionItem(0, 0);
 
-                    control.QuickActionControl.OnFocus();
-                    _selectedColumn = 0;
-                    _selectedRow = 0;
                     return true;
                 }
 
                 if (keyData == Keys.Down)
                 {
-                    // is there a next row?
+                    // wrap up if we're at the last row
                     if (_selectedRow == _rows - 1)
                     {
-                        var nextControl = _quickActionPanelControls.Find(x => x.Row == 0 && x.Column == _selectedColumn);
+                        SelectQuickActionItem(0, _selectedColumn);
 
-                        nextControl.QuickActionControl.OnFocus();
-                        _selectedRow = 0;
                         return true;
                     }
 
-                    // jep, select the control below (or the last)
-                    _selectedRow++;
-                    var control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
-                    if (control == null)
+                    var selected = SelectQuickActionItem(_selectedRow + 1, _selectedColumn);
+                    if (!selected)
                     {
-                        // none found with same column, get the last
-                        _selectedColumn = _rowColumnCounts[_selectedRow];
-                        control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
-                        control?.QuickActionControl.OnFocus();
-                        return true;
+                        SelectQuickActionItem(_selectedRow + 1, _rowColumnCounts[_selectedRow + 1]);
                     }
 
-                    control.QuickActionControl.OnFocus();
                     return true;
                 }
 
                 if (keyData == Keys.Right)
                 {
-                    // is there a next column?
+                    // wrap up to left is we're at the last column
                     var maxColumnsForRow = _rowColumnCounts[_selectedRow];
                     if (_selectedColumn == maxColumnsForRow)
                     {
-                        var nextControl = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == 0);
+                        SelectQuickActionItem(_selectedRow, 0);
 
-                        nextControl.QuickActionControl.OnFocus();
-                        _selectedColumn = 0;
                         return true;
                     }
 
-                    // jep, select the control to the right
-                    _selectedColumn++;
-                    var control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
-                    control?.QuickActionControl.OnFocus();
+                    SelectQuickActionItem(_selectedRow, _selectedColumn + 1);
+
                     return true;
                 }
 
                 if (keyData == Keys.Left)
                 {
-                    // is there a previous column?
+                    // wrap up to right is we're at the first column
                     if (_selectedColumn == 0)
                     {
                         var maxColumnsForRow = _rowColumnCounts[_selectedRow];
-                        var nextControl = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == maxColumnsForRow);
+                        SelectQuickActionItem(_selectedRow, maxColumnsForRow);
 
-                        nextControl.QuickActionControl.OnFocus();
-                        _selectedColumn = maxColumnsForRow;
                         return true;
                     }
 
-                    // jep, select the control to the left
-                    _selectedColumn--;
-                    var control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
-                    control?.QuickActionControl.OnFocus();
+                    SelectQuickActionItem(_selectedRow, _selectedColumn - 1);
+
                     return true;
                 }
 
                 if (keyData == Keys.Up)
                 {
-                    // is there a previous row?
+                    // wrap down if we're at the last row
                     if (_selectedRow == 0)
                     {
-                        var nextRow = _rows - 1;
-                        var nextControl = _quickActionPanelControls.Find(x => x.Row == nextRow && x.Column == _selectedColumn);
+                        SelectQuickActionItem(_rows - 1, _rowColumnCounts[_rows - 1]);
 
-                        nextControl.QuickActionControl.OnFocus();
-                        _selectedRow = nextRow;
                         return true;
                     }
 
-                    // jep, select the control above (or the last)
-                    _selectedRow--;
-                    var control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
-                    if (control == null)
+                    var selected = SelectQuickActionItem(_selectedRow - 1, _selectedColumn);
+                    if (!selected)
                     {
-                        // none found with same column, get the first
-                        _selectedColumn = 0;
-                        control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
-                        control?.QuickActionControl.OnFocus();
-                        return true;
+                        SelectQuickActionItem(_selectedRow - 1, _rowColumnCounts[_selectedRow - 1]);
                     }
 
-                    control.QuickActionControl.OnFocus();
                     return true;
                 }
             }
@@ -376,19 +384,15 @@ namespace HASS.Agent.Forms.QuickActions
             if (_selectedColumn == maxColumnsForRow)
             {
                 // wrap up to first row if there is nothing below
-                if (_selectedRow == (_rows - 1)) { _selectedRow = 0; } else { _selectedRow++; }
+                var nextRow = _selectedRow == (_rows - 1) ? 0 : _selectedRow + 1;
+                SelectQuickActionItem(nextRow, 0);
 
-                var nextControl = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == 0);
-
-                nextControl.QuickActionControl.OnFocus();
-                _selectedColumn = 0;
                 return;
             }
 
             // select the control to the right
-            _selectedColumn++;
-            var control = _quickActionPanelControls.Find(x => x.Row == _selectedRow && x.Column == _selectedColumn);
-            control?.QuickActionControl.OnFocus();
+            SelectQuickActionItem(_selectedRow, _selectedColumn + 1);
+
             return;
         }
 
@@ -400,9 +404,12 @@ namespace HASS.Agent.Forms.QuickActions
 
         private void QuickActions_ResizeEnd(object sender, EventArgs e)
         {
-            if (Variables.ShuttingDown) return;
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (Variables.ShuttingDown)
+                return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             try
             {
