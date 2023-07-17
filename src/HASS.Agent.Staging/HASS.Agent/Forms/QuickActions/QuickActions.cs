@@ -315,11 +315,13 @@ namespace HASS.Agent.Forms.QuickActions
 
                 if (keyData == Keys.Right)
                 {
-                    // wrap up to left is we're at the last column
                     var maxColumnsForRow = _rowColumnCounts[_selectedRow];
+
+                    // wrap up to first row if there is nothing below
                     if (_selectedColumn == maxColumnsForRow)
                     {
-                        SelectQuickActionItem(_selectedRow, 0);
+                        var nextRow = _selectedRow == (_rows - 1) ? 0 : _selectedRow + 1;
+                        SelectQuickActionItem(nextRow, 0);
 
                         return true;
                     }
@@ -331,11 +333,11 @@ namespace HASS.Agent.Forms.QuickActions
 
                 if (keyData == Keys.Left)
                 {
-                    // wrap up to right is we're at the first column
+                    // wrap up to last row if there is nothing above
                     if (_selectedColumn == 0)
                     {
-                        var maxColumnsForRow = _rowColumnCounts[_selectedRow];
-                        SelectQuickActionItem(_selectedRow, maxColumnsForRow);
+                        var nextRow = _selectedRow == 0 ? _rows - 1 : _selectedRow - 1;
+                        SelectQuickActionItem(nextRow, _rowColumnCounts[nextRow]);
 
                         return true;
                     }
@@ -343,6 +345,13 @@ namespace HASS.Agent.Forms.QuickActions
                     SelectQuickActionItem(_selectedRow, _selectedColumn - 1);
 
                     return true;
+                    /*                    // wrap up to bottom is we're at the first column
+
+                                        var nextRow = _selectedColumn == 0 ? _selectedRow - 1 : _selectedRow;
+                                        var nextColumn = _selectedColumn == 0 ? _rowColumnCounts[nextRow] : _selectedColumn - 1;
+                                        SelectQuickActionItem(nextRow, nextColumn);
+
+                                        return true;*/
                 }
 
                 if (keyData == Keys.Up)
@@ -380,17 +389,15 @@ namespace HASS.Agent.Forms.QuickActions
         {
             var maxColumnsForRow = _rowColumnCounts[_selectedRow];
 
-            // are we at the end of the row?
+            // are we at the end of the row / wrap up to first row if there is nothing below
             if (_selectedColumn == maxColumnsForRow)
             {
-                // wrap up to first row if there is nothing below
                 var nextRow = _selectedRow == (_rows - 1) ? 0 : _selectedRow + 1;
                 SelectQuickActionItem(nextRow, 0);
 
                 return;
             }
 
-            // select the control to the right
             SelectQuickActionItem(_selectedRow, _selectedColumn + 1);
 
             return;
