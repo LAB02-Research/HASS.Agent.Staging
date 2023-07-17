@@ -69,7 +69,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors
             }
 
             // done
-            return Math.Round(Counter.NextValue()).ToString(CultureInfo.CurrentCulture);
+            return Math.Round(nextVal).ToString(CultureInfo.CurrentCulture);
         }
 
         public override string GetAttributes() => string.Empty;
