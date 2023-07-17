@@ -304,10 +304,11 @@ namespace HASS.Agent.Forms.QuickActions
                         return true;
                     }
 
-                    var selected = SelectQuickActionItem(_selectedRow + 1, _selectedColumn);
+                    var nextRow = _selectedRow + 1;
+                    var selected = SelectQuickActionItem(nextRow, _selectedColumn);
                     if (!selected)
                     {
-                        SelectQuickActionItem(_selectedRow + 1, _rowColumnCounts[_selectedRow + 1]);
+                        SelectQuickActionItem(nextRow, _rowColumnCounts[nextRow]);
                     }
 
                     return true;
@@ -345,29 +346,27 @@ namespace HASS.Agent.Forms.QuickActions
                     SelectQuickActionItem(_selectedRow, _selectedColumn - 1);
 
                     return true;
-                    /*                    // wrap up to bottom is we're at the first column
-
-                                        var nextRow = _selectedColumn == 0 ? _selectedRow - 1 : _selectedRow;
-                                        var nextColumn = _selectedColumn == 0 ? _rowColumnCounts[nextRow] : _selectedColumn - 1;
-                                        SelectQuickActionItem(nextRow, nextColumn);
-
-                                        return true;*/
                 }
 
                 if (keyData == Keys.Up)
                 {
-                    // wrap down if we're at the last row
+                    var nextRow = _selectedRow - 1;
+
+                    // wrap down if we're at the first row
                     if (_selectedRow == 0)
                     {
-                        SelectQuickActionItem(_rows - 1, _rowColumnCounts[_rows - 1]);
+                        nextRow = _rows - 1;
+                        var maxColumnsForNextRow = _rowColumnCounts[nextRow];
+                        var nextColumn = maxColumnsForNextRow < _selectedColumn ? maxColumnsForNextRow : _selectedColumn;
+                        SelectQuickActionItem(nextRow, nextColumn);
 
                         return true;
                     }
 
-                    var selected = SelectQuickActionItem(_selectedRow - 1, _selectedColumn);
+                    var selected = SelectQuickActionItem(nextRow, _selectedColumn);
                     if (!selected)
                     {
-                        SelectQuickActionItem(_selectedRow - 1, _rowColumnCounts[_selectedRow - 1]);
+                        SelectQuickActionItem(nextRow, _rowColumnCounts[nextRow]);
                     }
 
                     return true;
