@@ -3228,4 +3228,12 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
 	  <value>Número de la pantalla deseada (0 para la primera pantalla, 1 para la segunda, etc.)</value>
   </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Proporciona el número de ventanas abiertas, y los nombres de las ventanas actualmente abiertas.
+
+Se trata de un sensor multivalor.</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensor" xml:space="preserve">
+	  <value>Ventanas abiertas</value>
+  </data>
 </root>

@@ -453,8 +453,20 @@ namespace HASS.Agent.Satellite.Service.Settings
                     }
 
                 case AudioSensors audioSensors:
+                {
+                    _ = Enum.TryParse<SensorType>(audioSensors.GetType().Name, out var type);
+                    return new ConfiguredSensor
                     {
-                        _ = Enum.TryParse<SensorType>(audioSensors.GetType().Name, out var type);
+                        Id = Guid.Parse(sensor.Id),
+                        Name = sensor.Name,
+                        FriendlyName = sensor.FriendlyName,
+                        Type = type,
+                        UpdateInterval = sensor.UpdateIntervalSeconds
+                    };
+                }
+                case OpenWindowsSensors openWindowsSensors:
+                    {
+                        _ = Enum.TryParse<SensorType>(openWindowsSensors.GetType().Name, out var type);
                         return new ConfiguredSensor
                         {
                             Id = Guid.Parse(sensor.Id),

@@ -3346,4 +3346,12 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="SensorType_ScreenshotSensor" xml:space="preserve">
 	  <value>Screenshot</value>
   </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Liefert einen Sensor mit der Anzahl der offenen Fenster, einen Sensor mit der Liste der offenen Fenster (Name und Handle)
+
+Dies ist ein mehrwertiger Sensor.</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>OffeneFenster</value>
+  </data>
 </root>

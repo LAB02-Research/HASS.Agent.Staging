@@ -3338,4 +3338,12 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
 	  <value>Numer żądanego ekranu (0 dla pierwszego ekranu, 1 dla drugiego itd.)</value>
   </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Podaje liczbę otwartych okien i nazwy aktualnie otwartych okien.
+
+Jest to czujnik wielowartościowy.</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensor" xml:space="preserve">
+	  <value>OtwarteOkna</value>
+  </data>
 </root>

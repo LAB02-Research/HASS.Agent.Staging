@@ -2832,4 +2832,12 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
 	  <value>Bir ekran görüntüsü sağlar.</value>
   </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Açık pencere sayısını ve o anda açık olan pencerelerin adlarını sağlar.
+
+Bu çok değerli bir sensördür.</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensor" xml:space="preserve">
+	  <value>Açık Pencereler</value>
+  </data>
 </root>

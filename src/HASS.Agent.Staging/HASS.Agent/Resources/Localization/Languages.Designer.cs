@@ -4444,7 +4444,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -5756,6 +5756,18 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provides number of open windows, and the names of currently open windows.
+        ///
+        ///This is a multi-value sensor.
+        ///.
+        /// </summary>
+        internal static string SensorsManager_OpenWindowsSensorsDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_OpenWindowsSensorsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provides the values of a performance counter.
         ///
         ///For example, the built-in CPU load sensor uses these values:
@@ -6687,6 +6699,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorType_NetworkSensors {
             get {
                 return ResourceManager.GetString("SensorType_NetworkSensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OpenWindows.
+        /// </summary>
+        internal static string SensorType_OpenWindowsSensor {
+            get {
+                return ResourceManager.GetString("SensorType_OpenWindowsSensor", resourceCulture);
             }
         }
         

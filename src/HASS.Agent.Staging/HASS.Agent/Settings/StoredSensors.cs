@@ -252,6 +252,10 @@ namespace HASS.Agent.Settings
                 case SensorType.PrintersSensors:
                     abstractSensor = new PrintersSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
+                case SensorType.OpenWindowsSensors:
+                    abstractSensor = new OpenWindowsSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName,
+                        sensor.Id.ToString());
+                    break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured multi-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
                     break;
@@ -459,6 +463,19 @@ namespace HASS.Agent.Settings
                         UpdateInterval = sensor.UpdateIntervalSeconds
                     };
                 }
+
+                case OpenWindowsSensors openWindowsSensors:
+                {
+                    _ = Enum.TryParse<SensorType>(openWindowsSensors.GetType().Name, out var type);
+                    return new ConfiguredSensor
+                    {
+                        Id = Guid.Parse(sensor.Id),
+                        Name = sensor.Name,
+                        FriendlyName = sensor.FriendlyName,
+                        Type = type,
+                        UpdateInterval = sensor.UpdateIntervalSeconds
+                    };
+                    }
 
                 case BatterySensors batterySensors:
                 {

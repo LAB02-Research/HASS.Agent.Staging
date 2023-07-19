@@ -3250,4 +3250,12 @@ Wil je de runtime installatie downloaden?</value>
   <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
 	  <value>Nummer van het gewenste scherm (0 voor eerste scherm, 1 voor tweede enz.)</value>
   </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Geeft het aantal geopende vensters en de namen van de huidige geopende vensters.
+
+Dit is een sensor met meerdere waarden.</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensor" xml:space="preserve">
+	  <value>OpenVensters</value>
+  </data>
 </root>

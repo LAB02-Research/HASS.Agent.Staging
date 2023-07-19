@@ -3374,4 +3374,12 @@ Ali želite prenesti runtime installer?</value>
   <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
 	  <value>Zagotavlja posnetek zaslona.</value>
   </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Podaja število odprtih oken in imena trenutno odprtih oken.
+
+To je senzor z več vrednostmi.</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensor" xml:space="preserve">
+	  <value>Odprta oknaOdprta okna</value>
+  </data>
 </root>

@@ -597,6 +597,14 @@ namespace HASS.Agent.Sensors
 
             // =================================
 
+            sensorInfoCard = new SensorInfoCard(SensorType.OpenWindowsSensors,
+                Languages.SensorsManager_OpenWindowsSensorsDescription,
+                30, true, true, false);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
             sensorInfoCard = new SensorInfoCard(SensorType.PerformanceCounterSensor,
                 Languages.SensorsManager_PerformanceCounterSensorDescription,
                 30, false, true, true);

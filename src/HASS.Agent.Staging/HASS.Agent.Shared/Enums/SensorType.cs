@@ -161,6 +161,10 @@ namespace HASS.Agent.Shared.Enums
 
         [LocalizedDescription("SensorType_WmiQuerySensor", typeof(Languages))]
         [EnumMember(Value = "WmiQuerySensor")]
-        WmiQuerySensor
+        WmiQuerySensor,
+
+        [LocalizedDescription("SensorType_OpenWindowsSensors", typeof(Languages))]
+        [EnumMember(Value = "OpenWindowsSensors")]
+        OpenWindowsSensors,
     }
 }

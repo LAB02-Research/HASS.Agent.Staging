@@ -3203,4 +3203,12 @@ Do you want to download the runtime installer?</value>
 	<data name="SensorType_ScreenshotSensor" xml:space="preserve">
 		<value />
 	</data>
+	<data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+		<value>Provides a sensor with the amount of open windows, a sensor with the list of open windows (name and handle)
+
+This is a multi-value sensor.</value>
+	</data>
+	<data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+		<value />
+	</data>
 </root>
