@@ -3368,4 +3368,16 @@ Ali želite prenesti runtime installer?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Neznano</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Zagotavlja posnetek zaslona.</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Zagotavlja senzor s količino odprtih oken, senzor s seznamom odprtih oken (ime in ročaj)
+
+To je senzor z več vrednostmi.
+</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>Odprta okna</value>
+  </data>
 </root>

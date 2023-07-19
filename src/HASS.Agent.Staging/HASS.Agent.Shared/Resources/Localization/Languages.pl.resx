@@ -3329,4 +3329,16 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Udostępnia zrzut ekranu.</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Udostępnia czujnik z ilością otwartych okien, czujnik z listą otwartych okien (nazwa i uchwyt)
+
+Jest to czujnik wielowartościowy.
+</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>Otwarte okna</value>
+  </data>
 </root>

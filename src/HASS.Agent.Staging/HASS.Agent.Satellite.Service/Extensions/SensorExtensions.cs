@@ -20,12 +20,13 @@ namespace HASS.Agent.Satellite.Service.Extensions
         /// </summary>
         /// <param name="sensorType"></param>
         /// <returns></returns>
-        public static bool IsSingleValue(this SensorType sensorType)
+        private static bool IsSingleValue(this SensorType sensorType)
         {
             // todo: this should be done through the shared library, prone to be forgotten
             return sensorType != SensorType.StorageSensors
                    && sensorType != SensorType.NetworkSensors
                    && sensorType != SensorType.WindowsUpdatesSensors
+                   && sensorType != SensorType.OpenWindowsSensors
                    && sensorType != SensorType.BatterySensors
                    && sensorType != SensorType.DisplaySensors
                    && sensorType != SensorType.AudioSensors;

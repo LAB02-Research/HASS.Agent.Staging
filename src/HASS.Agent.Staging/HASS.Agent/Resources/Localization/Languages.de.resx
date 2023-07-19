@@ -3343,4 +3343,22 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Screenshot</value>
+  </data>
+  <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
+	  <value>Gibt einen Screenshot des aktuellen Bildschirminhalts zurück.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
+	  <value>Nummer des gewünschten Screens (0 für ersten Screen, 1 für zweiten etc.)</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Liefert die Anzahl der geöffneten Fenster und die Namen der aktuell geöffneten Fenster.
+
+Dies ist ein mehrwertiger Sensor.
+</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensor" xml:space="preserve">
+	  <value>OffeneFenster</value>
+  </data>
 </root>

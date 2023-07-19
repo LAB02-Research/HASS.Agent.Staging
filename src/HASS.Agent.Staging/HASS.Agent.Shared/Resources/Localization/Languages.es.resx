@@ -3219,4 +3219,15 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Proporciona una captura de pantalla.</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Proporciona un sensor con la cantidad de ventanas abiertas, un sensor con la lista de ventanas abiertas (nombre y manejador).
+
+Este es un sensor multivalor</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>Ventanas abiertas</value>
+  </data>
 </root>

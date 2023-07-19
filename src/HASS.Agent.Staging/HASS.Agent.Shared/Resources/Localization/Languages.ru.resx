@@ -3287,4 +3287,17 @@ Home Assistant.
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Предоставляет снимок экрана.
+</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Предоставляет датчик с количеством открытых окон, датчик со списком открытых окон (имя и хэндл).
+
+Это многозначный датчик.
+</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>Открытые окна</value>
+  </data>
 </root>

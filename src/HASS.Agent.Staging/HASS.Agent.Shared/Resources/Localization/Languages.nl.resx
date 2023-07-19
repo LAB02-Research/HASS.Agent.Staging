@@ -3241,4 +3241,16 @@ Wil je de runtime installatie downloaden?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domein</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Geeft een schermafbeelding.</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Geeft een sensor met het aantal geopende vensters, een sensor met de lijst van geopende vensters (naam en handvat)
+
+Dit is een sensor met meerdere waarden.
+</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>Open vensters</value>
+  </data>
 </root>

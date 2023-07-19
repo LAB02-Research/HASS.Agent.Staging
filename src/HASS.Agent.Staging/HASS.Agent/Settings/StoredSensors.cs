@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using HASS.Agent.Enums;
 using HASS.Agent.Extensions;
 using HASS.Agent.HomeAssistant.Sensors.GeneralSensors.MultiValue;
 using HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue;
@@ -36,6 +35,7 @@ namespace HASS.Agent.Settings
                 // set empty lists
                 Variables.SingleValueSensors = new List<AbstractSingleValueSensor>();
                 Variables.MultiValueSensors = new List<AbstractMultiValueSensor>();
+                Variables.SingleBinaryValueSensors = new List<AbstractSingleBinarySensor>();
 
                 // check for existing file
                 if (!File.Exists(Variables.SensorsFile))
@@ -71,13 +71,17 @@ namespace HASS.Agent.Settings
                 {
                     foreach (var sensor in configuredSensors)
                     {
-                        if (sensor.IsSingleValue()) Variables.SingleValueSensors.Add(ConvertConfiguredToAbstractSingleValue(sensor));
-                        else Variables.MultiValueSensors.Add(ConvertConfiguredToAbstractMultiValue(sensor));
+                        if (sensor.IsSingleValue())
+                            Variables.SingleValueSensors.Add(ConvertConfiguredToAbstractSingleValue(sensor));
+                        else if (sensor.IsSingleBinaryValue())
+                            Variables.SingleBinaryValueSensors.Add(ConvertConfiguredToAbstractSingleBinaryValue(sensor));
+                        else
+                            Variables.MultiValueSensors.Add(ConvertConfiguredToAbstractMultiValue(sensor));
                     }
                 });
 
                 // all good
-                Log.Information("[SETTINGS_SENSORS] Loaded {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count));
+                Log.Information("[SETTINGS_SENSORS] Loaded {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count + Variables.SingleBinaryValueSensors.Count));
                 Variables.MainForm?.SetSensorsStatus(ComponentStatus.Ok);
                 return true;
             }
@@ -90,7 +94,7 @@ namespace HASS.Agent.Settings
                 return false;
             }
         }
-        
+
         /// <summary>
         /// Convert a single-value 'ConfiguredSensor' (local storage, UI) to an 'AbstractSensor' (MQTT)
         /// </summary>
@@ -200,6 +204,22 @@ namespace HASS.Agent.Settings
             return abstractSensor;
         }
 
+        internal static AbstractSingleBinarySensor ConvertConfiguredToAbstractSingleBinaryValue(ConfiguredSensor sensor)
+        {
+            AbstractSingleBinarySensor abstractSensor = null;
+
+            switch (sensor.Type)
+            {
+                case SensorType.ScreenshotSensor:
+                    abstractSensor = new ScreenshotSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
+                    break;
+                default:
+                    Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-binary-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
+                    break;
+            }
+            return abstractSensor;
+        }
+        
         /// <summary>
         /// Convert a multi-value 'ConfiguredSensor' (local storage, UI) to an 'AbstractSensor' (MQTT)
         /// </summary>
@@ -231,6 +251,10 @@ namespace HASS.Agent.Settings
                     break;
                 case SensorType.PrintersSensors:
                     abstractSensor = new PrintersSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    break;
+                case SensorType.OpenWindowsSensors:
+                    abstractSensor = new OpenWindowsSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName,
+                        sensor.Id.ToString());
                     break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured multi-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
@@ -371,6 +395,26 @@ namespace HASS.Agent.Settings
             }
         }
 
+        internal static ConfiguredSensor ConvertAbstractSingleBinaryToConfigured(AbstractSingleBinarySensor sensor)
+        {
+            switch (sensor)
+            {
+                case ScreenshotSensor screenshotSensor:
+                    {
+                        _ = Enum.TryParse<SensorType>(screenshotSensor.GetType().Name, out var type);
+                        return new ConfiguredSensor
+                        {
+                            Id = Guid.Parse(sensor.Id),
+                            Name = sensor.Name,
+                            FriendlyName = sensor.FriendlyName,
+                            Type = type,
+                            UpdateInterval = sensor.UpdateIntervalSeconds
+                        };
+                    }
+            }
+            return null;
+        }
+
         /// <summary>
         /// Convert a multi-value 'AbstractSensor' (MQTT) to an 'ConfiguredSensor' (local storage, UI)
         /// </summary>
@@ -419,6 +463,19 @@ namespace HASS.Agent.Settings
                         UpdateInterval = sensor.UpdateIntervalSeconds
                     };
                 }
+
+                case OpenWindowsSensors openWindowsSensors:
+                {
+                    _ = Enum.TryParse<SensorType>(openWindowsSensors.GetType().Name, out var type);
+                    return new ConfiguredSensor
+                    {
+                        Id = Guid.Parse(sensor.Id),
+                        Name = sensor.Name,
+                        FriendlyName = sensor.FriendlyName,
+                        Type = type,
+                        UpdateInterval = sensor.UpdateIntervalSeconds
+                    };
+                    }
 
                 case BatterySensors batterySensors:
                 {
@@ -497,13 +554,17 @@ namespace HASS.Agent.Settings
                 // convert multi-value sensors
                 var configuredMultiValueSensors = Variables.MultiValueSensors.Select(ConvertAbstractMultiValueToConfigured).Where(configuredSensor => configuredSensor != null).ToList();
                 configuredSensors = configuredSensors.Concat(configuredMultiValueSensors).ToList();
+                
+                // convert single-binary-value sensors
+                var configuredSingleBinaryValueSensors = Variables.SingleBinaryValueSensors.Select(ConvertAbstractSingleBinaryToConfigured).Where(configuredSensor => configuredSensor != null).ToList();
+                configuredSensors = configuredSensors.Concat(configuredSingleBinaryValueSensors).ToList();
 
                 // serialize to file
                 var sensors = JsonConvert.SerializeObject(configuredSensors, Formatting.Indented);
                 File.WriteAllText(Variables.SensorsFile, sensors);
 
                 // done
-                Log.Information("[SETTINGS_SENSORS] Stored {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count));
+                Log.Information("[SETTINGS_SENSORS] Stored {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count + Variables.SingleBinaryValueSensors.Count));
                 Variables.MainForm?.SetSensorsStatus(ComponentStatus.Ok);
                 return true;
             }

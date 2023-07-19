@@ -2826,4 +2826,16 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Bir ekran görüntüsü sağlar.</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Açık pencerelerin miktarını gösteren bir sensör, açık pencerelerin listesini gösteren bir sensör (ad ve tanıtıcı) sağlar
+
+Bu çok değerli bir sensördür.
+</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>Açık Pencereler</value>
+  </data>
 </root>

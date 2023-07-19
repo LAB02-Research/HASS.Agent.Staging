@@ -5756,6 +5756,17 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provides a sensor with the amount of open windows, a sensor with the list of open windows (name and handle)
+        ///
+        ///This is a multi-value sensor..
+        /// </summary>
+        internal static string SensorsManager_OpenWindowsSensorsDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_OpenWindowsSensorsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provides the values of a performance counter.
         ///
         ///For example, the built-in CPU load sensor uses these values:
@@ -6646,6 +6657,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SensorType_OpenWindowsSensors {
+            get {
+                return ResourceManager.GetString("SensorType_OpenWindowsSensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PerformanceCounter.
         /// </summary>
         internal static string SensorType_PerformanceCounterSensor {
@@ -6678,6 +6698,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string SensorType_ProcessActiveSensor {
             get {
                 return ResourceManager.GetString("SensorType_ProcessActiveSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SensorType_ScreenshotSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ScreenshotSensor", resourceCulture);
             }
         }
         

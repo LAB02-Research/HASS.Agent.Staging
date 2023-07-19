@@ -3174,7 +3174,8 @@ Dimmed, PowerOff, PowerOn and Unkown.</value>
 Converts the outcome to text.</value>
   </data>
   <data name="SensorsManager_PrintersSensorsDescription" xml:space="preserve">
-    <value>Fournit des informations sur toutes les imprimantes installées et leurs files d&apos;attente.</value>
+	  <value>
+Il s'agit d'un capteur à valeurs multiples.</value>
   </data>
   <data name="SensorsManager_WebcamProcessSensorDescription" xml:space="preserve">
     <value>Fournit le nom du processus qui utilise actuellement la webcam.
@@ -3251,5 +3252,14 @@ Do you want to download the runtime installer?</value>
   </data>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
+  </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Fournit une capture d'écran.</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Fournit un capteur avec le nombre de fenêtres ouvertes, un capteur avec la liste des fenêtres ouvertes (nom et poignée)</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensors" xml:space="preserve">
+	  <value>Windows ouvertes</value>
   </data>
 </root>

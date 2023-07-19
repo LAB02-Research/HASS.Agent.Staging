@@ -4444,7 +4444,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -5756,6 +5756,18 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provides number of open windows, and the names of currently open windows.
+        ///
+        ///This is a multi-value sensor.
+        ///.
+        /// </summary>
+        internal static string SensorsManager_OpenWindowsSensorsDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_OpenWindowsSensorsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provides the values of a performance counter.
         ///
         ///For example, the built-in CPU load sensor uses these values:
@@ -5800,6 +5812,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsManager_ProcessActiveSensorDescription {
             get {
                 return ResourceManager.GetString("SensorsManager_ProcessActiveSensorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides a screenshot image.
+        /// </summary>
+        internal static string SensorsManager_ScreenshotSensorsDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_ScreenshotSensorsDescription", resourceCulture);
             }
         }
         
@@ -6178,6 +6199,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_LblSetting1_Process {
             get {
                 return ResourceManager.GetString("SensorsMod_LblSetting1_Process", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen Number (0 to Number of Screens).
+        /// </summary>
+        internal static string SensorsMod_LblSetting1_ScreenNumber {
+            get {
+                return ResourceManager.GetString("SensorsMod_LblSetting1_ScreenNumber", resourceCulture);
             }
         }
         
@@ -6673,6 +6703,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OpenWindows.
+        /// </summary>
+        internal static string SensorType_OpenWindowsSensor {
+            get {
+                return ResourceManager.GetString("SensorType_OpenWindowsSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PerformanceCounter.
         /// </summary>
         internal static string SensorType_PerformanceCounterSensor {
@@ -6705,6 +6744,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorType_ProcessActiveSensor {
             get {
                 return ResourceManager.GetString("SensorType_ProcessActiveSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot.
+        /// </summary>
+        internal static string SensorType_ScreenshotSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ScreenshotSensor", resourceCulture);
             }
         }
         

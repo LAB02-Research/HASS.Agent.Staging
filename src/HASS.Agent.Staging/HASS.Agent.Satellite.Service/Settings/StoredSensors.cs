@@ -30,6 +30,7 @@ namespace HASS.Agent.Satellite.Service.Settings
                 // set empty lists
                 Variables.SingleValueSensors = new List<AbstractSingleValueSensor>();
                 Variables.MultiValueSensors = new List<AbstractMultiValueSensor>();
+                Variables.SingleBinaryValueSensors = new List<AbstractSingleBinarySensor>();
 
                 // check for existing file
                 if (!File.Exists(Variables.SensorsFile))
@@ -166,6 +167,28 @@ namespace HASS.Agent.Satellite.Service.Settings
                     break;
                 case SensorType.WebcamProcessSensor:
                     abstractSensor = new WebcamProcessSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    break;
+                default:
+                    Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
+                    break;
+            }
+
+            return abstractSensor;
+        }
+
+        /// <summary>
+        /// Convert a single-binary-value 'ConfiguredSensor' (local storage, UI) to an 'AbstractSensor' (MQTT)
+        /// </summary>
+        /// <param name="sensor"></param>
+        /// <returns></returns>
+        internal static AbstractSingleBinarySensor? ConvertConfiguredToAbstractSingleBinaryValue(ConfiguredSensor sensor)
+        {
+            AbstractSingleBinarySensor? abstractSensor = null;
+
+            switch (sensor.Type)
+            {
+                case SensorType.ScreenshotSensor:
+                    abstractSensor = new ScreenshotSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.Id.ToString());
                     break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
@@ -343,6 +366,18 @@ namespace HASS.Agent.Satellite.Service.Settings
             }
         }
 
+        internal static ConfiguredSensor? ConvertAbstractSingleBinaryValueToConfigured(AbstractSingleBinarySensor? sensor)
+        {
+            //_ = Enum.TryParse<SensorType>(storageSensors.GetType().Name, out var type);
+            return new ConfiguredSensor
+            {
+                Id = Guid.Parse(sensor.Id),
+                Name = sensor.Name,
+                Type = SensorType.ScreenshotSensor,
+                UpdateInterval = sensor.UpdateIntervalSeconds
+            };
+        }
+
         /// <summary>
         /// Convert a multi-value 'AbstractSensor' (MQTT) to an 'ConfiguredSensor' (local storage, UI)
         /// </summary>
@@ -418,8 +453,20 @@ namespace HASS.Agent.Satellite.Service.Settings
                     }
 
                 case AudioSensors audioSensors:
+                {
+                    _ = Enum.TryParse<SensorType>(audioSensors.GetType().Name, out var type);
+                    return new ConfiguredSensor
                     {
-                        _ = Enum.TryParse<SensorType>(audioSensors.GetType().Name, out var type);
+                        Id = Guid.Parse(sensor.Id),
+                        Name = sensor.Name,
+                        FriendlyName = sensor.FriendlyName,
+                        Type = type,
+                        UpdateInterval = sensor.UpdateIntervalSeconds
+                    };
+                }
+                case OpenWindowsSensors openWindowsSensors:
+                    {
+                        _ = Enum.TryParse<SensorType>(openWindowsSensors.GetType().Name, out var type);
                         return new ConfiguredSensor
                         {
                             Id = Guid.Parse(sensor.Id),

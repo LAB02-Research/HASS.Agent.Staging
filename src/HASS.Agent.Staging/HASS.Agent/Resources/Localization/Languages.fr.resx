@@ -3252,4 +3252,21 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorType_ScreenshotSensor" xml:space="preserve">
+	  <value>Capture d'écran</value>
+  </data>
+  <data name="SensorsManager_ScreenshotSensorsDescription" xml:space="preserve">
+	  <value>Fournit une capture d'écran.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_ScreenNumber" xml:space="preserve">
+	  <value>Numéro de l'écran souhaité (0 pour le premier écran, 1 pour le deuxième, etc.)</value>
+  </data>
+  <data name="SensorsManager_OpenWindowsSensorsDescription" xml:space="preserve">
+	  <value>Fournit le nombre de fenêtres ouvertes et le nom des fenêtres actuellement ouvertes.
+
+Il s'agit d'un capteur à valeurs multiples.</value>
+  </data>
+  <data name="SensorType_OpenWindowsSensor" xml:space="preserve">
+	  <value>Fenêtres ouvertes</value>
+  </data>
 </root>
