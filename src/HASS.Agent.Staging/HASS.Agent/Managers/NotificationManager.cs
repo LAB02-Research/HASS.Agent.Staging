@@ -2,18 +2,19 @@
 using HASS.Agent.API;
 using HASS.Agent.Functions;
 using HASS.Agent.HomeAssistant;
-using Microsoft.Toolkit.Uwp.Notifications;
 using MQTTnet;
 using Newtonsoft.Json;
 using Serilog;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using Notification = HASS.Agent.Models.HomeAssistant.Notification;
+using Microsoft.Windows.AppNotifications;
+using Microsoft.Windows.AppNotifications.Builder;
 
 namespace HASS.Agent.Managers
 {
     internal static class NotificationManager
     {
-        private static ToastNotifierCompat _toastNotifier = null;
+        private static AppNotificationManager _toastNotifier = AppNotificationManager.Default;
 
         /// <summary>
         /// Initializes the notification manager
@@ -41,17 +42,16 @@ namespace HASS.Agent.Managers
                     _ = Task.Run(Variables.MqttManager.SubscribeNotificationsAsync);
                 }
 
-                // create a toast notifier
-                _toastNotifier = ToastNotificationManagerCompat.CreateToastNotifier();
-
                 // check if we're allowed
-                if (_toastNotifier.Setting != NotificationSetting.Enabled)
+                if (_toastNotifier.Setting != AppNotificationSetting.Enabled)
                 {
                     Log.Warning("[NOTIFIER] Showing notifications might fail, reason: {r}", _toastNotifier.Setting.ToString());
                 }
 
                 // bind notification buttons
-                ToastNotificationManagerCompat.OnActivated += OnNotificationButtonPressed;
+                _toastNotifier.NotificationInvoked += OnNotificationInvoked;
+
+                _toastNotifier.Register();
 
                 // no task other than logging
                 Log.Information("[NOTIFIER] Ready");
@@ -74,16 +74,15 @@ namespace HASS.Agent.Managers
                 if (!Variables.AppSettings.NotificationsEnabled || _toastNotifier == null) return;
 
                 // prepare new toastbuilder
-                var toastBuilder = new ToastContentBuilder();
+                var toastBuilder = new AppNotificationBuilder()
+                    .AddText(notification.Title);
 
-                // prepare title
-                toastBuilder.AddHeader("HASS.Agent", notification.Title, string.Empty);
 
                 // prepare image
                 if (!string.IsNullOrWhiteSpace(notification.Data?.Image))
                 {
                     var (success, localFile) = await StorageManager.DownloadImageAsync(notification.Data.Image);
-                    if (success) toastBuilder.AddInlineImage(new Uri(localFile));
+                    if (success) toastBuilder.SetInlineImage(new Uri(localFile));
                     else Log.Error("[NOTIFIER] Image download failed, dropping: {img}", notification.Data.Image);
                 }
 
@@ -96,23 +95,25 @@ namespace HASS.Agent.Managers
                     foreach (var action in notification.Data.Actions)
                     {
                         if (string.IsNullOrEmpty(action.Action)) continue;
-                        toastBuilder.AddButton(action.Title, ToastActivationType.Background, action.Action);
+                        toastBuilder.AddButton(new AppNotificationButton(action.Title)
+                            .AddArgument("action", action.Action));
                     }
                 }
 
                 // prepare the toast
-                var toast = new ToastNotification(toastBuilder.GetXml());
-                toast.Failed += delegate(ToastNotification _, ToastFailedEventArgs args)
+                var toast = toastBuilder.BuildNotification();
+
+/*                toast.Failed += delegate(ToastNotification _, ToastFailedEventArgs args)
                 {
                     Log.Error("[NOTIFIER] Notification failed to show: {err}", args.ErrorCode?.Message ?? "[unknown]");
-                };
+                };*/
 
                 // check for duration limit
                 if (notification.Data?.Duration > 0)
                 {
                     // there's a duration added, so show for x seconds
                     // todo: unreliable
-                    toast.ExpirationTime = DateTime.Now.AddSeconds(notification.Data.Duration);
+                    toast.Expiration = DateTime.Now.AddSeconds(notification.Data.Duration);
                 }
                 
                 // show indefinitely
@@ -125,7 +126,7 @@ namespace HASS.Agent.Managers
             }
         }
 
-        private static async void OnNotificationButtonPressed(ToastNotificationActivatedEventArgsCompat e)
+        private static async void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs e)
         {
             try
             {
@@ -160,5 +161,7 @@ namespace HASS.Agent.Managers
                 Log.Fatal(ex, "[NOTIFIER] Unable to process button: {err}", ex.Message);
             }
         }
+
+        //TODO: handle notification manager unregister process
     }
 }

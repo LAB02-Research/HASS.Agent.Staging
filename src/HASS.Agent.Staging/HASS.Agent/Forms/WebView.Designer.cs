@@ -1,5 +1,6 @@
-﻿
+﻿extern alias WV2;
 using HASS.Agent.Resources.Localization;
+using WV2::Microsoft.Web.WebView2.WinForms;
 
 namespace HASS.Agent.Forms
 {
@@ -32,7 +33,7 @@ namespace HASS.Agent.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebView));
-            this.WebViewControl = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.WebViewControl = new WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.WebViewControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@ namespace HASS.Agent.Forms
 
         #endregion
 
-        private Microsoft.Web.WebView2.WinForms.WebView2 WebViewControl;
+        private WebView2 WebViewControl;
     }
 }
 
