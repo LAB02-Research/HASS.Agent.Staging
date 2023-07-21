@@ -94,7 +94,9 @@ namespace HASS.Agent.Managers
                 {
                     foreach (var action in notification.Data.Actions)
                     {
-                        if (string.IsNullOrEmpty(action.Action)) continue;
+                        if (string.IsNullOrEmpty(action.Action))
+                            continue;
+
                         toastBuilder.AddButton(new AppNotificationButton(action.Title)
                             .AddArgument("action", action.Action));
                     }
@@ -103,10 +105,10 @@ namespace HASS.Agent.Managers
                 // prepare the toast
                 var toast = toastBuilder.BuildNotification();
 
-/*                toast.Failed += delegate(ToastNotification _, ToastFailedEventArgs args)
-                {
-                    Log.Error("[NOTIFIER] Notification failed to show: {err}", args.ErrorCode?.Message ?? "[unknown]");
-                };*/
+                /*                toast.Failed += delegate(ToastNotification _, ToastFailedEventArgs args)
+                                {
+                                    Log.Error("[NOTIFIER] Notification failed to show: {err}", args.ErrorCode?.Message ?? "[unknown]");
+                                };*/
 
                 // check for duration limit
                 if (notification.Data?.Duration > 0)
@@ -115,7 +117,7 @@ namespace HASS.Agent.Managers
                     // todo: unreliable
                     toast.Expiration = DateTime.Now.AddSeconds(notification.Data.Duration);
                 }
-                
+
                 // show indefinitely
                 _toastNotifier.Show(toast);
             }
@@ -126,14 +128,26 @@ namespace HASS.Agent.Managers
             }
         }
 
+        private static string GetActionFromEventArgs(AppNotificationActivatedEventArgs e)
+        {
+            var toRemove = "action="; //TODO: replace with constant?
+            var startIndex = e.Argument.IndexOf(toRemove, StringComparison.Ordinal);
+            var test = e.Argument.Remove(startIndex, toRemove.Length);
+            return startIndex == -1 ? e.Argument : e.Argument.Remove(startIndex, toRemove.Length);
+        }
+
+        private static string GetInputFromEventArgs(AppNotificationActivatedEventArgs e) => e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null;
+
         private static async void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs e)
         {
             try
             {
+                var action = GetActionFromEventArgs(e);
+
                 var haEventTask = HassApiManager.FireEvent("hass_agent_notifications", new
                 {
                     device_name = HelperFunctions.GetConfiguredDeviceName(),
-                    action = e.Argument
+                    action
                 });
 
                 if (Variables.AppSettings.MqttEnabled)
@@ -142,8 +156,8 @@ namespace HASS.Agent.Managers
                         .WithTopic($"hass.agent/notifications/{Variables.DeviceConfig.Name}/actions")
                         .WithPayload(JsonSerializer.Serialize(new
                         {
-                            action = e.Argument,
-                            input = e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null
+                            action,
+                            input = GetInputFromEventArgs(e),
                         }, ApiDeserialization.SerializerOptions));
 
                     var mqttTask = Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
