@@ -14,6 +14,8 @@ namespace HASS.Agent.Managers
 {
     internal static class NotificationManager
     {
+        private static readonly string s_actionPrefix = "action=";
+
         private static AppNotificationManager _toastNotifier = AppNotificationManager.Default;
 
         /// <summary>
@@ -26,34 +28,30 @@ namespace HASS.Agent.Managers
                 if (!Variables.AppSettings.NotificationsEnabled)
                 {
                     Log.Information("[NOTIFIER] Disabled");
+
                     return;
                 }
 
                 if (!Variables.AppSettings.LocalApiEnabled && !Variables.AppSettings.MqttEnabled)
                 {
                     Log.Warning("[NOTIFIER] Both local API and MQTT are disabled, unable to receive notifications");
+
                     return;
                 }
 
-                if (!Variables.AppSettings.MqttEnabled) Log.Warning("[NOTIFIER] MQTT is disabled, not all aspects of actions might work as expected");
+                if (!Variables.AppSettings.MqttEnabled)
+                    Log.Warning("[NOTIFIER] MQTT is disabled, not all aspects of actions might work as expected");
                 else
-                {
-                    // subscribe to mqtt notifications
                     _ = Task.Run(Variables.MqttManager.SubscribeNotificationsAsync);
-                }
 
-                // check if we're allowed
                 if (_toastNotifier.Setting != AppNotificationSetting.Enabled)
-                {
                     Log.Warning("[NOTIFIER] Showing notifications might fail, reason: {r}", _toastNotifier.Setting.ToString());
-                }
 
-                // bind notification buttons
+
                 _toastNotifier.NotificationInvoked += OnNotificationInvoked;
 
                 _toastNotifier.Register();
 
-                // no task other than logging
                 Log.Information("[NOTIFIER] Ready");
             }
             catch (Exception ex)
@@ -70,26 +68,22 @@ namespace HASS.Agent.Managers
         {
             try
             {
-                // are notifications enabled?
-                if (!Variables.AppSettings.NotificationsEnabled || _toastNotifier == null) return;
+                if (!Variables.AppSettings.NotificationsEnabled || _toastNotifier == null)
+                    return;
 
-                // prepare new toastbuilder
                 var toastBuilder = new AppNotificationBuilder()
-                    .AddText(notification.Title);
+                    .AddText(notification.Title)
+                    .AddText(notification.Message);
 
-
-                // prepare image
                 if (!string.IsNullOrWhiteSpace(notification.Data?.Image))
                 {
                     var (success, localFile) = await StorageManager.DownloadImageAsync(notification.Data.Image);
-                    if (success) toastBuilder.SetInlineImage(new Uri(localFile));
-                    else Log.Error("[NOTIFIER] Image download failed, dropping: {img}", notification.Data.Image);
+                    if (success)
+                        toastBuilder.SetInlineImage(new Uri(localFile));
+                    else
+                        Log.Error("[NOTIFIER] Image download failed, dropping: {img}", notification.Data.Image);
                 }
 
-                // prepare message
-                toastBuilder.AddText(notification.Message);
-
-                // prepare actions
                 if (notification.Data?.Actions.Count > 0)
                 {
                     foreach (var action in notification.Data.Actions)
@@ -102,19 +96,11 @@ namespace HASS.Agent.Managers
                     }
                 }
 
-                // prepare the toast
                 var toast = toastBuilder.BuildNotification();
 
-                /*                toast.Failed += delegate(ToastNotification _, ToastFailedEventArgs args)
-                                {
-                                    Log.Error("[NOTIFIER] Notification failed to show: {err}", args.ErrorCode?.Message ?? "[unknown]");
-                                };*/
-
-                // check for duration limit
                 if (notification.Data?.Duration > 0)
                 {
-                    // there's a duration added, so show for x seconds
-                    // todo: unreliable
+                    //TODO: unreliable
                     toast.Expiration = DateTime.Now.AddSeconds(notification.Data.Duration);
                 }
 
@@ -123,17 +109,17 @@ namespace HASS.Agent.Managers
             }
             catch (Exception ex)
             {
-                if (Variables.ExtendedLogging) Log.Fatal(ex, "[NOTIFIER] Error while showing notification: {err}\r\n{json}", ex.Message, JsonConvert.SerializeObject(notification, Formatting.Indented));
-                else Log.Fatal(ex, "[NOTIFIER] Error while showing notification: {err}", ex.Message);
+                if (Variables.ExtendedLogging)
+                    Log.Fatal(ex, "[NOTIFIER] Error while showing notification: {err}\r\n{json}", ex.Message, JsonConvert.SerializeObject(notification, Formatting.Indented));
+                else
+                    Log.Fatal(ex, "[NOTIFIER] Error while showing notification: {err}", ex.Message);
             }
         }
 
         private static string GetActionFromEventArgs(AppNotificationActivatedEventArgs e)
         {
-            var toRemove = "action="; //TODO: replace with constant?
-            var startIndex = e.Argument.IndexOf(toRemove, StringComparison.Ordinal);
-            var test = e.Argument.Remove(startIndex, toRemove.Length);
-            return startIndex == -1 ? e.Argument : e.Argument.Remove(startIndex, toRemove.Length);
+            var startIndex = e.Argument.IndexOf(s_actionPrefix, StringComparison.Ordinal);
+            return startIndex == -1 ? e.Argument : e.Argument.Remove(startIndex, s_actionPrefix.Length);
         }
 
         private static string GetInputFromEventArgs(AppNotificationActivatedEventArgs e) => e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null;
@@ -166,7 +152,6 @@ namespace HASS.Agent.Managers
                 }
                 else
                 {
-                    // just the API task
                     await haEventTask;
                 }
             }
