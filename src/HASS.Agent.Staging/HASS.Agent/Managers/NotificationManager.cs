@@ -16,7 +16,7 @@ namespace HASS.Agent.Managers
     {
         private static readonly string s_actionPrefix = "action=";
 
-        private static AppNotificationManager _toastNotifier = AppNotificationManager.Default;
+        private static readonly AppNotificationManager _notificationManager = AppNotificationManager.Default;
 
         /// <summary>
         /// Initializes the notification manager
@@ -44,13 +44,13 @@ namespace HASS.Agent.Managers
                 else
                     _ = Task.Run(Variables.MqttManager.SubscribeNotificationsAsync);
 
-                if (_toastNotifier.Setting != AppNotificationSetting.Enabled)
-                    Log.Warning("[NOTIFIER] Showing notifications might fail, reason: {r}", _toastNotifier.Setting.ToString());
+                if (_notificationManager.Setting != AppNotificationSetting.Enabled)
+                    Log.Warning("[NOTIFIER] Showing notifications might fail, reason: {r}", _notificationManager.Setting.ToString());
 
 
-                _toastNotifier.NotificationInvoked += OnNotificationInvoked;
+                _notificationManager.NotificationInvoked += OnNotificationInvoked;
 
-                _toastNotifier.Register();
+                _notificationManager.Register();
 
                 Log.Information("[NOTIFIER] Ready");
             }
@@ -68,7 +68,7 @@ namespace HASS.Agent.Managers
         {
             try
             {
-                if (!Variables.AppSettings.NotificationsEnabled || _toastNotifier == null)
+                if (!Variables.AppSettings.NotificationsEnabled || _notificationManager == null)
                     return;
 
                 var toastBuilder = new AppNotificationBuilder()
@@ -105,7 +105,7 @@ namespace HASS.Agent.Managers
                 }
 
                 // show indefinitely
-                _toastNotifier.Show(toast);
+                _notificationManager.Show(toast);
             }
             catch (Exception ex)
             {
@@ -163,7 +163,7 @@ namespace HASS.Agent.Managers
 
         public static void Exit()
         {
-            _toastNotifier.Unregister();
+            _notificationManager.Unregister();
         }
     }
 }
