@@ -21,7 +21,7 @@ namespace HASS.Agent
         [STAThread]
         private static void Main(string[] args)
         {
-            Debugger.Launch();
+            Debugger.Launch(); //TODO: Remove
 
             try
             {
