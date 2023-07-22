@@ -104,8 +104,13 @@ namespace HASS.Agent.Managers
                     toast.Expiration = DateTime.Now.AddSeconds(notification.Data.Duration);
                 }
 
-                // show indefinitely
                 _notificationManager.Show(toast);
+
+                if(toast.Id == 0)
+                {
+                    Log.Error("[NOTIFIER] Notification '{err}' failed to show", notification.Title);
+                }
+
             }
             catch (Exception ex)
             {
