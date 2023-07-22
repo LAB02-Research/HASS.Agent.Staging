@@ -121,6 +121,8 @@ namespace HASS.Agent.Forms
                 _ = Task.Run(CacheManager.Initialize);
                 _ = Task.Run(NotificationManager.Initialize);
                 _ = Task.Run(MediaManager.InitializeAsync);
+
+                AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
             }
             catch (Exception ex)
             {
@@ -130,6 +132,11 @@ namespace HASS.Agent.Forms
                 // we're done
                 Application.Exit();
             }
+        }
+
+        private void OnProcessExit(object sender, EventArgs e)
+        {
+            NotificationManager.Exit();
         }
 
         /// <summary>

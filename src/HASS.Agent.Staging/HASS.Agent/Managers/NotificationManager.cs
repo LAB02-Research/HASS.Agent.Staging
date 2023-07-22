@@ -161,6 +161,9 @@ namespace HASS.Agent.Managers
             }
         }
 
-        //TODO: handle notification manager unregister process
+        public static void Exit()
+        {
+            _toastNotifier.Unregister();
+        }
     }
 }
