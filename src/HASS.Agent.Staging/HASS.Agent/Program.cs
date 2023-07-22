@@ -37,6 +37,7 @@ namespace HASS.Agent
                 Variables.LevelSwitch.MinimumLevel = LogEventLevel.Debug;
 
                 Log.Debug("[MAIN] DEBUG BUILD - TESTING PURPOSES ONLY");
+                Log.Debug("[MAIN] Started with arguments: {a}", args);
 
                 // make sure we catch 'm all
                 AppDomain.CurrentDomain.FirstChanceException += LoggingManager.CurrentDomainOnFirstChanceException;
