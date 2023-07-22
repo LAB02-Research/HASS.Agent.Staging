@@ -21,6 +21,8 @@ namespace HASS.Agent
         [STAThread]
         private static void Main(string[] args)
         {
+            Debugger.Launch();
+
             try
             {
                 // syncfusion license

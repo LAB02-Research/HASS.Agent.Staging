@@ -14,21 +14,26 @@ namespace HASS.Agent.Managers
         private static readonly List<string> LoggedFirstChanceHttpRequestExceptions = new();
         private static string _lastLog = string.Empty;
 
+        internal static string RemoveNonAlphanumericCharacters(string value) => new(value.Where(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)).ToArray());
+
         /// <summary>
         /// Initializes Serilog logger
         /// </summary>
         internal static void PrepareLogging(string[] args)
         {
-            var logName = string.Empty;
-            if (args.Any()) logName = $"{args.First(x => !string.IsNullOrEmpty(x))}_";
+            var logTag = args.Any()
+                ? $"{RemoveNonAlphanumericCharacters(args.First(x => !string.IsNullOrEmpty(x)))}_"
+                : string.Empty;
 
             Variables.LevelSwitch.MinimumLevel = LogEventLevel.Information;
+
+            var logName = $"[{DateTime.Now:yyyy-MM-dd}] {Variables.ApplicationName}_{logTag}.log";
 
             // prepare a serilog logger
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.ControlledBy(Variables.LevelSwitch)
                 .WriteTo.Async(a =>
-                    a.File(Path.Combine(Variables.LogPath, $"[{DateTime.Now:yyyy-MM-dd}] {Variables.ApplicationName}_{logName}.log"),
+                    a.File(Path.Combine(Variables.LogPath, logName),
                         rollingInterval: RollingInterval.Day,
                         fileSizeLimitBytes: 10000000,
                         retainedFileCountLimit: 10,
