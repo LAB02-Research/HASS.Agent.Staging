@@ -8,6 +8,7 @@ using HASS.Agent.Functions;
 using HASS.Agent.Managers;
 using HASS.Agent.Settings;
 using HASS.Agent.Shared.Extensions;
+using Microsoft.Windows.AppLifecycle;
 using Serilog;
 using Serilog.Events;
 
@@ -21,8 +22,6 @@ namespace HASS.Agent
         [STAThread]
         private static void Main(string[] args)
         {
-            Debugger.Launch(); //TODO: Remove
-
             try
             {
                 // syncfusion license
@@ -65,9 +64,9 @@ namespace HASS.Agent
                 var settingsLoaded = SettingsManager.LoadAsync(!childApp).GetAwaiter().GetResult();
                 if (!settingsLoaded)
                 {
-                    Log.Error(
-                        "[PROGRAM] Something went wrong while loading the settings. Check appsettings.json, or delete the file to start fresh.");
+                    Log.Error("[PROGRAM] Something went wrong while loading the settings. Check appsettings.json, or delete the file to start fresh.");
                     Log.CloseAndFlush();
+
                     return;
                 }
 
@@ -85,16 +84,15 @@ namespace HASS.Agent
 
                 // check to see if we're launched as a child application
                 if (LaunchedAsChildApplication(args))
-                {
-                    // yep, nothing left to do
                     return;
-                }
 
                 // nope, prepare default application
                 Variables.MainForm = new Main();
 
                 // prepare msgbox
                 HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
+
+                ActivationRegistrationManager.RegisterForStartupActivation("startupId", string.Empty);
 
                 // run (hidden)
                 Application.Run(new CustomApplicationContext(Variables.MainForm));

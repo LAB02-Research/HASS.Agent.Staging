@@ -9,14 +9,21 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 using Notification = HASS.Agent.Models.HomeAssistant.Notification;
 using Microsoft.Windows.AppNotifications;
 using Microsoft.Windows.AppNotifications.Builder;
+using Microsoft.Windows.AppLifecycle;
+using System.Windows.Markup;
 
 namespace HASS.Agent.Managers
 {
     internal static class NotificationManager
     {
+        public const string NotificationLaunchArgument = "----AppNotificationActivated:";
+
+        public static bool Ready { get; private set; } = false;
+
         private static readonly string s_actionPrefix = "action=";
 
         private static readonly AppNotificationManager _notificationManager = AppNotificationManager.Default;
+
 
         /// <summary>
         /// Initializes the notification manager
@@ -51,6 +58,7 @@ namespace HASS.Agent.Managers
                 _notificationManager.NotificationInvoked += OnNotificationInvoked;
 
                 _notificationManager.Register();
+                Ready = true;
 
                 Log.Information("[NOTIFIER] Ready");
             }
@@ -66,6 +74,9 @@ namespace HASS.Agent.Managers
         /// <param name="notification"></param>
         internal static async void ShowNotification(Notification notification)
         {
+            if (!Ready)
+                throw new Exception("NotificationManager is not initialized");
+
             try
             {
                 if (!Variables.AppSettings.NotificationsEnabled || _notificationManager == null)
@@ -106,7 +117,7 @@ namespace HASS.Agent.Managers
 
                 _notificationManager.Show(toast);
 
-                if(toast.Id == 0)
+                if (toast.Id == 0)
                 {
                     Log.Error("[NOTIFIER] Notification '{err}' failed to show", notification.Title);
                 }
@@ -127,9 +138,12 @@ namespace HASS.Agent.Managers
             return startIndex == -1 ? e.Argument : e.Argument.Remove(startIndex, s_actionPrefix.Length);
         }
 
+
+        private static async void OnNotificationInvoked(AppNotificationManager _, AppNotificationActivatedEventArgs e) => await HandleAppNotificationActivation(e);
+
         private static string GetInputFromEventArgs(AppNotificationActivatedEventArgs e) => e.UserInput.ContainsKey("input") ? e.UserInput["input"] : null;
 
-        private static async void OnNotificationInvoked(AppNotificationManager sender, AppNotificationActivatedEventArgs e)
+        private static async Task HandleAppNotificationActivation(AppNotificationActivatedEventArgs e)
         {
             try
             {
@@ -166,8 +180,31 @@ namespace HASS.Agent.Managers
             }
         }
 
-        public static void Exit()
+        internal static async void HandleNotificationLaunch()
         {
+            if (!Ready)
+                throw new Exception("NotificationManager is not initialized");
+
+            Log.Information("[NOTIFIER] Launched with notification action");
+
+            var args = AppInstance.GetCurrent().GetActivatedEventArgs();
+            if (args.Kind != ExtendedActivationKind.AppNotification)
+                return;
+
+            var appNotificationArgs = args.Data as AppNotificationActivatedEventArgs;
+            if (appNotificationArgs.Argument == null)
+                return;
+
+            await HandleAppNotificationActivation(appNotificationArgs);
+
+            Log.Information("[NOTIFIER] Finished handling notification action");
+        }
+
+        internal static void Exit()
+        {
+            if (!Ready)
+                throw new Exception("NotificationManager is not initialized");
+
             _notificationManager.Unregister();
         }
     }
