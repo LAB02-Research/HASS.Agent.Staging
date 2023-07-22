@@ -145,6 +145,8 @@ namespace HASS.Agent.Managers
 
         private static async Task HandleAppNotificationActivation(AppNotificationActivatedEventArgs e)
         {
+            //TODO: test input flow
+
             try
             {
                 var action = GetActionFromEventArgs(e);
@@ -182,6 +184,8 @@ namespace HASS.Agent.Managers
 
         internal static async void HandleNotificationLaunch()
         {
+            //TODO: test input flow
+
             if (!Ready)
                 throw new Exception("NotificationManager is not initialized");
 
