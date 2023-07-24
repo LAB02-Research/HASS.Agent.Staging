@@ -1715,7 +1715,9 @@ namespace HASS.Agent.Resources.Localization {
         ///
         ///Please provide a long-lived access token and the address of your Home Assistant instance.
         ///You can get a token in Home Assistant by clicking your profile picture at the bottom-left
-        ///and navigating to the bottom of the page until you see the &apos;CREATE TOKEN&apos; button..
+        ///and navigating to the bottom of the page until you see the &apos;CREATE TOKEN&apos; button.
+        ///
+        ///Please note, that for actionable notification functionality you need to provide admin account token..
         /// </summary>
         internal static string ConfigHomeAssistantApi_LblInfo1 {
             get {
@@ -4444,7 +4446,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
