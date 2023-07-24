@@ -122,7 +122,6 @@ namespace HASS.Agent.Controls.Onboarding
             LblInfo1.Size = new Size(584, 184);
             LblInfo1.TabIndex = 13;
             LblInfo1.Text = resources.GetString("LblInfo1.Text");
-            LblInfo1.Click += LblInfo1_Click;
             // 
             // BtnTest
             // 
