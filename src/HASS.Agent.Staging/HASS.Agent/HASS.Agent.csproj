@@ -27,6 +27,7 @@
     <RootNamespace>HASS.Agent</RootNamespace>
     <WindowsPackageType>None</WindowsPackageType>
     <RuntimeIdentifiers>win10-x64;win10-x86;win10-arm64</RuntimeIdentifiers>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
 
   <ItemGroup>
