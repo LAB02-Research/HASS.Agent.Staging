@@ -22,9 +22,15 @@ namespace HASS.Agent.Managers
                     return (false, string.Empty);
                 }
 
+                if (uri.ToLower().StartsWith("file://"))
+                {
+                    Log.Information("[STORAGE] Received 'file://' type URI, returning as provided");
+                    return (true, uri);
+                }
+
                 if (!uri.ToLower().StartsWith("http"))
                 {
-                    Log.Error("[STORAGE] Unable to download image: only HTTP uri's are allowed, got: {uri}", uri);
+                    Log.Error("[STORAGE] Unable to download image: only HTTP & file:// uri's are allowed, got: {uri}", uri);
                     return (false, string.Empty);
                 }
 
@@ -229,7 +235,7 @@ namespace HASS.Agent.Managers
                     if (fileDeleted) filesDeleted++;
                     else filesFailed++;
                 }
-                
+
                 // done
                 var success = dirsFailed == 0 && filesFailed == 0;
                 return (success, dirsDeleted, filesDeleted);
