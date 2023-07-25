@@ -49,16 +49,20 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     var defaultDeviceSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Device", defaultDeviceId, string.Empty, "mdi:speaker", string.Empty, Name);
                     defaultDeviceSensor.SetState(audioDevice.DeviceFriendlyName);
 
-                    if (!Sensors.ContainsKey(defaultDeviceId)) Sensors.Add(defaultDeviceId, defaultDeviceSensor);
-                    else Sensors[defaultDeviceId] = defaultDeviceSensor;
+                    if (!Sensors.ContainsKey(defaultDeviceId))
+                        Sensors.Add(defaultDeviceId, defaultDeviceSensor);
+                    else
+                        Sensors[defaultDeviceId] = defaultDeviceSensor;
 
                     // default device state
                     var defaultDeviceStateId = $"{parentSensorSafeName}_default_device_state";
                     var defaultDeviceStateSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Device State", defaultDeviceStateId, string.Empty, "mdi:speaker", string.Empty, Name);
                     defaultDeviceStateSensor.SetState(GetReadableState(audioDevice.State));
 
-                    if (!Sensors.ContainsKey(defaultDeviceStateId)) Sensors.Add(defaultDeviceStateId, defaultDeviceStateSensor);
-                    else Sensors[defaultDeviceStateId] = defaultDeviceStateSensor;
+                    if (!Sensors.ContainsKey(defaultDeviceStateId))
+                        Sensors.Add(defaultDeviceStateId, defaultDeviceStateSensor);
+                    else
+                        Sensors[defaultDeviceStateId] = defaultDeviceStateSensor;
 
                     // default device volume
                     var masterVolume = Convert.ToInt32(Math.Round(audioDevice.AudioEndpointVolume?.MasterVolumeLevelScalar * 100 ?? 0, 0));
@@ -66,8 +70,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     var defaultDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Default Device Volume", defaultDeviceVolumeId, string.Empty, "mdi:speaker", string.Empty, Name);
                     defaultDeviceVolumeSensor.SetState(masterVolume);
 
-                    if (!Sensors.ContainsKey(defaultDeviceVolumeId)) Sensors.Add(defaultDeviceVolumeId, defaultDeviceVolumeSensor);
-                    else Sensors[defaultDeviceVolumeId] = defaultDeviceVolumeSensor;
+                    if (!Sensors.ContainsKey(defaultDeviceVolumeId))
+                        Sensors.Add(defaultDeviceVolumeId, defaultDeviceVolumeSensor);
+                    else
+                        Sensors[defaultDeviceVolumeId] = defaultDeviceVolumeSensor;
 
                     // default device muted
                     var defaultDeviceIsMuted = audioDevice.AudioEndpointVolume?.Mute ?? false;
@@ -75,30 +81,36 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     var defaultDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, $"{Name} Default Device Muted", defaultDeviceIsMutedId, string.Empty, "mdi:speaker", Name);
                     defaultDeviceIsMutedSensor.SetState(defaultDeviceIsMuted);
 
-                    if (!Sensors.ContainsKey(defaultDeviceIsMutedId)) Sensors.Add(defaultDeviceIsMutedId, defaultDeviceIsMutedSensor);
-                    else Sensors[defaultDeviceIsMutedId] = defaultDeviceIsMutedSensor;
+                    if (!Sensors.ContainsKey(defaultDeviceIsMutedId))
+                        Sensors.Add(defaultDeviceIsMutedId, defaultDeviceIsMutedSensor);
+                    else
+                        Sensors[defaultDeviceIsMutedId] = defaultDeviceIsMutedSensor;
 
                     // get session and volume info
                     var sessionInfos = GetSessions(out var peakVolume);
-                    
+
                     // peak value sensor
                     var peakVolumeId = $"{parentSensorSafeName}_peak_volume";
                     var peakVolumeSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Peak Volume", peakVolumeId, string.Empty, "mdi:volume-high", string.Empty, Name);
                     peakVolumeSensor.SetState(peakVolume.ToString(CultureInfo.CurrentCulture));
 
-                    if (!Sensors.ContainsKey(peakVolumeId)) Sensors.Add(peakVolumeId, peakVolumeSensor);
-                    else Sensors[peakVolumeId] = peakVolumeSensor;
+                    if (!Sensors.ContainsKey(peakVolumeId))
+                        Sensors.Add(peakVolumeId, peakVolumeSensor);
+                    else
+                        Sensors[peakVolumeId] = peakVolumeSensor;
 
                     // sessions sensor
                     var sessions = JsonConvert.SerializeObject(new AudioSessionInfoCollection(sessionInfos), Formatting.Indented);
                     var sessionsId = $"{parentSensorSafeName}_audio_sessions";
                     var sessionsSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
-                    
+
                     sessionsSensor.SetState(sessionInfos.Count);
                     sessionsSensor.SetAttributes(sessions);
 
-                    if (!Sensors.ContainsKey(sessionsId)) Sensors.Add(sessionsId, sessionsSensor);
-                    else Sensors[sessionsId] = sessionsSensor;
+                    if (!Sensors.ContainsKey(sessionsId))
+                        Sensors.Add(sessionsId, sessionsSensor);
+                    else
+                        Sensors[sessionsId] = sessionsSensor;
                 }
 
                 // get the default input audio device
@@ -109,16 +121,20 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     var defaultInputDeviceSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Input Device", defaultInputDeviceId, string.Empty, "mdi:microphone", string.Empty, Name);
                     defaultInputDeviceSensor.SetState(inputDevice.DeviceFriendlyName);
 
-                    if (!Sensors.ContainsKey(defaultInputDeviceId)) Sensors.Add(defaultInputDeviceId, defaultInputDeviceSensor);
-                    else Sensors[defaultInputDeviceId] = defaultInputDeviceSensor;
+                    if (!Sensors.ContainsKey(defaultInputDeviceId))
+                        Sensors.Add(defaultInputDeviceId, defaultInputDeviceSensor);
+                    else
+                        Sensors[defaultInputDeviceId] = defaultInputDeviceSensor;
 
                     // default input device state
                     var defaultInputDeviceStateId = $"{parentSensorSafeName}_default_input_device_state";
                     var defaultInputDeviceStateSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Input Device State", defaultInputDeviceStateId, string.Empty, "mdi:microphone", string.Empty, Name);
                     defaultInputDeviceStateSensor.SetState(GetReadableState(inputDevice.State));
 
-                    if (!Sensors.ContainsKey(defaultInputDeviceStateId)) Sensors.Add(defaultInputDeviceStateId, defaultInputDeviceStateSensor);
-                    else Sensors[defaultInputDeviceStateId] = defaultInputDeviceStateSensor;
+                    if (!Sensors.ContainsKey(defaultInputDeviceStateId))
+                        Sensors.Add(defaultInputDeviceStateId, defaultInputDeviceStateSensor);
+                    else
+                        Sensors[defaultInputDeviceStateId] = defaultInputDeviceStateSensor;
 
                     // default input device muted
                     var defaultInputDeviceIsMuted = inputDevice.AudioEndpointVolume?.Mute ?? false;
@@ -126,8 +142,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     var defaultInputDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, $"{Name} Default Input Device Muted", defaultInputDeviceIsMutedId, string.Empty, "mdi:microphone", Name);
                     defaultInputDeviceIsMutedSensor.SetState(defaultInputDeviceIsMuted);
 
-                    if (!Sensors.ContainsKey(defaultInputDeviceIsMutedId)) Sensors.Add(defaultInputDeviceIsMutedId, defaultInputDeviceIsMutedSensor);
-                    else Sensors[defaultInputDeviceIsMutedId] = defaultInputDeviceIsMutedSensor;
+                    if (!Sensors.ContainsKey(defaultInputDeviceIsMutedId))
+                        Sensors.Add(defaultInputDeviceIsMutedId, defaultInputDeviceIsMutedSensor);
+                    else
+                        Sensors[defaultInputDeviceIsMutedId] = defaultInputDeviceIsMutedSensor;
 
                     // default input device volume
                     var inputVolume = (int)GetDefaultInputDevicePeakVolume(inputDevice);
@@ -135,8 +153,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     var defaultInputDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Default Input Device Volume", defaultInputDeviceVolumeId, string.Empty, "mdi:microphone", string.Empty, Name);
                     defaultInputDeviceVolumeSensor.SetState(inputVolume);
 
-                    if (!Sensors.ContainsKey(defaultInputDeviceVolumeId)) Sensors.Add(defaultInputDeviceVolumeId, defaultInputDeviceVolumeSensor);
-                    else Sensors[defaultInputDeviceVolumeId] = defaultInputDeviceVolumeSensor;
+                    if (!Sensors.ContainsKey(defaultInputDeviceVolumeId))
+                        Sensors.Add(defaultInputDeviceVolumeId, defaultInputDeviceVolumeSensor);
+                    else
+                        Sensors[defaultInputDeviceVolumeId] = defaultInputDeviceVolumeSensor;
                 }
 
                 // optionally reset error flag
@@ -150,6 +170,23 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
                 Log.Fatal(ex, "[AUDIO] [{name}] Error while fetching audio info: {err}", Name, ex.Message);
             }
+        }
+
+        private string GetSessionDisplayName(AudioSessionControl2 session)
+        {
+            var procId = (int)session.ProcessID;
+
+            if (procId <= 0)
+                return session.DisplayName;
+
+            if (ApplicationNames.ContainsKey(procId))
+                return ApplicationNames[procId];
+
+            // we don't know this app yet, get process info
+            using var p = Process.GetProcessById(procId);
+            ApplicationNames.Add(procId, p.ProcessName);
+
+            return p.ProcessName;
         }
 
         private List<AudioSessionInfo> GetSessions(out float peakVolume)
@@ -168,49 +205,24 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     {
                         try
                         {
-                            // filter inactive sessions
-                            if (session.State != AudioSessionState.AudioSessionStateActive) continue;
+                            var displayName = GetSessionDisplayName(session);
 
-                            // prepare sessioninfo
-                            var sessionInfo = new AudioSessionInfo();
+                            if (displayName.Length > 30)
+                                displayName = $"{displayName[..30]}..";
 
-                            // get displayname
-                            string displayName;
-                            var procId = (int)session.ProcessID;
-                            if (procId <= 0)
+                            var sessionInfo = new AudioSessionInfo
                             {
-                                // faulty process id, use the provided displayname
-                                displayName = session.DisplayName;
-                            }
-                            else
-                            {
-                                if (ApplicationNames.ContainsKey(procId)) displayName = ApplicationNames[procId];
-                                else
-                                {
-                                    // we don't know this app yet, get process info
-                                    using var p = Process.GetProcessById(procId);
-                                    displayName = p.ProcessName;
-                                    ApplicationNames.Add(procId, displayName);
-                                }
-                            }
-
-                            // set displayname
-                            if (displayName.Length > 30) displayName = $"{displayName[..30]}..";
-                            sessionInfo.Application = displayName;
-
-                            // get muted state
-                            sessionInfo.Muted = session.SimpleAudioVolume?.Mute ?? false;
-
-                            // set master volume
-                            sessionInfo.MasterVolume = session.SimpleAudioVolume?.MasterVolume * 100 ?? 0f;
-
-                            // set peak volume
-                            sessionInfo.PeakVolume = session.AudioMeterInformation?.MasterPeakValue * 100 ?? 0f;
+                                Application = displayName,
+                                Muted = session.SimpleAudioVolume?.Mute ?? false,
+                                Active = session.State == AudioSessionState.AudioSessionStateActive,
+                                MasterVolume = session.SimpleAudioVolume?.MasterVolume * 100 ?? 0f,
+                                PeakVolume = session.AudioMeterInformation?.MasterPeakValue * 100 ?? 0f
+                            };
 
                             // new max?
-                            if (sessionInfo.PeakVolume > peakVolume) peakVolume = sessionInfo.PeakVolume;
+                            if (sessionInfo.PeakVolume > peakVolume)
+                                peakVolume = sessionInfo.PeakVolume;
 
-                            // store the session info
                             sessionInfos.Add(sessionInfo);
                         }
                         catch (Exception ex)
@@ -230,16 +242,20 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 if (errors && !_errorPrinted)
                 {
                     _errorPrinted = true;
+
                     return sessionInfos;
                 }
 
                 // optionally reset error flag
-                if (_errorPrinted) _errorPrinted = false;
+                if (_errorPrinted)
+                    _errorPrinted = false;
             }
             catch (Exception ex)
             {
                 // something went wrong, only print once
-                if (_errorPrinted) return sessionInfos;
+                if (_errorPrinted)
+                    return sessionInfos;
+
                 _errorPrinted = true;
 
                 Log.Fatal(ex, "[AUDIO] [{name}] Fatal exception while getting sessions: {err}", Name, ex.Message);
@@ -250,7 +266,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
         private float GetDefaultInputDevicePeakVolume(MMDevice inputDevice)
         {
-            if (inputDevice == null) return 0f;
+            if (inputDevice == null)
+                return 0f;
+
             var peakVolume = 0f;
 
             try
@@ -263,13 +281,15 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     try
                     {
                         // filter inactive sessions
-                        if (session.State != AudioSessionState.AudioSessionStateActive) continue;
-                        
+                        if (session.State != AudioSessionState.AudioSessionStateActive)
+                            continue;
+
                         // set peak volume
                         var sessionPeakVolume = session.AudioMeterInformation?.MasterPeakValue * 100 ?? 0f;
 
                         // new max?
-                        if (sessionPeakVolume > peakVolume) peakVolume = sessionPeakVolume;
+                        if (sessionPeakVolume > peakVolume)
+                            peakVolume = sessionPeakVolume;
                     }
                     catch (Exception ex)
                     {
@@ -286,11 +306,13 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 if (errors && !_errorPrinted)
                 {
                     _errorPrinted = true;
+
                     return peakVolume;
                 }
 
                 // optionally reset error flag
-                if (_errorPrinted) _errorPrinted = false;
+                if (_errorPrinted)
+                    _errorPrinted = false;
             }
             catch (Exception ex)
             {
