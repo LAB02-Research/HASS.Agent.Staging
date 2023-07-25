@@ -427,6 +427,8 @@ namespace HASS.Agent.Managers
             if (!uri.StartsWith(Variables.AppSettings.HassUri))
                 return await Variables.HttpClient.GetStreamAsync(uri);
 
+            Log.Debug("[STORAGE] Using token bearer authentication for : {uri}", uri);
+
             var httpRequest =  new HttpRequestMessage{
                 Method = HttpMethod.Get,
                 RequestUri = new Uri(uri, UriKind.RelativeOrAbsolute),
@@ -434,6 +436,8 @@ namespace HASS.Agent.Managers
             httpRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Variables.AppSettings.HassToken);
 
             var response = await Variables.HttpClient.SendAsync(httpRequest);
+            response.EnsureSuccessStatusCode();
+
             var content = response.Content;
 
             return await content.ReadAsStreamAsync().ConfigureAwait(false);
