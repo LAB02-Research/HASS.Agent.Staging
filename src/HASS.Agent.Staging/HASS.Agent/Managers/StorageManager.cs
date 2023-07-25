@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading;
 using Serilog;
 using Task = System.Threading.Tasks.Task;
 
@@ -419,6 +422,23 @@ namespace HASS.Agent.Managers
             }
         }
 
+        private static async Task<Stream> GetHttpClientRequestStream(string uri)
+        {
+            if (!uri.StartsWith(Variables.AppSettings.HassUri))
+                return await Variables.HttpClient.GetStreamAsync(uri);
+
+            var httpRequest =  new HttpRequestMessage{
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(uri, UriKind.RelativeOrAbsolute),
+            };
+            httpRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Variables.AppSettings.HassToken);
+
+            var response = await Variables.HttpClient.SendAsync(httpRequest);
+            var content = response.Content;
+
+            return await content.ReadAsStreamAsync().ConfigureAwait(false);
+        }
+
         /// <summary>
         /// Downloads the provided URI to a local file
         /// </summary>
@@ -436,7 +456,7 @@ namespace HASS.Agent.Managers
                 }
 
                 // get a stream from our http client
-                await using var stream = await Variables.HttpClient.GetStreamAsync(uri);
+                await using var stream = await GetHttpClientRequestStream(uri);
 
                 // get a local file stream
                 await using var fileStream = new FileStream(localFile!, FileMode.CreateNew);
