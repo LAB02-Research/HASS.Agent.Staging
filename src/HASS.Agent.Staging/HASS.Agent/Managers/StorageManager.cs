@@ -438,9 +438,7 @@ namespace HASS.Agent.Managers
             var response = await Variables.HttpClient.SendAsync(httpRequest);
             response.EnsureSuccessStatusCode();
 
-            var content = response.Content;
-
-            return await content.ReadAsStreamAsync().ConfigureAwait(false);
+            return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         }
 
         /// <summary>
