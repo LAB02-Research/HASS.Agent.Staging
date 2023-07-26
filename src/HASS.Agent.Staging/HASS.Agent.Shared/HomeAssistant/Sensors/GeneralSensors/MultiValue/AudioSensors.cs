@@ -160,12 +160,15 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 }
 
                 // optionally reset error flag
-                if (_errorPrinted) _errorPrinted = false;
+                if (_errorPrinted)
+                    _errorPrinted = false;
             }
             catch (Exception ex)
             {
                 // something went wrong, only print once
-                if (_errorPrinted) return;
+                if (_errorPrinted)
+                    return;
+
                 _errorPrinted = true;
 
                 Log.Fatal(ex, "[AUDIO] [{name}] Error while fetching audio info: {err}", Name, ex.Message);
@@ -233,7 +236,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                         }
                         catch (Exception ex)
                         {
-                            if (!_errorPrinted) Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving info: {err}", Name, session.DisplayName, ex.Message);
+                            if (!_errorPrinted)
+                                Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving info: {err}", Name, session.DisplayName, ex.Message);
+                            
                             errors = true;
                         }
                         finally
@@ -299,7 +304,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     }
                     catch (Exception ex)
                     {
-                        if (!_errorPrinted) Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving input info: {err}", Name, session.DisplayName, ex.Message);
+                        if (!_errorPrinted)
+                            Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving input info: {err}", Name, session.DisplayName, ex.Message);
+
                         errors = true;
                     }
                     finally
@@ -323,7 +330,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             catch (Exception ex)
             {
                 // something went wrong, only print once
-                if (_errorPrinted) return peakVolume;
+                if (_errorPrinted)
+                    return peakVolume;
+
                 _errorPrinted = true;
 
                 Log.Fatal(ex, "[AUDIO] [{name}] Fatal exception while getting input info: {err}", Name, ex.Message);
