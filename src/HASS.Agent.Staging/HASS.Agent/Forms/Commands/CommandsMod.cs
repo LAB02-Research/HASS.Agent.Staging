@@ -13,6 +13,7 @@ using HASS.Agent.Shared.Functions;
 using HASS.Agent.Shared.Models.Config;
 using HASS.Agent.Shared.Models.Internal;
 using Newtonsoft.Json;
+using static HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands.SetApplicationVolumeCommand;
 
 namespace HASS.Agent.Forms.Commands
 {
@@ -120,7 +121,7 @@ namespace HASS.Agent.Forms.Commands
         {
             // load the card
             var commandCard = CommandsManager.CommandInfoCards[Command.Type];
-            
+
             // select it as well
             foreach (ListViewItem lvi in LvCommands.Items)
             {
@@ -192,8 +193,10 @@ namespace HASS.Agent.Forms.Commands
                     break;
 
                 case CommandType.SetVolumeCommand:
+                case CommandType.SetApplicationVolumeCommand:
                     TbSetting.Text = Command.Command;
                     break;
+
             }
 
             CbRunAsLowIntegrity.CheckState = Command.RunAsLowIntegrity ? CheckState.Checked : CheckState.Unchecked;
@@ -408,6 +411,21 @@ namespace HASS.Agent.Forms.Commands
                     Command.Command = volume;
                     break;
 
+                case CommandType.SetApplicationVolumeCommand:
+                    var jsonString = TbSetting.Text.Trim();
+                    try
+                    {
+                        var jsonObject = JsonConvert.DeserializeObject(jsonString);
+                        Command.Command = jsonString;
+                    }
+                    catch
+                    {
+                        MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_InvalidJson, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ActiveControl = TbSetting;
+                        return;
+                    }
+                    break;
+
                 case CommandType.WebViewCommand:
                     var webview = TbSetting.Text.Trim();
                     if (string.IsNullOrEmpty(webview))
@@ -436,7 +454,7 @@ namespace HASS.Agent.Forms.Commands
             // done
             DialogResult = DialogResult.OK;
         }
-        
+
         private void LvCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_loading) return;
@@ -537,6 +555,10 @@ namespace HASS.Agent.Forms.Commands
                     SetVolumeUi();
                     break;
 
+                case CommandType.SetApplicationVolumeCommand:
+                    SetApplicationVolumeUi();
+                    break;
+
                 default:
                     SetEmptyGui();
                     break;
@@ -630,7 +652,7 @@ namespace HASS.Agent.Forms.Commands
 
                 TbSetting.Text = string.Empty;
                 TbSetting.Visible = true;
-                
+
                 CbCommandSpecific.CheckState = CheckState.Unchecked;
                 CbCommandSpecific.Text = Languages.CommandsMod_CbCommandSpecific_Incognito;
 
@@ -712,6 +734,23 @@ namespace HASS.Agent.Forms.Commands
                 SetEmptyGui();
 
                 LblSetting.Text = "volume (between 0 and 100)";
+                LblSetting.Visible = true;
+
+                TbSetting.Text = string.Empty;
+                TbSetting.Visible = true;
+            }));
+        }
+
+        /// <summary>
+        /// Change the UI to a 'setappvolume' type
+        /// </summary>
+        private void SetApplicationVolumeUi()
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                SetEmptyGui();
+
+                LblSetting.Text = "JSON Command Payload";
                 LblSetting.Visible = true;
 
                 TbSetting.Text = string.Empty;
@@ -881,7 +920,7 @@ namespace HASS.Agent.Forms.Commands
 
             var item = (KeyValuePair<int, string>)CbEntityType.SelectedItem;
             var entityType = (CommandEntityType)item.Key;
-            
+
             var deviceConfig = Variables.MqttManager?.GetDeviceConfigModel();
             if (deviceConfig == null)
             {

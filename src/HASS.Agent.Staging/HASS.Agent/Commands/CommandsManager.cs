@@ -460,7 +460,14 @@ namespace HASS.Agent.Commands
             CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
 
             // =================================
+            
+            commandInfoCard = new CommandInfoCard(CommandType.SetApplicationVolumeCommand,
+                Languages.CommandsManager_SetApplicationVolumeCommandDescription,
+                   true, true, true);
 
+            CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
+
+            // =================================
             commandInfoCard = new CommandInfoCard(CommandType.ShutdownCommand,
                 Languages.CommandsManager_ShutdownCommandDescription,
                 true, true, false);

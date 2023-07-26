@@ -147,6 +147,9 @@ namespace HASS.Agent.Satellite.Service.Settings
                 case CommandType.SetVolumeCommand:
                     abstractCommand = new SetVolumeCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
                     break;
+                case CommandType.SetApplicationVolumeCommand:
+                    abstractCommand = new SetApplicationVolumeCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
+                    break;
                 default:
                     Log.Error("[SETTINGS_COMMANDS] [{name}] Unknown configured command type: {type}", command.Name, command.Type.ToString());
                     break;

@@ -15,15 +15,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
         private const string DefaultName = "setappvolume";
         private static readonly Dictionary<int, string> ApplicationNames = new Dictionary<int, string>();
 
-        public SetApplicationVolumeCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(name ?? DefaultName, friendlyName ?? null, string.Empty, entityType, id)
+        public SetApplicationVolumeCommand(string name = DefaultName, string friendlyName = DefaultName, string commandConfig = "", CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(name ?? DefaultName, friendlyName ?? null, commandConfig, entityType, id)
         {
             State = "OFF";
         }
 
-        public override void TurnOn()
-        {
-            Log.Error("[SETAPPVOLUME] [{name}] Error, this command can be run only with action");
-        }
+        public override void TurnOn() => TurnOnWithAction(CommandConfig);
 
         private MMDevice GetAudioDeviceOrDefault(string playbackDeviceName)
         {

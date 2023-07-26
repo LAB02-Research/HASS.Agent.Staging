@@ -124,7 +124,7 @@
     <value>Tarayıcı adı</value>
   </data>
   <data name="ConfigExternalTools_LblInfo2" xml:space="preserve">
-    <value>Varsayılan olarak HASS.Agent, varsayılan tarayıcınızı kullanarak URL&apos;leri başlatır. 
+    <value>Varsayılan olarak HASS.Agent, varsayılan tarayıcınızı kullanarak URL'leri başlatır. 
 Ayrıca, 
 özel modda çalışacak başlatma argümanlarıyla birlikte kullanılacak belirli bir tarayıcıyı da yapılandırabilirsiniz.</value>
     <comment>Fuzzy</comment>
@@ -139,8 +139,8 @@ Ayrıca,
     <value>Özel Yürütücü İkili Dosyası</value>
   </data>
   <data name="ConfigExternalTools_LblInfo3" xml:space="preserve">
-    <value>HASS.Agent&apos;ı Perl veya Python gibi belirli bir yorumlayıcı kullanacak şekilde yapılandırabilirsiniz.
-Bu yürütücüyü başlatmak için &apos;özel yürütücü&apos; komutunu kullanın.</value>
+    <value>HASS.Agent'ı Perl veya Python gibi belirli bir yorumlayıcı kullanacak şekilde yapılandırabilirsiniz.
+Bu yürütücüyü başlatmak için 'özel yürütücü' komutunu kullanın.</value>
   </data>
   <data name="ConfigExternalTools_LblCustomExecutorName" xml:space="preserve">
     <value>Özel Yürütücü Adı</value>
@@ -152,7 +152,7 @@ Bu yürütücüyü başlatmak için &apos;özel yürütücü&apos; komutunu kull
     <value>&amp;Ölçek</value>
   </data>
   <data name="ConfigGeneral_LblInfo4" xml:space="preserve">
-    <value>HASS.Agent, MQTT veya HA&apos;nın API&apos;si ile olan bağlantı kesintilerini size bildirmeden önce bir ek süre bekleyecektir. 
+    <value>HASS.Agent, MQTT veya HA'nın API'si ile olan bağlantı kesintilerini size bildirmeden önce bir ek süre bekleyecektir. 
 Aşağıda bu ek süre içinde beklenecek saniye miktarını ayarlayabilirsiniz.</value>
   </data>
   <data name="ConfigGeneral_LblDisconGraceSeconds" xml:space="preserve">
@@ -166,7 +166,7 @@ Aşağıda bu ek süre içinde beklenecek saniye miktarını ayarlayabilirsiniz.
 Otomasyonlarınız ve komut dosyalarınız çalışmaya devam edecek.</value>
   </data>
   <data name="ConfigGeneral_LblInfo2" xml:space="preserve">
-    <value>Cihaz adı, Home Assistant&apos;ta makinenizi tanımlamak için kullanılır. Ayrıca komut/sensör adlarınız için bir önek olarak kullanılır (bu, varlık başına değiştirilebilir).</value>
+    <value>Cihaz adı, Home Assistant'ta makinenizi tanımlamak için kullanılır. Ayrıca komut/sensör adlarınız için bir önek olarak kullanılır (bu, varlık başına değiştirilebilir).</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigGeneral_LblInfo1" xml:space="preserve">
@@ -189,11 +189,11 @@ Otomasyonlarınız ve komut dosyalarınız çalışmaya devam edecek.</value>
   </data>
   <data name="ConfigHomeAssistantApi_LblInfo1" xml:space="preserve">
     <value>Hangi varlıkları yapılandırdığınızı öğrenmek ve hızlı eylemler göndermek için HASS.Agent, 
-Home Assistant&apos;ın API&apos;sini kullanır. 
+Home Assistant'ın API'sini kullanır. 
 
 Lütfen uzun ömürlü bir erişim belirteci ve Home Assistant örneğinizin adresini sağlayın. 
-Home Assistant&apos;ta sol alttaki profil resminize tıklayarak 
-ve &apos;TOKEN OLUŞTUR&apos; düğmesini görene kadar sayfanın en altına giderek bir token alabilirsiniz.</value>
+Home Assistant'ta sol alttaki profil resminize tıklayarak 
+ve 'TOKEN OLUŞTUR' düğmesini görene kadar sayfanın en altına giderek bir token alabilirsiniz.</value>
   </data>
   <data name="ConfigHomeAssistantApi_LblApiToken" xml:space="preserve">
     <value>&amp;API Simgesi</value>
@@ -231,12 +231,12 @@ Bu şekilde, makinenizde ne yapıyorsanız yapın, Home Assistant ile her zaman 
     <value>Bildirimlerde gösterilen resimler gibi bazı öğelerin geçici olarak yerel olarak depolanması gerekir. HASS.Agent 
 bunları silmeden önce tutulması gereken gün miktarını yapılandırabilirsiniz. 
 
-Bunları kalıcı olarak tutmak için &apos;0&apos; girin.</value>
+Bunları kalıcı olarak tutmak için '0' girin.</value>
   </data>
   <data name="ConfigLogging_LblInfo1" xml:space="preserve">
     <value>Genişletilmiş günlük kaydı, varsayılan günlük kaydının yeterli olmaması durumunda daha ayrıntılı ve derinlemesine günlük 
 kaydı sağlar. Lütfen bunun etkinleştirilmesinin günlük dosyalarının büyümesine neden olabileceğini 
-ve yalnızca HASS.Agent&apos;ın kendisinde bir sorun olduğundan şüphelendiğinizde veya 
+ve yalnızca HASS.Agent'ın kendisinde bir sorun olduğundan şüphelendiğinizde veya 
 geliştiriciler tarafından istendiğinde kullanılması gerektiğini unutmayın.</value>
   </data>
   <data name="ConfigLogging_CbExtendedLogging" xml:space="preserve">
@@ -267,7 +267,7 @@ geliştiriciler tarafından istendiğinde kullanılması gerektiğini unutmayın
     <value>(emin değilseniz varsayılanı bırakın)</value>
   </data>
   <data name="ConfigMqtt_LblInfo1" xml:space="preserve">
-    <value>Komutlar ve sensörler, yeni entegrasyonu kullanırken bildirimler ve medya oynatıcı işlevlerinin yanı sıra MQTT&apos;yi kullanır. 
+    <value>Komutlar ve sensörler, yeni entegrasyonu kullanırken bildirimler ve medya oynatıcı işlevlerinin yanı sıra MQTT'yi kullanır. 
 
 Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini kullanıyorsanız, muhtemelen önceden ayarlanmış adresi kullanabilirsiniz.
 
@@ -295,10 +295,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Müşteri Kimliği</value>
   </data>
   <data name="ConfigNotifications_LblInfo2" xml:space="preserve">
-    <value>Bir şey çalışmıyorsa, aşağıdaki adımları denediğinizden emin olun: - HASS.Agent entegrasyonunu kurun - Home Assistant&apos;ı yeniden başlatın - MQTT etkinken HASS.Agent&apos;ın etkin olduğundan emin olun! - Cihazınız otomatik olarak bir varlık olarak algılanmalı ve eklenmelidir - İsteğe bağlı olarak: yerel API&apos;yi kullanarak manuel olarak ekleyin</value>
+    <value>Bir şey çalışmıyorsa, aşağıdaki adımları denediğinizden emin olun: - HASS.Agent entegrasyonunu kurun - Home Assistant'ı yeniden başlatın - MQTT etkinken HASS.Agent'ın etkin olduğundan emin olun! - Cihazınız otomatik olarak bir varlık olarak algılanmalı ve eklenmelidir - İsteğe bağlı olarak: yerel API'yi kullanarak manuel olarak ekleyin</value>
   </data>
   <data name="ConfigNotifications_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent metin, resim ve eylemleri kullanarak Home Assistant&apos;tan bildirimler alabilir. MQTT&apos;yi etkinleştirdiyseniz, cihazınız otomatik olarak eklenir. Aksi takdirde, yerel API&apos;yi kullanmak için entegrasyonu manuel olarak yapılandırın.</value>
+    <value>HASS.Agent metin, resim ve eylemleri kullanarak Home Assistant'tan bildirimler alabilir. MQTT'yi etkinleştirdiyseniz, cihazınız otomatik olarak eklenir. Aksi takdirde, yerel API'yi kullanmak için entegrasyonu manuel olarak yapılandırın.</value>
   </data>
   <data name="ConfigNotifications_BtnNotificationsReadme" xml:space="preserve">
     <value>Bildirimler ve Belgeler</value>
@@ -319,7 +319,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>&amp;Görüntüler için sertifika hatalarını yoksay</value>
   </data>
   <data name="ConfigService_LblInfo1" xml:space="preserve">
-    <value>Uydu hizmeti, hiçbir kullanıcı oturum açmadığında bile sensörleri ve komutları çalıştırmanıza izin verir. Yönetmek için ana penceredeki &apos;uydu hizmeti&apos; düğmesini kullanın.</value>
+    <value>Uydu hizmeti, hiçbir kullanıcı oturum açmadığında bile sensörleri ve komutları çalıştırmanıza izin verir. Yönetmek için ana penceredeki 'uydu hizmeti' düğmesini kullanın.</value>
   </data>
   <data name="ConfigService_LblServiceStatusInfo" xml:space="preserve">
     <value>Servis durumu:</value>
@@ -352,7 +352,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Yeniden yüklemeden sonra hizmet hala başarısız olursa, lütfen bir bilet açın ve en son günlüğün içeriğini gönderin.</value>
   </data>
   <data name="ConfigStartup_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent, kullanıcı profilinizin kayıt defterinde bir giriş oluşturarak oturum açtığınızda başlayabilir. HASS.Agent kullanıcı tabanlı olduğundan, başka bir kullanıcı için başlatmak istiyorsanız, HASS.Agent&apos;ı orada kurun ve yapılandırın.</value>
+    <value>HASS.Agent, kullanıcı profilinizin kayıt defterinde bir giriş oluşturarak oturum açtığınızda başlayabilir. HASS.Agent kullanıcı tabanlı olduğundan, başka bir kullanıcı için başlatmak istiyorsanız, HASS.Agent'ı orada kurun ve yapılandırın.</value>
   </data>
   <data name="ConfigStartup_BtnSetStartOnLogin" xml:space="preserve">
     <value>&amp;Oturum Açıldığında Başlatmayı Etkinleştir</value>
@@ -376,16 +376,16 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Yeni bir &amp;sürüm çıktığında bana haber ver</value>
   </data>
   <data name="OnboardingWelcome_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent&apos;a hoş geldiniz! Aracıyı ilk kez başlatıyorsunuz gibi görünüyor. İlk kurulumda size yardımcı olmak için aşağıdaki yapılandırma adımlarını uygulayın veya alternatif olarak &apos;Kapat&apos;ı tıklayın.</value>
+    <value>HASS.Agent'a hoş geldiniz! Aracıyı ilk kez başlatıyorsunuz gibi görünüyor. İlk kurulumda size yardımcı olmak için aşağıdaki yapılandırma adımlarını uygulayın veya alternatif olarak 'Kapat'ı tıklayın.</value>
   </data>
   <data name="OnboardingWelcome_LblInfo2" xml:space="preserve">
-    <value>Cihaz adı, Home Assistant&apos;ta makinenizi tanımlamak için kullanılır, ayrıca komutlarınız ve sensörleriniz için önerilen bir önek olarak kullanılır.</value>
+    <value>Cihaz adı, Home Assistant'ta makinenizi tanımlamak için kullanılır, ayrıca komutlarınız ve sensörleriniz için önerilen bir önek olarak kullanılır.</value>
   </data>
   <data name="OnboardingWelcome_LblDeviceName" xml:space="preserve">
     <value>Cihaz adı</value>
   </data>
   <data name="OnboardingStartup_BtnSetLaunchOnLogin" xml:space="preserve">
-    <value>Evet, Sistem Girişinde HASS.Agent&apos;ı &amp;başlatın</value>
+    <value>Evet, Sistem Girişinde HASS.Agent'ı &amp;başlatın</value>
   </data>
   <data name="OnboardingStartup_LblInfo1" xml:space="preserve">
     <value>HASS.Agent, sisteminizle başlayabilir, bu, oturum açar açmaz cihazınız ve Home Assistant arasındaki tüm sensörlerin ve veri aktarımının başlamasına olanak tanır. Bu ayar, daha sonra HASS.Agent yapılandırma penceresinde herhangi bir zamanda değiştirilebilir.</value>
@@ -394,22 +394,22 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Mevcut durum getiriliyor, lütfen bekleyin..</value>
   </data>
   <data name="OnboardingNotifications_LblTip1" xml:space="preserve">
-    <value>Not: 5115 varsayılan bağlantı noktasıdır, yalnızca Home Assistant&apos;ta değiştirdiyseniz değiştirin.</value>
+    <value>Not: 5115 varsayılan bağlantı noktasıdır, yalnızca Home Assistant'ta değiştirdiyseniz değiştirin.</value>
   </data>
   <data name="OnboardingNotifications_CbAcceptNotifications" xml:space="preserve">
     <value>Evet, bağlantı noktasındaki bildirimleri kabul et</value>
   </data>
   <data name="OnboardingNotifications_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent, metin ve/veya resimler kullanarak Home Assistant&apos;tan bildirimler alabilir. Bu işlevi etkinleştirmek istiyor musunuz?</value>
+    <value>HASS.Agent, metin ve/veya resimler kullanarak Home Assistant'tan bildirimler alabilir. Bu işlevi etkinleştirmek istiyor musunuz?</value>
   </data>
   <data name="OnboardingIntegration_LblIntegration" xml:space="preserve">
     <value>HASS.Agent-Notifier GitHub Sayfası</value>
   </data>
   <data name="OnboardingIntegration_LblInfo2" xml:space="preserve">
-    <value>Şu adımları uyguladığınızdan emin olun: - HASS.Agent-Notifier entegrasyonunu kurun - Home Assistant&apos;ı yeniden başlatın - Bir bildirim varlığı yapılandırın - Home Assistant&apos;ı yeniden başlatın</value>
+    <value>Şu adımları uyguladığınızdan emin olun: - HASS.Agent-Notifier entegrasyonunu kurun - Home Assistant'ı yeniden başlatın - Bir bildirim varlığı yapılandırın - Home Assistant'ı yeniden başlatın</value>
   </data>
   <data name="OnboardingIntegration_LblInfo1" xml:space="preserve">
-    <value>Bildirimleri kullanmak için Home Assistant&apos;ta HASS.Agent-notifier entegrasyonunu kurmanız ve yapılandırmanız gerekir. Bu, HACS&apos;yi kullanmak çok kolaydır, ancak manuel olarak da kurulabilir, daha fazla bilgi için aşağıdaki bağlantıyı ziyaret edin.</value>
+    <value>Bildirimleri kullanmak için Home Assistant'ta HASS.Agent-notifier entegrasyonunu kurmanız ve yapılandırmanız gerekir. Bu, HACS'yi kullanmak çok kolaydır, ancak manuel olarak da kurulabilir, daha fazla bilgi için aşağıdaki bağlantıyı ziyaret edin.</value>
   </data>
   <data name="OnboardingApi_LblApiToken" xml:space="preserve">
     <value>API &amp; Jeton</value>
@@ -418,7 +418,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Sunucu &amp;URI (böyle olması gerekir)</value>
   </data>
   <data name="OnboardingApi_LblInfo1" xml:space="preserve">
-    <value>Hangi varlıkları yapılandırdığınızı öğrenmek ve hızlı eylemler göndermek için HASS.Agent, Home Assistant&apos;ın API&apos;sini kullanır. Lütfen uzun ömürlü bir erişim belirteci ve Home Assistant örneğinizin adresini sağlayın. Home Assistant&apos;ta sol alttaki profil resminize tıklayarak ve &apos;TOKEN OLUŞTUR&apos; düğmesini görene kadar sayfanın en altına giderek bir jeton alabilirsiniz.</value>
+    <value>Hangi varlıkları yapılandırdığınızı öğrenmek ve hızlı eylemler göndermek için HASS.Agent, Home Assistant'ın API'sini kullanır. Lütfen uzun ömürlü bir erişim belirteci ve Home Assistant örneğinizin adresini sağlayın. Home Assistant'ta sol alttaki profil resminize tıklayarak ve 'TOKEN OLUŞTUR' düğmesini görene kadar sayfanın en altına giderek bir jeton alabilirsiniz.</value>
   </data>
   <data name="OnboardingApi_BtnTest" xml:space="preserve">
     <value>Test bağlantısı</value>
@@ -475,7 +475,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>HASS.Agent GitHub sayfası</value>
   </data>
   <data name="OnboardingDone_LblInfo3" xml:space="preserve">
-    <value> Kurcalanacak daha çok şey var, bu yüzden Yapılandırma Penceresine bir göz attığınızdan emin olun! HASS.Agent&apos;ı kullandığınız için teşekkür ederiz, umarım işinize yarar :-)</value>
+    <value> Kurcalanacak daha çok şey var, bu yüzden Yapılandırma Penceresine bir göz attığınızdan emin olun! HASS.Agent'ı kullandığınız için teşekkür ederiz, umarım işinize yarar :-)</value>
   </data>
   <data name="OnboardingDone_LblInfo2" xml:space="preserve">
     <value>HASS.Agent şimdi yapılandırma değişikliklerinizi uygulamak için yeniden başlatılacak.</value>
@@ -610,7 +610,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>&amp;Gönder &amp;&amp; Yapılandırmayı Etkinleştir</value>
   </data>
   <data name="ServiceMqtt_BtnCopy" xml:space="preserve">
-    <value>&amp;HASS.Agent&apos;tan kopyala</value>
+    <value>&amp;HASS.Agent'tan kopyala</value>
   </data>
   <data name="ServiceMqtt_LblStored" xml:space="preserve">
     <value>Yapılandırma kaydedildi!</value>
@@ -676,7 +676,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Önceki örneğin kapanması bekleniyor..</value>
   </data>
   <data name="Restart_LblTask2" xml:space="preserve">
-    <value>HASS.Agent&apos;ı Yeniden Başlatın</value>
+    <value>HASS.Agent'ı Yeniden Başlatın</value>
   </data>
   <data name="Restart_Title" xml:space="preserve">
     <value>HASS.Agent Yeniden Başlatıcı</value>
@@ -757,7 +757,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Tanım</value>
   </data>
   <data name="CommandsMod_CbRunAsLowIntegrity" xml:space="preserve">
-    <value>&amp;&apos;Düşük Bütünlük&apos; olarak çalıştır</value>
+    <value>&amp;'Düşük Bütünlük' olarak çalıştır</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo" xml:space="preserve">
     <value>Bu nedir?</value>
@@ -957,7 +957,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Bu uygulama açık kaynak kodlu ve tamamen ücretsizdir, lütfen kullanılan bileşenlerin proje sayfalarını bireysel lisansları için kontrol edin:</value>
   </data>
   <data name="About_LblInfo4" xml:space="preserve">
-    <value> Sıkı çalışmalarını biz fanilerle paylaşma nezaketini gösteren bu projelerin geliştiricilerine büyük bir &apos;teşekkür ederim&apos;.</value>
+    <value> Sıkı çalışmalarını biz fanilerle paylaşma nezaketini gösteren bu projelerin geliştiricilerine büyük bir 'teşekkür ederim'.</value>
   </data>
   <data name="About_LblInfo5" xml:space="preserve">
     <value>Ve tabi ki; Paulus Shoutsen ve Home Assistant :-) yaratan ve bakımını yapan tüm geliştirici ekibine teşekkürler</value>
@@ -978,7 +978,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Harici Araçlar</value>
   </data>
   <data name="Configuration_TabHassApi" xml:space="preserve">
-    <value>Ev Yardımcısı API&apos;sı</value>
+    <value>Ev Yardımcısı API'sı</value>
   </data>
   <data name="Configuration_TabHotKey" xml:space="preserve">
     <value>Kısayol tuşu</value>
@@ -1056,7 +1056,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Hataları bildirin, özellik istekleri gönderin, en son değişiklikleri görün vb.</value>
   </data>
   <data name="Help_LblDiscordInfo" xml:space="preserve">
-    <value>HASS.Agent&apos;ı kurma ve kullanma konusunda yardım alın, hataları bildirin veya genel sohbete katılın!</value>
+    <value>HASS.Agent'ı kurma ve kullanma konusunda yardım alın, hataları bildirin veya genel sohbete katılın!</value>
   </data>
   <data name="Help_LblWikiInfo" xml:space="preserve">
     <value>HASS.Agent belgelerine ve kullanım örneklerine göz atın.</value>
@@ -1065,7 +1065,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Yardım</value>
   </data>
   <data name="Main_TsShow" xml:space="preserve">
-    <value>HASS.Agent&apos;ı göster</value>
+    <value>HASS.Agent'ı göster</value>
   </data>
   <data name="Main_TsShowQuickActions" xml:space="preserve">
     <value>Hızlı İşlemleri Göster</value>
@@ -1095,7 +1095,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Hakkında</value>
   </data>
   <data name="Main_TsExit" xml:space="preserve">
-    <value>HASS.Agent&apos;tan çıkın</value>
+    <value>HASS.Agent'tan çıkın</value>
   </data>
   <data name="Main_BtnHide" xml:space="preserve">
     <value>&amp;Saklamak</value>
@@ -1134,10 +1134,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Hızlı İşlemler:</value>
   </data>
   <data name="Main_LblHomeAssistantApi" xml:space="preserve">
-    <value>Ev Asistanı API&apos;sı:</value>
+    <value>Ev Asistanı API'sı:</value>
   </data>
   <data name="Main_LblNotificationApi" xml:space="preserve">
-    <value>bildirim API&apos;si:</value>
+    <value>bildirim API'si:</value>
   </data>
   <data name="Onboarding_BtnNext" xml:space="preserve">
     <value>&amp;Sonraki</value>
@@ -1170,19 +1170,19 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>HASS.Agent Güncellemesi</value>
   </data>
   <data name="CommandsManager_CustomCommandDescription" xml:space="preserve">
-    <value>Özel bir komut yürütün. Bu komutlar özel yükseltme olmadan çalışır. Yükseltilmiş olarak çalıştırmak için bir Zamanlanmış Görev oluşturun ve görevinizi yürütmek için komut olarak &apos;schtasks /Run /TN &quot;TaskName&quot;&apos;i kullanın. Veya daha sıkı yürütme için &apos;düşük bütünlük olarak çalıştır&apos;ı etkinleştirin.</value>
+    <value>Özel bir komut yürütün. Bu komutlar özel yükseltme olmadan çalışır. Yükseltilmiş olarak çalıştırmak için bir Zamanlanmış Görev oluşturun ve görevinizi yürütmek için komut olarak 'schtasks /Run /TN "TaskName"'i kullanın. Veya daha sıkı yürütme için 'düşük bütünlük olarak çalıştır'ı etkinleştirin.</value>
   </data>
   <data name="CommandsManager_CustomExecutorCommandDescription" xml:space="preserve">
-    <value>Komutu, yapılandırılmış özel yürütücü aracılığıyla yürütür (Yapılandırma -&gt; Dış Araçlar&apos;da). Komutunuz &apos;olduğu gibi&apos; bir argüman olarak sağlanır, bu nedenle gerekirse kendi alıntılarınızı vb. sağlamanız gerekir.</value>
+    <value>Komutu, yapılandırılmış özel yürütücü aracılığıyla yürütür (Yapılandırma -&gt; Dış Araçlar'da). Komutunuz 'olduğu gibi' bir argüman olarak sağlanır, bu nedenle gerekirse kendi alıntılarınızı vb. sağlamanız gerekir.</value>
   </data>
   <data name="CommandsManager_HibernateCommandDescription" xml:space="preserve">
     <value>Makineyi hazırda bekletme moduna geçirir.</value>
   </data>
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
-    <value>Tek bir tuşa basmayı simüle eder. &apos;Anahtar kodu&apos; metin kutusuna tıklayın ve simüle edilmesini istediğiniz tuşa basın. İlgili anahtar kodu sizin için girilecektir. CTRL gibi daha fazla tuşa ve/veya değiştiriciye ihtiyacınız varsa, MultipleKeys komutunu kullanın.</value>
+    <value>Tek bir tuşa basmayı simüle eder. 'Anahtar kodu' metin kutusuna tıklayın ve simüle edilmesini istediğiniz tuşa basın. İlgili anahtar kodu sizin için girilecektir. CTRL gibi daha fazla tuşa ve/veya değiştiriciye ihtiyacınız varsa, MultipleKeys komutunu kullanın.</value>
   </data>
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">
-    <value>Varsayılan tarayıcınızda varsayılan olarak sağlanan URL&apos;yi başlatır. &apos;Gizli&apos; kullanmak için Yapılandırma -&gt; Harici Araçlar&apos;da belirli bir tarayıcı sağlayın. Yalnızca belirli bir URL&apos;ye sahip bir pencere istiyorsanız (tam bir tarayıcı değil), bir &apos;WebView&apos; komutu kullanın.</value>
+    <value>Varsayılan tarayıcınızda varsayılan olarak sağlanan URL'yi başlatır. 'Gizli' kullanmak için Yapılandırma -&gt; Harici Araçlar'da belirli bir tarayıcı sağlayın. Yalnızca belirli bir URL'ye sahip bir pencere istiyorsanız (tam bir tarayıcı değil), bir 'WebView' komutu kullanın.</value>
   </data>
   <data name="CommandsManager_LockCommandDescription" xml:space="preserve">
     <value>Geçerli oturumu kilitler.</value>
@@ -1191,40 +1191,40 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Geçerli oturumun oturumunu kapatır.</value>
   </data>
   <data name="CommandsManager_MediaMuteCommandDescription" xml:space="preserve">
-    <value>&apos;Sessiz&apos; tuşunu simüle eder.</value>
+    <value>'Sessiz' tuşunu simüle eder.</value>
   </data>
   <data name="CommandsManager_MediaNextCommandDescription" xml:space="preserve">
-    <value>&apos;Sonraki Medya&apos; tuşunu simüle eder.</value>
+    <value>'Sonraki Medya' tuşunu simüle eder.</value>
   </data>
   <data name="CommandsManager_MediaPlayPauseCommandDescription" xml:space="preserve">
-    <value>&apos;Medya Duraklat/Oynat&apos; tuşunu simüle eder.</value>
+    <value>'Medya Duraklat/Oynat' tuşunu simüle eder.</value>
   </data>
   <data name="CommandsManager_MediaPreviousCommandDescription" xml:space="preserve">
-    <value>&apos;Önceki Medya&apos; tuşunu simüle eder.</value>
+    <value>'Önceki Medya' tuşunu simüle eder.</value>
   </data>
   <data name="CommandsManager_MediaVolumeDownCommandDescription" xml:space="preserve">
-    <value>&apos;Sesi Kısma&apos; tuşunu simüle eder.</value>
+    <value>'Sesi Kısma' tuşunu simüle eder.</value>
   </data>
   <data name="CommandsManager_MediaVolumeUpCommandDescription" xml:space="preserve">
-    <value>&apos;Sesi Aç&apos; tuşunu simüle eder.</value>
+    <value>'Sesi Aç' tuşunu simüle eder.</value>
   </data>
   <data name="CommandsManager_MultipleKeysCommandDescription" xml:space="preserve">
-    <value>Birden fazla tuşa basmayı simüle eder. Her tuşun arasına [ ] koymanız gerekir, aksi takdirde HASS.Agent onları ayırt edemez. Diyelim ki X TAB Y SHIFT-Z&apos;ye basmak istiyorsunuz, bu [X] [{TAB}] [Y] [+Z] olur. Kullanabileceğiniz birkaç numara vardır: - Bir parantezin basılmasını istiyorsanız, ondan kaçının, bu nedenle [ [\[] ve ] [\]] olur - Özel tuşlar { } arasında gidip gelir, örneğin {TAB} veya {UP} - SHIFT, CTRL için ^ ve ALT için % eklemek için bir tuşun önüne + koyun. Yani +C, SHIFT-C&apos;dir. Veya +(CD), SHIFT-C ve SHIFT-D&apos;dir, +CD ise SHIFT-C ve D&apos;dir - Birden fazla basış için {z 15} kullanın, bu, Z&apos;ye 15 kez basılacağı anlamına gelir. Daha fazla bilgi: https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.sendkeys</value>
+    <value>Birden fazla tuşa basmayı simüle eder. Her tuşun arasına [ ] koymanız gerekir, aksi takdirde HASS.Agent onları ayırt edemez. Diyelim ki X TAB Y SHIFT-Z'ye basmak istiyorsunuz, bu [X] [{TAB}] [Y] [+Z] olur. Kullanabileceğiniz birkaç numara vardır: - Bir parantezin basılmasını istiyorsanız, ondan kaçının, bu nedenle [ [\[] ve ] [\]] olur - Özel tuşlar { } arasında gidip gelir, örneğin {TAB} veya {UP} - SHIFT, CTRL için ^ ve ALT için % eklemek için bir tuşun önüne + koyun. Yani +C, SHIFT-C'dir. Veya +(CD), SHIFT-C ve SHIFT-D'dir, +CD ise SHIFT-C ve D'dir - Birden fazla basış için {z 15} kullanın, bu, Z'ye 15 kez basılacağı anlamına gelir. Daha fazla bilgi: https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.sendkeys</value>
   </data>
   <data name="CommandsManager_PowershellCommandDescription" xml:space="preserve">
     <value>Bir Powershell komutu veya betiği yürütün. Bir komut dosyasının (*.ps1) konumunu veya tek satırlı bir komutu sağlayabilirsiniz. Bu, özel yükseklik olmadan çalışacaktır.</value>
   </data>
   <data name="CommandsManager_PublishAllSensorsCommandDescription" xml:space="preserve">
-    <value>Tüm sensör kontrollerini sıfırlar, tüm sensörleri değerlerini işlemeye ve göndermeye zorlar. Örneğin, bir HA yeniden başlatma sonrasında HASS.Agent&apos;ı tüm sensörlerinizi güncellemeye zorlamak istiyorsanız kullanışlıdır.</value>
+    <value>Tüm sensör kontrollerini sıfırlar, tüm sensörleri değerlerini işlemeye ve göndermeye zorlar. Örneğin, bir HA yeniden başlatma sonrasında HASS.Agent'ı tüm sensörlerinizi güncellemeye zorlamak istiyorsanız kullanışlıdır.</value>
   </data>
   <data name="CommandsManager_RestartCommandDescription" xml:space="preserve">
-    <value>Bir dakika sonra makineyi yeniden başlatır. İpucu: Yanlışlıkla mı tetiklendi? Kapatmayı iptal etmek için &apos;shutdown /a&apos; komutunu çalıştırın.</value>
+    <value>Bir dakika sonra makineyi yeniden başlatır. İpucu: Yanlışlıkla mı tetiklendi? Kapatmayı iptal etmek için 'shutdown /a' komutunu çalıştırın.</value>
   </data>
   <data name="CommandsManager_ShutdownCommandDescription" xml:space="preserve">
-    <value>Bir dakika sonra makineyi kapatır. İpucu: Yanlışlıkla mı tetiklendi? Kapatmayı iptal etmek için &apos;shutdown /a&apos; komutunu çalıştırın.</value>
+    <value>Bir dakika sonra makineyi kapatır. İpucu: Yanlışlıkla mı tetiklendi? Kapatmayı iptal etmek için 'shutdown /a' komutunu çalıştırın.</value>
   </data>
   <data name="CommandsManager_SleepCommandDescription" xml:space="preserve">
-    <value>Makineyi uyku moduna geçirir. Not: Windows&apos;taki bir sınırlama nedeniyle, bu yalnızca hazırda bekletme modu devre dışı bırakıldığında çalışır, aksi takdirde yalnızca hazırda bekletme moduna geçer. Bunu atlatmak için NirCmd (http://www.nirsoft.net/utils/nircmd.html) gibi bir şey kullanabilirsiniz.</value>
+    <value>Makineyi uyku moduna geçirir. Not: Windows'taki bir sınırlama nedeniyle, bu yalnızca hazırda bekletme modu devre dışı bırakıldığında çalışır, aksi takdirde yalnızca hazırda bekletme moduna geçer. Bunu atlatmak için NirCmd (http://www.nirsoft.net/utils/nircmd.html) gibi bir şey kullanabilirsiniz.</value>
   </data>
   <data name="ConfigExternalTools_BtnExternalBrowserIncognitoTest_MessageBox1" xml:space="preserve">
     <value>Lütfen tarayıcınızın ikili dosyasının konumunu girin! (.exe dosyası)</value>
@@ -1242,7 +1242,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Lütfen geçerli bir API anahtarı girin!</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox2" xml:space="preserve">
-    <value>Lütfen Ev Asistanınızın URI&apos;si için bir değer girin.</value>
+    <value>Lütfen Ev Asistanınızın URI'si için bir değer girin.</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox3" xml:space="preserve">
     <value>Bağlanılamadı, aşağıdaki hata döndürüldü: {0}</value>
@@ -1257,7 +1257,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Temizlik..</value>
   </data>
   <data name="ConfigNotifications_BtnSendTestNotification_MessageBox1" xml:space="preserve">
-    <value>Bildirimler şu anda devre dışı, lütfen bunları etkinleştirin ve HASS.Agent&apos;ı yeniden başlatın, ardından tekrar deneyin.</value>
+    <value>Bildirimler şu anda devre dışı, lütfen bunları etkinleştirin ve HASS.Agent'ı yeniden başlatın, ardından tekrar deneyin.</value>
   </data>
   <data name="ConfigNotifications_BtnSendTestNotification_MessageBox2" xml:space="preserve">
     <value>Test bildiriminin görünmesi gerekirdi, almadıysanız lütfen günlükleri kontrol edin veya sorun giderme ipuçları için belgelere bakın. Not: Bu, yalnızca yerel olarak bildirimlerin gösterilip gösterilmeyeceğini test eder!</value>
@@ -1290,7 +1290,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Hizmeti durdururken bir şeyler ters gitti, UAC istemine izin verdiniz mi? Daha fazla bilgi için HASS.Agent (hizmet değil) günlüklerini kontrol edin.</value>
   </data>
   <data name="ConfigService_BtnStartService_MessageBox1" xml:space="preserve">
-    <value>Hizmet &apos;devre dışı&apos; olarak ayarlanmıştır, bu nedenle başlatılamaz. Lütfen önce hizmeti etkinleştirin ve tekrar deneyin.</value>
+    <value>Hizmet 'devre dışı' olarak ayarlanmıştır, bu nedenle başlatılamaz. Lütfen önce hizmeti etkinleştirin ve tekrar deneyin.</value>
   </data>
   <data name="ConfigService_BtnStartService_MessageBox2" xml:space="preserve">
     <value>Hizmeti başlatırken bir şeyler ters gitti, UAC istemine izin verdiniz mi? Daha fazla bilgi için HASS.Agent (hizmet değil) günlüklerini kontrol edin.</value>
@@ -1326,7 +1326,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Girişte Başlat etkinleştirildi!</value>
   </data>
   <data name="OnboardingStartup_EnableNow" xml:space="preserve">
-    <value>Girişte Başlat&apos;ı şimdi etkinleştirmek istiyor musunuz?</value>
+    <value>Girişte Başlat'ı şimdi etkinleştirmek istiyor musunuz?</value>
   </data>
   <data name="OnboardingStartup_AlreadyActivated" xml:space="preserve">
     <value>Girişte Başlat zaten etkinleştirildi, her şey hazır!</value>
@@ -1335,7 +1335,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Oturum Açılırken Başlat etkinleştiriliyor..</value>
   </data>
   <data name="OnboardingStartup_Failed" xml:space="preserve">
-    <value>Bir şeyler yanlış gitti. Tekrar deneyebilir veya sonraki sayfaya atlayıp HASS.Agent&apos;ın yeniden başlatılmasından sonra yeniden deneyebilirsiniz.</value>
+    <value>Bir şeyler yanlış gitti. Tekrar deneyebilir veya sonraki sayfaya atlayıp HASS.Agent'ın yeniden başlatılmasından sonra yeniden deneyebilirsiniz.</value>
   </data>
   <data name="OnboardingStartup_BtnSetLaunchOnLogin_2" xml:space="preserve">
     <value>Oturum Açıldığında Başlatmayı Etkinleştir</value>
@@ -1344,7 +1344,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Lütfen geçerli bir API anahtarı sağlayın.</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox2" xml:space="preserve">
-    <value>Lütfen Ev Asistanınızın URI&apos;sini girin.</value>
+    <value>Lütfen Ev Asistanınızın URI'sini girin.</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox3" xml:space="preserve">
     <value>Bağlanılamadı, aşağıdaki hata döndürüldü: {0}</value>
@@ -1380,7 +1380,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Yetkisiz</value>
   </data>
   <data name="ServiceConnect_UnauthorizedMessage" xml:space="preserve">
-    <value>Servisle iletişime geçme yetkiniz yok. Doğru auth ID&apos;niz varsa, şimdi ayarlayabilir ve tekrar deneyebilirsiniz.</value>
+    <value>Servisle iletişime geçme yetkiniz yok. Doğru auth ID'niz varsa, şimdi ayarlayabilir ve tekrar deneyebilirsiniz.</value>
   </data>
   <data name="ServiceConnect_SettingsFailed" xml:space="preserve">
     <value>Ayarlar getirilemedi!</value>
@@ -1407,7 +1407,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Hizmet, yapılandırılmış sensörlerini isterken bir hata döndürdü. Daha fazla bilgi için günlükleri kontrol edin. Yapılandırma panelinden günlükleri açabilir ve hizmeti yönetebilirsiniz.</value>
   </data>
   <data name="ServiceGeneral_TbAuthId_MessageBox1" xml:space="preserve">
-    <value>Boş bir kimlik doğrulama kimliğinin saklanması, tüm HASS.Agent&apos;ların hizmete erişmesine izin verecektir. Bunu istediğinden emin misin?</value>
+    <value>Boş bir kimlik doğrulama kimliğinin saklanması, tüm HASS.Agent'ların hizmete erişmesine izin verecektir. Bunu istediğinden emin misin?</value>
   </data>
   <data name="ServiceGeneral_SavingFailedMessageBox" xml:space="preserve">
     <value>Kaydederken bir hata oluştu, daha fazla bilgi için günlükleri kontrol edin.</value>
@@ -1425,7 +1425,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Bu bilgisayardaki her HASS.Agent örneğinin uydu hizmetine bağlanmasını istemiyorsanız bir kimlik doğrulama kimliği ayarlayın. Yalnızca doğru kimliğe sahip örnekler bağlanabilir. Herkesin bağlanmasına izin vermek için boş bırakın.</value>
   </data>
   <data name="ServiceGeneral_LblDeviceNameInfo_MessageBox1" xml:space="preserve">
-    <value>Bu, uydu hizmetinin kendisini Home Assistant&apos;a kaydettiği addır. Varsayılan olarak, bilgisayarınızın adı artı &apos;-uydu&apos;dur.</value>
+    <value>Bu, uydu hizmetinin kendisini Home Assistant'a kaydettiği addır. Varsayılan olarak, bilgisayarınızın adı artı '-uydu'dur.</value>
   </data>
   <data name="ServiceGeneral_LblDisconGraceInfo_MessageBox1" xml:space="preserve">
     <value>Uydu hizmetinin, MQTT aracısına bağlantının koptuğunu bildirmeden önce bekleyeceği süre.</value>
@@ -1503,10 +1503,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Bu ada sahip bir komut zaten var, devam etmek istediğinizden emin misiniz?</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox4" xml:space="preserve">
-    <value>Bir komut sağlanmazsa, bu varlığı Home Assistant aracılığıyla yalnızca bir &apos;eylem&apos; değeriyle kullanabilirsiniz, olduğu gibi çalıştırdığınızda herhangi bir işlem yapılmaz. Devam etmek istediğinizden emin misiniz?</value>
+    <value>Bir komut sağlanmazsa, bu varlığı Home Assistant aracılığıyla yalnızca bir 'eylem' değeriyle kullanabilirsiniz, olduğu gibi çalıştırdığınızda herhangi bir işlem yapılmaz. Devam etmek istediğinizden emin misiniz?</value>
   </data>
   <data name="CommandsMod_MessageBox_Action" xml:space="preserve">
-    <value>Bir komut veya komut dosyası girmezseniz, bu varlığı yalnızca Home Assistant aracılığıyla bir &apos;eylem&apos; değeriyle kullanabilirsiniz. Olduğu gibi çalıştırmak hiçbir şey yapmaz. Bunu istediğinden emin misin?</value>
+    <value>Bir komut veya komut dosyası girmezseniz, bu varlığı yalnızca Home Assistant aracılığıyla bir 'eylem' değeriyle kullanabilirsiniz. Olduğu gibi çalıştırmak hiçbir şey yapmaz. Bunu istediğinden emin misin?</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox5" xml:space="preserve">
     <value>Lütfen bir anahtar kodu girin!</value>
@@ -1515,7 +1515,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Anahtarlar kontrol edilemedi: {0}</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox7" xml:space="preserve">
-    <value>Bir URL sağlanmazsa, bu varlığı Home Assistant aracılığıyla yalnızca bir &apos;eylem&apos; değeriyle kullanabilirsiniz, olduğu gibi çalıştırdığınızda herhangi bir işlem yapılmaz. Devam etmek istediğinizden emin misiniz?</value>
+    <value>Bir URL sağlanmazsa, bu varlığı Home Assistant aracılığıyla yalnızca bir 'eylem' değeriyle kullanabilirsiniz, olduğu gibi çalıştırdığınızda herhangi bir işlem yapılmaz. Devam etmek istediğinizden emin misiniz?</value>
   </data>
   <data name="CommandsMod_LblSetting_Command" xml:space="preserve">
     <value>Emretmek</value>
@@ -1554,10 +1554,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Bu, yalnızca belirli konumlardaki dosyaları kaydedip değiştirebileceği anlamına gelir,</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg3" xml:space="preserve">
-    <value>&apos;%USERPROFILE%\AppData\LocalLow&apos; klasörü gibi veya</value>
+    <value>'%USERPROFILE%\AppData\LocalLow' klasörü gibi veya</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg4" xml:space="preserve">
-    <value>&apos;HKEY_CURRENT_USER\Software\AppDataLow&apos; kayıt defteri anahtarı.</value>
+    <value>'HKEY_CURRENT_USER\Software\AppDataLow' kayıt defteri anahtarı.</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg5" xml:space="preserve">
     <value>Bundan etkilenmediğinden emin olmak için komutunuzu test etmelisiniz!</value>
@@ -1668,10 +1668,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>yalnızca {0}!</value>
   </data>
   <data name="Configuration_ProcessChanges_MessageBox1" xml:space="preserve">
-    <value>Cihazınızın adını değiştirdiniz. Tüm sensörleriniz ve komutlarınız artık yayından kaldırılacak ve HASS.Agent daha sonra bunları yeniden yayınlamak için yeniden başlatılacaktır. Endişelenmeyin, mevcut adlarını koruyacaklar, böylece otomasyonlarınız veya komut dosyalarınız çalışmaya devam edecek. Not: ad &apos;temizlenecek&apos;, bu da harfler, rakamlar ve boşluklar dışındaki her şeyin bir alt çizgi ile değiştirileceği anlamına gelir. Bu, HA tarafından gereklidir.</value>
+    <value>Cihazınızın adını değiştirdiniz. Tüm sensörleriniz ve komutlarınız artık yayından kaldırılacak ve HASS.Agent daha sonra bunları yeniden yayınlamak için yeniden başlatılacaktır. Endişelenmeyin, mevcut adlarını koruyacaklar, böylece otomasyonlarınız veya komut dosyalarınız çalışmaya devam edecek. Not: ad 'temizlenecek', bu da harfler, rakamlar ve boşluklar dışındaki her şeyin bir alt çizgi ile değiştirileceği anlamına gelir. Bu, HA tarafından gereklidir.</value>
   </data>
   <data name="Configuration_ProcessChanges_MessageBox2" xml:space="preserve">
-    <value>Yerel API&apos;nin bağlantı noktasını değiştirdiniz. Bu yeni limanın rezerve edilmesi gerekiyor. Bunu yapmak için bir UAC isteği alacaksınız, lütfen onaylayın.</value>
+    <value>Yerel API'nin bağlantı noktasını değiştirdiniz. Bu yeni limanın rezerve edilmesi gerekiyor. Bunu yapmak için bir UAC isteği alacaksınız, lütfen onaylayın.</value>
   </data>
   <data name="Configuration_ProcessChanges_MessageBox3" xml:space="preserve">
     <value>Bir şeyler yanlış gitti! Lütfen gerekli komutu manuel olarak yürütün. Panonuza kopyalandı, sadece yükseltilmiş bir komut istemine yapıştırmanız gerekiyor. Güvenlik duvarı kuralınızın bağlantı noktasını da değiştirmeyi unutmayın.</value>
@@ -1683,13 +1683,13 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Yeniden başlatmaya hazırlanırken bir şeyler ters gitti. Lütfen manuel olarak yeniden başlatın.</value>
   </data>
   <data name="Configuration_ProcessChanges_MessageBox5" xml:space="preserve">
-    <value>Yapılandırmanız kaydedildi. Çoğu değişiklik, HASS.Agent&apos;ın yürürlüğe girmeden önce yeniden başlatılmasını gerektirir. Şimdi yeniden başlatmak istiyor musunuz?</value>
+    <value>Yapılandırmanız kaydedildi. Çoğu değişiklik, HASS.Agent'ın yürürlüğe girmeden önce yeniden başlatılmasını gerektirir. Şimdi yeniden başlatmak istiyor musunuz?</value>
   </data>
   <data name="Main_Load_MessageBox1" xml:space="preserve">
-    <value>Ayarlarınız yüklenirken bir şeyler ters gitti. &apos;config&apos; alt klasöründeki appsettings.json dosyasını kontrol edin veya yeni bir başlangıç yapmak için silin.</value>
+    <value>Ayarlarınız yüklenirken bir şeyler ters gitti. 'config' alt klasöründeki appsettings.json dosyasını kontrol edin veya yeni bir başlangıç yapmak için silin.</value>
   </data>
   <data name="Main_Load_MessageBox2" xml:space="preserve">
-    <value>HASS.Agent başlatılırken bir hata oluştu. Lütfen günlükleri kontrol edin ve GitHub&apos;da bir hata raporu oluşturun.</value>
+    <value>HASS.Agent başlatılırken bir hata oluştu. Lütfen günlükleri kontrol edin ve GitHub'da bir hata raporu oluşturun.</value>
   </data>
   <data name="Main_BtnSensorsManage_Ready" xml:space="preserve">
     <value>Yerel ve Sensörler</value>
@@ -1792,13 +1792,13 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>İstemci sertifika dosyası bulunamadı.</value>
   </data>
   <data name="HassApiManager_CheckHassConfig_UnableToConnect" xml:space="preserve">
-    <value>Bağlanamıyor, URI&apos;yi kontrol edin.</value>
+    <value>Bağlanamıyor, URI'yi kontrol edin.</value>
   </data>
   <data name="HassApiManager_CheckHassConfig_ConfigFailed" xml:space="preserve">
     <value>Yapılandırma getirilemiyor, lütfen API anahtarını kontrol edin.</value>
   </data>
   <data name="HassApiManager_ConnectionFailed" xml:space="preserve">
-    <value>Bağlanamıyor, lütfen URI&apos;yi ve yapılandırmayı kontrol edin.</value>
+    <value>Bağlanamıyor, lütfen URI'yi ve yapılandırmayı kontrol edin.</value>
   </data>
   <data name="HassApiManager_ToolTip_QuickActionFailed" xml:space="preserve">
     <value>hızlı eylem: eylem başarısız oldu, bilgi için günlükleri kontrol edin</value>
@@ -1816,22 +1816,22 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>MQTT: Bağlantı kesildi</value>
   </data>
   <data name="NotifierManager_Initialize_MessageBox1" xml:space="preserve">
-    <value>API&apos;yi {0} bağlantı noktasına bağlamaya çalışırken hata oluştu. HASS.Agent&apos;ın başka hiçbir örneğinin çalışmadığından ve bağlantı noktasının kullanılabilir ve kayıtlı olduğundan emin olun.</value>
+    <value>API'yi {0} bağlantı noktasına bağlamaya çalışırken hata oluştu. HASS.Agent'ın başka hiçbir örneğinin çalışmadığından ve bağlantı noktasının kullanılabilir ve kayıtlı olduğundan emin olun.</value>
   </data>
   <data name="SensorsManager_ActiveWindowSensorDescription" xml:space="preserve">
     <value>Geçerli etkin pencerenin başlığını sağlar.</value>
   </data>
   <data name="SensorsManager_AudioSensorsDescription" xml:space="preserve">
-    <value>Cihazınızın sesinin çeşitli yönleri hakkında bilgi sağlar: Mevcut en yüksek ses seviyesi (basit bir &apos;bir şey çalıyor&apos; değeri olarak kullanılabilir). Varsayılan ses aygıtı: ad, durum ve ses düzeyi. Sesli oturumlarınızın özeti: uygulama adı, sessiz durumu, ses düzeyi ve mevcut en yüksek ses düzeyi.</value>
+    <value>Cihazınızın sesinin çeşitli yönleri hakkında bilgi sağlar: Mevcut en yüksek ses seviyesi (basit bir 'bir şey çalıyor' değeri olarak kullanılabilir). Varsayılan ses aygıtı: ad, durum ve ses düzeyi. Sesli oturumlarınızın özeti: uygulama adı, sessiz durumu, ses düzeyi ve mevcut en yüksek ses düzeyi.</value>
   </data>
   <data name="SensorsManager_BatterySensorsDescription" xml:space="preserve">
     <value>Mevcut şarj durumunu, tam şarjda tahmini dakika miktarını, yüzde olarak kalan şarjı, dakika cinsinden kalan şarjı ve elektrik hattı durumunu gösteren bir sensör sağlar.</value>
   </data>
   <data name="SensorsManager_CpuLoadSensorDescription" xml:space="preserve">
-    <value>İlk CPU&apos;nun mevcut yükünü yüzde olarak sağlar.</value>
+    <value>İlk CPU'nun mevcut yükünü yüzde olarak sağlar.</value>
   </data>
   <data name="SensorsManager_CurrentClockSpeedSensorDescription" xml:space="preserve">
-    <value>İlk CPU&apos;nun mevcut saat hızını sağlar.</value>
+    <value>İlk CPU'nun mevcut saat hızını sağlar.</value>
   </data>
   <data name="SensorsManager_CurrentVolumeSensorDescription" xml:space="preserve">
     <value>Geçerli ses seviyesini yüzde olarak sağlar. Şu anda varsayılan cihazınızın hacmini alıyor.</value>
@@ -1843,16 +1843,16 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Test amaçlı kukla sensör, 0 ile 100 arasında rastgele bir tamsayı değeri gönderir.</value>
   </data>
   <data name="SensorsManager_GpuLoadSensorDescription" xml:space="preserve">
-    <value>Yüzde olarak ilk GPU&apos;nun mevcut yükünü sağlar.</value>
+    <value>Yüzde olarak ilk GPU'nun mevcut yükünü sağlar.</value>
   </data>
   <data name="SensorsManager_GpuTemperatureSensorDescription" xml:space="preserve">
-    <value>İlk GPU&apos;nun mevcut sıcaklığını sağlar.</value>
+    <value>İlk GPU'nun mevcut sıcaklığını sağlar.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
     <value>Kullanıcının herhangi bir girdi sağladığı son anı içeren bir tarih saat değeri sağlar.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
-    <value>Sistemin (yeniden) başlatıldığı son anı içeren bir tarih saat değeri sağlar. Önemli: Windows&apos;un FastBoot seçeneği bu değeri atabilir, çünkü bu bir hazırda bekletme modudur. Güç Seçenekleri -&gt; &apos;Güç düğmelerinin ne yapacağını seçin&apos; -&gt; &apos;Hızlı başlatmayı aç&apos; seçeneğinin işaretini kaldırarak devre dışı bırakabilirsiniz. SSD&apos;li modern makineler için pek bir fark yaratmaz, ancak devre dışı bırakmak, yeniden başlattıktan sonra temiz bir durum almanızı sağlar.</value>
+    <value>Sistemin (yeniden) başlatıldığı son anı içeren bir tarih saat değeri sağlar. Önemli: Windows'un FastBoot seçeneği bu değeri atabilir, çünkü bu bir hazırda bekletme modudur. Güç Seçenekleri -&gt; 'Güç düğmelerinin ne yapacağını seçin' -&gt; 'Hızlı başlatmayı aç' seçeneğinin işaretini kaldırarak devre dışı bırakabilirsiniz. SSD'li modern makineler için pek bir fark yaratmaz, ancak devre dışı bırakmak, yeniden başlattıktan sonra temiz bir durum almanızı sağlar.</value>
   </data>
   <data name="SensorsManager_LastSystemStateChangeSensorDescription" xml:space="preserve">
     <value>Son sistem durumu değişikliğini sağlar: ApplicationStarted, Logoff, SystemShutdown, Resume, Suspend, ConsoleConnect, ConsoleDisconnect, RemoteConnect, RemoteDisconnect, SessionLock, SessionLogoff, SessionLogon, SessionRemoteControl ve SessionUnlock.</value>
@@ -1878,14 +1878,14 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Seçilen ağ kartının/kartlarının kart bilgilerini, yapılandırmasını, aktarım ve paket istatistiklerini ve adreslerini (ip, mac, dhcp, dns) sağlar. Bu çok değerli bir sensördür.</value>
   </data>
   <data name="SensorsManager_PerformanceCounterSensorDescription" xml:space="preserve">
-    <value>Bir performans sayacının değerlerini sağlar. Örneğin, yerleşik CPU yük sensörü şu değerleri kullanır: Kategori: İşlemci Sayacı: % İşlemci Zaman Örneği: _Toplam Sayaçları Windows&apos; &apos;perfmon.exe&apos; aracıyla keşfedebilirsiniz.</value>
+    <value>Bir performans sayacının değerlerini sağlar. Örneğin, yerleşik CPU yük sensörü şu değerleri kullanır: Kategori: İşlemci Sayacı: % İşlemci Zaman Örneği: _Toplam Sayaçları Windows' 'perfmon.exe' aracıyla keşfedebilirsiniz.</value>
   </data>
   <data name="SensorsManager_ProcessActiveSensorDescription" xml:space="preserve">
     <value>İşlemin etkin örneklerinin sayısını sağlar.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="SensorsManager_ServiceStateSensorDescription" xml:space="preserve">
-    <value>Sağlanan hizmetin durumunu döndürür: Bulunamadı, Durduruldu, StartPending, StopPending, Running, ContinuePending, PausePending veya Paused. &apos;Görünen ad&apos; değil, &apos;Hizmet adı&apos; sağladığınızdan emin olun.</value>
+    <value>Sağlanan hizmetin durumunu döndürür: Bulunamadı, Durduruldu, StartPending, StopPending, Running, ContinuePending, PausePending veya Paused. 'Görünen ad' değil, 'Hizmet adı' sağladığınızdan emin olun.</value>
   </data>
   <data name="SensorsManager_SessionStateSensorDescription" xml:space="preserve">
     <value>Geçerli oturum durumunu sağlar: Kilitli, Kilitli Değil veya Bilinmiyor. Oturum durumu değişikliklerini izlemek için bir LastSystemStateChangeSensor kullanın.</value>
@@ -2311,13 +2311,13 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Uygulama Başladı</value>
   </data>
   <data name="ServiceGeneral_LblInfo2" xml:space="preserve">
-    <value>Uydu hizmetini, oturum açmak zorunda kalmadan sensörleri ve komutları çalıştırmak için kullanabilirsiniz. Tüm türler mevcut değildir, örneğin &apos;LaunchUrl&apos; komutu yalnızca normal bir komut olarak eklenebilir.</value>
+    <value>Uydu hizmetini, oturum açmak zorunda kalmadan sensörleri ve komutları çalıştırmak için kullanabilirsiniz. Tüm türler mevcut değildir, örneğin 'LaunchUrl' komutu yalnızca normal bir komut olarak eklenebilir.</value>
   </data>
   <data name="SensorsConfig_ClmValue" xml:space="preserve">
     <value>Bilinen Son Değer</value>
   </data>
   <data name="LocalApiManager_Initialize_MessageBox1" xml:space="preserve">
-    <value>API&apos;yi {0} bağlantı noktasına bağlamaya çalışırken hata oluştu. HASS.Agent&apos;ın başka hiçbir örneğinin çalışmadığından ve bağlantı noktasının kullanılabilir ve kayıtlı olduğundan emin olun.</value>
+    <value>API'yi {0} bağlantı noktasına bağlamaya çalışırken hata oluştu. HASS.Agent'ın başka hiçbir örneğinin çalışmadığından ve bağlantı noktasının kullanılabilir ve kayıtlı olduğundan emin olun.</value>
   </data>
   <data name="CommandType_SendWindowToFrontCommand" xml:space="preserve">
     <value>SendWindowToFront</value>
@@ -2326,16 +2326,16 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Web Görünümü</value>
   </data>
   <data name="CommandsManager_WebViewCommandDescription" xml:space="preserve">
-    <value>Sağlanan URL ile bir pencere gösterir. Bu, &apos;LaunchUrl&apos; komutundan farklıdır, çünkü tam teşekküllü bir tarayıcı yüklemez, yalnızca kendi penceresinde sağlanan URL&apos;yi yükler. Bunu, örneğin Home Assistant&apos;ın kontrol panelini hızlı bir şekilde göstermek için kullanabilirsiniz. Varsayılan olarak, çerezleri süresiz olarak saklar, bu nedenle yalnızca bir kez oturum açmanız gerekir.</value>
+    <value>Sağlanan URL ile bir pencere gösterir. Bu, 'LaunchUrl' komutundan farklıdır, çünkü tam teşekküllü bir tarayıcı yüklemez, yalnızca kendi penceresinde sağlanan URL'yi yükler. Bunu, örneğin Home Assistant'ın kontrol panelini hızlı bir şekilde göstermek için kullanabilirsiniz. Varsayılan olarak, çerezleri süresiz olarak saklar, bu nedenle yalnızca bir kez oturum açmanız gerekir.</value>
   </data>
   <data name="HassDomain_HASSAgentCommands" xml:space="preserve">
     <value>HASS.Ajan Komutları</value>
   </data>
   <data name="CommandsManager_CommandsManager_SendWindowToFrontCommandDescription" xml:space="preserve">
-    <value>Belirtilen işlemi arar ve ana penceresini öne göndermeye çalışır. Uygulama simge durumuna küçültülürse geri yüklenir. Örnek: VLC&apos;yi ön plana göndermek istiyorsanız, &apos;vlc&apos; kullanın.</value>
+    <value>Belirtilen işlemi arar ve ana penceresini öne göndermeye çalışır. Uygulama simge durumuna küçültülürse geri yüklenir. Örnek: VLC'yi ön plana göndermek istiyorsanız, 'vlc' kullanın.</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox8" xml:space="preserve">
-    <value>Komutu yapılandırmazsanız, bu varlığı yalnızca Home Assistant aracılığıyla bir &apos;eylem&apos; değeriyle kullanabilirsiniz ve varsayılan ayarlar kullanılarak görünür, olduğu gibi çalıştırıldığında herhangi bir işlem yapılmaz. Bunu yapmak istediğinden emin misin?</value>
+    <value>Komutu yapılandırmazsanız, bu varlığı yalnızca Home Assistant aracılığıyla bir 'eylem' değeriyle kullanabilirsiniz ve varsayılan ayarlar kullanılarak görünür, olduğu gibi çalıştırıldığında herhangi bir işlem yapılmaz. Bunu yapmak istediğinden emin misin?</value>
   </data>
   <data name="ConfigLocalStorage_BtnClearAudioCache" xml:space="preserve">
     <value>Ses Önbelleğini Temizle</value>
@@ -2356,7 +2356,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>WebView önbelleği temizlendi!</value>
   </data>
   <data name="Main_CheckDpiScalingFactor_MessageBox1" xml:space="preserve">
-    <value>Görünüşe göre alternatif bir ölçeklendirme kullanıyorsunuz. Bu, HASS.Agent&apos;ın bazı bölümlerinin amaçlandığı gibi görünmemesine neden olabilir. Lütfen kullanılamayan yönleri GitHub&apos;da bildirin. Teşekkürler! Not: Bu mesaj yalnızca bir kez gösterilir.</value>
+    <value>Görünüşe göre alternatif bir ölçeklendirme kullanıyorsunuz. Bu, HASS.Agent'ın bazı bölümlerinin amaçlandığı gibi görünmemesine neden olabilir. Lütfen kullanılamayan yönleri GitHub'da bildirin. Teşekkürler! Not: Bu mesaj yalnızca bir kez gösterilir.</value>
   </data>
   <data name="WebViewCommandConfig_SetStoredVariables_MessageBox1" xml:space="preserve">
     <value>Depolanan komut ayarları yüklenemiyor, varsayılana sıfırlanıyor.</value>
@@ -2368,13 +2368,13 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Bağlantı Noktası ve Rezervasyonu Yürüt</value>
   </data>
   <data name="ConfigLocalApi_CbLocalApiActive" xml:space="preserve">
-    <value>&amp;Yerel API&apos;yi Etkinleştir</value>
+    <value>&amp;Yerel API'yi Etkinleştir</value>
   </data>
   <data name="ConfigLocalApi_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent&apos;ın kendi yerel API&apos;si vardır, bu nedenle Home Assistant istek gönderebilir (örneğin bir bildirim göndermek için). Buradan global olarak yapılandırabilir ve daha sonra bağımlı bölümleri (şu anda bildirimler ve mediaplayer) yapılandırabilirsiniz. Not: Yeni entegrasyonun çalışması için bu gerekli değildir. Yalnızca MQTT kullanmıyorsanız etkinleştirin ve kullanın.</value>
+    <value>HASS.Agent'ın kendi yerel API'si vardır, bu nedenle Home Assistant istek gönderebilir (örneğin bir bildirim göndermek için). Buradan global olarak yapılandırabilir ve daha sonra bağımlı bölümleri (şu anda bildirimler ve mediaplayer) yapılandırabilirsiniz. Not: Yeni entegrasyonun çalışması için bu gerekli değildir. Yalnızca MQTT kullanmıyorsanız etkinleştirin ve kullanın.</value>
   </data>
   <data name="ConfigLocalApi_LblInfo2" xml:space="preserve">
-    <value>İstekleri dinleyebilmek için HASS.Agent&apos;ın portunun ayrılmış ve güvenlik duvarınızda açılmış olması gerekir. Bunu sizin için yaptırmak için bu düğmeyi kullanabilirsiniz.</value>
+    <value>İstekleri dinleyebilmek için HASS.Agent'ın portunun ayrılmış ve güvenlik duvarınızda açılmış olması gerekir. Bunu sizin için yaptırmak için bu düğmeyi kullanabilirsiniz.</value>
   </data>
   <data name="ConfigLocalApi_LblPort" xml:space="preserve">
     <value>&amp;Liman</value>
@@ -2407,10 +2407,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>&amp;Medya Oynatıcı İşlevselliğini Etkinleştir</value>
   </data>
   <data name="ConfigMediaPlayer_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent, Home Assistant için bir medya oynatıcı görevi görebilir, böylece çalmakta olan herhangi bir medyayı görebilir ve kontrol edebilir ve metinden konuşmaya gönderebilirsiniz. MQTT&apos;yi etkinleştirdiyseniz, cihazınız otomatik olarak eklenir. Aksi takdirde, yerel API&apos;yi kullanmak için entegrasyonu manuel olarak yapılandırın.</value>
+    <value>HASS.Agent, Home Assistant için bir medya oynatıcı görevi görebilir, böylece çalmakta olan herhangi bir medyayı görebilir ve kontrol edebilir ve metinden konuşmaya gönderebilirsiniz. MQTT'yi etkinleştirdiyseniz, cihazınız otomatik olarak eklenir. Aksi takdirde, yerel API'yi kullanmak için entegrasyonu manuel olarak yapılandırın.</value>
   </data>
   <data name="ConfigMediaPlayer_LblInfo2" xml:space="preserve">
-    <value>Bir şey çalışmıyorsa, aşağıdaki adımları denediğinizden emin olun: - HASS.Agent entegrasyonunu kurun - Home Assistant&apos;ı yeniden başlatın - MQTT etkinken HASS.Agent&apos;ın etkin olduğundan emin olun! - Cihazınız otomatik olarak bir varlık olarak algılanmalı ve eklenmelidir - İsteğe bağlı olarak: yerel API&apos;yi kullanarak manuel olarak ekleyin</value>
+    <value>Bir şey çalışmıyorsa, aşağıdaki adımları denediğinizden emin olun: - HASS.Agent entegrasyonunu kurun - Home Assistant'ı yeniden başlatın - MQTT etkinken HASS.Agent'ın etkin olduğundan emin olun! - Cihazınız otomatik olarak bir varlık olarak algılanmalı ve eklenmelidir - İsteğe bağlı olarak: yerel API'yi kullanarak manuel olarak ekleyin</value>
   </data>
   <data name="ConfigMediaPlayer_LblLocalApiDisabled" xml:space="preserve">
     <value>Yerel API devre dışıdır, ancak medya oynatıcının çalışması için buna ihtiyacı vardır.</value>
@@ -2443,7 +2443,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Boyut (px)</value>
   </data>
   <data name="ConfigTrayIcon_LblWebViewUrl" xml:space="preserve">
-    <value>&amp;WebView URL&apos;si (Örneğin, Home Assistant Dashboard URL&apos;niz)</value>
+    <value>&amp;WebView URL'si (Örneğin, Home Assistant Dashboard URL'niz)</value>
   </data>
   <data name="Configuration_TablLocalApi" xml:space="preserve">
     <value>Yerel API</value>
@@ -2455,10 +2455,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Tepsi ikonu</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg1" xml:space="preserve">
-    <value>Giriş dilinizin &apos;{0}&apos; varsayılan CTRL-ALT-Q kısayol tuşuyla çakıştığı biliniyor. Lütfen kendinizinkini ayarlayın.</value>
+    <value>Giriş dilinizin '{0}' varsayılan CTRL-ALT-Q kısayol tuşuyla çakıştığı biliniyor. Lütfen kendinizinkini ayarlayın.</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg2" xml:space="preserve">
-    <value>Giriş diliniz &apos;{0}&apos; bilinmiyor ve varsayılan CTRL-ALT-Q kısayol tuşuyla çakışabilir. Lütfen emin olmak için kontrol edin. Varsa, listeye eklenebilmesi için GitHub&apos;da bir bilet açmayı düşünün.</value>
+    <value>Giriş diliniz '{0}' bilinmiyor ve varsayılan CTRL-ALT-Q kısayol tuşuyla çakışabilir. Lütfen emin olmak için kontrol edin. Varsa, listeye eklenebilmesi için GitHub'da bir bilet açmayı düşünün.</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg1" xml:space="preserve">
     <value>Anahtar bulunamadı</value>
@@ -2470,7 +2470,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Anahtarlar ayrıştırılırken hata oluştu, daha fazla bilgi için lütfen günlükleri kontrol edin.</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg4" xml:space="preserve">
-    <value>Açık parantezlerin sayısı (&apos;[&apos;), kapalı parantezlerin sayısına karşılık gelmez. (&apos;]&apos;)! ({0} - {1})</value>
+    <value>Açık parantezlerin sayısı ('['), kapalı parantezlerin sayısına karşılık gelmez. (']')! ({0} - {1})</value>
   </data>
   <data name="Help_LblDocumentation" xml:space="preserve">
     <value>belgeler</value>
@@ -2488,10 +2488,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Uydu Hizmetini Yönet</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
-    <value>Bildirimleri kullanmak için Home Assistant&apos;ta HASS.Agent-notifier entegrasyonunu kurmanız ve yapılandırmanız gerekir. Bu, HACS&apos;ı kullanmak çok kolaydır, ancak manuel olarak da kurabilirsiniz. Daha fazla bilgi için aşağıdaki bağlantıyı ziyaret edin.</value>
+    <value>Bildirimleri kullanmak için Home Assistant'ta HASS.Agent-notifier entegrasyonunu kurmanız ve yapılandırmanız gerekir. Bu, HACS'ı kullanmak çok kolaydır, ancak manuel olarak da kurabilirsiniz. Daha fazla bilgi için aşağıdaki bağlantıyı ziyaret edin.</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo2" xml:space="preserve">
-    <value>Aşağıdaki adımları uyguladığınızdan emin olun: - HASS.Agent-Notifier ve/veya HASS.Agent-MediaPlayer entegrasyonunu kurun - Home Assistant&apos;ı yeniden başlatın -Bir bildirim ve/veya media_player varlığı yapılandırın -Home Assistant&apos;ı yeniden başlatın</value>
+    <value>Aşağıdaki adımları uyguladığınızdan emin olun: - HASS.Agent-Notifier ve/veya HASS.Agent-MediaPlayer entegrasyonunu kurun - Home Assistant'ı yeniden başlatın -Bir bildirim ve/veya media_player varlığı yapılandırın -Home Assistant'ı yeniden başlatın</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo3" xml:space="preserve">
     <value>Aynı şey medya oynatıcı için de geçerlidir; bu entegrasyon, cihazınızı bir media_player varlığı olarak kontrol etmenize, neyin oynatıldığını görmenize ve metinden konuşmaya göndermenize olanak tanır.</value>
@@ -2503,7 +2503,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>HASS.Agent-Entegrasyon GitHub Sayfası</value>
   </data>
   <data name="OnboardingLocalApi_CbEnableLocalApi" xml:space="preserve">
-    <value>Evet, bağlantı noktasında yerel API&apos;yi &amp;etkinleştirin</value>
+    <value>Evet, bağlantı noktasında yerel API'yi &amp;etkinleştirin</value>
   </data>
   <data name="OnboardingLocalApi_CbEnableMediaPlayer" xml:space="preserve">
     <value>&amp;Medya Oynatıcıyı ve metinden konuşmaya (TTS) etkinleştirin</value>
@@ -2512,13 +2512,13 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>&amp;Bildirimleri Etkinleştir</value>
   </data>
   <data name="OnboardingLocalApi_LblInfo1" xml:space="preserve">
-    <value>HASS.Agent&apos;ın kendi dahili API&apos;si vardır, bu nedenle Home Assistant istek gönderebilir (bildirimler veya metinden konuşmaya gibi). Etkinleştirmek istiyor musunuz?</value>
+    <value>HASS.Agent'ın kendi dahili API'si vardır, bu nedenle Home Assistant istek gönderebilir (bildirimler veya metinden konuşmaya gibi). Etkinleştirmek istiyor musunuz?</value>
   </data>
   <data name="OnboardingLocalApi_LblInfo2" xml:space="preserve">
     <value>Hangi modülleri etkinleştirmek istediğinizi seçebilirsiniz. HA entegrasyonları gerektirirler, ancak merak etmeyin, sonraki sayfa bunları nasıl kuracağınız konusunda size daha fazla bilgi verecektir.</value>
   </data>
   <data name="OnboardingLocalApi_LblTip1" xml:space="preserve">
-    <value>Not: 5115 varsayılan bağlantı noktasıdır, yalnızca Home Assistant&apos;ta değiştirdiyseniz değiştirin.</value>
+    <value>Not: 5115 varsayılan bağlantı noktasıdır, yalnızca Home Assistant'ta değiştirdiyseniz değiştirin.</value>
   </data>
   <data name="OnboardingMqtt_CbMqttTls" xml:space="preserve">
     <value>&amp;TLS</value>
@@ -2545,7 +2545,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Pencerenin &amp;başlık çubuğunu göster</value>
   </data>
   <data name="WebViewCommandConfig_CbTopMost" xml:space="preserve">
-    <value>Pencereyi &apos;Her zaman &amp;Üstte&apos; olarak ayarla</value>
+    <value>Pencereyi 'Her zaman &amp;Üstte' olarak ayarla</value>
   </data>
   <data name="WebViewCommandConfig_LblInfo1" xml:space="preserve">
     <value>Web görünümü komutunuzun boyutunu ve konumunu ayarlamak için bu pencereyi sürükleyip yeniden boyutlandırın.</value>
@@ -2557,7 +2557,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Boyut</value>
   </data>
   <data name="WebViewCommandConfig_LblTip1" xml:space="preserve">
-    <value>İpucu: Bir Web Görünümünü kapatmak için ESCAPE&apos;e basın.</value>
+    <value>İpucu: Bir Web Görünümünü kapatmak için ESCAPE'e basın.</value>
   </data>
   <data name="WebViewCommandConfig_LblUrl" xml:space="preserve">
     <value>&amp;URL</value>
@@ -2578,7 +2578,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Durum Bildirimlerini Etkinleştir</value>
   </data>
   <data name="ConfigGeneral_LblInfo5" xml:space="preserve">
-    <value>HASS.Agent, HA&apos;nın kabul edeceğinden emin olmak için cihaz adınızı temizleyecektir, adınızın olduğu gibi kabul edileceğinden eminseniz aşağıdaki bu kuralı geçersiz kılabilirsiniz.</value>
+    <value>HASS.Agent, HA'nın kabul edeceğinden emin olmak için cihaz adınızı temizleyecektir, adınızın olduğu gibi kabul edileceğinden eminseniz aşağıdaki bu kuralı geçersiz kılabilirsiniz.</value>
   </data>
   <data name="ConfigGeneral_LblInfo6" xml:space="preserve">
     <value>HASS.Agent, bir modülün durumu değiştiğinde bildirim gönderir, bu bildirimleri almak isteyip istemediğinizi aşağıdan ayarlayabilirsiniz.</value>
@@ -2644,7 +2644,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Tüm monitörleri uyku (düşük güç) moduna geçirir.</value>
   </data>
   <data name="CommandsManager_MonitorWakeCommandDescription" xml:space="preserve">
-    <value>&apos;Yukarı ok&apos; tuş basımını simüle ederek tüm monitörleri uyandırmaya çalışır.</value>
+    <value>'Yukarı ok' tuş basımını simüle ederek tüm monitörleri uyandırmaya çalışır.</value>
   </data>
   <data name="CommandsManager_SetVolumeCommandDescription" xml:space="preserve">
     <value>Geçerli varsayılan ses cihazının sesini belirtilen düzeye ayarlar.</value>
@@ -2656,7 +2656,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Emretmek</value>
   </data>
   <data name="CommandsMod_MessageBox_Action2" xml:space="preserve">
-    <value>Bir hacim değeri girmezseniz, bu varlığı yalnızca Home Assistant aracılığıyla bir &apos;eylem&apos; değeriyle kullanabilirsiniz. Olduğu gibi çalıştırmak hiçbir şey yapmaz. Bunu istediğinden emin misin?</value>
+    <value>Bir hacim değeri girmezseniz, bu varlığı yalnızca Home Assistant aracılığıyla bir 'eylem' değeriyle kullanabilirsiniz. Olduğu gibi çalıştırmak hiçbir şey yapmaz. Bunu istediğinden emin misin?</value>
   </data>
   <data name="CommandsMod_MessageBox_Sanitize" xml:space="preserve">
     <value>Sağladığınız ad, desteklenmeyen karakterler içeriyor ve çalışmayacak. Önerilen sürüm: {0} Bu sürümü kullanmak istiyor musunuz?</value>
@@ -2674,7 +2674,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>hem yerel API hem de MQTT devre dışı bırakıldı, ancak entegrasyonun çalışması için en az birine ihtiyacı var</value>
   </data>
   <data name="ConfigMqtt_CbEnableMqtt" xml:space="preserve">
-    <value>MQTT&apos;yi etkinleştir</value>
+    <value>MQTT'yi etkinleştir</value>
   </data>
   <data name="ConfigMqtt_LblMqttDisabledWarning" xml:space="preserve">
     <value>MQTT etkinleştirilmezse komutlar ve sensörler çalışmayacaktır!</value>
@@ -2689,7 +2689,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Hizmet şu anda durduruldu ve yapılandırılamıyor. Lütfen yapılandırmak için önce hizmeti başlatın.</value>
   </data>
   <data name="ConfigService_LblInfo5" xml:space="preserve">
-    <value>Servisi yönetmek istiyorsanız (komut ve sensör ekleyin, ayarları değiştirin) buradan veya ana penceredeki &apos;uydu servisi&apos; butonunu kullanarak yapabilirsiniz.</value>
+    <value>Servisi yönetmek istiyorsanız (komut ve sensör ekleyin, ayarları değiştirin) buradan veya ana penceredeki 'uydu servisi' butonunu kullanarak yapabilirsiniz.</value>
   </data>
   <data name="ConfigTrayIcon_CbWebViewShowMenuOnLeftClick" xml:space="preserve">
     <value>Fare sol tıklamasıyla varsayılan menüyü göster</value>
@@ -2698,10 +2698,10 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Home Assistant API jetonunuz doğru görünmüyor. Tüm belirteci seçtiğinizden emin olun (CTRL+A kullanmayın veya çift tıklamayın). Üç bölüm içermelidir (iki nokta ile ayrılmış). Bu şekilde kullanmak istediğinizden emin misiniz?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox2" xml:space="preserve">
-    <value>Ev Asistanı URI&apos;niz doğru görünmüyor. &apos;http://homeassistant.local:8123&apos; veya &apos;https://192.168.0.1:8123&apos; gibi görünmelidir. Bu şekilde kullanmak istediğinizden emin misiniz?</value>
+    <value>Ev Asistanı URI'niz doğru görünmüyor. 'http://homeassistant.local:8123' veya 'https://192.168.0.1:8123' gibi görünmelidir. Bu şekilde kullanmak istediğinizden emin misiniz?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox3" xml:space="preserve">
-    <value>MQTT broker URI&apos;niz doğru görünmüyor. &apos;homeassistant.local&apos; veya &apos;192.168.0.1&apos; gibi görünmelidir. Bu şekilde kullanmak istediğinizden emin misiniz?</value>
+    <value>MQTT broker URI'niz doğru görünmüyor. 'homeassistant.local' veya '192.168.0.1' gibi görünmelidir. Bu şekilde kullanmak istediğinizden emin misiniz?</value>
   </data>
   <data name="Donate_BtnClose" xml:space="preserve">
     <value>&amp;Kapat</value>
@@ -2734,13 +2734,13 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>İpucu: Hakkında Penceresinde başka bağış yöntemleri de mevcuttur.</value>
   </data>
   <data name="OnboardingIntegrations_CbEnableMediaPlayer" xml:space="preserve">
-    <value>&amp;Media Player&apos;ı etkinleştir (metinden sese dahil)</value>
+    <value>&amp;Media Player'ı etkinleştir (metinden sese dahil)</value>
   </data>
   <data name="OnboardingIntegrations_CbEnableNotifications" xml:space="preserve">
     <value>&amp;Bildirimleri Etkinleştir</value>
   </data>
   <data name="OnboardingMqtt_CbEnableMqtt" xml:space="preserve">
-    <value>MQTT&apos;yi etkinleştir</value>
+    <value>MQTT'yi etkinleştir</value>
   </data>
   <data name="PostUpdate_PostUpdate" xml:space="preserve">
     <value>HASS.Agent Gönderi Güncellemesi</value>
@@ -2752,7 +2752,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Bulunan bluetooth LE cihazlarının miktarını gösteren bir sensör sağlar. Cihazlar ve bağlı durumları nitelik olarak eklenir. Yalnızca son rapordan bu yana görülen cihazları gösterir, ör. sensör yayınlandığında liste temizlenir.</value>
   </data>
   <data name="SensorsManager_GeoLocationSensorDescription" xml:space="preserve">
-    <value>Geçerli enlem, boylam ve yüksekliğinizi virgülle ayrılmış bir değer olarak döndürür. Windows&apos;un konum hizmetlerinin etkinleştirildiğinden emin olun! Windows sürümünüze bağlı olarak bu, yeni kontrol panelinde -&gt; &apos;gizlilik ve güvenlik&apos; -&gt; &apos;konum&apos;da bulunabilir.</value>
+    <value>Geçerli enlem, boylam ve yüksekliğinizi virgülle ayrılmış bir değer olarak döndürür. Windows'un konum hizmetlerinin etkinleştirildiğinden emin olun! Windows sürümünüze bağlı olarak bu, yeni kontrol panelinde -&gt; 'gizlilik ve güvenlik' -&gt; 'konum'da bulunabilir.</value>
   </data>
   <data name="SensorsManager_MicrophoneProcessSensorDescription" xml:space="preserve">
     <value>Şu anda mikrofonu kullanan işlemin adını sağlar. Not: uydu hizmetinde kullanılırsa, kullanıcı alanı uygulamalarını algılamaz.</value>
@@ -2818,7 +2818,7 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
     <value>Başlangıç modu ayarlanırken hata oluştu, lütfen daha fazla bilgi için günlükleri kontrol edin.</value>
   </data>
   <data name="WebView_InitializeAsync_MessageBox1" xml:space="preserve">
-    <value>Microsoft&apos;un WebView2 çalışma zamanı makinenizde bulunamadı. Bu genellikle yükleyici tarafından gerçekleştirilir, ancak manuel olarak yükleyebilirsiniz. Çalışma zamanı yükleyicisini indirmek istiyor musunuz?</value>
+    <value>Microsoft'un WebView2 çalışma zamanı makinenizde bulunamadı. Bu genellikle yükleyici tarafından gerçekleştirilir, ancak manuel olarak yükleyebilirsiniz. Çalışma zamanı yükleyicisini indirmek istiyor musunuz?</value>
   </data>
   <data name="WebView_InitializeAsync_MessageBox2" xml:space="preserve">
     <value>WebView başlatılırken bir şeyler ters gitti! Lütfen günlüklerinizi kontrol edin ve daha fazla yardım için bir GitHub sorunu açın.</value>
