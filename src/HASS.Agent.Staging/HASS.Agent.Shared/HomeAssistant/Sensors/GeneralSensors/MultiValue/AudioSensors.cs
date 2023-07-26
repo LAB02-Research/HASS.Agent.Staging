@@ -210,9 +210,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                             if (displayName.Length > 30)
                                 displayName = $"{displayName[..30]}..";
 
+                            Debug.WriteLine($" {displayName}");
+
                             var sessionInfo = new AudioSessionInfo
                             {
                                 Application = displayName,
+                                PlaybackDevice = device.DeviceFriendlyName,
                                 Muted = session.SimpleAudioVolume?.Mute ?? false,
                                 Active = session.State == AudioSessionState.AudioSessionStateActive,
                                 MasterVolume = session.SimpleAudioVolume?.MasterVolume * 100 ?? 0f,
