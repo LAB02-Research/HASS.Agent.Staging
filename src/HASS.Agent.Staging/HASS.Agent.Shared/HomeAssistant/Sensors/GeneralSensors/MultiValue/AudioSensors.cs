@@ -203,6 +203,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     // process sessions (and get peak volume)
                     foreach (var session in device.AudioSessionManager2?.Sessions.Where(x => x != null))
                     {
+                        if (session.ProcessID == 0)
+                            continue;
+
                         try
                         {
                             var displayName = GetSessionDisplayName(session);
@@ -210,7 +213,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                             if (displayName.Length > 30)
                                 displayName = $"{displayName[..30]}..";
 
-                            Debug.WriteLine($" {displayName}");
+                            Debug.WriteLine($" {displayName} /// {session.ProcessID}"); //TODO: remove
 
                             var sessionInfo = new AudioSessionInfo
                             {
