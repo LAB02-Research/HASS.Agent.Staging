@@ -20,7 +20,18 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
             State = "OFF";
         }
 
-        public override void TurnOn() => TurnOnWithAction(CommandConfig);
+        public override void TurnOn()
+        {
+            if (string.IsNullOrWhiteSpace(CommandConfig))
+            {
+                Log.Error("[SETAPPVOLUME] Error, command config is null/empty/blank");
+
+                return;
+            }
+
+
+            TurnOnWithAction(CommandConfig);
+        }
 
         private MMDevice GetAudioDeviceOrDefault(string playbackDeviceName)
         {
@@ -49,11 +60,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
         public override void TurnOnWithAction(string action)
         {
             State = "ON";
-
+            Debug.WriteLine(action);
+            Log.Debug(action);
             try
             {
                 var actionData = JsonConvert.DeserializeObject<ApplicationVolumeAction>(action);
-
+                Log.Debug(actionData.ToString());
                 if (string.IsNullOrWhiteSpace(actionData.ApplicationName))
                 {
                     Log.Error("[SETAPPVOLUME] Error, this command can be run only with action");
@@ -62,12 +74,12 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
                 }
 
                 var audioDevice = GetAudioDeviceOrDefault(actionData.PlaybackDevice);
-
+                Log.Debug(audioDevice.DeviceFriendlyName);
                 var session = audioDevice.AudioSessionManager2?.Sessions?.Where(s =>
                     s != null &&
                     actionData.ApplicationName == GetSessionDisplayName(s)
                 ).FirstOrDefault();
-
+                Log.Debug(session.ToString());
                 if (session == null)
                 {
                     Log.Error("[SETAPPVOLUME] Error, no session of application {app} can be found", actionData.ApplicationName);
@@ -88,7 +100,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
             }
             catch (Exception ex)
             {
-                Log.Error("[SETAPPVOLUME] Error while processing action: {err}", ex.Message);
+                Log.Error("[SETAPPVOLUME] Error while processing action '{action}': {err}", action, ex.Message);
             }
             finally
             {

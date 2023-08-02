@@ -415,6 +415,9 @@ namespace HASS.Agent.Forms.Commands
                     var jsonString = TbSetting.Text.Trim();
                     try
                     {
+                        if(string.IsNullOrWhiteSpace(jsonString))
+                            throw new ArgumentException("json string cannot be blank");
+
                         var jsonObject = JsonConvert.DeserializeObject(jsonString);
                         Command.Command = jsonString;
                     }

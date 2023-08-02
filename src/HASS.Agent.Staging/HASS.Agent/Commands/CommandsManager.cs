@@ -463,7 +463,7 @@ namespace HASS.Agent.Commands
             
             commandInfoCard = new CommandInfoCard(CommandType.SetApplicationVolumeCommand,
                 Languages.CommandsManager_SetApplicationVolumeCommandDescription,
-                   true, true, true);
+                   true, false, true);
 
             CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
 
