@@ -60,12 +60,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
         public override void TurnOnWithAction(string action)
         {
             State = "ON";
-            Debug.WriteLine(action);
-            Log.Debug(action);
+
             try
             {
                 var actionData = JsonConvert.DeserializeObject<ApplicationVolumeAction>(action);
-                Log.Debug(actionData.ToString());
+
                 if (string.IsNullOrWhiteSpace(actionData.ApplicationName))
                 {
                     Log.Error("[SETAPPVOLUME] Error, this command can be run only with action");
@@ -74,12 +73,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
                 }
 
                 using var audioDevice = GetAudioDeviceOrDefault(actionData.PlaybackDevice);
-                Log.Debug(audioDevice.DeviceFriendlyName);
                 using var session = audioDevice.AudioSessionManager2?.Sessions?.Where(s =>
                     s != null &&
                     actionData.ApplicationName == GetSessionDisplayName(s)
                 ).FirstOrDefault();
-                Log.Debug(session.ToString());
+
                 if (session == null)
                 {
                     Log.Error("[SETAPPVOLUME] Error, no session of application {app} can be found", actionData.ApplicationName);
