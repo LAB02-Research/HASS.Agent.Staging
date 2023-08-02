@@ -42,29 +42,20 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 Sensors[sensorId] = sensor;
         }
 
-        private List<string> GetAudioOutputDevices()
+        private List<String> GetAudioDevices(DataFlow type)
         {
-            var audioOutputDevices = new List<string>();
-            foreach (var device in Variables.AudioDeviceEnumerator.EnumerateAudioEndPoints(DataFlow.eRender, DeviceState.Active))
+            var audioDevices = new List<string>();
+            foreach (var device in Variables.AudioDeviceEnumerator.EnumerateAudioEndPoints(type, DeviceState.Active))
             {
-                audioOutputDevices.Add(device.DeviceFriendlyName);
+                audioDevices.Add(device.DeviceFriendlyName);
                 device.Dispose();
             }
 
-            return audioOutputDevices;
+            return audioDevices;
         }
 
-        private List<string> GetAudioInputDevices()
-        {
-            var audioOutputDevices = new List<string>();
-            foreach (var device in Variables.AudioDeviceEnumerator.EnumerateAudioEndPoints(DataFlow.eCapture, DeviceState.Active))
-            {
-                audioOutputDevices.Add(device.DeviceFriendlyName);
-                device.Dispose();
-            }
-
-            return audioOutputDevices;
-        }
+        private List<string> GetAudioOutputDevices() => GetAudioDevices(DataFlow.eRender);
+        private List<string> GetAudioInputDevices() => GetAudioDevices(DataFlow.eCapture);
 
         private void HandleAudioOutputSensors(string parentSensorSafeName)
         {
