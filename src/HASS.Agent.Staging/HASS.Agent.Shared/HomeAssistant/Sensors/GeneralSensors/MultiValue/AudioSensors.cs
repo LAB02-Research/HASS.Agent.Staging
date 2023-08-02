@@ -124,7 +124,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
         private void HandleAudioInputSensors(string parentSensorSafeName)
         {
             using var inputDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(DataFlow.eCapture, Role.Communications);
-            
+
             var defaultInputDeviceId = $"{parentSensorSafeName}_default_input_device";
             var defaultInputDeviceSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Input Device", defaultInputDeviceId, string.Empty, "mdi:microphone", string.Empty, Name);
             defaultInputDeviceSensor.SetState(inputDevice.DeviceFriendlyName);
@@ -211,48 +211,49 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
                 foreach (var device in Variables.AudioDeviceEnumerator.EnumerateAudioEndPoints(DataFlow.eRender, DeviceState.Active))
                 {
-                    // process sessions (and get peak volume)
-                    foreach (var session in device.AudioSessionManager2?.Sessions.Where(x => x != null))
+                    using (device)
                     {
-                        if (session.ProcessID == 0)
-                            continue;
-
-                        try
+                        foreach (var session in device.AudioSessionManager2?.Sessions.Where(x => x != null))
                         {
-                            var displayName = GetSessionDisplayName(session);
+                            if (session.ProcessID == 0)
+                                continue;
 
-                            if (displayName.Length > 30)
-                                displayName = $"{displayName[..30]}..";
-
-                            Debug.WriteLine($" {displayName} /// {session.ProcessID}"); //TODO: remove
-
-                            var sessionInfo = new AudioSessionInfo
+                            try
                             {
-                                Application = displayName,
-                                PlaybackDevice = device.DeviceFriendlyName,
-                                Muted = session.SimpleAudioVolume?.Mute ?? false,
-                                Active = session.State == AudioSessionState.AudioSessionStateActive,
-                                MasterVolume = session.SimpleAudioVolume?.MasterVolume * 100 ?? 0f,
-                                PeakVolume = session.AudioMeterInformation?.MasterPeakValue * 100 ?? 0f
-                            };
+                                var displayName = GetSessionDisplayName(session);
 
-                            // new max?
-                            if (sessionInfo.PeakVolume > peakVolume)
-                                peakVolume = sessionInfo.PeakVolume;
+                                if (displayName.Length > 30)
+                                    displayName = $"{displayName[..30]}..";
 
-                            sessionInfos.Add(sessionInfo);
-                        }
-                        catch (Exception ex)
-                        {
-                            if (!_errorPrinted)
-                                Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving info: {err}", Name, session.DisplayName, ex.Message);
+                                Debug.WriteLine($" {displayName} /// {session.ProcessID}"); //TODO: remove
 
-                            errors = true;
-                        }
-                        finally
-                        {
-                            session?.Dispose();
-                            device?.Dispose();
+                                var sessionInfo = new AudioSessionInfo
+                                {
+                                    Application = displayName,
+                                    PlaybackDevice = device.DeviceFriendlyName,
+                                    Muted = session.SimpleAudioVolume?.Mute ?? false,
+                                    Active = session.State == AudioSessionState.AudioSessionStateActive,
+                                    MasterVolume = session.SimpleAudioVolume?.MasterVolume * 100 ?? 0f,
+                                    PeakVolume = session.AudioMeterInformation?.MasterPeakValue * 100 ?? 0f
+                                };
+
+                                // new max?
+                                if (sessionInfo.PeakVolume > peakVolume)
+                                    peakVolume = sessionInfo.PeakVolume;
+
+                                sessionInfos.Add(sessionInfo);
+                            }
+                            catch (Exception ex)
+                            {
+                                if (!_errorPrinted)
+                                    Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving info: {err}", Name, session.DisplayName, ex.Message);
+
+                                errors = true;
+                            }
+                            finally
+                            {
+                                session?.Dispose();
+                            }
                         }
                     }
                 }
