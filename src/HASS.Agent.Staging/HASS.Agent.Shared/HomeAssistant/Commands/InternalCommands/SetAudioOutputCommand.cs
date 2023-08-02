@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
@@ -51,7 +53,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
                 if (outputDevice == Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(DataFlow.eRender, Role.Multimedia))
                     return;
 
-                Variables.AudioDeviceEnumerator.SetDefaultAudioEndpoint(outputDevice);
+                outputDevice.Selected = true;
             }
             catch (Exception ex)
             {
