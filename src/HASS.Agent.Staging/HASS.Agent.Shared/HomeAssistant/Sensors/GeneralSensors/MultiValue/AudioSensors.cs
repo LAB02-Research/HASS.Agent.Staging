@@ -148,7 +148,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             AddUpdateSensor(defaultInputDeviceVolumeId, defaultInputDeviceVolumeSensor);
 
             var audioInputDevices = GetAudioInputDevices();
-            var audioInputDevicesId = $"{parentSensorSafeName}_audio_output_devices";
+            var audioInputDevicesId = $"{parentSensorSafeName}_audio_input_devices";
             var audioInputDevicesSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Audio Input Devices", audioInputDevicesId, string.Empty, "mdi:microphone", string.Empty, Name, true);
             audioInputDevicesSensor.SetState(audioInputDevices.Count);
             audioInputDevicesSensor.SetAttributes(
