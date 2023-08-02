@@ -159,6 +159,28 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                         Sensors[defaultInputDeviceVolumeId] = defaultInputDeviceVolumeSensor;
                 }
 
+                var audioOutputDevices = new List<string>();
+                foreach (var device in Variables.AudioDeviceEnumerator.EnumerateAudioEndPoints(DataFlow.eRender, DeviceState.Active))
+                {
+                    audioOutputDevices.Add(device.DeviceFriendlyName);
+                    device.Dispose();
+                }
+
+                var audioOutputDevicesId = $"{parentSensorSafeName}_audio_output_devices";
+                var audioOutputDevicesSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Audio Output Devices", audioOutputDevicesId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
+                audioOutputDevicesSensor.SetState(audioOutputDevices.Count);
+                audioOutputDevicesSensor.SetAttributes(
+                    JsonConvert.SerializeObject(new
+                    {
+                        OutputDevices = audioOutputDevices
+                    }, Formatting.Indented)
+                );
+                if (!Sensors.ContainsKey(audioOutputDevicesId))
+                    Sensors.Add(audioOutputDevicesId, audioOutputDevicesSensor);
+                else
+                    Sensors[audioOutputDevicesId] = audioOutputDevicesSensor;
+
+
                 // optionally reset error flag
                 if (_errorPrinted)
                     _errorPrinted = false;
@@ -238,7 +260,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                         {
                             if (!_errorPrinted)
                                 Log.Fatal(ex, "[AUDIO] [{name}] [{app}] Exception while retrieving info: {err}", Name, session.DisplayName, ex.Message);
-                            
+
                             errors = true;
                         }
                         finally
