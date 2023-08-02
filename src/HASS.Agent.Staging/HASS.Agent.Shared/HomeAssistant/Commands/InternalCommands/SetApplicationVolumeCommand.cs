@@ -73,9 +73,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.InternalCommands
                     return;
                 }
 
-                var audioDevice = GetAudioDeviceOrDefault(actionData.PlaybackDevice);
+                using var audioDevice = GetAudioDeviceOrDefault(actionData.PlaybackDevice);
                 Log.Debug(audioDevice.DeviceFriendlyName);
-                var session = audioDevice.AudioSessionManager2?.Sessions?.Where(s =>
+                using var session = audioDevice.AudioSessionManager2?.Sessions?.Where(s =>
                     s != null &&
                     actionData.ApplicationName == GetSessionDisplayName(s)
                 ).FirstOrDefault();
