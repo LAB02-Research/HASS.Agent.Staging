@@ -216,8 +216,6 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                                 if (displayName.Length > 30)
                                     displayName = $"{displayName[..30]}..";
 
-                                Debug.WriteLine($" {displayName} /// {session.ProcessID}"); //TODO: remove
-
                                 var sessionInfo = new AudioSessionInfo
                                 {
                                     Application = displayName,
