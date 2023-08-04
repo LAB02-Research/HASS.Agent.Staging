@@ -24,70 +24,55 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             UpdateSensorValues();
         }
 
+        private void AddUpdateSensor(string sensorId, AbstractSingleValueSensor sensor)
+        {
+            if (!Sensors.ContainsKey(sensorId))
+                Sensors.Add(sensorId, sensor);
+            else
+                Sensors[sensorId] = sensor;
+        }
+
         public sealed override void UpdateSensorValues()
         {
-            // lowercase and safe name of the multivalue sensor
             var parentSensorSafeName = SharedHelperFunctions.GetSafeValue(Name);
 
-            // fetch the latest battery state
             var powerStatus = SystemInformation.PowerStatus;
-
-            // prepare the data
-            var lifetimeMinutes = powerStatus.BatteryFullLifetime;
-            if (lifetimeMinutes != -1) lifetimeMinutes = Convert.ToInt32(Math.Round(TimeSpan.FromSeconds(lifetimeMinutes).TotalMinutes));
-
-            var remainingMinutes = powerStatus.BatteryLifeRemaining;
-            if (remainingMinutes != -1) remainingMinutes = Convert.ToInt32(Math.Round(TimeSpan.FromSeconds(remainingMinutes).TotalMinutes));
-            
-            // charge status sensor
             var chargeStatus = powerStatus.BatteryChargeStatus.ToString();
 
             var chargeStatusId = $"{parentSensorSafeName}_charge_status";
-            var chargeStatusSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Charge Status", chargeStatusId, string.Empty, "mdi:battery-charging", string.Empty, Name);
+            var chargeStatusSensor = new DataTypeStringSensor(_updateInterval, "Charge Status", chargeStatusId, string.Empty, "mdi:battery-charging", string.Empty, Name);
             chargeStatusSensor.SetState(chargeStatus);
+            AddUpdateSensor(chargeStatusId, chargeStatusSensor);
 
-            if (!Sensors.ContainsKey(chargeStatusId)) Sensors.Add(chargeStatusId, chargeStatusSensor);
-            else Sensors[chargeStatusId] = chargeStatusSensor;
-
-            // full charge lifetime sensor
-            var fullChargeLifetimeMinutes = lifetimeMinutes;
+            var fullChargeLifetimeMinutes = powerStatus.BatteryFullLifetime;
+            if (fullChargeLifetimeMinutes != -1)
+                fullChargeLifetimeMinutes = Convert.ToInt32(Math.Round(TimeSpan.FromSeconds(fullChargeLifetimeMinutes).TotalMinutes));
 
             var fullChargeLifetimeId = $"{parentSensorSafeName}_full_charge_lifetime";
-            var fullChargeLifetimeSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Full Charge Lifetime", fullChargeLifetimeId, string.Empty, "mdi:battery-high", string.Empty, Name);
+            var fullChargeLifetimeSensor = new DataTypeIntSensor(_updateInterval, "Full Charge Lifetime", fullChargeLifetimeId, string.Empty, "mdi:battery-high", string.Empty, Name);
             fullChargeLifetimeSensor.SetState(fullChargeLifetimeMinutes);
+            AddUpdateSensor(fullChargeLifetimeId, fullChargeLifetimeSensor);
 
-            if (!Sensors.ContainsKey(fullChargeLifetimeId)) Sensors.Add(fullChargeLifetimeId, fullChargeLifetimeSensor);
-            else Sensors[fullChargeLifetimeId] = fullChargeLifetimeSensor;
-
-            // charge remaining percentage sensor
             var chargeRemainingPercentage = Convert.ToInt32(powerStatus.BatteryLifePercent * 100);
-
             var chargeRemainingPercentageId = $"{parentSensorSafeName}_charge_remaining_percentage";
-            var chargeRemainingPercentageSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Charge Remaining Percentage", chargeRemainingPercentageId, string.Empty, "mdi:battery-high", "%", Name);
+            var chargeRemainingPercentageSensor = new DataTypeIntSensor(_updateInterval, "Charge Remaining Percentage", chargeRemainingPercentageId, string.Empty, "mdi:battery-high", "%", Name);
             chargeRemainingPercentageSensor.SetState(chargeRemainingPercentage);
+            AddUpdateSensor(chargeRemainingPercentageId, chargeRemainingPercentageSensor);
 
-            if (!Sensors.ContainsKey(chargeRemainingPercentageId)) Sensors.Add(chargeRemainingPercentageId, chargeRemainingPercentageSensor);
-            else Sensors[chargeRemainingPercentageId] = chargeRemainingPercentageSensor;
-
-            // charge remaining minutes sensor
-            var chargeRemainingMinutes = remainingMinutes;
+            var chargeRemainingMinutes = powerStatus.BatteryLifeRemaining;
+            if (chargeRemainingMinutes != -1)
+                chargeRemainingMinutes = Convert.ToInt32(Math.Round(TimeSpan.FromSeconds(chargeRemainingMinutes).TotalMinutes));
 
             var chargeRemainingMinutesId = $"{parentSensorSafeName}_charge_remaining";
-            var chargeRemainingMinutesSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Charge Remaining", chargeRemainingMinutesId, string.Empty, "mdi:battery-high", string.Empty, Name);
+            var chargeRemainingMinutesSensor = new DataTypeIntSensor(_updateInterval, "Charge Remaining", chargeRemainingMinutesId, string.Empty, "mdi:battery-high", string.Empty, Name);
             chargeRemainingMinutesSensor.SetState(chargeRemainingMinutes);
+            AddUpdateSensor(chargeRemainingMinutesId, chargeRemainingMinutesSensor);
 
-            if (!Sensors.ContainsKey(chargeRemainingMinutesId)) Sensors.Add(chargeRemainingMinutesId, chargeRemainingMinutesSensor);
-            else Sensors[chargeRemainingMinutesId] = chargeRemainingMinutesSensor;
-
-            // powerline status sensor
             var powerlineStatus = powerStatus.PowerLineStatus.ToString();
-
             var powerlineStatusId = $"{parentSensorSafeName}_powerline_status";
-            var powerlineStatusSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Powerline Status", powerlineStatusId, string.Empty, "mdi:power-plug", string.Empty, Name);
+            var powerlineStatusSensor = new DataTypeStringSensor(_updateInterval, "Powerline Status", powerlineStatusId, string.Empty, "mdi:power-plug", string.Empty, Name);
             powerlineStatusSensor.SetState(powerlineStatus);
-
-            if (!Sensors.ContainsKey(powerlineStatusId)) Sensors.Add(powerlineStatusId, powerlineStatusSensor);
-            else Sensors[powerlineStatusId] = powerlineStatusSensor;
+            AddUpdateSensor(powerlineStatusId, powerlineStatusSensor);
         }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig() => null;

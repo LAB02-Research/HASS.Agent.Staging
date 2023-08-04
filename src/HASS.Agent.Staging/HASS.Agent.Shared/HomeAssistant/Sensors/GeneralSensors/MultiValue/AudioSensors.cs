@@ -46,7 +46,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 {
                     // default device name
                     var defaultDeviceId = $"{parentSensorSafeName}_default_device";
-                    var defaultDeviceSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Device", defaultDeviceId, string.Empty, "mdi:speaker", string.Empty, Name);
+                    var defaultDeviceSensor = new DataTypeStringSensor(_updateInterval, "Default Device", defaultDeviceId, string.Empty, "mdi:speaker", string.Empty, Name);
                     defaultDeviceSensor.SetState(audioDevice.DeviceFriendlyName);
 
                     if (!Sensors.ContainsKey(defaultDeviceId)) Sensors.Add(defaultDeviceId, defaultDeviceSensor);
@@ -54,7 +54,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
                     // default device state
                     var defaultDeviceStateId = $"{parentSensorSafeName}_default_device_state";
-                    var defaultDeviceStateSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Device State", defaultDeviceStateId, string.Empty, "mdi:speaker", string.Empty, Name);
+                    var defaultDeviceStateSensor = new DataTypeStringSensor(_updateInterval, "Default Device State", defaultDeviceStateId, string.Empty, "mdi:speaker", string.Empty, Name);
                     defaultDeviceStateSensor.SetState(GetReadableState(audioDevice.State));
 
                     if (!Sensors.ContainsKey(defaultDeviceStateId)) Sensors.Add(defaultDeviceStateId, defaultDeviceStateSensor);
@@ -63,7 +63,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     // default device volume
                     var masterVolume = Convert.ToInt32(Math.Round(audioDevice.AudioEndpointVolume?.MasterVolumeLevelScalar * 100 ?? 0, 0));
                     var defaultDeviceVolumeId = $"{parentSensorSafeName}_default_device_volume";
-                    var defaultDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Default Device Volume", defaultDeviceVolumeId, string.Empty, "mdi:speaker", string.Empty, Name);
+                    var defaultDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, "Default Device Volume", defaultDeviceVolumeId, string.Empty, "mdi:speaker", string.Empty, Name);
                     defaultDeviceVolumeSensor.SetState(masterVolume);
 
                     if (!Sensors.ContainsKey(defaultDeviceVolumeId)) Sensors.Add(defaultDeviceVolumeId, defaultDeviceVolumeSensor);
@@ -72,7 +72,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     // default device muted
                     var defaultDeviceIsMuted = audioDevice.AudioEndpointVolume?.Mute ?? false;
                     var defaultDeviceIsMutedId = $"{parentSensorSafeName}_default_device_muted";
-                    var defaultDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, $"{Name} Default Device Muted", defaultDeviceIsMutedId, string.Empty, "mdi:speaker", Name);
+                    var defaultDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, "Default Device Muted", defaultDeviceIsMutedId, string.Empty, "mdi:speaker", Name);
                     defaultDeviceIsMutedSensor.SetState(defaultDeviceIsMuted);
 
                     if (!Sensors.ContainsKey(defaultDeviceIsMutedId)) Sensors.Add(defaultDeviceIsMutedId, defaultDeviceIsMutedSensor);
@@ -83,7 +83,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     
                     // peak value sensor
                     var peakVolumeId = $"{parentSensorSafeName}_peak_volume";
-                    var peakVolumeSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Peak Volume", peakVolumeId, string.Empty, "mdi:volume-high", string.Empty, Name);
+                    var peakVolumeSensor = new DataTypeStringSensor(_updateInterval, "Peak Volume", peakVolumeId, string.Empty, "mdi:volume-high", string.Empty, Name);
                     peakVolumeSensor.SetState(peakVolume.ToString(CultureInfo.CurrentCulture));
 
                     if (!Sensors.ContainsKey(peakVolumeId)) Sensors.Add(peakVolumeId, peakVolumeSensor);
@@ -92,7 +92,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     // sessions sensor
                     var sessions = JsonConvert.SerializeObject(new AudioSessionInfoCollection(sessionInfos), Formatting.Indented);
                     var sessionsId = $"{parentSensorSafeName}_audio_sessions";
-                    var sessionsSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
+                    var sessionsSensor = new DataTypeIntSensor(_updateInterval, "Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
                     
                     sessionsSensor.SetState(sessionInfos.Count);
                     sessionsSensor.SetAttributes(sessions);
@@ -106,7 +106,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 {
                     // default input device name
                     var defaultInputDeviceId = $"{parentSensorSafeName}_default_input_device";
-                    var defaultInputDeviceSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Input Device", defaultInputDeviceId, string.Empty, "mdi:microphone", string.Empty, Name);
+                    var defaultInputDeviceSensor = new DataTypeStringSensor(_updateInterval, "Default Input Device", defaultInputDeviceId, string.Empty, "mdi:microphone", string.Empty, Name);
                     defaultInputDeviceSensor.SetState(inputDevice.DeviceFriendlyName);
 
                     if (!Sensors.ContainsKey(defaultInputDeviceId)) Sensors.Add(defaultInputDeviceId, defaultInputDeviceSensor);
@@ -114,7 +114,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
                     // default input device state
                     var defaultInputDeviceStateId = $"{parentSensorSafeName}_default_input_device_state";
-                    var defaultInputDeviceStateSensor = new DataTypeStringSensor(_updateInterval, $"{Name} Default Input Device State", defaultInputDeviceStateId, string.Empty, "mdi:microphone", string.Empty, Name);
+                    var defaultInputDeviceStateSensor = new DataTypeStringSensor(_updateInterval, "Default Input Device State", defaultInputDeviceStateId, string.Empty, "mdi:microphone", string.Empty, Name);
                     defaultInputDeviceStateSensor.SetState(GetReadableState(inputDevice.State));
 
                     if (!Sensors.ContainsKey(defaultInputDeviceStateId)) Sensors.Add(defaultInputDeviceStateId, defaultInputDeviceStateSensor);
@@ -123,7 +123,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     // default input device muted
                     var defaultInputDeviceIsMuted = inputDevice.AudioEndpointVolume?.Mute ?? false;
                     var defaultInputDeviceIsMutedId = $"{parentSensorSafeName}_default_input_device_muted";
-                    var defaultInputDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, $"{Name} Default Input Device Muted", defaultInputDeviceIsMutedId, string.Empty, "mdi:microphone", Name);
+                    var defaultInputDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, "Default Input Device Muted", defaultInputDeviceIsMutedId, string.Empty, "mdi:microphone", Name);
                     defaultInputDeviceIsMutedSensor.SetState(defaultInputDeviceIsMuted);
 
                     if (!Sensors.ContainsKey(defaultInputDeviceIsMutedId)) Sensors.Add(defaultInputDeviceIsMutedId, defaultInputDeviceIsMutedSensor);
@@ -132,7 +132,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     // default input device volume
                     var inputVolume = (int)GetDefaultInputDevicePeakVolume(inputDevice);
                     var defaultInputDeviceVolumeId = $"{parentSensorSafeName}_default_input_device_volume";
-                    var defaultInputDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Default Input Device Volume", defaultInputDeviceVolumeId, string.Empty, "mdi:microphone", string.Empty, Name);
+                    var defaultInputDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, "Default Input Device Volume", defaultInputDeviceVolumeId, string.Empty, "mdi:microphone", string.Empty, Name);
                     defaultInputDeviceVolumeSensor.SetState(inputVolume);
 
                     if (!Sensors.ContainsKey(defaultInputDeviceVolumeId)) Sensors.Add(defaultInputDeviceVolumeId, defaultInputDeviceVolumeSensor);
