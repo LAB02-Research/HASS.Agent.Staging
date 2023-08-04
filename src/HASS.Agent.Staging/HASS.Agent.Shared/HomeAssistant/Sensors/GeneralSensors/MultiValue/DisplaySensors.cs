@@ -86,20 +86,22 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     rotated = monitor.RotatedDegrees;
                 }
 
-                var displayInfo = new DisplayInfo();
-                displayInfo.Name = name;
-                displayInfo.Resolution = resolution;
-                displayInfo.VirtualResolution = virtualResolution;
-                displayInfo.Width = width;
-                displayInfo.VirtualWidth = virtualWidth;
-                displayInfo.Height = height;
-                displayInfo.VirtualHeight = virtualHeight;
-                displayInfo.BitsPerPixel = display.BitsPerPixel;
-                displayInfo.PrimaryDisplay = displayInfo.PrimaryDisplay; //TODO: fix to contain correct value
-                displayInfo.WorkingArea = $"{display.WorkingArea.Width}x{display.WorkingArea.Height}";
-                displayInfo.WorkingAreaWidth = display.WorkingArea.Width;
-                displayInfo.WorkingAreaHeight = display.WorkingArea.Height;
-                displayInfo.RotatedDegrees = rotated;
+                var displayInfo = new DisplayInfo
+                {
+                    Name = name,
+                    Resolution = resolution,
+                    VirtualResolution = virtualResolution,
+                    Width = width,
+                    VirtualWidth = virtualWidth,
+                    Height = height,
+                    VirtualHeight = virtualHeight,
+                    BitsPerPixel = display.BitsPerPixel,
+                    PrimaryDisplay = display.Primary,
+                    WorkingArea = $"{display.WorkingArea.Width}x{display.WorkingArea.Height}",
+                    WorkingAreaWidth = display.WorkingArea.Width,
+                    WorkingAreaHeight = display.WorkingArea.Height,
+                    RotatedDegrees = rotated
+                };
 
                 var info = JsonConvert.SerializeObject(displayInfo, Formatting.Indented);
                 var displayInfoId = $"{parentSensorSafeName}_{id}";
