@@ -216,6 +216,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                             {
                                 var displayName = GetSessionDisplayName(session);
 
+                                if(displayName == "audiodg")
+                                    continue;
+
                                 if (displayName.Length > 30)
                                     displayName = $"{displayName[..30]}..";
 
