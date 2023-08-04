@@ -59,49 +59,48 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
 
         private void HandleAudioOutputSensors(string parentSensorSafeName)
         {
-            using (var audioDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(DataFlow.eRender, Role.Multimedia))
-            {
-                var defaultDeviceId = $"{parentSensorSafeName}_default_device";
-                var defaultDeviceSensor = new DataTypeStringSensor(_updateInterval, $"Default Device", defaultDeviceId, string.Empty, "mdi:speaker", string.Empty, Name);
-                defaultDeviceSensor.SetState(audioDevice.DeviceFriendlyName);
-                AddUpdateSensor(defaultDeviceId, defaultDeviceSensor);
+            using var audioDevice = Variables.AudioDeviceEnumerator.GetDefaultAudioEndpoint(DataFlow.eRender, Role.Multimedia);
 
-                var defaultDeviceStateId = $"{parentSensorSafeName}_default_device_state";
-                var defaultDeviceStateSensor = new DataTypeStringSensor(_updateInterval, $"Default Device State", defaultDeviceStateId, string.Empty, "mdi:speaker", string.Empty, Name);
-                defaultDeviceStateSensor.SetState(GetReadableState(audioDevice.State));
-                AddUpdateSensor(defaultDeviceStateId, defaultDeviceStateSensor);
+            var defaultDeviceId = $"{parentSensorSafeName}_default_device";
+            var defaultDeviceSensor = new DataTypeStringSensor(_updateInterval, $"Default Device", defaultDeviceId, string.Empty, "mdi:speaker", string.Empty, Name);
+            defaultDeviceSensor.SetState(audioDevice.DeviceFriendlyName);
+            AddUpdateSensor(defaultDeviceId, defaultDeviceSensor);
 
-                var masterVolume = Convert.ToInt32(Math.Round(audioDevice.AudioEndpointVolume?.MasterVolumeLevelScalar * 100 ?? 0, 0));
-                var defaultDeviceVolumeId = $"{parentSensorSafeName}_default_device_volume";
-                var defaultDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, $"Default Device Volume", defaultDeviceVolumeId, string.Empty, "mdi:speaker", string.Empty, Name);
-                defaultDeviceVolumeSensor.SetState(masterVolume);
-                AddUpdateSensor(defaultDeviceVolumeId, defaultDeviceVolumeSensor);
+            var defaultDeviceStateId = $"{parentSensorSafeName}_default_device_state";
+            var defaultDeviceStateSensor = new DataTypeStringSensor(_updateInterval, $"Default Device State", defaultDeviceStateId, string.Empty, "mdi:speaker", string.Empty, Name);
+            defaultDeviceStateSensor.SetState(GetReadableState(audioDevice.State));
+            AddUpdateSensor(defaultDeviceStateId, defaultDeviceStateSensor);
 
-                var defaultDeviceIsMuted = audioDevice.AudioEndpointVolume?.Mute ?? false;
-                var defaultDeviceIsMutedId = $"{parentSensorSafeName}_default_device_muted";
-                var defaultDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, $"Default Device Muted", defaultDeviceIsMutedId, string.Empty, "mdi:speaker", Name);
-                defaultDeviceIsMutedSensor.SetState(defaultDeviceIsMuted);
-                AddUpdateSensor(defaultDeviceIsMutedId, defaultDeviceIsMutedSensor);
+            var masterVolume = Convert.ToInt32(Math.Round(audioDevice.AudioEndpointVolume?.MasterVolumeLevelScalar * 100 ?? 0, 0));
+            var defaultDeviceVolumeId = $"{parentSensorSafeName}_default_device_volume";
+            var defaultDeviceVolumeSensor = new DataTypeIntSensor(_updateInterval, $"Default Device Volume", defaultDeviceVolumeId, string.Empty, "mdi:speaker", string.Empty, Name);
+            defaultDeviceVolumeSensor.SetState(masterVolume);
+            AddUpdateSensor(defaultDeviceVolumeId, defaultDeviceVolumeSensor);
 
-                // get session and volume info
-                var sessionInfos = GetSessions(out var peakVolume);
+            var defaultDeviceIsMuted = audioDevice.AudioEndpointVolume?.Mute ?? false;
+            var defaultDeviceIsMutedId = $"{parentSensorSafeName}_default_device_muted";
+            var defaultDeviceIsMutedSensor = new DataTypeBoolSensor(_updateInterval, $"Default Device Muted", defaultDeviceIsMutedId, string.Empty, "mdi:speaker", Name);
+            defaultDeviceIsMutedSensor.SetState(defaultDeviceIsMuted);
+            AddUpdateSensor(defaultDeviceIsMutedId, defaultDeviceIsMutedSensor);
 
-                var peakVolumeId = $"{parentSensorSafeName}_peak_volume";
-                var peakVolumeSensor = new DataTypeStringSensor(_updateInterval, $"Peak Volume", peakVolumeId, string.Empty, "mdi:volume-high", string.Empty, Name);
-                peakVolumeSensor.SetState(peakVolume.ToString(CultureInfo.CurrentCulture));
-                AddUpdateSensor(peakVolumeId, peakVolumeSensor);
+            // get session and volume info
+            var sessionInfos = GetSessions(out var peakVolume);
 
-                var sessionsId = $"{parentSensorSafeName}_audio_sessions";
-                var sessionsSensor = new DataTypeIntSensor(_updateInterval, $"Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
-                sessionsSensor.SetState(sessionInfos.Count);
-                sessionsSensor.SetAttributes(
-                    JsonConvert.SerializeObject(new
-                    {
-                        AudioSessions = sessionInfos
-                    }, Formatting.Indented)
-                );
-                AddUpdateSensor(sessionsId, sessionsSensor);
-            }
+            var peakVolumeId = $"{parentSensorSafeName}_peak_volume";
+            var peakVolumeSensor = new DataTypeStringSensor(_updateInterval, $"Peak Volume", peakVolumeId, string.Empty, "mdi:volume-high", string.Empty, Name);
+            peakVolumeSensor.SetState(peakVolume.ToString(CultureInfo.CurrentCulture));
+            AddUpdateSensor(peakVolumeId, peakVolumeSensor);
+
+            var sessionsId = $"{parentSensorSafeName}_audio_sessions";
+            var sessionsSensor = new DataTypeIntSensor(_updateInterval, $"Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
+            sessionsSensor.SetState(sessionInfos.Count);
+            sessionsSensor.SetAttributes(
+                JsonConvert.SerializeObject(new
+                {
+                    AudioSessions = sessionInfos
+                }, Formatting.Indented)
+            );
+            AddUpdateSensor(sessionsId, sessionsSensor);
 
             var audioOutputDevices = GetAudioOutputDevices();
             var audioOutputDevicesId = $"{parentSensorSafeName}_audio_output_devices";
