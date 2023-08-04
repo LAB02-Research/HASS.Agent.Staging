@@ -91,11 +91,15 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 peakVolumeSensor.SetState(peakVolume.ToString(CultureInfo.CurrentCulture));
                 AddUpdateSensor(peakVolumeId, peakVolumeSensor);
 
-                var sessions = JsonConvert.SerializeObject(new AudioSessionInfoCollection(sessionInfos), Formatting.Indented);
                 var sessionsId = $"{parentSensorSafeName}_audio_sessions";
                 var sessionsSensor = new DataTypeIntSensor(_updateInterval, $"Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
                 sessionsSensor.SetState(sessionInfos.Count);
-                sessionsSensor.SetAttributes(sessions);
+                sessionsSensor.SetAttributes(
+                    JsonConvert.SerializeObject(new
+                    {
+                        AudioSessions = sessionInfos
+                    }, Formatting.Indented)
+                );
                 AddUpdateSensor(sessionsId, sessionsSensor);
             }
 

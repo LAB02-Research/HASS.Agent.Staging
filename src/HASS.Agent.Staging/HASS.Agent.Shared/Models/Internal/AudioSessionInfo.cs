@@ -2,21 +2,6 @@
 
 namespace HASS.Agent.Shared.Models.Internal
 {
-    public class AudioSessionInfoCollection
-    {
-        public AudioSessionInfoCollection()
-        {
-            //
-        }
-
-        public AudioSessionInfoCollection(List<AudioSessionInfo> audioSessions)
-        {
-            foreach (var audioSession in audioSessions) AudioSessions.Add(audioSession);
-        }
-
-        public List<AudioSessionInfo> AudioSessions { get; set; } = new List<AudioSessionInfo>();
-    }
-
     public class AudioSessionInfo
     {
         public AudioSessionInfo()
