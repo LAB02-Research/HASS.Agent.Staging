@@ -23,13 +23,10 @@ namespace HASS.Agent
         {
             try
             {
-                // syncfusion license
                 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Variables.SyncfusionLicense);
 
-                // enable logging
                 LoggingManager.PrepareLogging(args);
 
-                // get extended logging settings
                 Variables.ExtendedLogging = SettingsManager.GetExtendedLoggingSetting();
 
 #if DEBUG
@@ -51,14 +48,11 @@ namespace HASS.Agent
                 }
 #endif
 
-                // prepare application
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                // check if we're a child application
                 var childApp = LaunchAsChildApplication(args);
 
-                // load app settings
                 var settingsLoaded = SettingsManager.LoadAsync(!childApp).GetAwaiter().GetResult();
                 if (!settingsLoaded)
                 {
@@ -68,32 +62,19 @@ namespace HASS.Agent
                     return;
                 }
 
-                // set ui culture
                 LocalizationManager.Initialize();
 
-                // set scaling
                 Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
-
-                // set default font
                 Application.SetDefaultFont(Variables.DefaultFont);
 
-                // register the encoding provider for non-default encodings
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-                // check to see if we're launched as a child application
-                if (LaunchedAsChildApplication(args))
-                {
-                    // yep, nothing left to do
-                    return;
-                }
-
-                // nope, prepare default application
-                Variables.MainForm = new Main();
-
-                // prepare msgbox
                 HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
 
-                // run (hidden)
+                if (LaunchedAsChildApplication(args))
+                    return;
+
+                Variables.MainForm = new Main();
                 Application.Run(new CustomApplicationContext(Variables.MainForm));
             }
             catch (AccessViolationException ex)
@@ -138,159 +119,96 @@ namespace HASS.Agent
         {
             try
             {
-                // post-update
                 if (args.Any(x => x == "update"))
                 {
                     Log.Information("[SYSTEM] Post-update mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
                     var postUpdate = new PostUpdate();
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(postUpdate);
 
-                    // done
                     return true;
                 }
 
-                // port reservation
                 if (args.Any(x => x == "portreservation"))
                 {
                     Log.Information("[SYSTEM] Port reservation mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
+
                     var portReservation = new PortReservation();
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(portReservation);
 
-                    // done
                     return true;
                 }
 
-                // restart hass.agent
                 if (args.Any(x => x == "restart"))
                 {
                     Log.Information("[SYSTEM] Restart mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
                     var restart = new Restart();
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(restart);
 
-                    // done
                     return true;
                 }
 
-                // disable service
                 if (args.Any(x => x == "service_disable"))
                 {
                     Log.Information("[SYSTEM] Set service disabled mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
                     var serviceState = new ServiceSetState(ServiceDesiredState.Disabled);
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(serviceState);
 
-                    // done
                     return true;
                 }
 
-                // enable service
                 if (args.Any(x => x == "service_enabled"))
                 {
                     Log.Information("[SYSTEM] Set service enabled mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
                     var serviceState = new ServiceSetState(ServiceDesiredState.Automatic);
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(serviceState);
 
-                    // done
                     return true;
                 }
 
-                // start service
                 if (args.Any(x => x == "service_start"))
                 {
                     Log.Information("[SYSTEM] Start service mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
                     var serviceState = new ServiceSetState(ServiceDesiredState.Started);
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(serviceState);
 
-                    // done
                     return true;
                 }
 
-                // stop service
                 if (args.Any(x => x == "service_stop"))
                 {
                     Log.Information("[SYSTEM] Stop service mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
+
                     var serviceState = new ServiceSetState(ServiceDesiredState.Stopped);
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(serviceState);
 
-                    // done
                     return true;
                 }
 
-                // reinstall service
                 if (args.Any(x => x == "service_reinstall"))
                 {
                     Log.Information("[SYSTEM] Reinstall service mode activated");
                     Variables.ChildApplicationMode = true;
 
-                    // prepare form
                     var serviceReinstall = new ServiceReinstall();
-
-                    // prepare msgbox
-                    HelperFunctions.SetMsgBoxStyle(Variables.DefaultFont);
-
-                    // run
                     Application.Run(serviceReinstall);
 
-                    // done
                     return true;
                 }
 
-                // nothing, launch normally
                 return false;
             }
             catch (Exception ex)
