@@ -241,6 +241,10 @@ namespace HASS.Agent.Forms.Commands
                 ActiveControl = TbName;
                 return;
             }
+            if (name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
+            {
+                MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_DeviceNameInSensorName, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             // get the friendly name
             var friendlyName = string.IsNullOrEmpty(TbName.Text.Trim()) ? null : TbName.Text.Trim();

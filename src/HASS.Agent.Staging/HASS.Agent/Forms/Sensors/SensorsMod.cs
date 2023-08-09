@@ -229,7 +229,7 @@ namespace HASS.Agent.Forms.Sensors
             // set default values
             if (setDefaultValues)
             {
-                TbName.Text = _serviceMode ? sensorCard.SensorType.GetSensorName(_serviceDeviceName) : sensorCard.SensorType.GetSensorName();
+                TbName.Text = sensorCard.SensorType.GetSensorName();
                 NumInterval.Text = sensorCard.RefreshTimer.ToString();
                 _selectedSensorType = sensorCard.SensorType;
             }
@@ -513,6 +513,10 @@ namespace HASS.Agent.Forms.Sensors
                 MessageBoxAdv.Show(this, Languages.SensorsMod_BtnStore_MessageBox3, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ActiveControl = TbName;
                 return;
+            }
+            if (name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
+            {
+                MessageBoxAdv.Show(this, Languages.SensorsMod_BtnStore_DeviceNameInSensorName, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             // get friendly name

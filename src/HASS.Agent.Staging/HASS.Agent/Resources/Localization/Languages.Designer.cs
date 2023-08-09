@@ -626,6 +626,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Device name in the command name might cause issues with Home Assistant versions starting with 2023.8..
+        /// </summary>
+        internal static string CommandsMod_BtnStore_DeviceNameInSensorName {
+            get {
+                return ResourceManager.GetString("CommandsMod_BtnStore_DeviceNameInSensorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a command type!.
         /// </summary>
         internal static string CommandsMod_BtnStore_MessageBox1 {
@@ -4444,7 +4453,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -5917,6 +5926,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_BtnStore {
             get {
                 return ResourceManager.GetString("SensorsMod_BtnStore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device name in the sensor name might cause issues with Home Assistant versions starting with 2023.8..
+        /// </summary>
+        internal static string SensorsMod_BtnStore_DeviceNameInSensorName {
+            get {
+                return ResourceManager.GetString("SensorsMod_BtnStore_DeviceNameInSensorName", resourceCulture);
             }
         }
         
