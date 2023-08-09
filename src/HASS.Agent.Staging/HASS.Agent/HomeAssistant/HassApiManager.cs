@@ -33,7 +33,6 @@ namespace HASS.Agent.HomeAssistant
         private static EventClient _eventClient;
 
         internal static HassManagerStatus ManagerStatus = HassManagerStatus.Initialising;
-        private static string _haVersion = string.Empty;
 
         internal static List<string> AutomationList = new();
         internal static List<string> ScriptList = new();
@@ -51,6 +50,8 @@ namespace HASS.Agent.HomeAssistant
         private static readonly List<string> NotFoundEntities = new();
 
         private static readonly SemaphoreSlim ConfigCheckSemaphore = new(1, 1);
+
+        public static string HaVersion { get; private set; } = string.Empty;
 
         /// <summary>
         /// Initializes the HASS API manager, establishes a connection and loads the entities
@@ -206,11 +207,11 @@ namespace HASS.Agent.HomeAssistant
                     var config = await _configClient.GetConfiguration();
 
                     // if we're here, the connection works
-                    if (config.Version == _haVersion)
+                    if (config.Version == HaVersion)
                         return true;
 
                     // version changed since last check (or this is the first check), log
-                    _haVersion = config.Version;
+                    HaVersion = config.Version;
                     Log.Information("[HASS_API] Home Assistant version: {version}", config.Version);
 
                     return true;
