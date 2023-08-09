@@ -241,7 +241,7 @@ namespace HASS.Agent.Forms.Commands
                 ActiveControl = TbName;
                 return;
             }
-            if (name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
+            if (CompatHelper.HassVersionEqualOrOver("2023.8") && name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
             {
                 MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_DeviceNameInSensorName, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
