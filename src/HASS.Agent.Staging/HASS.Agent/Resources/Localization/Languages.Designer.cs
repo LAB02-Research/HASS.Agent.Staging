@@ -1312,6 +1312,43 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error, please check logs for more information..
+        /// </summary>
+        internal static string Compat_Error_CheckLogs {
+            get {
+                return ResourceManager.GetString("Compat_Error_CheckLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error while storing modified commands!.
+        /// </summary>
+        internal static string Compat_NameTask_Error_Commands {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Error_Commands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error while storing modified sensors!.
+        /// </summary>
+        internal static string Compat_NameTask_Error_Sensors {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Error_Sensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing entity names
+        ///to match Home Assistant 2023.8 requirements.
+        /// </summary>
+        internal static string Compat_NameTask_Name {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connecting...
         /// </summary>
         internal static string ComponentStatus_Connecting {

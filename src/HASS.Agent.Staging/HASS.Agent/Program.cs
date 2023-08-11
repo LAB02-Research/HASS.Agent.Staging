@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Text;
+using HASS.Agent.Compatibility;
 using HASS.Agent.Enums;
 using HASS.Agent.Forms;
 using HASS.Agent.Forms.ChildApplications;
@@ -107,7 +108,8 @@ namespace HASS.Agent
                    || args.Any(x => x == "service_enabled")
                    || args.Any(x => x == "service_start")
                    || args.Any(x => x == "service_stop")
-                   || args.Any(x => x == "service_reinstall");
+                   || args.Any(x => x == "service_reinstall")
+                   || args.Any(x => x == "compat_names");
         }
 
         /// <summary>
@@ -205,6 +207,17 @@ namespace HASS.Agent
 
                     var serviceReinstall = new ServiceReinstall();
                     Application.Run(serviceReinstall);
+
+                    return true;
+                }
+
+                if(args.Any(x => x == "compat_names"))
+                {
+                    Log.Information("[SYSTEM] Rename entity names mode activated [HA 2023.8]");
+                    Variables.ChildApplicationMode = true;
+
+                    var compatibilityTask = new CompatibilityTask(new NameCompatibilityTask());
+                    Application.Run(compatibilityTask);
 
                     return true;
                 }

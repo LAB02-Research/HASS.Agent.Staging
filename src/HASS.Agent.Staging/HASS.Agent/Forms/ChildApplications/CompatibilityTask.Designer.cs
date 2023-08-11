@@ -59,9 +59,9 @@ namespace HASS.Agent.Forms.ChildApplications
             LblTask1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             LblTask1.Location = new Point(257, 150);
             LblTask1.Name = "LblTask1";
-            LblTask1.Size = new Size(153, 19);
+            LblTask1.Size = new Size(155, 19);
             LblTask1.TabIndex = 57;
-            LblTask1.Text = "Create API Port Binding";
+            LblTask1.Text = "Performing compat task";
             // 
             // PbStep1CompatTask
             // 
