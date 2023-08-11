@@ -22,14 +22,16 @@ namespace HASS.Agent.Compatibility
     {
         public string Name => Languages.Compat_NameTask_Name;
 
-        private (List<ConfiguredSensor>, List<ConfiguredSensor>) ConvertSingleValueSensors(List<AbstractSingleValueSensor> sensors)
+        private (List<ConfiguredSensor>, List<ConfiguredSensor>) ConvertSensors(IEnumerable<AbstractDiscoverable> sensors)
         {
             var configuredSensors = new List<ConfiguredSensor>();
             var toBeDeletedSensors = new List<ConfiguredSensor>();
 
             foreach (var sensor in sensors)
             {
-                var currentConfiguredSensor = StoredSensors.ConvertAbstractSingleValueToConfigured(sensor);
+                var currentConfiguredSensor = sensor is AbstractSingleValueSensor
+                    ? StoredSensors.ConvertAbstractSingleValueToConfigured(sensor as AbstractSingleValueSensor)
+                    : StoredSensors.ConvertAbstractMultiValueToConfigured(sensor as AbstractMultiValueSensor);
 
                 if (!sensor.Name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
                 {
@@ -41,41 +43,10 @@ namespace HASS.Agent.Compatibility
                 var objectId = $"{SharedHelperFunctions.GetSafeConfiguredDeviceName()}_{newName}";
                 if (objectId == sensor.Name)
                 {
-                    var newConfiguredSensor = StoredSensors.ConvertAbstractSingleValueToConfigured(sensor);
-                    newConfiguredSensor.Name = newName;
-                    configuredSensors.Add(newConfiguredSensor);
+                    var newConfiguredSensor = sensor is AbstractSingleValueSensor
+                    ? StoredSensors.ConvertAbstractSingleValueToConfigured(sensor as AbstractSingleValueSensor)
+                    : StoredSensors.ConvertAbstractMultiValueToConfigured(sensor as AbstractMultiValueSensor);
 
-                    toBeDeletedSensors.Add(currentConfiguredSensor);
-                }
-                else
-                {
-                    configuredSensors.Add(currentConfiguredSensor);
-                }
-            }
-
-            return (configuredSensors, toBeDeletedSensors);
-        }
-
-        private (List<ConfiguredSensor>, List<ConfiguredSensor>) ConvertMultiValueSensors(List<AbstractMultiValueSensor> sensors)
-        {
-            var configuredSensors = new List<ConfiguredSensor>();
-            var toBeDeletedSensors = new List<ConfiguredSensor>();
-
-            foreach (var sensor in sensors)
-            {
-                var currentConfiguredSensor = StoredSensors.ConvertAbstractMultiValueToConfigured(sensor);
-
-                if (!sensor.Name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
-                {
-                    configuredSensors.Add(currentConfiguredSensor);
-                    continue;
-                }
-
-                var newName = sensor.Name.Replace($"{SharedHelperFunctions.GetSafeConfiguredDeviceName()}_", "");
-                var objectId = $"{SharedHelperFunctions.GetSafeConfiguredDeviceName()}_{newName}";
-                if (objectId == sensor.Name)
-                {
-                    var newConfiguredSensor = StoredSensors.ConvertAbstractMultiValueToConfigured(sensor);
                     newConfiguredSensor.Name = newName;
                     configuredSensors.Add(newConfiguredSensor);
 
@@ -145,19 +116,34 @@ namespace HASS.Agent.Compatibility
                 CommandsManager.Initialize();
 
                 Log.Information("[COMPATTASK] Modifying stored single value sensors");
-                var (sensors, toBeDeletedSensors) = ConvertSingleValueSensors(Variables.SingleValueSensors);
-                await SensorsManager.StoreAsync(sensors, toBeDeletedSensors);
+                var (sensors, toBeDeletedSensors) = ConvertSensors(Variables.SingleValueSensors);
+                var result = await SensorsManager.StoreAsync(sensors, toBeDeletedSensors);
                 SensorsManager.Pause();
+                if (!result)
+                {
+                    Log.Error("[COMPATTASK] Error modifying stored single value sensors");
+                    errorMessage += Languages.Compat_NameTask_Error_SingleValueSensors;
+                }
 
                 Log.Information("[COMPATTASK] Modifying stored multi value sensors");
-                (sensors, toBeDeletedSensors) = ConvertMultiValueSensors(Variables.MultiValueSensors);
-                await SensorsManager.StoreAsync(sensors, toBeDeletedSensors);
+                (sensors, toBeDeletedSensors) = ConvertSensors(Variables.MultiValueSensors);
+                result = await SensorsManager.StoreAsync(sensors, toBeDeletedSensors);
                 SensorsManager.Pause();
+                if (!result)
+                {
+                    Log.Error("[COMPATTASK] Error modifying stored multi value sensors");
+                    errorMessage += Languages.Compat_NameTask_Error_MultiValueSensors;
+                }
 
                 Log.Information("[COMPATTASK] Modifying stored commands");
                 var (commands, toBeDeletedCommands) = ConvertCommands(Variables.Commands);
-                await CommandsManager.StoreAsync(commands, toBeDeletedCommands);
+                result = await CommandsManager.StoreAsync(commands, toBeDeletedCommands);
                 CommandsManager.Pause();
+                if (!result)
+                {
+                    Log.Error("[COMPATTASK] Error modifying stored commands");
+                    errorMessage += Languages.Compat_NameTask_Error_Commands;
+                }
 
                 Log.Information("[COMPATTASK] Sensor name compatibility task ended");
 

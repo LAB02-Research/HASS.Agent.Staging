@@ -1321,7 +1321,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error while storing modified commands!.
+        ///   Looks up a localized string similar to Error converting commands!.
         /// </summary>
         internal static string Compat_NameTask_Error_Commands {
             get {
@@ -1330,11 +1330,20 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error while storing modified sensors!.
+        ///   Looks up a localized string similar to Error converting multi value sensors!.
         /// </summary>
-        internal static string Compat_NameTask_Error_Sensors {
+        internal static string Compat_NameTask_Error_MultiValueSensors {
             get {
-                return ResourceManager.GetString("Compat_NameTask_Error_Sensors", resourceCulture);
+                return ResourceManager.GetString("Compat_NameTask_Error_MultiValueSensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error converting single value sensors!.
+        /// </summary>
+        internal static string Compat_NameTask_Error_SingleValueSensors {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Error_SingleValueSensors", resourceCulture);
             }
         }
         
