@@ -16,6 +16,16 @@ namespace HASS.Agent
 {
     internal static class Program
     {
+        public const string LaunchParamUpdate = "update";
+        public const string LaunchPortReservation = "portreservation";
+        public const string LaunchParamRestart = "restart";
+        public const string LaunchParamServiceDisable = "service_disable";
+        public const string LaunchParamServiceEnable = "service_enabled";
+        public const string LaunchParamServiceStart = "service_start";
+        public const string LaunchParamServiceStop = "service_stop";
+        public const string LaunchParamServiceReinstall = "service_reinstall";
+        public const string LaunchParamCompatNames = "compat_names";
+
         /// <summary>
         /// Main entry point
         /// </summary>
@@ -101,15 +111,15 @@ namespace HASS.Agent
         /// <returns></returns>
         internal static bool LaunchAsChildApplication(string[] args)
         {
-            return args.Any(x => x == "update")
-                   || args.Any(x => x == "portreservation")
-                   || args.Any(x => x == "restart")
-                   || args.Any(x => x == "service_disable")
-                   || args.Any(x => x == "service_enabled")
-                   || args.Any(x => x == "service_start")
-                   || args.Any(x => x == "service_stop")
-                   || args.Any(x => x == "service_reinstall")
-                   || args.Any(x => x == "compat_names");
+            return args.Any(x => x == LaunchParamUpdate)
+                   || args.Any(x => x == LaunchPortReservation)
+                   || args.Any(x => x == LaunchParamRestart)
+                   || args.Any(x => x == LaunchParamServiceDisable)
+                   || args.Any(x => x == LaunchParamServiceEnable)
+                   || args.Any(x => x == LaunchParamServiceStart)
+                   || args.Any(x => x == LaunchParamServiceStop)
+                   || args.Any(x => x == LaunchParamServiceReinstall)
+                   || args.Any(x => x == LaunchParamCompatNames);
         }
 
         /// <summary>
@@ -121,7 +131,7 @@ namespace HASS.Agent
         {
             try
             {
-                if (args.Any(x => x == "update"))
+                if (args.Any(x => x == LaunchParamUpdate))
                 {
                     Log.Information("[SYSTEM] Post-update mode activated");
                     Variables.ChildApplicationMode = true;
@@ -132,7 +142,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if (args.Any(x => x == "portreservation"))
+                if (args.Any(x => x == LaunchPortReservation))
                 {
                     Log.Information("[SYSTEM] Port reservation mode activated");
                     Variables.ChildApplicationMode = true;
@@ -144,7 +154,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if (args.Any(x => x == "restart"))
+                if (args.Any(x => x == LaunchParamRestart))
                 {
                     Log.Information("[SYSTEM] Restart mode activated");
                     Variables.ChildApplicationMode = true;
@@ -155,7 +165,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if (args.Any(x => x == "service_disable"))
+                if (args.Any(x => x == LaunchParamServiceDisable))
                 {
                     Log.Information("[SYSTEM] Set service disabled mode activated");
                     Variables.ChildApplicationMode = true;
@@ -166,7 +176,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if (args.Any(x => x == "service_enabled"))
+                if (args.Any(x => x == LaunchParamServiceEnable))
                 {
                     Log.Information("[SYSTEM] Set service enabled mode activated");
                     Variables.ChildApplicationMode = true;
@@ -177,7 +187,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if (args.Any(x => x == "service_start"))
+                if (args.Any(x => x == LaunchParamServiceStart))
                 {
                     Log.Information("[SYSTEM] Start service mode activated");
                     Variables.ChildApplicationMode = true;
@@ -188,7 +198,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if (args.Any(x => x == "service_stop"))
+                if (args.Any(x => x == LaunchParamServiceStop))
                 {
                     Log.Information("[SYSTEM] Stop service mode activated");
                     Variables.ChildApplicationMode = true;
@@ -200,7 +210,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if (args.Any(x => x == "service_reinstall"))
+                if (args.Any(x => x == LaunchParamServiceReinstall))
                 {
                     Log.Information("[SYSTEM] Reinstall service mode activated");
                     Variables.ChildApplicationMode = true;
@@ -211,7 +221,7 @@ namespace HASS.Agent
                     return true;
                 }
 
-                if(args.Any(x => x == "compat_names"))
+                if(args.Any(x => x == LaunchParamCompatNames))
                 {
                     Log.Information("[SYSTEM] Rename entity names mode activated [HA 2023.8]");
                     Variables.ChildApplicationMode = true;

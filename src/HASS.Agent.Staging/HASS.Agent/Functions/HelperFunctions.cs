@@ -105,12 +105,12 @@ namespace HASS.Agent.Functions
                 if (fromElevation)
                 {
                     // launch unelevated
-                    CommandLineManager.ExecuteProcessUnElevated(Variables.ApplicationExecutable, "restart");
+                    CommandLineManager.ExecuteProcessUnElevated(Variables.ApplicationExecutable, Program.LaunchParamRestart);
                 }
                 else
                 {
                     // launch from current elevation
-                    using (_ = Process.Start(new ProcessStartInfo(Variables.ApplicationExecutable, "restart") { UseShellExecute = true })) { }
+                    using (_ = Process.Start(new ProcessStartInfo(Variables.ApplicationExecutable, Program.LaunchParamRestart) { UseShellExecute = true })) { }
                 }
 
                 // close up
