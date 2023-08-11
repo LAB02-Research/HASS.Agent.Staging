@@ -114,6 +114,7 @@ namespace HASS.Agent.Compatibility
                 SensorsManager.Initialize();
                 SensorsManager.Pause();
                 CommandsManager.Initialize();
+                CommandsManager.Pause();
 
                 Log.Information("[COMPATTASK] Modifying stored single value sensors");
                 var (sensors, toBeDeletedSensors) = ConvertSensors(Variables.SingleValueSensors);
