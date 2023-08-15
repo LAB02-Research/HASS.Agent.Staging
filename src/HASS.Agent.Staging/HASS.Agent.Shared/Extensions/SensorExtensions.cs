@@ -16,9 +16,7 @@ namespace HASS.Agent.Shared.Extensions
         public static string GetSensorName(this SensorType sensorType)
         {
             var (_, name) = sensorType.GetLocalizedDescriptionAndKey();
-            var sensorName = name.ToLower();
-            
-            return $"{sensorName}";
+            return name.ToLower();
         }
 
         //TODO: remove after tests

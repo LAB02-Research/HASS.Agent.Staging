@@ -491,7 +491,7 @@ namespace HASS.Agent.Forms.Commands
             if (setDefaultValues)
             {
                 // name
-                TbName.Text = _serviceMode ? commandCard.CommandType.GetCommandName(_serviceDeviceName) : commandCard.CommandType.GetCommandName();
+                TbName.Text = commandCard.CommandType.GetCommandName();
 
                 // entity type
                 CbEntityType.Text = CommandEntityType.Switch.ToString();
