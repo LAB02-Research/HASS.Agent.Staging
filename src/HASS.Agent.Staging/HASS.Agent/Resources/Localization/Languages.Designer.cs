@@ -2355,6 +2355,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Treat URI Action elements like Android Companion App (open).
+        /// </summary>
+        internal static string ConfigNotifications_CbNotificationsOpenActionUri {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_CbNotificationsOpenActionUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to both the local API and MQTT are disabled, but the integration needs at least one for it to work.
         /// </summary>
         internal static string ConfigNotifications_LblConnectivityDisabled {

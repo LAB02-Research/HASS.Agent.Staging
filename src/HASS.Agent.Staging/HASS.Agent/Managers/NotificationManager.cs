@@ -172,6 +172,9 @@ namespace HASS.Agent.Managers
                 var input = GetInputFromEventArgs(e);
                 var uri = GetValueFromEventArgs(e, s_uriPrefix);
 
+                if(uri != null && Variables.AppSettings.NotificationsOpenActionUri)
+                    HelperFunctions.LaunchUrl(uri);
+
                 var haEventTask = HassApiManager.FireEvent("hass_agent_notifications", new
                 {
                     device_name = HelperFunctions.GetConfiguredDeviceName(),
@@ -208,8 +211,6 @@ namespace HASS.Agent.Managers
 
         internal static async void HandleNotificationLaunch()
         {
-            //TODO: test input flow
-
             if (!Ready)
                 throw new Exception("NotificationManager is not initialized");
 

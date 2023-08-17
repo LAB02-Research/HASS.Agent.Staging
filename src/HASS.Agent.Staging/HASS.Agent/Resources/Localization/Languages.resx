@@ -3230,4 +3230,7 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
 	  <value>&amp;Round</value>
   </data>
+  <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
+    <value>&amp;Treat URI Action elements like Android Companion App (open)</value>
+  </data>
 </root>

@@ -3221,4 +3221,7 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
 	  <value>domain</value>
   </data>
+  <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
+    <value>&amp;Treat URI Action elements like Android Companion App (open)</value>
+  </data>
 </root>
