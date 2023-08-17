@@ -2355,7 +2355,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Treat URI Action elements like Android Companion App (open).
+        ///   Looks up a localized string similar to &amp;Treat URI Action elements, like Android Companion App does (open).
         /// </summary>
         internal static string ConfigNotifications_CbNotificationsOpenActionUri {
             get {

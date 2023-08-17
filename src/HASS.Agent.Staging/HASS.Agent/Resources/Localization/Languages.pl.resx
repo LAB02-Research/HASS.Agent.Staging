@@ -3330,4 +3330,7 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
+    <value>&amp;Traktuj elementy akcji URI, tak jak robi to aplikacja towarzysząca na Androida (otwórz)</value>
+  </data>
 </root>

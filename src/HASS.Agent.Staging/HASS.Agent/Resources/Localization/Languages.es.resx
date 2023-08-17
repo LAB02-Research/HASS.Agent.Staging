@@ -3220,4 +3220,7 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
+    <value>&amp;Tratar elementos de acción de URI, como lo hace la aplicación Android Companion (abrir)</value>
+  </data>
 </root>

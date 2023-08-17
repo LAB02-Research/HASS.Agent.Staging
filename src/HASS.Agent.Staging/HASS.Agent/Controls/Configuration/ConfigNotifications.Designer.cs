@@ -95,7 +95,7 @@ namespace HASS.Agent.Controls.Configuration
             CbAcceptNotifications.AccessibleRole = AccessibleRole.CheckButton;
             CbAcceptNotifications.AutoSize = true;
             CbAcceptNotifications.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            CbAcceptNotifications.Location = new Point(164, 125);
+            CbAcceptNotifications.Location = new Point(148, 125);
             CbAcceptNotifications.Name = "CbAcceptNotifications";
             CbAcceptNotifications.Size = new Size(149, 23);
             CbAcceptNotifications.TabIndex = 0;
@@ -132,7 +132,7 @@ namespace HASS.Agent.Controls.Configuration
             CbNotificationsIgnoreImageCertErrors.AccessibleRole = AccessibleRole.CheckButton;
             CbNotificationsIgnoreImageCertErrors.AutoSize = true;
             CbNotificationsIgnoreImageCertErrors.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            CbNotificationsIgnoreImageCertErrors.Location = new Point(164, 154);
+            CbNotificationsIgnoreImageCertErrors.Location = new Point(148, 154);
             CbNotificationsIgnoreImageCertErrors.Name = "CbNotificationsIgnoreImageCertErrors";
             CbNotificationsIgnoreImageCertErrors.Size = new Size(238, 23);
             CbNotificationsIgnoreImageCertErrors.TabIndex = 1;
@@ -161,9 +161,9 @@ namespace HASS.Agent.Controls.Configuration
             CbNotificationsOpenActionUri.AccessibleRole = AccessibleRole.CheckButton;
             CbNotificationsOpenActionUri.AutoSize = true;
             CbNotificationsOpenActionUri.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            CbNotificationsOpenActionUri.Location = new Point(164, 183);
+            CbNotificationsOpenActionUri.Location = new Point(148, 183);
             CbNotificationsOpenActionUri.Name = "CbNotificationsOpenActionUri";
-            CbNotificationsOpenActionUri.Size = new Size(410, 23);
+            CbNotificationsOpenActionUri.Size = new Size(446, 23);
             CbNotificationsOpenActionUri.TabIndex = 64;
             CbNotificationsOpenActionUri.Text = Languages.ConfigNotifications_CbNotificationsOpenActionUri;
             CbNotificationsOpenActionUri.UseVisualStyleBackColor = true;

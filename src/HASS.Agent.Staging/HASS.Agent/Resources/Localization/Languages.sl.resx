@@ -3369,4 +3369,7 @@ Ali želite prenesti runtime installer?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Neznano</value>
   </data>
+  <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
+    <value>Obravnava elemen&amp;te URI Action, kot to počne Android Companion App (odprto)</value>
+  </data>
 </root>

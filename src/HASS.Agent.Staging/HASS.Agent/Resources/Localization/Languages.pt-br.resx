@@ -3267,4 +3267,7 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Desconhecido</value>
   </data>
+  <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
+    <value>&amp;Tratar elementos de ação de URI, como faz o Android Companion App (abrir)</value>
+  </data>
 </root>
