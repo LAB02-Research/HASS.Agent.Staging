@@ -21,6 +21,7 @@ namespace HASS.Agent.Managers
         public static bool Ready { get; private set; } = false;
 
         private static readonly string s_actionPrefix = "action=";
+        private static readonly string s_uriPrefix = "uri=";
 
         private static readonly AppNotificationManager _notificationManager = AppNotificationManager.Default;
 
@@ -102,8 +103,13 @@ namespace HASS.Agent.Managers
                         if (string.IsNullOrEmpty(action.Action))
                             continue;
 
-                        toastBuilder.AddButton(new AppNotificationButton(action.Title)
-                            .AddArgument("action", action.Action));
+                        var button = new AppNotificationButton(action.Title)
+                            .AddArgument("action", action.Action);
+                        
+                        if(action.Uri != null)
+                            button.AddArgument("uri", action.Uri);
+
+                        toastBuilder.AddButton(button);
                     }
                 }
 
@@ -145,14 +151,31 @@ namespace HASS.Agent.Managers
 
         private static string GetActionFromEventArgs(AppNotificationActivatedEventArgs e)
         {
-            var startIndex = e.Argument.IndexOf(s_actionPrefix, StringComparison.Ordinal);
-            return startIndex == -1 ? e.Argument : e.Argument.Remove(startIndex, s_actionPrefix.Length);
+            var start = e.Argument.IndexOf(s_actionPrefix) + s_actionPrefix.Length;
+            if (start < s_actionPrefix.Length)
+                return string.Empty;
+
+            var separatorIndex = e.Argument.IndexOf(";");
+            var end = separatorIndex < 0 ? e.Argument.Length : separatorIndex;
+            return e.Argument[start..end];
         }
 
+        private static IDictionary<string, string> GetInputFromEventArgs(AppNotificationActivatedEventArgs e) => e.UserInput.Count > 0 ? e.UserInput : null;
+
+        private static string GetUriFromEventArgs(AppNotificationActivatedEventArgs e)
+        {
+            var start = e.Argument.IndexOf(s_uriPrefix) + s_uriPrefix.Length;
+            if(start < s_uriPrefix.Length)
+                return string.Empty;
+
+            var separatorIndex = e.Argument.LastIndexOf(";");
+            var end = separatorIndex < 0 || separatorIndex < start
+                ? e.Argument.Length
+                : separatorIndex;
+            return e.Argument[start..end];
+        }
 
         private static async void OnNotificationInvoked(AppNotificationManager _, AppNotificationActivatedEventArgs e) => await HandleAppNotificationActivation(e);
-
-        private static IDictionary<string, string> GetInputFromEventArgs(AppNotificationActivatedEventArgs e) => e.UserInput.Count > 0 ? e.UserInput : null;
 
         private static async Task HandleAppNotificationActivation(AppNotificationActivatedEventArgs e)
         {
@@ -162,22 +185,25 @@ namespace HASS.Agent.Managers
             {
                 var action = GetActionFromEventArgs(e);
                 var input = GetInputFromEventArgs(e);
+                var uri = GetUriFromEventArgs(e);
 
                 var haEventTask = HassApiManager.FireEvent("hass_agent_notifications", new
                 {
                     device_name = HelperFunctions.GetConfiguredDeviceName(),
                     action,
-                    input
+                    input,
+                    uri
                 });
 
                 if (Variables.AppSettings.MqttEnabled)
                 {
                     var haMessageBuilder = new MqttApplicationMessageBuilder()
                         .WithTopic($"hass.agent/notifications/{Variables.DeviceConfig.Name}/actions")
-                        .WithPayload(JsonSerializer.Serialize(new
+                        .WithPayload(JsonSerializer.Serialize(new //TODO: replace with newtonsoft json
                         {
                             action,
-                            input
+                            input,
+                            uri
                         }, ApiDeserialization.SerializerOptions));
 
                     var mqttTask = Variables.MqttManager.PublishAsync(haMessageBuilder.Build());

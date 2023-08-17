@@ -4,6 +4,7 @@
     {
         public string Action { get; set; }
         public string Title { get; set; }
+        public string Uri { get; set; }
     }
 
     public class NotificationInput
