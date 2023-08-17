@@ -2424,6 +2424,42 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notification Input Text.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_InputText {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_InputText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification Input Title.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_InputTitle {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_InputTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_No {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_Yes {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Disable Service.
         /// </summary>
         internal static string ConfigService_BtnDisableService {

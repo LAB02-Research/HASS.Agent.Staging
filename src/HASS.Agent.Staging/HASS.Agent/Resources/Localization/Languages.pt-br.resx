@@ -3270,4 +3270,16 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Tratar elementos de ação de URI, como faz o Android Companion App (abrir)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Texto de entrada de notificação</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Título de entrada de notificação</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>Não</value>
+  </data>
 </root>

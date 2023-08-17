@@ -3245,4 +3245,16 @@ Wil je de runtime installatie downloaden?</value>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>URI-ac&amp;tie-elementen behandelen, zoals Android Companion App doet (openen)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Meldingsinvoertekst</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Titel van meldingsinvoer</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>Nee</value>
+  </data>
 </root>

@@ -3291,4 +3291,16 @@ Home Assistant.
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Обрабатывать элементы действия URI, как это делает приложение Android Companion (открыть)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Текст уведомления</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Заголовок ввода уведомления</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>Нет</value>
+  </data>
 </root>

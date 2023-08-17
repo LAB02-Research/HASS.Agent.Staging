@@ -3233,4 +3233,16 @@ Do you want to download the runtime installer?</value>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Treat URI Action elements, like Android Companion App does (open)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Notification Input Title</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Notification Input Text</value>
+  </data>
 </root>

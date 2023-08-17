@@ -3347,4 +3347,16 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>Behandeln Sie URI-Ak&amp;tionselemente, wie es die Android Companion App tut (öffnen)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Benachrichtigungseingabetext</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Titel der Benachrichtigungseingabe</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
 </root>

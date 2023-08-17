@@ -3372,4 +3372,16 @@ Ali želite prenesti runtime installer?</value>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>Obravnava elemen&amp;te URI Action, kot to počne Android Companion App (odprto)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Besedilo vnosa obvestila</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Naslov vnosa obvestila</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>ja</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>ne</value>
+  </data>
 </root>

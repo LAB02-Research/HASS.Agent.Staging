@@ -3223,4 +3223,16 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Tratar elementos de acción de URI, como lo hace la aplicación Android Companion (abrir)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Texto de entrada de notificación</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Título de entrada de notificación</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>No</value>
+  </data>
 </root>

@@ -2831,4 +2831,16 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Treat URI Action öğeleri, Android Companion App'in yaptığı gibi (açık)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Bildirim Giriş Metni</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Bildirim Giriş Başlığı</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>Hayır</value>
+  </data>
 </root>

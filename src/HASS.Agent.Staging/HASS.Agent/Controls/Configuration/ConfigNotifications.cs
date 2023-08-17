@@ -28,7 +28,22 @@ namespace HASS.Agent.Controls.Configuration
             var testNotification = new Notification
             {
                 Message = Languages.ConfigNotifications_TestNotification,
-                Title = "HASS.Agent"
+                Title = "HASS.Agent",
+                Data = new NotificationData()
+                {
+                    Image = "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_960_720.jpg",
+                    Actions = new List<NotificationAction>()
+                    {
+                        new NotificationAction(){ Action = "hass_test_yesAction", Title = Languages.ConfigNotifications_TestNotification_Yes},
+                        new NotificationAction(){ Action = "hass_test_noAction", Title = Languages.ConfigNotifications_TestNotification_No}
+                    },
+                    Inputs = new List<NotificationInput>()
+                    {
+                        new NotificationInput(){ Id = "hass_test_input",
+                        Title = Languages.ConfigNotifications_TestNotification_InputTitle,
+                        Text = Languages.ConfigNotifications_TestNotification_InputText}
+                    }
+                }
             };
 
             Log.Information("[NOTIFIER] Attempting to show test notification ..");

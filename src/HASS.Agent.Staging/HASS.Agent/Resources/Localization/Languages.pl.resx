@@ -3333,4 +3333,16 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Traktuj elementy akcji URI, tak jak robi to aplikacja towarzysząca na Androida (otwórz)</value>
   </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Tekst pola wejściowego</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Tytuł pola wejściowego</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Tak</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>Nie</value>
+  </data>
 </root>
