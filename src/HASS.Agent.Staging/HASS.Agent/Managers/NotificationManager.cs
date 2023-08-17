@@ -105,8 +105,8 @@ namespace HASS.Agent.Managers
 
                         var button = new AppNotificationButton(action.Title)
                             .AddArgument("action", action.Action);
-                        
-                        if(action.Uri != null)
+
+                        if (action.Uri != null)
                             button.AddArgument("uri", action.Uri);
 
                         toastBuilder.AddButton(button);
@@ -149,43 +149,28 @@ namespace HASS.Agent.Managers
             }
         }
 
-        private static string GetActionFromEventArgs(AppNotificationActivatedEventArgs e)
+        private static string GetValueFromEventArgs(AppNotificationActivatedEventArgs e, string startText)
         {
-            var start = e.Argument.IndexOf(s_actionPrefix) + s_actionPrefix.Length;
-            if (start < s_actionPrefix.Length)
-                return string.Empty;
+            var start = e.Argument.IndexOf(startText) + startText.Length;
+            if (start < startText.Length)
+                return null;
 
-            var separatorIndex = e.Argument.IndexOf(";");
+            var separatorIndex = e.Argument.IndexOf(";", start);
             var end = separatorIndex < 0 ? e.Argument.Length : separatorIndex;
             return e.Argument[start..end];
         }
 
         private static IDictionary<string, string> GetInputFromEventArgs(AppNotificationActivatedEventArgs e) => e.UserInput.Count > 0 ? e.UserInput : null;
 
-        private static string GetUriFromEventArgs(AppNotificationActivatedEventArgs e)
-        {
-            var start = e.Argument.IndexOf(s_uriPrefix) + s_uriPrefix.Length;
-            if(start < s_uriPrefix.Length)
-                return string.Empty;
-
-            var separatorIndex = e.Argument.LastIndexOf(";");
-            var end = separatorIndex < 0 || separatorIndex < start
-                ? e.Argument.Length
-                : separatorIndex;
-            return e.Argument[start..end];
-        }
-
         private static async void OnNotificationInvoked(AppNotificationManager _, AppNotificationActivatedEventArgs e) => await HandleAppNotificationActivation(e);
 
         private static async Task HandleAppNotificationActivation(AppNotificationActivatedEventArgs e)
         {
-            //TODO: test input flow
-
             try
             {
-                var action = GetActionFromEventArgs(e);
+                var action = GetValueFromEventArgs(e, s_actionPrefix);
                 var input = GetInputFromEventArgs(e);
-                var uri = GetUriFromEventArgs(e);
+                var uri = GetValueFromEventArgs(e, s_uriPrefix);
 
                 var haEventTask = HassApiManager.FireEvent("hass_agent_notifications", new
                 {
@@ -199,12 +184,12 @@ namespace HASS.Agent.Managers
                 {
                     var haMessageBuilder = new MqttApplicationMessageBuilder()
                         .WithTopic($"hass.agent/notifications/{Variables.DeviceConfig.Name}/actions")
-                        .WithPayload(JsonSerializer.Serialize(new //TODO: replace with newtonsoft json
+                        .WithPayload(JsonConvert.SerializeObject(new
                         {
                             action,
                             input,
                             uri
-                        }, ApiDeserialization.SerializerOptions));
+                        }));
 
                     var mqttTask = Variables.MqttManager.PublishAsync(haMessageBuilder.Build());
 
