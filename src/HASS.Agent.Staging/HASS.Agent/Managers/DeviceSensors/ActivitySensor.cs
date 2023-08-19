@@ -7,7 +7,7 @@ using Windows.Devices.Sensors;
 
 namespace HASS.Agent.Managers.DeviceSensors
 {
-    internal class ActivitySensor : IDeviceSensor
+    internal class ActivitySensor : IInternalDeviceSensor
     {
         public const string AttributeConfidence = "Confidence";
         public const string AttributeTimestamp = "Timestamp";
@@ -15,22 +15,28 @@ namespace HASS.Agent.Managers.DeviceSensors
         private readonly Windows.Devices.Sensors.ActivitySensor _activitySensor;
 
         public bool Available => _activitySensor != null;
-        public DeviceSensorType Type => DeviceSensorType.ActivitySensor;
+        public InternalDeviceSensorType Type => InternalDeviceSensorType.ActivitySensor;
         public string Measurement
         {
             get
             {
-                var sensorReading = _activitySensor?.GetCurrentReadingAsync().AsTask().Result;
-                
+                if (!Available)
+                    return null;
+
+                var sensorReading = _activitySensor.GetCurrentReadingAsync().AsTask().Result;
+                _attributes[AttributeConfidence] = sensorReading.Confidence.ToString();
+                _attributes[AttributeTimestamp] = sensorReading.Timestamp.ToLocalTime().ToString();
+
+                return sensorReading.Activity.ToString();
             }
         }
 
-        public Dictionary<string, string> Attributes => throw new NotImplementedException();
+        private readonly Dictionary<string, string> _attributes = new();
+        public Dictionary<string, string> Attributes => _attributes;
 
         public ActivitySensor(Windows.Devices.Sensors.ActivitySensor activitySensor)
         {
             _activitySensor = activitySensor;
-            new ActivitySensorReading().
         }
     }
 }
