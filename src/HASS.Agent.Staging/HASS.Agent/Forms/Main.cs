@@ -30,7 +30,7 @@ namespace HASS.Agent.Forms
     public partial class Main : MetroForm
     {
         private bool _isClosing = false;
-        
+
         public Main()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace HASS.Agent.Forms
                     Invoke(new MethodInvoker(BringToFront));
                 });
 #endif
-                
+
                 // check if we're enabling extended logging
                 if (Variables.ExtendedLogging)
                 {
@@ -64,8 +64,9 @@ namespace HASS.Agent.Forms
                 KeyPreview = true;
 
                 // hide donate button?
-                if (SettingsManager.GetHideDonateButton()) PbDonate.Visible = false;
-                
+                if (SettingsManager.GetHideDonateButton())
+                    PbDonate.Visible = false;
+
                 // set all statuses to loading
                 SetLocalApiStatus(ComponentStatus.Loading);
                 SetHassApiStatus(ComponentStatus.Loading);
@@ -91,6 +92,7 @@ namespace HASS.Agent.Forms
                     Variables.ShuttingDown = true;
                     await Log.CloseAndFlushAsync();
                     Close();
+
                     return;
                 }
 
@@ -101,26 +103,42 @@ namespace HASS.Agent.Forms
                 ProcessOnboarding();
 
                 // if we're shutting down, no point continuing
-                if (Variables.ShuttingDown) return;
+                if (Variables.ShuttingDown)
+                    return;
 
                 // prepare the tray icon config
                 ProcessTrayIcon();
-                
+
                 // initialize hotkeys
                 InitializeHotkeys();
 
                 // initialize managers
-                _ = Task.Run(ApiManager.Initialize);
-                _ = Task.Run(HassApiManager.InitializeAsync);
-                _ = Task.Run(Variables.MqttManager.Initialize);
-                _ = Task.Run(SensorsManager.Initialize);
-                _ = Task.Run(CommandsManager.Initialize);
-                _ = Task.Run(ServiceManager.Initialize);
-                _ = Task.Run(UpdateManager.Initialize);
-                _ = Task.Run(SystemStateManager.Initialize);
-                _ = Task.Run(CacheManager.Initialize);
-                _ = Task.Run(NotificationManager.Initialize);
-                _ = Task.Run(MediaManager.InitializeAsync);
+                var initTask = Task.Run(async () =>
+                {
+                    await Task.Run(ApiManager.Initialize);
+                    await Task.Run(HassApiManager.InitializeAsync);
+                    await Task.Run(Variables.MqttManager.Initialize);
+                    await Task.Run(SensorsManager.Initialize);
+                    await Task.Run(CommandsManager.Initialize);
+                    await Task.Run(ServiceManager.Initialize);
+                    await Task.Run(UpdateManager.Initialize);
+                    await Task.Run(SystemStateManager.Initialize);
+                    await Task.Run(CacheManager.Initialize);
+                    await Task.Run(NotificationManager.Initialize);
+                    await Task.Run(MediaManager.InitializeAsync);
+                });
+
+                // handle activation from a previously generated notification
+                if (Environment.GetCommandLineArgs().Contains(NotificationManager.NotificationLaunchArgument))
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        await initTask;
+                        NotificationManager.HandleNotificationLaunch();
+                    });
+                }
+
+                AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
             }
             catch (Exception ex)
             {
@@ -130,6 +148,11 @@ namespace HASS.Agent.Forms
                 // we're done
                 Application.Exit();
             }
+        }
+
+        private void OnProcessExit(object sender, EventArgs e)
+        {
+            NotificationManager.Exit();
         }
 
         /// <summary>
@@ -143,6 +166,7 @@ namespace HASS.Agent.Forms
                 case NativeMethods.WM_QUERYENDSESSION:
                     SystemStateManager.ProcessSessionEnd();
                     break;
+
                 case NativeMethods.WM_POWERBROADCAST:
                     SystemStateManager.ProcessMonitorPowerChange(m);
                     break;
@@ -172,8 +196,9 @@ namespace HASS.Agent.Forms
         /// </summary>
         private void ProcessOnboarding()
         {
-            if (Variables.AppSettings.OnboardingStatus is OnboardingStatus.Completed or OnboardingStatus.Aborted) return;
-            
+            if (Variables.AppSettings.OnboardingStatus is OnboardingStatus.Completed or OnboardingStatus.Aborted)
+                return;
+
             // hide ourselves
             ShowInTaskbar = false;
             Opacity = 0;
@@ -194,10 +219,12 @@ namespace HASS.Agent.Forms
         private void CheckDpiScalingFactor()
         {
             var (scalingFactor, dpiScalingFactor) = HelperFunctions.GetScalingFactors();
-            if (scalingFactor == 1 && dpiScalingFactor == 1) return;
+            if (scalingFactor == 1 && dpiScalingFactor == 1)
+                return;
 
             // already shown warning?
-            if (SettingsManager.GetDpiWarningShown()) return;
+            if (SettingsManager.GetDpiWarningShown())
+                return;
 
             // nope, flag it as shown
             SettingsManager.SetDpiWarningShown(true);
@@ -209,13 +236,16 @@ namespace HASS.Agent.Forms
         private static void ProcessTrayIcon()
         {
             // are we set to show the webview and keep it loaded?
-            if (!Variables.AppSettings.TrayIconShowWebView) return;
-            if (!Variables.AppSettings.TrayIconWebViewBackgroundLoading) return;
+            if (!Variables.AppSettings.TrayIconShowWebView)
+                return;
+            if (!Variables.AppSettings.TrayIconWebViewBackgroundLoading)
+                return;
 
             // yep, check the url
             if (string.IsNullOrEmpty(Variables.AppSettings.TrayIconWebViewUrl))
             {
                 Log.Warning("[MAIN] Unable to prepare tray icon webview for background loading: no URL set");
+
                 return;
             }
 
@@ -240,9 +270,10 @@ namespace HASS.Agent.Forms
         /// <param name="e"></param>
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            if (e.ExceptionObject is Exception ex) Log.Fatal(ex, "[MAIN] ThreadException: {err}", ex.Message);
+            if (e.ExceptionObject is Exception ex)
+                Log.Fatal(ex, "[MAIN] ThreadException: {err}", ex.Message);
         }
-        
+
         /// <summary>
         /// Initialize the hotkeys (if any)
         /// </summary>
@@ -250,7 +281,7 @@ namespace HASS.Agent.Forms
         {
             // prepare listener
             Variables.HotKeyListener.HotkeyPressed += HotkeyListener_HotkeyPressed;
-            
+
             // bind quick actions hotkey (if configured)
             Variables.HotKeyManager.InitializeQuickActionsHotKeys();
         }
@@ -262,8 +293,10 @@ namespace HASS.Agent.Forms
         /// <param name="e"></param>
         private void HotkeyListener_HotkeyPressed(object sender, HotkeyEventArgs e)
         {
-            if (e.Hotkey == Variables.QuickActionsHotKey) ShowQuickActions();
-            else HotKeyManager.ProcessQuickActionHotKey(e.Hotkey.ToString());
+            if (e.Hotkey == Variables.QuickActionsHotKey)
+                ShowQuickActions();
+            else
+                HotKeyManager.ProcessQuickActionHotKey(e.Hotkey.ToString());
         }
 
         /// <summary>
@@ -273,13 +306,15 @@ namespace HASS.Agent.Forms
         /// <param name="e"></param>
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_isClosing) return;
+            if (_isClosing)
+                return;
 
             Invoke(new MethodInvoker(Hide));
-            
+
             if (!Variables.ShuttingDown)
             {
                 e.Cancel = true;
+
                 return;
             }
 
@@ -296,8 +331,10 @@ namespace HASS.Agent.Forms
         /// </summary>
         internal void HideTrayIcon()
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             Invoke(new MethodInvoker(delegate
             {
@@ -312,8 +349,10 @@ namespace HASS.Agent.Forms
         /// <param name="error"></param>
         internal void ShowMessageBox(string msg, bool error = false)
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             Invoke(new MethodInvoker(delegate
             {
@@ -327,10 +366,15 @@ namespace HASS.Agent.Forms
         /// </summary>
         private async void ShowMain()
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
-            if (Visible) Hide();
+            if (Visible)
+            {
+                Hide();
+            }
             else
             {
                 Show();
@@ -351,10 +395,12 @@ namespace HASS.Agent.Forms
             if (HelperFunctions.CheckIfFormIsOpen("QuickActions"))
             {
                 await HelperFunctions.TryBringToFront("QuickActions");
+
                 return;
             }
 
-            if (!Variables.QuickActions.Any()) return;
+            if (!Variables.QuickActions.Any())
+                return;
 
             // show a new window
             var form = new QuickActions.QuickActions(Variables.QuickActions);
@@ -370,17 +416,20 @@ namespace HASS.Agent.Forms
         {
             using var exitDialog = new ExitDialog();
             var result = exitDialog.ShowDialog();
-            if (result != DialogResult.OK) return;
+            if (result != DialogResult.OK)
+                return;
 
             if (exitDialog.HideToTray)
             {
                 Hide();
+
                 return;
             }
 
             if (exitDialog.Restart)
             {
                 HelperFunctions.Restart();
+
                 return;
             }
 
@@ -396,7 +445,8 @@ namespace HASS.Agent.Forms
         /// </summary>
         private async void ShowConfiguration()
         {
-            if (await HelperFunctions.TryBringToFront("Configuration")) return;
+            if (await HelperFunctions.TryBringToFront("Configuration"))
+                return;
 
             var form = new Configuration();
             form.FormClosed += delegate { form.Dispose(); };
@@ -408,7 +458,8 @@ namespace HASS.Agent.Forms
         /// </summary>
         private async void ShowQuickActionsManager()
         {
-            if (await HelperFunctions.TryBringToFront("QuickActionsConfig")) return;
+            if (await HelperFunctions.TryBringToFront("QuickActionsConfig"))
+                return;
 
             var form = new QuickActionsConfig();
             form.FormClosed += delegate { form.Dispose(); };
@@ -420,7 +471,8 @@ namespace HASS.Agent.Forms
         /// </summary>
         private async void ShowSensorsManager()
         {
-            if (await HelperFunctions.TryBringToFront("SensorsConfig")) return;
+            if (await HelperFunctions.TryBringToFront("SensorsConfig"))
+                return;
 
             var form = new SensorsConfig();
             form.FormClosed += delegate { form.Dispose(); };
@@ -432,7 +484,8 @@ namespace HASS.Agent.Forms
         /// </summary>
         private async void ShowServiceManager()
         {
-            if (await HelperFunctions.TryBringToFront("ServiceConfig")) return;
+            if (await HelperFunctions.TryBringToFront("ServiceConfig"))
+                return;
 
             var form = new ServiceConfig();
             form.FormClosed += delegate { form.Dispose(); };
@@ -444,7 +497,8 @@ namespace HASS.Agent.Forms
         /// </summary>
         private async void ShowCommandsManager()
         {
-            if (await HelperFunctions.TryBringToFront("CommandsConfig")) return;
+            if (await HelperFunctions.TryBringToFront("CommandsConfig"))
+                return;
 
             var form = new CommandsConfig();
             form.FormClosed += delegate { form.Dispose(); };
@@ -499,8 +553,10 @@ namespace HASS.Agent.Forms
         /// <param name="update"></param>
         internal void SetComponentStatus(ComponentStatusUpdate update)
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             try
             {
@@ -579,13 +635,16 @@ namespace HASS.Agent.Forms
         /// <param name="error"></param>
         internal void ShowToolTip(string message, bool error = false)
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             try
             {
                 // check if the user wants to see our notifications
-                if (!Variables.AppSettings.EnableStateNotifications) return;
+                if (!Variables.AppSettings.EnableStateNotifications)
+                    return;
 
                 Invoke(new MethodInvoker(delegate
                 {
@@ -625,7 +684,8 @@ namespace HASS.Agent.Forms
 
         private void Main_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Escape) return;
+            if (e.KeyCode != Keys.Escape)
+                return;
             Hide();
         }
 
@@ -647,7 +707,8 @@ namespace HASS.Agent.Forms
 
         private async void TsAbout_Click(object sender, EventArgs e)
         {
-            if (await HelperFunctions.TryBringToFront("About")) return;
+            if (await HelperFunctions.TryBringToFront("About"))
+                return;
 
             var form = new About();
             form.FormClosed += delegate { form.Dispose(); };
@@ -656,7 +717,8 @@ namespace HASS.Agent.Forms
 
         private async void BtnHelp_Click(object sender, EventArgs e)
         {
-            if (await HelperFunctions.TryBringToFront("Help")) return;
+            if (await HelperFunctions.TryBringToFront("Help"))
+                return;
 
             var form = new Help();
             form.FormClosed += delegate { form.Dispose(); };
@@ -685,6 +747,7 @@ namespace HASS.Agent.Forms
                 {
                     var beta = Variables.Beta ? " [BETA]" : string.Empty;
                     MessageBoxAdv.Show(this, string.Format(Languages.Main_CheckForUpdate_MessageBox1, Variables.Version, beta), Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     return;
                 }
 
@@ -714,15 +777,18 @@ namespace HASS.Agent.Forms
         /// <param name="pendingUpdate"></param>
         internal void ShowUpdateInfo(PendingUpdate pendingUpdate)
         {
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             try
             {
                 // ReSharper disable once AsyncVoidLambda
                 BeginInvoke(new MethodInvoker(async delegate
                 {
-                    if (await HelperFunctions.TryBringToFront("UpdatePending")) return;
+                    if (await HelperFunctions.TryBringToFront("UpdatePending"))
+                        return;
 
                     var form = new UpdatePending(pendingUpdate);
                     form.FormClosed += delegate { form.Dispose(); };
@@ -737,9 +803,12 @@ namespace HASS.Agent.Forms
 
         private void Main_ResizeEnd(object sender, EventArgs e)
         {
-            if (Variables.ShuttingDown) return;
-            if (!IsHandleCreated) return;
-            if (IsDisposed) return;
+            if (Variables.ShuttingDown)
+                return;
+            if (!IsHandleCreated)
+                return;
+            if (IsDisposed)
+                return;
 
             try
             {
@@ -753,7 +822,8 @@ namespace HASS.Agent.Forms
 
         private async void TsHelp_Click(object sender, EventArgs e)
         {
-            if (await HelperFunctions.TryBringToFront("Help")) return;
+            if (await HelperFunctions.TryBringToFront("Help"))
+                return;
 
             var form = new Help();
             form.FormClosed += delegate { form.Dispose(); };
@@ -765,12 +835,14 @@ namespace HASS.Agent.Forms
         private void NotifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
             // we're only interested if the webview's enabled
-            if (!Variables.AppSettings.TrayIconShowWebView) return;
+            if (!Variables.AppSettings.TrayIconShowWebView)
+                return;
 
             // ignore doubleclicks
             if (e.Clicks > 1)
             {
                 CmTrayIcon.Close();
+
                 return;
             }
 
@@ -778,11 +850,13 @@ namespace HASS.Agent.Forms
             if (e.Button == MouseButtons.Left && Variables.AppSettings.TrayIconWebViewShowMenuOnLeftClick)
             {
                 CmTrayIcon.Show(MousePosition);
+
                 return;
             }
-            
+
             // if it's anything but rightclick, do nothing
-            if (e.Button != MouseButtons.Right) return;
+            if (e.Button != MouseButtons.Right)
+                return;
 
             // close the menu if it loaded
             CmTrayIcon.Close();
@@ -791,6 +865,7 @@ namespace HASS.Agent.Forms
             if (string.IsNullOrEmpty(Variables.AppSettings.TrayIconWebViewUrl))
             {
                 MessageBoxAdv.Show(this, Languages.Main_NotifyIcon_MouseClick_MessageBox1, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 return;
             }
 
@@ -808,7 +883,8 @@ namespace HASS.Agent.Forms
 
         private async void PbDonate_Click(object sender, EventArgs e)
         {
-            if (await HelperFunctions.TryBringToFront("Donate")) return;
+            if (await HelperFunctions.TryBringToFront("Donate"))
+                return;
 
             var form = new Donate();
             form.FormClosed += delegate { form.Dispose(); };

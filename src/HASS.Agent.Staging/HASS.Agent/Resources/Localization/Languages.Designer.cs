@@ -1715,7 +1715,9 @@ namespace HASS.Agent.Resources.Localization {
         ///
         ///Please provide a long-lived access token and the address of your Home Assistant instance.
         ///You can get a token in Home Assistant by clicking your profile picture at the bottom-left
-        ///and navigating to the bottom of the page until you see the &apos;CREATE TOKEN&apos; button..
+        ///and navigating to the bottom of the page until you see the &apos;CREATE TOKEN&apos; button.
+        ///
+        ///Please note, that for actionable notification functionality you need to provide admin account token..
         /// </summary>
         internal static string ConfigHomeAssistantApi_LblInfo1 {
             get {
@@ -2353,6 +2355,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Treat URI Action elements, like Android Companion App does (open).
+        /// </summary>
+        internal static string ConfigNotifications_CbNotificationsOpenActionUri {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_CbNotificationsOpenActionUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to both the local API and MQTT are disabled, but the integration needs at least one for it to work.
         /// </summary>
         internal static string ConfigNotifications_LblConnectivityDisabled {
@@ -2409,6 +2420,42 @@ namespace HASS.Agent.Resources.Localization {
         internal static string ConfigNotifications_TestNotification {
             get {
                 return ResourceManager.GetString("ConfigNotifications_TestNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification Input Text.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_InputText {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_InputText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification Input Title.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_InputTitle {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_InputTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_No {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string ConfigNotifications_TestNotification_Yes {
+            get {
+                return ResourceManager.GetString("ConfigNotifications_TestNotification_Yes", resourceCulture);
             }
         }
         
@@ -4444,7 +4491,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more

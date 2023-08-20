@@ -52,7 +52,9 @@ namespace HASS.Agent.Models.Config
 
         public bool NotificationsEnabled { get; set; } = true;
         public bool NotificationsIgnoreImageCertificateErrors { get; set; } = false;
-        
+        public bool NotificationsOpenActionUri { get; set; } = false;
+
+
         public bool MediaPlayerEnabled { get; set; } = true;
 
         public string HassUri { get; set; } = "http://homeassistant.local:8123";

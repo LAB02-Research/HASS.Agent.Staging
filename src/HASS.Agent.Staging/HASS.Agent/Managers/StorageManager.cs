@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading;
 using Serilog;
 using Task = System.Threading.Tasks.Task;
 
@@ -19,21 +22,32 @@ namespace HASS.Agent.Managers
                 if (string.IsNullOrWhiteSpace(uri))
                 {
                     Log.Error("[STORAGE] Unable to download image: got an empty uri");
+
                     return (false, string.Empty);
+                }
+
+                if (uri.ToLower().StartsWith("file://"))
+                {
+                    Log.Information("[STORAGE] Received 'file://' type URI, returning as provided");
+
+                    return (true, uri);
                 }
 
                 if (!uri.ToLower().StartsWith("http"))
                 {
-                    Log.Error("[STORAGE] Unable to download image: only HTTP uri's are allowed, got: {uri}", uri);
+                    Log.Error("[STORAGE] Unable to download image: only HTTP & file:// uri's are allowed, got: {uri}", uri);
+
                     return (false, string.Empty);
                 }
 
-                if (!Directory.Exists(Variables.ImageCachePath)) Directory.CreateDirectory(Variables.ImageCachePath);
+                if (!Directory.Exists(Variables.ImageCachePath))
+                    Directory.CreateDirectory(Variables.ImageCachePath);
 
                 // check for extension
                 // this fails for hass proxy urls, so add an extra length check
                 var ext = Path.GetExtension(uri);
-                if (string.IsNullOrEmpty(ext) || ext.Length > 5) ext = ".png";
+                if (string.IsNullOrEmpty(ext) || ext.Length > 5)
+                    ext = ".png";
 
                 // create a random local filename
                 var localFile = $"{DateTime.Now:yyyyMMddHHmmss}_{Guid.NewGuid().ToString()[..8]}";
@@ -50,6 +64,7 @@ namespace HASS.Agent.Managers
             catch (Exception ex)
             {
                 Log.Fatal(ex, "[STORAGE] Error downloading image: {uri}", uri);
+
                 return (false, string.Empty);
             }
         }
@@ -66,12 +81,14 @@ namespace HASS.Agent.Managers
                 if (string.IsNullOrWhiteSpace(uri))
                 {
                     Log.Error("[STORAGE] Unable to download audio: got an empty uri");
+
                     return (false, string.Empty);
                 }
 
                 if (!uri.ToLower().StartsWith("http"))
                 {
                     Log.Error("[STORAGE] Unable to download audio: only HTTP uri's are allowed, got: {uri}", uri);
+
                     return (false, string.Empty);
                 }
 
@@ -80,7 +97,8 @@ namespace HASS.Agent.Managers
                 // check for extension
                 // this fails for hass proxy urls, so add an extra length check
                 var ext = Path.GetExtension(uri);
-                if (string.IsNullOrEmpty(ext) || ext.Length > 5) ext = ".mp3";
+                if (string.IsNullOrEmpty(ext) || ext.Length > 5)
+                    ext = ".mp3";
 
                 // create a random local filename
                 var localFile = $"{DateTime.Now:yyyyMMddHHmmss}_{Guid.NewGuid().ToString()[..8]}";
@@ -97,6 +115,7 @@ namespace HASS.Agent.Managers
             catch (Exception ex)
             {
                 Log.Fatal(ex, "[STORAGE] Error downloading audio: {uri}", uri);
+
                 return (false, string.Empty);
             }
         }
@@ -115,23 +134,27 @@ namespace HASS.Agent.Managers
                 if (string.IsNullOrWhiteSpace(uri))
                 {
                     Log.Error("[STORAGE] Unable to download file: got an empty uri");
+
                     return false;
                 }
 
                 if (string.IsNullOrWhiteSpace(localFile))
                 {
                     Log.Error("[STORAGE] Unable to download file: got an empty local file");
+
                     return false;
                 }
 
                 if (!uri.ToLower().StartsWith("http"))
                 {
                     Log.Error("[STORAGE] Unable to download file: only HTTP uri's are allowed, got: {uri}", uri);
+
                     return false;
                 }
 
                 var localFilePath = Path.GetDirectoryName(localFile);
-                if (!Directory.Exists(localFilePath)) Directory.CreateDirectory(localFilePath!);
+                if (!Directory.Exists(localFilePath))
+                    Directory.CreateDirectory(localFilePath!);
 
                 // parse the uri as a check
                 var safeUri = new Uri(uri);
@@ -144,6 +167,7 @@ namespace HASS.Agent.Managers
             catch (Exception ex)
             {
                 Log.Fatal(ex, "[STORAGE] Error downloading file: {uri}", uri);
+
                 return false;
             }
         }
@@ -158,12 +182,16 @@ namespace HASS.Agent.Managers
         {
             try
             {
-                if (!Directory.Exists(directory)) return true;
+                if (!Directory.Exists(directory))
+                    return true;
 
                 // get dir info
                 var dirInfo = new DirectoryInfo(directory);
 
-                if (recursive) await Task.Run(async () => await DeleteDirectoryRecursively(dirInfo));
+                if (recursive)
+                {
+                    await Task.Run(async () => await DeleteDirectoryRecursively(dirInfo));
+                }
                 else
                 {
                     await Task.Run(async delegate
@@ -191,6 +219,7 @@ namespace HASS.Agent.Managers
             catch (Exception ex)
             {
                 Log.Fatal("[STORAGE] Error while deleting directory '{dir}': {err}", directory, ex.Message);
+
                 return false;
             }
         }
@@ -218,25 +247,31 @@ namespace HASS.Agent.Managers
                 foreach (var dir in Directory.EnumerateDirectories(directory, "*", searchOption))
                 {
                     var dirDeleted = await DeleteDirectoryAsync(dir, recursive);
-                    if (dirDeleted) dirsDeleted++;
-                    else dirsFailed++;
+                    if (dirDeleted)
+                        dirsDeleted++;
+                    else
+                        dirsFailed++;
                 }
 
                 // now the files (only of the root folder)
                 foreach (var file in Directory.EnumerateFiles(directory, "*", SearchOption.TopDirectoryOnly))
                 {
                     var fileDeleted = await DeleteFileAsync(file);
-                    if (fileDeleted) filesDeleted++;
-                    else filesFailed++;
+                    if (fileDeleted)
+                        filesDeleted++;
+                    else
+                        filesFailed++;
                 }
-                
+
                 // done
                 var success = dirsFailed == 0 && filesFailed == 0;
+
                 return (success, dirsDeleted, filesDeleted);
             }
             catch (Exception ex)
             {
                 Log.Fatal("[STORAGE] Error while clearing directory '{dir}': {err}", directory, ex.Message);
+
                 return (false, 0, 0);
             }
         }
@@ -245,9 +280,11 @@ namespace HASS.Agent.Managers
         {
             try
             {
-                if (!baseDir.Exists) return;
+                if (!baseDir.Exists)
+                    return;
 
-                foreach (var dir in baseDir.EnumerateDirectories()) await DeleteDirectoryRecursively(dir);
+                foreach (var dir in baseDir.EnumerateDirectories())
+                    await DeleteDirectoryRecursively(dir);
 
                 var files = baseDir.GetFiles();
 
@@ -263,6 +300,7 @@ namespace HASS.Agent.Managers
                     try
                     {
                         baseDir.Delete(true);
+
                         return;
                     }
                     catch (Exception ex)
@@ -292,13 +330,15 @@ namespace HASS.Agent.Managers
         {
             try
             {
-                if (!File.Exists(file)) return true;
+                if (!File.Exists(file))
+                    return true;
 
                 // remove readonly if set
                 try
                 {
                     var fileInfo = new FileInfo(file);
-                    if (fileInfo.IsReadOnly) fileInfo.IsReadOnly = false;
+                    if (fileInfo.IsReadOnly)
+                        fileInfo.IsReadOnly = false;
                 }
                 catch
                 {
@@ -309,6 +349,7 @@ namespace HASS.Agent.Managers
                 {
                     // just once
                     File.Delete(file);
+
                     return true;
                 }
 
@@ -319,6 +360,7 @@ namespace HASS.Agent.Managers
                     try
                     {
                         File.Delete(file);
+
                         return true;
                     }
                     catch (Exception ex)
@@ -329,11 +371,13 @@ namespace HASS.Agent.Managers
                 }
 
                 Log.Error("[STORAGE] Errors during three attempts to delete file '{file}': {err}", file, errMsg);
+
                 return false;
             }
             catch (Exception ex)
             {
                 Log.Fatal("[STORAGE] Error while deleting file '{file}': {err}", file, ex.Message);
+
                 return false;
             }
         }
@@ -349,7 +393,8 @@ namespace HASS.Agent.Managers
             {
                 // prepare the folder
                 var tempFolder = Path.Combine(Path.GetTempPath(), "HASS.Agent");
-                if (Directory.Exists(tempFolder)) Directory.CreateDirectory(tempFolder);
+                if (Directory.Exists(tempFolder))
+                    Directory.CreateDirectory(tempFolder);
 
                 // prepare the file
                 var tempFile = Path.Combine(tempFolder, "HASS.Agent.Installer.exe");
@@ -372,8 +417,28 @@ namespace HASS.Agent.Managers
             catch (Exception ex)
             {
                 Log.Error("[STORAGE] Unable to prepare a temp filename for the installer: {err}", ex.Message);
+
                 return string.Empty;
             }
+        }
+
+        private static async Task<Stream> GetHttpClientRequestStream(string uri)
+        {
+            if (!uri.StartsWith(Variables.AppSettings.HassUri))
+                return await Variables.HttpClient.GetStreamAsync(uri);
+
+            Log.Debug("[STORAGE] Using token bearer authentication for : {uri}", uri);
+
+            var httpRequest =  new HttpRequestMessage{
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(uri, UriKind.RelativeOrAbsolute),
+            };
+            httpRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Variables.AppSettings.HassToken);
+
+            var response = await Variables.HttpClient.SendAsync(httpRequest);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -393,7 +458,7 @@ namespace HASS.Agent.Managers
                 }
 
                 // get a stream from our http client
-                await using var stream = await Variables.HttpClient.GetStreamAsync(uri);
+                await using var stream = await GetHttpClientRequestStream(uri);
 
                 // get a local file stream
                 await using var fileStream = new FileStream(localFile!, FileMode.CreateNew);
@@ -407,6 +472,7 @@ namespace HASS.Agent.Managers
             catch (Exception ex)
             {
                 Log.Error("[STORAGE] Error while downloading file!\r\nRemote URI: {uri}\r\nLocal file: {localFile}\r\nError: {err}", uri, localFile, ex.Message);
+                
                 return false;
             }
         }

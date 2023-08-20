@@ -293,6 +293,7 @@ namespace HASS.Agent.Forms
             // notifications
             _notifications.CbAcceptNotifications.CheckState = Variables.AppSettings.NotificationsEnabled ? CheckState.Checked : CheckState.Unchecked;
             _notifications.CbNotificationsIgnoreImageCertErrors.CheckState = Variables.AppSettings.NotificationsIgnoreImageCertificateErrors ? CheckState.Checked : CheckState.Unchecked;
+            _notifications.CbNotificationsOpenActionUri.CheckState = Variables.AppSettings.NotificationsOpenActionUri ? CheckState.Checked : CheckState.Unchecked;
 
             // hass settings
             _homeAssistantApi.TbHassIp.Text = Variables.AppSettings.HassUri;
@@ -385,6 +386,7 @@ namespace HASS.Agent.Forms
             // notifications
             Variables.AppSettings.NotificationsEnabled = _notifications.CbAcceptNotifications.CheckState == CheckState.Checked;
             Variables.AppSettings.NotificationsIgnoreImageCertificateErrors = _notifications.CbNotificationsIgnoreImageCertErrors.CheckState == CheckState.Checked;
+            Variables.AppSettings.NotificationsOpenActionUri = _notifications.CbNotificationsOpenActionUri.CheckState == CheckState.Checked;    
 
             // hass settings
             Variables.AppSettings.HassUri = _homeAssistantApi.TbHassIp.Text;
