@@ -34,7 +34,7 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue
             if (deviceConfig == null)
                 return null;
 
-            return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(new SensorDiscoveryConfigModel()
+            var sensorDiscoveryConfigModel = new SensorDiscoveryConfigModel()
             {
                 Name = Name,
                 FriendlyName = FriendlyName,
@@ -43,7 +43,12 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue
                 State_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/state",
                 Icon = "mdi:information-box-outline",
                 Availability_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/availability"
-            });
+            };
+
+            if (UseAttributes)
+                sensorDiscoveryConfigModel.Json_attributes_topic = $"{Variables.MqttManager.MqttDiscoveryPrefix()}/{Domain}/{deviceConfig.Name}/{ObjectId}/attributes";
+
+            return AutoDiscoveryConfigModel ?? SetAutoDiscoveryConfigModel(sensorDiscoveryConfigModel);
         }
 
         public override string GetState() => _internalDeviceSensor.Measurement;
