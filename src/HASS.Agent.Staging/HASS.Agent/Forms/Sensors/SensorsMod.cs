@@ -10,6 +10,7 @@ using HASS.Agent.Shared.Extensions;
 using HASS.Agent.Shared.Models.Config;
 using Serilog;
 using HASS.Agent.Shared.Functions;
+using HASS.Agent.Managers.DeviceSensors;
 
 namespace HASS.Agent.Forms.Sensors
 {
@@ -24,6 +25,7 @@ namespace HASS.Agent.Forms.Sensors
         private bool _loading = true;
 
         private readonly Dictionary<string, string> _networkCards = new();
+        private readonly Dictionary<string, string> _internalSensors = new();
 
         private SensorType _selectedSensorType = SensorType.ActiveWindowSensor;
 
@@ -82,12 +84,15 @@ namespace HASS.Agent.Forms.Sensors
             }
             LvSensors.EndUpdate();
 
-            // load network cards
             _networkCards.Add("*", Languages.SensorsMod_All);
-            foreach (var nic in NetworkInterface.GetAllNetworkInterfaces()) _networkCards.Add(nic.Id, nic.Name);
+            foreach (var nic in NetworkInterface.GetAllNetworkInterfaces())
+                _networkCards.Add(nic.Id, nic.Name);
 
-            // load in gui
-            CbNetworkCard.DataSource = new BindingSource(_networkCards, null);
+            foreach (var internalSensor in InternalDeviceSensorsManager.AvailableSensors)
+            {
+                var internalSensorType = internalSensor.Type.ToString();
+                _internalSensors.Add(internalSensorType, internalSensorType);
+            }
 
             // load or set sensor
             if (Sensor.Id == Guid.Empty)
@@ -182,7 +187,13 @@ namespace HASS.Agent.Forms.Sensors
                     break;
 
                 case SensorType.NetworkSensors:
-                    if (_networkCards.ContainsKey(Sensor.Query)) CbNetworkCard.SelectedItem = new KeyValuePair<string, string>(Sensor.Query, _networkCards[Sensor.Query]);
+                    if (_networkCards.ContainsKey(Sensor.Query))
+                        CbNetworkCard.SelectedItem = new KeyValuePair<string, string>(Sensor.Query, _networkCards[Sensor.Query]);
+                    break;
+
+                case SensorType.InternalDeviceSensor:
+                    if (_internalSensors.ContainsKey(Sensor.Query))
+                        CbNetworkCard.SelectedItem = new KeyValuePair<string, string>(Sensor.Query, _internalSensors[Sensor.Query]);
                     break;
 
                 case SensorType.WindowStateSensor:
@@ -264,7 +275,13 @@ namespace HASS.Agent.Forms.Sensors
                     break;
 
                 case SensorType.NetworkSensors:
+                    CbNetworkCard.DataSource = new BindingSource(_networkCards, null);
                     SetNetworkGui();
+                    break;
+
+                case SensorType.InternalDeviceSensor:
+                    CbNetworkCard.DataSource = new BindingSource(_internalSensors, null);
+                    SetInternalSensorGui();
                     break;
 
                 case SensorType.PowershellSensor:
@@ -346,7 +363,7 @@ namespace HASS.Agent.Forms.Sensors
 
                 BtnTest.Text = Languages.SensorsMod_SensorsMod_BtnTest_Powershell;
                 BtnTest.Visible = true;
-                
+
                 CbApplyRounding.Visible = true;
                 if (CbApplyRounding.Checked)
                 {
@@ -383,7 +400,7 @@ namespace HASS.Agent.Forms.Sensors
 
                 BtnTest.Text = Languages.SensorsMod_BtnTest_PerformanceCounter;
                 BtnTest.Visible = true;
-                
+
                 CbApplyRounding.Visible = true;
                 if (CbApplyRounding.Checked)
                 {
@@ -440,6 +457,22 @@ namespace HASS.Agent.Forms.Sensors
         }
 
         /// <summary>
+        /// Change the UI to a 'internal sensor' type
+        /// </summary>
+        private void SetInternalSensorGui()
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                SetEmptyGui();
+
+                LblSetting1.Text = Languages.SensorsMod_LblSetting1_InternalSensor;
+                LblSetting1.Visible = true;
+
+                CbNetworkCard.Visible = true;
+            }));
+        }
+
+        /// <summary>
         /// Change the UI to a general type
         /// </summary>
         private void SetEmptyGui()
@@ -469,7 +502,7 @@ namespace HASS.Agent.Forms.Sensors
                 BtnTest.Visible = false;
             }));
         }
-        
+
         private void LvSensors_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_loading) return;
@@ -566,8 +599,8 @@ namespace HASS.Agent.Forms.Sensors
             // get and check round value
             var applyRounding = CbApplyRounding.Checked;
             int? round = null;
-            if (applyRounding) 
-            { 
+            if (applyRounding)
+            {
                 round = (int)NumRound.Value;
                 if (round is < 0 or > 20)
                 {
@@ -658,6 +691,14 @@ namespace HASS.Agent.Forms.Sensors
 
                 case SensorType.NetworkSensors:
                     Sensor.Query = "*";
+                    if (CbNetworkCard.SelectedItem != null)
+                    {
+                        var item = (KeyValuePair<string, string>)CbNetworkCard.SelectedItem;
+                        Sensor.Query = item.Key;
+                    }
+                    break;
+
+                case SensorType.InternalDeviceSensor:
                     if (CbNetworkCard.SelectedItem != null)
                     {
                         var item = (KeyValuePair<string, string>)CbNetworkCard.SelectedItem;
@@ -920,12 +961,12 @@ namespace HASS.Agent.Forms.Sensors
         private void CbRdValue_CheckedChanged(object sender, EventArgs e)
         {
             if (NumRound.Visible == true)
-            { 
+            {
                 NumRound.Visible = false;
-                LblDigits.Visible = false; 
+                LblDigits.Visible = false;
             }
             else
-            { 
+            {
                 NumRound.Visible = true;
                 LblDigits.Visible = true;
             }

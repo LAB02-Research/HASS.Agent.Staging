@@ -3228,4 +3228,14 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
 	  <value>&amp;Round</value>
   </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>InternalDeviceSensor</value>
+  </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Provides data from the internal device sensor.
+Availbaility of the sensor depends on the device, in some cases no sensors will be available.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Internal Sensor</value>
+  </data>
 </root>
