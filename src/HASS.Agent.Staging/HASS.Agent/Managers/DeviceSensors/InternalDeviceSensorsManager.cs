@@ -1,16 +1,8 @@
-﻿using Syncfusion.Styles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Devices.Enumeration;
+﻿using Windows.Devices.Enumeration;
 using Windows.Devices.Sensors;
 
 namespace HASS.Agent.Managers.DeviceSensors
 {
-
-
     internal static class InternalDeviceSensorsManager
     {
         private static readonly List<IInternalDeviceSensor> deviceSensors = new();
@@ -44,7 +36,7 @@ namespace HASS.Agent.Managers.DeviceSensors
             var proximitySensor = Windows.Devices.Sensors.ProximitySensor.FromId(args.Id);
             var storedProximitySensor = deviceSensors.FirstOrDefault(s => s.Type == InternalDeviceSensorType.ProximitySensor);
 
-            if (proximitySensor != null && storedProximitySensor.Available == false)
+            if (proximitySensor != null && storedProximitySensor?.Available == false)
             {
                 deviceSensors.Remove(storedProximitySensor);
                 deviceSensors.Add(new ProximitySensor(proximitySensor));

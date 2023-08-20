@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HASS.Agent.Managers.DeviceSensors
 {
-    internal enum InternalDeviceSensorType
+    public enum InternalDeviceSensorType
     {
         Accelerometer = 0,
         ActivitySensor,
