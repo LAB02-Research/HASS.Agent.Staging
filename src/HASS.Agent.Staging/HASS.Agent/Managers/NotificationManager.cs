@@ -11,6 +11,8 @@ using Microsoft.Windows.AppNotifications;
 using Microsoft.Windows.AppNotifications.Builder;
 using Microsoft.Windows.AppLifecycle;
 using System.Windows.Markup;
+using System.Text;
+using System.Net;
 
 namespace HASS.Agent.Managers
 {
@@ -69,6 +71,20 @@ namespace HASS.Agent.Managers
             }
         }
 
+        private static string EncodeNotificationParameter(string parameter)
+        {
+            var encodedParameter = Convert.ToBase64String(Encoding.UTF8.GetBytes(parameter));
+            // for some reason, Windows App SDK URL encodes the arguments even if they are already encoded
+            // this is the reason the WebUtility.UrlEncode is missing from here
+            return encodedParameter;
+        }
+
+        private static string DecodeNotificationParameter(string encodedParameter)
+        {
+            var urlDecodedParameter = WebUtility.UrlDecode(encodedParameter);
+            return Encoding.UTF8.GetString(Convert.FromBase64String(urlDecodedParameter));
+        }
+
         /// <summary>
         /// Show a notification object as a toast message
         /// </summary>
@@ -104,10 +120,10 @@ namespace HASS.Agent.Managers
                             continue;
 
                         var button = new AppNotificationButton(action.Title)
-                            .AddArgument("action", action.Action);
+                            .AddArgument("action", EncodeNotificationParameter(action.Action));
 
                         if (action.Uri != null)
-                            button.AddArgument("uri", action.Uri);
+                            button.AddArgument("uri", EncodeNotificationParameter(action.Uri));
 
                         toastBuilder.AddButton(button);
                     }
@@ -157,7 +173,7 @@ namespace HASS.Agent.Managers
 
             var separatorIndex = e.Argument.IndexOf(";", start);
             var end = separatorIndex < 0 ? e.Argument.Length : separatorIndex;
-            return e.Argument[start..end];
+            return DecodeNotificationParameter(e.Argument[start..end]);
         }
 
         private static IDictionary<string, string> GetInputFromEventArgs(AppNotificationActivatedEventArgs e) => e.UserInput.Count > 0 ? e.UserInput : null;
@@ -172,7 +188,7 @@ namespace HASS.Agent.Managers
                 var input = GetInputFromEventArgs(e);
                 var uri = GetValueFromEventArgs(e, s_uriPrefix);
 
-                if(uri != null && Variables.AppSettings.NotificationsOpenActionUri)
+                if (uri != null && Variables.AppSettings.NotificationsOpenActionUri)
                     HelperFunctions.LaunchUrl(uri);
 
                 var haEventTask = HassApiManager.FireEvent("hass_agent_notifications", new
