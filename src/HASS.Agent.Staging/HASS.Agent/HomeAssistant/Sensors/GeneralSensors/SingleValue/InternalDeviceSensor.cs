@@ -21,6 +21,8 @@ namespace HASS.Agent.HomeAssistant.Sensors.GeneralSensors.SingleValue
         {
             SensorType = Enum.Parse<InternalDeviceSensorType>(sensorType);
             _internalDeviceSensor = InternalDeviceSensorsManager.AvailableSensors.First(s => s.Type == SensorType);
+
+            UseAttributes = _internalDeviceSensor.Attributes != Managers.DeviceSensors.InternalDeviceSensor.NoAttributes;
         }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig()
