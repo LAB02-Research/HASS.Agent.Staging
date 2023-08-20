@@ -12,6 +12,8 @@ namespace HASS.Agent.Managers.DeviceSensors
 
         public static async Task Initialize()
         {
+            //TODO: add logs
+
             deviceSensors.Add(new AccelerometerSensor(Accelerometer.GetDefault()));
             deviceSensors.Add(new ActivitySensor(await Windows.Devices.Sensors.ActivitySensor.GetDefaultAsync()));
             deviceSensors.Add(new AltimeterSensor(Altimeter.GetDefault()));
@@ -28,7 +30,7 @@ namespace HASS.Agent.Managers.DeviceSensors
             deviceSensors.Add(new SimpleOrientationSensor(Windows.Devices.Sensors.SimpleOrientationSensor.GetDefault()));
 
             deviceWatcher = DeviceInformation.CreateWatcher(Windows.Devices.Sensors.ProximitySensor.GetDeviceSelector());
-            deviceWatcher.Added += OnProximitySensorAdded;
+            deviceWatcher.Added += OnProximitySensorAdded; //TODO: fix potential crash on startup when no senor is available immediately
         }
 
         private static void OnProximitySensorAdded(DeviceWatcher sender, DeviceInformation args)

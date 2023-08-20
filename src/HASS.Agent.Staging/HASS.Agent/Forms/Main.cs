@@ -82,6 +82,8 @@ namespace HASS.Agent.Forms
                 // check for dpi scaling
                 CheckDpiScalingFactor();
 
+                await InternalDeviceSensorsManager.Initialize();
+
                 // load entities
                 var loaded = await SettingsManager.LoadEntitiesAsync();
                 if (!loaded)
@@ -111,7 +113,6 @@ namespace HASS.Agent.Forms
                 InitializeHotkeys();
 
                 // initialize managers
-                _ = Task.Run(InternalDeviceSensorsManager.Initialize);
                 _ = Task.Run(ApiManager.Initialize);
                 _ = Task.Run(HassApiManager.InitializeAsync);
                 _ = Task.Run(Variables.MqttManager.Initialize);
