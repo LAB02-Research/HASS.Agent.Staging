@@ -23,13 +23,13 @@ namespace HASS.Agent.Managers.DeviceSensors
         {
             get
             {
-                if(!Available)
+                if (!Available)
                     return null;
 
                 var sensorReading = _inclinometer.GetCurrentReading();
-                _attributes[AttributePitchDegrees] = sensorReading.PitchDegrees.ToString();
-                _attributes[AttributeYawDegrees] = sensorReading.YawDegrees.ToString();
-                _attributes[AttributeRollDegrees] = sensorReading.RollDegrees.ToString();
+                _attributes[AttributePitchDegrees] = Math.Round((decimal)sensorReading.PitchDegrees, 2).ToString();
+                _attributes[AttributeYawDegrees] = Math.Round((decimal)sensorReading.YawDegrees, 2).ToString();
+                _attributes[AttributeRollDegrees] = Math.Round((decimal)sensorReading.RollDegrees, 2).ToString();
 
                 _attributes[AttributeYawAccuracy] = sensorReading.YawAccuracy.ToString();
 

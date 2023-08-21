@@ -20,7 +20,8 @@ namespace HASS.Agent.Managers.DeviceSensors
                 if (!Available)
                     return null;
 
-                return _hingeAngelSensor.GetCurrentReadingAsync().AsTask().Result.AngleInDegrees.ToString();
+                var sensorReading = _hingeAngelSensor.GetCurrentReadingAsync().AsTask().Result.AngleInDegrees;
+                return Math.Round((decimal)sensorReading, 2).ToString();
             }
         }
 

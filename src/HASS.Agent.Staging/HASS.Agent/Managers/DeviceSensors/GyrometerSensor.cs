@@ -21,19 +21,23 @@ namespace HASS.Agent.Managers.DeviceSensors
         {
             get
             {
-                if(!Available)
+                if (!Available)
                     return null;
 
                 var sensorReading = _gyrometer.GetCurrentReading();
-                _attributes[AttributeAngularVelocityX] = sensorReading.AngularVelocityX.ToString();
-                _attributes[AttributeAngularVelocityY] = sensorReading.AngularVelocityY.ToString();
-                _attributes[AttributeAngularVelocityZ] = sensorReading.AngularVelocityZ.ToString();
+                var angVelX = Math.Round((decimal)sensorReading.AngularVelocityX, 2);
+                var angVelY = Math.Round((decimal)sensorReading.AngularVelocityY, 2);
+                var angVelZ = Math.Round((decimal)sensorReading.AngularVelocityZ, 2);
+
+                _attributes[AttributeAngularVelocityX] = angVelX.ToString();
+                _attributes[AttributeAngularVelocityY] = angVelY.ToString();
+                _attributes[AttributeAngularVelocityZ] = angVelZ.ToString();
 
                 return (
-                    Math.Abs(sensorReading.AngularVelocityX) +
-                    Math.Abs(sensorReading.AngularVelocityY) +
-                    Math.Abs(sensorReading.AngularVelocityZ)
-                    ).ToString();
+                    Math.Abs(angVelX) +
+                    Math.Abs(angVelY) +
+                    Math.Abs(angVelZ)
+                ).ToString();
             }
         }
 

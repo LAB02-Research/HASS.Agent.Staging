@@ -19,12 +19,12 @@ namespace HASS.Agent.Managers.DeviceSensors
         {
             get
             {
-                if(!Available)
+                if (!Available)
                     return null;
 
                 var sensorReading = _compass.GetCurrentReading();
-                _attributes[AttributeMagneticNorth] = sensorReading.HeadingMagneticNorth.ToString();
-                return sensorReading.HeadingTrueNorth.ToString();
+                _attributes[AttributeMagneticNorth] = Math.Round((decimal)sensorReading.HeadingMagneticNorth, 2).ToString();
+                return Math.Round((decimal)sensorReading.HeadingTrueNorth, 2).ToString();
             }
         }
 

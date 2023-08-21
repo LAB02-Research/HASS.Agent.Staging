@@ -8,7 +8,7 @@ using Windows.Devices.Sensors;
 namespace HASS.Agent.Managers.DeviceSensors
 {
     internal class AccelerometerSensor : IInternalDeviceSensor
-    { 
+    {
         public const string AttributeAccelerationX = "AccelerationX";
         public const string AttributeAccelerationY = "AccelerationY";
         public const string AttributeAccelerationZ = "AccelerationZ";
@@ -26,15 +26,19 @@ namespace HASS.Agent.Managers.DeviceSensors
                     return null;
 
                 var sensorReading = _accelerometer.GetCurrentReading();
-                _attributes[AttributeAccelerationX] = sensorReading.AccelerationX.ToString();
-                _attributes[AttributeAccelerationY] = sensorReading.AccelerationY.ToString();
-                _attributes[AttributeAccelerationZ] = sensorReading.AccelerationZ.ToString();
+                var accX = Math.Round((decimal)sensorReading.AccelerationX, 2);
+                var accY = Math.Round((decimal)sensorReading.AccelerationX, 2);
+                var accZ = Math.Round((decimal)sensorReading.AccelerationX, 2);
+
+                _attributes[AttributeAccelerationX] = accX.ToString();
+                _attributes[AttributeAccelerationY] = accY.ToString();
+                _attributes[AttributeAccelerationZ] = accZ.ToString();
 
                 return (
-                    Math.Abs(sensorReading.AccelerationX) +
-                    Math.Abs(sensorReading.AccelerationY) +
-                    Math.Abs(sensorReading.AccelerationZ)
-                    ).ToString();
+                    Math.Abs(accX) +
+                    Math.Abs(accY) +
+                    Math.Abs(accZ)
+                ).ToString();
             }
         }
 

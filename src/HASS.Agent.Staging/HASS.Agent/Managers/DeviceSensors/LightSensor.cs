@@ -20,7 +20,7 @@ namespace HASS.Agent.Managers.DeviceSensors
                 if (!Available)
                     return null;
 
-                return _lightSensor.GetCurrentReading().IlluminanceInLux.ToString();
+                return Math.Round((decimal)_lightSensor.GetCurrentReading().IlluminanceInLux, 2).ToString();
             }
         }
 

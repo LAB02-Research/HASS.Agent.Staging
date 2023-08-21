@@ -25,15 +25,19 @@ namespace HASS.Agent.Managers.DeviceSensors
                     return null;
 
                 var sensorReading = _magnetometer.GetCurrentReading();
-                _attributes[AttributeMagneticFieldX] = sensorReading.MagneticFieldX.ToString();
-                _attributes[AttributeMagneticFieldY] = sensorReading.MagneticFieldY.ToString();
-                _attributes[AttributeMagneticFieldZ] = sensorReading.MagneticFieldZ.ToString();
+                var magFieldX = Math.Round((decimal)sensorReading.MagneticFieldX,2);
+                var magFieldY = Math.Round((decimal)sensorReading.MagneticFieldY, 2);
+                var magFieldZ = Math.Round((decimal)sensorReading.MagneticFieldZ, 2);
+
+                _attributes[AttributeMagneticFieldX] = magFieldX.ToString();
+                _attributes[AttributeMagneticFieldY] = magFieldY.ToString();
+                _attributes[AttributeMagneticFieldZ] = magFieldZ.ToString();
 
                 return (
-                    Math.Abs(sensorReading.MagneticFieldX) +
-                    Math.Abs(sensorReading.MagneticFieldY) +
-                    Math.Abs(sensorReading.MagneticFieldZ)
-                    ).ToString();
+                    Math.Abs(magFieldX) +
+                    Math.Abs(magFieldY) +
+                    Math.Abs(magFieldZ)
+                ).ToString();
             }
         }
 
