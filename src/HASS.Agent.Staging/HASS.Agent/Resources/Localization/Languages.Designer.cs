@@ -6313,6 +6313,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string SensorsMod_None {
+            get {
+                return ResourceManager.GetString("SensorsMod_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Test Command/Script.
         /// </summary>
         internal static string SensorsMod_SensorsMod_BtnTest_Powershell {

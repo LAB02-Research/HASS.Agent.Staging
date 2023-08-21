@@ -88,6 +88,7 @@ namespace HASS.Agent.Forms.Sensors
             foreach (var nic in NetworkInterface.GetAllNetworkInterfaces())
                 _networkCards.Add(nic.Id, nic.Name);
 
+            _internalSensors.Add("none", Languages.SensorsMod_None);
             foreach (var internalSensor in InternalDeviceSensorsManager.AvailableSensors)
             {
                 var internalSensorType = internalSensor.Type.ToString();
@@ -469,6 +470,13 @@ namespace HASS.Agent.Forms.Sensors
                 LblSetting1.Visible = true;
 
                 CbNetworkCard.Visible = true;
+
+                CbApplyRounding.Visible = true;
+                if (CbApplyRounding.Checked)
+                {
+                    NumRound.Visible = true;
+                    LblDigits.Visible = true;
+                }
             }));
         }
 
@@ -702,6 +710,13 @@ namespace HASS.Agent.Forms.Sensors
                     if (CbNetworkCard.SelectedItem != null)
                     {
                         var item = (KeyValuePair<string, string>)CbNetworkCard.SelectedItem;
+                        if(item.Value == Languages.SensorsMod_None)
+                        {
+                            MessageBoxAdv.Show(this, Languages.SensorsMod_BtnStore_MessageBox1, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ActiveControl = CbNetworkCard;
+                            return;
+                        }
+
                         Sensor.Query = item.Key;
                     }
                     break;
