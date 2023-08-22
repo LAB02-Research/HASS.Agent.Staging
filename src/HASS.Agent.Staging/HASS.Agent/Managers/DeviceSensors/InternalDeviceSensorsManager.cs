@@ -15,25 +15,32 @@ namespace HASS.Agent.Managers.DeviceSensors
 
         public static async Task Initialize()
         {
-            deviceWatcher = DeviceInformation.CreateWatcher(Windows.Devices.Sensors.ProximitySensor.GetDeviceSelector());
-            deviceWatcher.Added += OnProximitySensorAdded;
+            try
+            {
+                deviceWatcher = DeviceInformation.CreateWatcher(Windows.Devices.Sensors.ProximitySensor.GetDeviceSelector());
+                deviceWatcher.Added += OnProximitySensorAdded;
 
-            deviceSensors.Add(new AccelerometerSensor(Accelerometer.GetDefault()));
-            deviceSensors.Add(new ActivitySensor(await Windows.Devices.Sensors.ActivitySensor.GetDefaultAsync()));
-            deviceSensors.Add(new AltimeterSensor(Altimeter.GetDefault()));
-            deviceSensors.Add(new BarometerSensor(Barometer.GetDefault()));
-            deviceSensors.Add(new CompassSensor(Compass.GetDefault()));
-            deviceSensors.Add(new GyrometerSensor(Gyrometer.GetDefault()));
-            deviceSensors.Add(new HingeAngleSensor(await Windows.Devices.Sensors.HingeAngleSensor.GetDefaultAsync()));
-            deviceSensors.Add(new InclinometerSensor(Inclinometer.GetDefault()));
-            deviceSensors.Add(new LightSensor(Windows.Devices.Sensors.LightSensor.GetDefault()));
-            deviceSensors.Add(new MagnetometerSensor(Magnetometer.GetDefault()));
-            deviceSensors.Add(new OrientationSensor(Windows.Devices.Sensors.OrientationSensor.GetDefault()));
-            deviceSensors.Add(new PedometerSensor(await Pedometer.GetDefaultAsync()));
-            deviceSensors.Add(new ProximitySensor(await GetDefaultProximitySensorAsync()));
-            deviceSensors.Add(new SimpleOrientationSensor(Windows.Devices.Sensors.SimpleOrientationSensor.GetDefault()));
+                deviceSensors.Add(new AccelerometerSensor(Accelerometer.GetDefault()));
+                deviceSensors.Add(new ActivitySensor(await Windows.Devices.Sensors.ActivitySensor.GetDefaultAsync()));
+                deviceSensors.Add(new AltimeterSensor(Altimeter.GetDefault()));
+                deviceSensors.Add(new BarometerSensor(Barometer.GetDefault()));
+                deviceSensors.Add(new CompassSensor(Compass.GetDefault()));
+                deviceSensors.Add(new GyrometerSensor(Gyrometer.GetDefault()));
+                deviceSensors.Add(new HingeAngleSensor(await Windows.Devices.Sensors.HingeAngleSensor.GetDefaultAsync()));
+                deviceSensors.Add(new InclinometerSensor(Inclinometer.GetDefault()));
+                deviceSensors.Add(new LightSensor(Windows.Devices.Sensors.LightSensor.GetDefault()));
+                deviceSensors.Add(new MagnetometerSensor(Magnetometer.GetDefault()));
+                deviceSensors.Add(new OrientationSensor(Windows.Devices.Sensors.OrientationSensor.GetDefault()));
+                deviceSensors.Add(new PedometerSensor(await Pedometer.GetDefaultAsync()));
+                deviceSensors.Add(new ProximitySensor(await GetDefaultProximitySensorAsync()));
+                deviceSensors.Add(new SimpleOrientationSensor(Windows.Devices.Sensors.SimpleOrientationSensor.GetDefault()));
 
-            Log.Information("[INTERNALSENSORS] Ready");
+                Log.Information("[INTERNALSENSORS] Ready");
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "[INTERNALSENSORS] Error while initializing: {err}", ex.Message);
+            }
         }
 
         private static void OnProximitySensorAdded(DeviceWatcher sender, DeviceInformation args)
