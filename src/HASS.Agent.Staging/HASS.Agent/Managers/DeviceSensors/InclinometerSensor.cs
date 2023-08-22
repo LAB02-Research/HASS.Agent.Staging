@@ -33,7 +33,7 @@ namespace HASS.Agent.Managers.DeviceSensors
 
                 _attributes[AttributeYawAccuracy] = sensorReading.YawAccuracy.ToString();
 
-                return string.Empty;
+                return sensorReading.Timestamp.ToLocalTime().ToString();
             }
         }
 
