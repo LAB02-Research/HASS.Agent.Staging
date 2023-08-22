@@ -9,7 +9,7 @@ namespace HASS.Agent.Managers.DeviceSensors
 {
     internal class ProximitySensor : IInternalDeviceSensor
     {
-        private readonly Windows.Devices.Sensors.ProximitySensor _proximitySensor;
+        private Windows.Devices.Sensors.ProximitySensor _proximitySensor;
 
         public bool Available => _proximitySensor != null;
         public InternalDeviceSensorType Type => InternalDeviceSensorType.ProximitySensor;
@@ -27,6 +27,11 @@ namespace HASS.Agent.Managers.DeviceSensors
         public Dictionary<string, string> Attributes => InternalDeviceSensor.NoAttributes;
 
         public ProximitySensor(Windows.Devices.Sensors.ProximitySensor proximitySensor)
+        {
+            _proximitySensor = proximitySensor;
+        }
+
+        public void UpdateInternalSensor(Windows.Devices.Sensors.ProximitySensor proximitySensor)
         {
             _proximitySensor = proximitySensor;
         }
