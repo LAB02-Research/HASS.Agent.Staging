@@ -1,4 +1,5 @@
-﻿using Windows.Devices.Enumeration;
+﻿using Serilog;
+using Windows.Devices.Enumeration;
 using Windows.Devices.Sensors;
 
 namespace HASS.Agent.Managers.DeviceSensors
@@ -14,8 +15,6 @@ namespace HASS.Agent.Managers.DeviceSensors
 
         public static async Task Initialize()
         {
-            //TODO: add logs
-
             deviceWatcher = DeviceInformation.CreateWatcher(Windows.Devices.Sensors.ProximitySensor.GetDeviceSelector());
             deviceWatcher.Added += OnProximitySensorAdded;
 
@@ -33,6 +32,8 @@ namespace HASS.Agent.Managers.DeviceSensors
             deviceSensors.Add(new PedometerSensor(await Pedometer.GetDefaultAsync()));
             deviceSensors.Add(new ProximitySensor(await GetDefaultProximitySensorAsync()));
             deviceSensors.Add(new SimpleOrientationSensor(Windows.Devices.Sensors.SimpleOrientationSensor.GetDefault()));
+
+            Log.Information("[INTERNALSENSORS] Ready");
         }
 
         private static void OnProximitySensorAdded(DeviceWatcher sender, DeviceInformation args)
