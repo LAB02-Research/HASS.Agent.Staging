@@ -470,13 +470,6 @@ namespace HASS.Agent.Forms.Sensors
                 LblSetting1.Visible = true;
 
                 CbNetworkCard.Visible = true;
-
-                CbApplyRounding.Visible = true;
-                if (CbApplyRounding.Checked)
-                {
-                    NumRound.Visible = true;
-                    LblDigits.Visible = true;
-                }
             }));
         }
 
