@@ -150,7 +150,6 @@ namespace HASS.Agent.Forms.Sensors
             {
                 if ((sender as CheckBox).Checked)
                     MessageBoxAdv.Show(this, Languages.SensorsMod_IgnoreAvailability_Info, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             };
 
             // set optional setting
