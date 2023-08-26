@@ -197,6 +197,8 @@ namespace HASS.Agent.Settings
                     break;
             }
 
+            abstractSensor.IgnoreAvailability = sensor.IgnoreAvailability;
+
             return abstractSensor;
         }
 
@@ -237,6 +239,8 @@ namespace HASS.Agent.Settings
                     break;
             }
 
+            abstractSensor.IgnoreAvailability = sensor.IgnoreAvailability;
+
             return abstractSensor;
         }
 
@@ -259,6 +263,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = wmiSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = wmiSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = wmiSensor.IgnoreAvailability,
                         Scope = wmiSensor.Scope,
                         Query = wmiSensor.Query,
                         ApplyRounding = wmiSensor.ApplyRounding,
@@ -276,6 +281,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = namedWindowSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = namedWindowSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = namedWindowSensor.IgnoreAvailability,
                         WindowName = namedWindowSensor.WindowName
                     };
                 }
@@ -290,6 +296,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = performanceCounterSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = performanceCounterSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = performanceCounterSensor.IgnoreAvailability,
                         Category = performanceCounterSensor.CategoryName,
                         Counter = performanceCounterSensor.CounterName,
                         Instance = performanceCounterSensor.InstanceName,
@@ -308,6 +315,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = processActiveSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = processActiveSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = processActiveSensor.IgnoreAvailability,
                         Query = processActiveSensor.ProcessName
                     };
                 }
@@ -322,6 +330,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = serviceStateSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = serviceStateSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = serviceStateSensor.IgnoreAvailability,
                         Query = serviceStateSensor.ServiceName
                     };
                 }
@@ -336,6 +345,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = powershellSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = powershellSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = powershellSensor.IgnoreAvailability,
                         Query = powershellSensor.Command,
                         ApplyRounding = powershellSensor.ApplyRounding,
                         Round = powershellSensor.Round
@@ -352,6 +362,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = windowStateSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = windowStateSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = windowStateSensor.IgnoreAvailability,
                         Query = windowStateSensor.ProcessName
                     };
                 }
@@ -365,7 +376,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type, 
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
             }
@@ -389,7 +401,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -403,7 +416,8 @@ namespace HASS.Agent.Settings
                         FriendlyName = sensor.FriendlyName,
                         Query = networkSensors.NetworkCard,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -416,7 +430,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -429,7 +444,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -442,7 +458,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -455,7 +472,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -468,7 +486,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
             }

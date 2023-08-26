@@ -22,6 +22,7 @@ namespace HASS.Agent.Shared.Models.Config
         public string Counter { get; set; } = string.Empty;
         public string Instance { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
+        public bool IgnoreAvailability { get; set; } = false;
         public bool ApplyRounding { get; set; } = false;
         public int? Round { get; set; }
     }
