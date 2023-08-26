@@ -3231,4 +3231,7 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
     <value>&amp;Ignore availability</value>
   </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Please note that ignoring availability will cause Home Assistant to always display last value for a given sensor, even when HASS.Agent is offline.</value>
+  </data>
 </root>

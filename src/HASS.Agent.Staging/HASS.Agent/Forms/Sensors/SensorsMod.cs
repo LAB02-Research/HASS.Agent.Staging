@@ -146,6 +146,12 @@ namespace HASS.Agent.Forms.Sensors
             NumInterval.Text = Sensor.UpdateInterval?.ToString() ?? "10";
 
             CbIgnoreAvailability.Checked = Sensor.IgnoreAvailability;
+            CbIgnoreAvailability.CheckedChanged += (sender, _) =>
+            {
+                if ((sender as CheckBox).Checked)
+                    MessageBoxAdv.Show(this, Languages.SensorsMod_IgnoreAvailability_Info, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            };
 
             // set optional setting
             switch (_selectedSensorType)

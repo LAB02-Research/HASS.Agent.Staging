@@ -6083,6 +6083,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please note that ignoring availability will cause Home Assistant to always display last value for a given sensor, even when HASS.Agent is offline..
+        /// </summary>
+        internal static string SensorsMod_IgnoreAvailability_Info {
+            get {
+                return ResourceManager.GetString("SensorsMod_IgnoreAvailability_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agent.
         /// </summary>
         internal static string SensorsMod_LblAgent {
