@@ -55,6 +55,19 @@ namespace HASS.Agent.Forms.Sensors
             BindComboBoxTheme();
         }
 
+        private void CbIgnoreAvailability_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+                MessageBoxAdv.Show(this, Languages.SensorsMod_IgnoreAvailability_Info, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void SetCbIgnoreAvailability(bool check)
+        {
+            CbIgnoreAvailability.CheckedChanged -= CbIgnoreAvailability_CheckedChanged;
+            CbIgnoreAvailability.Checked = check;
+            CbIgnoreAvailability.CheckedChanged += CbIgnoreAvailability_CheckedChanged;
+        }
+
         private void BindListViewTheme()
         {
             LvSensors.DrawItem += ListViewTheme.DrawItem;
@@ -85,6 +98,8 @@ namespace HASS.Agent.Forms.Sensors
             // load network cards
             _networkCards.Add("*", Languages.SensorsMod_All);
             foreach (var nic in NetworkInterface.GetAllNetworkInterfaces()) _networkCards.Add(nic.Id, nic.Name);
+
+            CbIgnoreAvailability.CheckedChanged += CbIgnoreAvailability_CheckedChanged;
 
             // load in gui
             CbNetworkCard.DataSource = new BindingSource(_networkCards, null);
@@ -145,12 +160,8 @@ namespace HASS.Agent.Forms.Sensors
             // set interval
             NumInterval.Text = Sensor.UpdateInterval?.ToString() ?? "10";
 
-            CbIgnoreAvailability.Checked = Sensor.IgnoreAvailability;
-            CbIgnoreAvailability.CheckedChanged += (sender, _) =>
-            {
-                if ((sender as CheckBox).Checked)
-                    MessageBoxAdv.Show(this, Languages.SensorsMod_IgnoreAvailability_Info, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            };
+
+            SetCbIgnoreAvailability(Sensor.IgnoreAvailability);
 
             // set optional setting
             switch (_selectedSensorType)
@@ -240,6 +251,8 @@ namespace HASS.Agent.Forms.Sensors
                 NumInterval.Text = sensorCard.RefreshTimer.ToString();
                 _selectedSensorType = sensorCard.SensorType;
             }
+
+            SetCbIgnoreAvailability(false);
 
             TbSelectedType.Text = sensorCard.SensorType.ToString();
             TbDescription.Text = sensorCard.Description;
