@@ -11,6 +11,12 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
     public abstract class DiscoveryConfigModel
     {
         /// <summary>
+        /// (Optional) The MQTT topic subscribed to receive availability (online/offline) updates.
+        /// </summary>
+        /// <value></value>
+        public string Availability_topic { get; set; }
+
+        /// <summary>
         /// (Optional) Information about the device this entity is a part of to tie it into the device registry. Only works through MQTT discovery and when unique_id is set.
         /// </summary>
         /// <value></value>
@@ -27,7 +33,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         /// </summary>
         /// <value></value>
         public string FriendlyName { get; set; }
-        
+
         /// <summary>
         /// The MQTT topic subscribed to receive entity values.
         /// </summary>
@@ -38,12 +44,6 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class SensorDiscoveryConfigModel : DiscoveryConfigModel
     {
-        /// <summary>
-        /// (Optional) The MQTT topic subscribed to receive availability (online/offline) updates.
-        /// </summary>
-        /// <value></value>
-        public string Availability_topic { get; set; }
-
         /// <summary>
         /// (Optional) The type/class of the sensor to set the icon in the frontend. See https://www.home-assistant.io/integrations/sensor/#device-class for options.
         /// </summary>
@@ -198,7 +198,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         /// <value></value>
         public string Value_template { get; set; }
     }
-    
+
     /// <summary>
     /// This information will be used when announcing this device on the mqtt topic
     /// </summary>

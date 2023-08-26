@@ -145,6 +145,8 @@ namespace HASS.Agent.Forms.Sensors
             // set interval
             NumInterval.Text = Sensor.UpdateInterval?.ToString() ?? "10";
 
+            CbIgnoreAvailability.Checked = Sensor.IgnoreAvailability;
+
             // set optional setting
             switch (_selectedSensorType)
             {
@@ -346,7 +348,7 @@ namespace HASS.Agent.Forms.Sensors
 
                 BtnTest.Text = Languages.SensorsMod_SensorsMod_BtnTest_Powershell;
                 BtnTest.Visible = true;
-                
+
                 CbApplyRounding.Visible = true;
                 if (CbApplyRounding.Checked)
                 {
@@ -383,7 +385,7 @@ namespace HASS.Agent.Forms.Sensors
 
                 BtnTest.Text = Languages.SensorsMod_BtnTest_PerformanceCounter;
                 BtnTest.Visible = true;
-                
+
                 CbApplyRounding.Visible = true;
                 if (CbApplyRounding.Checked)
                 {
@@ -469,7 +471,7 @@ namespace HASS.Agent.Forms.Sensors
                 BtnTest.Visible = false;
             }));
         }
-        
+
         private void LvSensors_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_loading) return;
@@ -566,8 +568,8 @@ namespace HASS.Agent.Forms.Sensors
             // get and check round value
             var applyRounding = CbApplyRounding.Checked;
             int? round = null;
-            if (applyRounding) 
-            { 
+            if (applyRounding)
+            {
                 round = (int)NumRound.Value;
                 if (round is < 0 or > 20)
                 {
@@ -686,6 +688,7 @@ namespace HASS.Agent.Forms.Sensors
             Sensor.Name = name;
             Sensor.FriendlyName = friendlyName;
             Sensor.UpdateInterval = interval;
+            Sensor.IgnoreAvailability = CbIgnoreAvailability.Checked;
             Sensor.ApplyRounding = applyRounding;
             Sensor.Round = round;
 
@@ -920,12 +923,12 @@ namespace HASS.Agent.Forms.Sensors
         private void CbRdValue_CheckedChanged(object sender, EventArgs e)
         {
             if (NumRound.Visible == true)
-            { 
+            {
                 NumRound.Visible = false;
-                LblDigits.Visible = false; 
+                LblDigits.Visible = false;
             }
             else
-            { 
+            {
                 NumRound.Visible = true;
                 LblDigits.Visible = true;
             }

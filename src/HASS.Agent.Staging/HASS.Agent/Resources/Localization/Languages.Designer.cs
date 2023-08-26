@@ -4444,7 +4444,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -6061,6 +6061,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_CbApplyRounding {
             get {
                 return ResourceManager.GetString("SensorsMod_CbApplyRounding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Ignore availability.
+        /// </summary>
+        internal static string SensorsMod_CbIgnoreAvailability {
+            get {
+                return ResourceManager.GetString("SensorsMod_CbIgnoreAvailability", resourceCulture);
             }
         }
         

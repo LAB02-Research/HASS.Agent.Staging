@@ -32,6 +32,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         public bool UseAttributes { get; set; } = false;
 
         public abstract DiscoveryConfigModel GetAutoDiscoveryConfig();
+        public bool IgnoreAvailability { get; set; } = false;
         public abstract void ClearAutoDiscoveryConfig();
     }
 }

@@ -3228,4 +3228,7 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
 	  <value>&amp;Round</value>
   </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>&amp;Ignore availability</value>
+  </data>
 </root>

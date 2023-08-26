@@ -394,10 +394,17 @@ namespace HASS.Agent.MQTT
                     .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
 
                 if (clearConfig)
+                {
                     messageBuilder.WithPayload(Array.Empty<byte>());
+                }
                 else
-                    messageBuilder.WithPayload(JsonSerializer.Serialize(discoverable.GetAutoDiscoveryConfig(), discoverable.GetAutoDiscoveryConfig().GetType(), JsonSerializerOptions));
+                {
+                    var payload = discoverable.GetAutoDiscoveryConfig();
+                    if (discoverable.IgnoreAvailability)
+                        payload.Availability_topic = null;
 
+                    messageBuilder.WithPayload(JsonSerializer.Serialize(payload, payload.GetType(), JsonSerializerOptions));
+                }
                 await PublishAsync(messageBuilder.Build());
             }
             catch (Exception ex)
