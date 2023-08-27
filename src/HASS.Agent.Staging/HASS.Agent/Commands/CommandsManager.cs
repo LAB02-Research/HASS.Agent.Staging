@@ -98,16 +98,10 @@ namespace HASS.Agent.Commands
 					// when there are no sensors or when the sensor manager's still initialising
 					await Task.Delay(firstRun ? TimeSpan.FromSeconds(1) : TimeSpan.FromMilliseconds(750));
 
-					if (_pause)
-						continue;
-
-					if (Variables.MqttManager.GetStatus() != MqttStatus.Connected)
+					if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected || !CommandsPresent())
 						continue;
 
 					firstRun = false;
-
-					if (!CommandsPresent())
-						continue;
 
 					if ((DateTime.Now - _lastAutoDiscoPublish).TotalSeconds > 30)
 					{
