@@ -24,17 +24,16 @@ namespace HASS.Agent.Commands
         /// </summary>
         internal static async void Initialize()
         {
-            // is mqtt enabled?
             if (!Variables.AppSettings.MqttEnabled)
             {
                 Variables.MainForm?.SetCommandsStatus(ComponentStatus.Stopped);
+
                 return;
             }
 
-            // wait while mqtt's connecting
-            while (Variables.MqttManager.GetStatus() == MqttStatus.Connecting) await Task.Delay(250);
+            while (Variables.MqttManager.GetStatus() == MqttStatus.Connecting)
+                await Task.Delay(250);
 
-            // start background processing
             _ = Task.Run(Process);
         }
 
@@ -59,8 +58,9 @@ namespace HASS.Agent.Commands
         /// <returns></returns>
         internal static async Task UnpublishAllCommands()
         {
-            // unpublish the autodisco's
-            if (!CommandsPresent()) return;
+            if (!CommandsPresent())
+                return;
+
             foreach (var command in Variables.Commands)
             {
                 await command.UnPublishAutoDiscoveryConfigAsync();
@@ -73,8 +73,11 @@ namespace HASS.Agent.Commands
         /// </summary>
         internal static void ResetCommandIds()
         {
-            if (!CommandsPresent()) return;
-            foreach (var command in Variables.Commands) command.Id = Guid.NewGuid().ToString();
+            if (!CommandsPresent())
+                return;
+
+            foreach (var command in Variables.Commands)
+                command.Id = Guid.NewGuid().ToString();
 
             StoredCommands.Store();
         }
@@ -97,56 +100,59 @@ namespace HASS.Agent.Commands
                         // when there are no sensors or when the sensor manager's still initialising
                         await Task.Delay(TimeSpan.FromSeconds(1));
                     }
-                    else await Task.Delay(TimeSpan.FromSeconds(30));
+                    else await Task.Delay(TimeSpan.FromSeconds(30)); //TODO: adjust to match sensor manager and allow for quicker switch updates
 
-                    // are we paused?
-                    if (_pause) continue;
-
-                    // is mqtt available?
-                    if (Variables.MqttManager.GetStatus() != MqttStatus.Connected)
-                    {
-                        // nothing to do
+                    if (_pause)
                         continue;
-                    }
 
-                    // we're starting the first real run
+                    if (Variables.MqttManager.GetStatus() != MqttStatus.Connected)
+                        continue;
+
                     firstRun = false;
 
-                    // do we have commands?
-                    if (!CommandsPresent()) continue;
+                    if (!CommandsPresent())
+                        continue;
 
-                    // publish availability & sensor autodisco's every 30 sec
                     if ((DateTime.Now - _lastAutoDiscoPublish).TotalSeconds > 30)
                     {
-                        // let hass know we're still here
                         await Variables.MqttManager.AnnounceAvailabilityAsync();
 
-                        // publish command autodisco's
-                        foreach (var command in Variables.Commands.TakeWhile(_ => !_pause).TakeWhile(_ => _active))
+                        foreach (var command in Variables.Commands
+                            .TakeWhile(_ => !_pause)
+                            .TakeWhile(_ => _active))
                         {
-                            if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected) continue;
+                            if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected)
+                                continue;
+
                             await command.PublishAutoDiscoveryConfigAsync();
                         }
 
-                        // are we subscribed?
                         if (!subscribed)
                         {
-                            foreach (var command in Variables.Commands.TakeWhile(_ => !_pause).TakeWhile(_ => _active))
+                            foreach (var command in Variables.Commands
+                                .TakeWhile(_ => !_pause)
+                                .TakeWhile(_ => _active))
                             {
-                                if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected) continue;
+                                if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected)
+                                    continue;
+
                                 await Variables.MqttManager.SubscribeAsync(command);
                             }
+
                             subscribed = true;
                         }
 
-                        // log moment
                         _lastAutoDiscoPublish = DateTime.Now;
                     }
 
                     // publish command states (they have their own time-based scheduling)
-                    foreach (var command in Variables.Commands.TakeWhile(_ => !_pause).TakeWhile(_ => _active))
+                    foreach (var command in Variables.Commands
+                        .TakeWhile(_ => !_pause)
+                        .TakeWhile(_ => _active))
                     {
-                        if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected) continue;
+                        if (_pause || Variables.MqttManager.GetStatus() != MqttStatus.Connected)
+                            continue;
+
                         await command.PublishStateAsync();
                     }
                 }
@@ -165,23 +171,21 @@ namespace HASS.Agent.Commands
         {
             try
             {
-                // do we have commands?
                 if (!CommandsPresent())
                 {
                     Log.Warning("[COMMANDSMANAGER] [{command}] No commands configured, unable to execute", name);
+                    
                     return;
                 }
 
                 if (Variables.Commands.All(x => x.Name != name))
                 {
                     Log.Warning("[COMMANDSMANAGER] [{command}] Command not found, unable to execute", name);
+                    
                     return;
                 }
 
-                // fetch the command
                 var command = Variables.Commands.First(x => x.Name == name);
-
-                // execute it
                 command.TurnOn();
             }
             catch (Exception ex)
@@ -202,15 +206,14 @@ namespace HASS.Agent.Commands
 
             try
             {
-                // pause processing
                 Pause();
 
-                // process the to-be-removed
                 if (toBeDeletedCommands.Any())
                 {
-                    foreach (var abstractCommand in toBeDeletedCommands.Select(StoredCommands.ConvertConfiguredToAbstract).Where(abstractCommand => abstractCommand != null))
+                    foreach (var abstractCommand in toBeDeletedCommands
+                        .Select(StoredCommands.ConvertConfiguredToAbstract)
+                        .Where(abstractCommand => abstractCommand != null))
                     {
-                        // remove and unregister
                         await abstractCommand.UnPublishAutoDiscoveryConfigAsync();
                         await Variables.MqttManager.UnsubscribeAsync(abstractCommand);
                         Variables.Commands.RemoveAt(Variables.Commands.FindIndex(x => x.Id == abstractCommand.Id));
@@ -220,11 +223,13 @@ namespace HASS.Agent.Commands
                 }
 
                 // copy our list to the main one
-                foreach (var abstractCommand in commands.Select(StoredCommands.ConvertConfiguredToAbstract).Where(abstractCommand => abstractCommand != null))
+                foreach (var abstractCommand in commands
+                    .Select(StoredCommands.ConvertConfiguredToAbstract)
+                    .Where(abstractCommand => abstractCommand != null))
                 {
-                    if (Variables.Commands.All(x => x.Id != abstractCommand.Id))
+					// new, add and register
+					if (Variables.Commands.All(x => x.Id != abstractCommand.Id))
                     {
-                        // new, add and register
                         Variables.Commands.Add(abstractCommand);
                         await Variables.MqttManager.SubscribeAsync(abstractCommand);
                         await abstractCommand.PublishAutoDiscoveryConfigAsync();
@@ -238,7 +243,6 @@ namespace HASS.Agent.Commands
                     var currentCommandIndex = Variables.Commands.FindIndex(x => x.Id == abstractCommand.Id);
                     if (Variables.Commands[currentCommandIndex].Name != abstractCommand.Name || Variables.Commands[currentCommandIndex].EntityType != abstractCommand.EntityType)
                     {
-                        // command changed, unregister and resubscribe on new mqtt channel
                         Log.Information("[COMMANDS] Command changed, re-registering as new entity: {old} to {new}", Variables.Commands[currentCommandIndex].Name, abstractCommand.Name);
 
                         await Variables.Commands[currentCommandIndex].UnPublishAutoDiscoveryConfigAsync();
@@ -253,23 +257,19 @@ namespace HASS.Agent.Commands
                     Log.Information("[COMMANDS] Modified command: {command}", abstractCommand.Name);
                 }
 
-                // annouce ourselves
                 await Variables.MqttManager.AnnounceAvailabilityAsync();
-
-                // store to file
                 StoredCommands.Store();
 
-                // done
                 return true;
             }
             catch (Exception ex)
             {
                 Log.Fatal(ex, "[COMMANDSMANAGER] Error while storing: {err}", ex.Message);
+                
                 return false;
             }
             finally
             {
-                // resume processing
                 Unpause();
             }
         }
