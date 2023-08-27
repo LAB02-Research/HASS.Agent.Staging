@@ -110,6 +110,7 @@ namespace HASS.Agent.Forms
                 InitializeHotkeys();
 
                 // initialize managers
+                await RadioManager.Initialize();
                 _ = Task.Run(ApiManager.Initialize);
                 _ = Task.Run(HassApiManager.InitializeAsync);
                 _ = Task.Run(Variables.MqttManager.Initialize);

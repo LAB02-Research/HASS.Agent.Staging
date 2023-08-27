@@ -482,6 +482,14 @@ namespace HASS.Agent.Commands
                 true, false, true);
 
             CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
+
+            // =================================
+
+            commandInfoCard = new CommandInfoCard(CommandType.RadioCommand,
+				Languages.CommandsManager_RadioCommandDescription,
+                true, false, true);
+
+            CommandInfoCards.Add(commandInfoCard.CommandType, commandInfoCard);
         }
     }
 }

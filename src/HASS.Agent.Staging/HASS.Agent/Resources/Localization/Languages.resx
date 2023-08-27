@@ -3228,4 +3228,19 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
 	  <value>&amp;Round</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Switches selected radio device on/off. Availability of radio devices depends on the device HASS.Agent is installed on.</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Radio device</value>
+  </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Please select radio device!</value>
+  </data>
 </root>
