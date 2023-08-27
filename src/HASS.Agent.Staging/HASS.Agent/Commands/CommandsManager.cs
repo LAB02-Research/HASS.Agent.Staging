@@ -94,16 +94,9 @@ namespace HASS.Agent.Commands
 			{
 				try
 				{
-					if (firstRun)
-					{
-						// on the first run, just wait 1 sec - this is to make sure we're announcing ourselves,
-						// when there are no sensors or when the sensor manager's still initialising
-						await Task.Delay(TimeSpan.FromSeconds(1));
-					}
-					else
-					{
-						await Task.Delay(TimeSpan.FromSeconds(30));
-					}//TODO: adjust to match sensor manager and allow for quicker switch updates
+					// on the first run, just wait 1 sec - this is to make sure we're announcing ourselves,
+					// when there are no sensors or when the sensor manager's still initialising
+					await Task.Delay(firstRun ? TimeSpan.FromSeconds(1) : TimeSpan.FromMilliseconds(750));
 
 					if (_pause)
 						continue;
