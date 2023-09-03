@@ -584,7 +584,7 @@ namespace HASS.Agent.MQTT
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public async Task UnubscribeAsync(AbstractCommand command)
+        public async Task UnsubscribeAsync(AbstractCommand command)
         {
             if (!Variables.AppSettings.MqttEnabled) return;
             if (!IsConnected()) while (IsConnected() == false) await Task.Delay(250);

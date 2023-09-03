@@ -22,7 +22,7 @@ namespace HASS.Agent.Shared.Mqtt
         Task ClearDeviceConfigAsync();
         void Disconnect();
         Task SubscribeAsync(AbstractCommand command);
-        Task UnubscribeAsync(AbstractCommand command);
+        Task UnsubscribeAsync(AbstractCommand command);
 
         Task SubscribeNotificationsAsync();
         

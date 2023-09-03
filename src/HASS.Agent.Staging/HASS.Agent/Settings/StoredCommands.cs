@@ -166,6 +166,9 @@ namespace HASS.Agent.Settings
                 case CommandType.SetVolumeCommand:
                     abstractCommand = new SetVolumeCommand(command.Name, command.FriendlyName, command.Command, command.EntityType, command.Id.ToString());
                     break;
+                case CommandType.RadioCommand:
+                    abstractCommand = new RadioCommand(command.Command, command.Name, command.FriendlyName, command.EntityType, command.Id.ToString());
+                    break;
                 default:
                     Log.Error("[SETTINGS_COMMANDS] [{name}] Unknown configured command type: {type}", command.Name, command.Type.ToString());
                     break;
@@ -184,75 +187,75 @@ namespace HASS.Agent.Settings
             switch (command)
             {
                 case CustomCommand customCommand:
-                {
-                    _ = Enum.TryParse<CommandType>(customCommand.GetType().Name, out var type);
-                    return new ConfiguredCommand()
                     {
-                        Id = Guid.Parse(customCommand.Id), 
-                        Name = customCommand.Name, 
-                        FriendlyName = customCommand.FriendlyName,
-                        Type = type,
-                        EntityType = command.EntityType,
-                        Command = customCommand.Command,
-                        RunAsLowIntegrity = customCommand.RunAsLowIntegrity
-                    };
-                }
+                        _ = Enum.TryParse<CommandType>(customCommand.GetType().Name, out var type);
+                        return new ConfiguredCommand()
+                        {
+                            Id = Guid.Parse(customCommand.Id),
+                            Name = customCommand.Name,
+                            FriendlyName = customCommand.FriendlyName,
+                            Type = type,
+                            EntityType = command.EntityType,
+                            Command = customCommand.Command,
+                            RunAsLowIntegrity = customCommand.RunAsLowIntegrity
+                        };
+                    }
 
                 case PowershellCommand powershellCommand:
-                {
-                    _ = Enum.TryParse<CommandType>(powershellCommand.GetType().Name, out var type);
-                    return new ConfiguredCommand()
                     {
-                        Id = Guid.Parse(powershellCommand.Id),
-                        Name = powershellCommand.Name,
-                        FriendlyName = powershellCommand.FriendlyName,
-                        Type = type,
-                        EntityType = command.EntityType,
-                        Command = powershellCommand.Command
-                    };
-                }
+                        _ = Enum.TryParse<CommandType>(powershellCommand.GetType().Name, out var type);
+                        return new ConfiguredCommand()
+                        {
+                            Id = Guid.Parse(powershellCommand.Id),
+                            Name = powershellCommand.Name,
+                            FriendlyName = powershellCommand.FriendlyName,
+                            Type = type,
+                            EntityType = command.EntityType,
+                            Command = powershellCommand.Command
+                        };
+                    }
 
                 case KeyCommand customKeyCommand:
-                {
-                    _ = Enum.TryParse<CommandType>(customKeyCommand.GetType().Name, out var type);
-                    return new ConfiguredCommand()
                     {
-                        Id = Guid.Parse(customKeyCommand.Id), 
-                        Name = customKeyCommand.Name,
-                        FriendlyName = customKeyCommand.FriendlyName,
-                        Type = type,
-                        EntityType = command.EntityType,
-                        KeyCode = customKeyCommand.KeyCode
-                    };
-                }
+                        _ = Enum.TryParse<CommandType>(customKeyCommand.GetType().Name, out var type);
+                        return new ConfiguredCommand()
+                        {
+                            Id = Guid.Parse(customKeyCommand.Id),
+                            Name = customKeyCommand.Name,
+                            FriendlyName = customKeyCommand.FriendlyName,
+                            Type = type,
+                            EntityType = command.EntityType,
+                            KeyCode = customKeyCommand.KeyCode
+                        };
+                    }
 
                 case InternalCommand internalCommand:
-                {
-                    _ = Enum.TryParse<CommandType>(internalCommand.GetType().Name, out var type);
-                    return new ConfiguredCommand()
                     {
-                        Id = Guid.Parse(internalCommand.Id),
-                        Name = internalCommand.Name,
-                        FriendlyName = internalCommand.FriendlyName,
-                        Command = internalCommand.CommandConfig ?? string.Empty,
-                        Type = type,
-                        EntityType = command.EntityType,
-                    };
-                }
+                        _ = Enum.TryParse<CommandType>(internalCommand.GetType().Name, out var type);
+                        return new ConfiguredCommand()
+                        {
+                            Id = Guid.Parse(internalCommand.Id),
+                            Name = internalCommand.Name,
+                            FriendlyName = internalCommand.FriendlyName,
+                            Command = internalCommand.CommandConfig ?? string.Empty,
+                            Type = type,
+                            EntityType = command.EntityType,
+                        };
+                    }
 
                 case MultipleKeysCommand multipleKeysCommand:
-                {
-                    _ = Enum.TryParse<CommandType>(multipleKeysCommand.GetType().Name, out var type);
-                    return new ConfiguredCommand()
                     {
-                        Id = Guid.Parse(multipleKeysCommand.Id),
-                        Name = multipleKeysCommand.Name,
-                        FriendlyName = multipleKeysCommand.FriendlyName,
-                        Keys = multipleKeysCommand.Keys ?? new List<string>(),
-                        Type = type,
-                        EntityType = command.EntityType,
-                    };
-                }
+                        _ = Enum.TryParse<CommandType>(multipleKeysCommand.GetType().Name, out var type);
+                        return new ConfiguredCommand()
+                        {
+                            Id = Guid.Parse(multipleKeysCommand.Id),
+                            Name = multipleKeysCommand.Name,
+                            FriendlyName = multipleKeysCommand.FriendlyName,
+                            Keys = multipleKeysCommand.Keys ?? new List<string>(),
+                            Type = type,
+                            EntityType = command.EntityType,
+                        };
+                    }
             }
 
             return null;

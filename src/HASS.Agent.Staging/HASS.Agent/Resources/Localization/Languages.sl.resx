@@ -132,7 +132,7 @@
 uporabljenih komponentah za njihove posamezne licence:</value>
   </data>
   <data name="About_LblInfo4" xml:space="preserve">
-    <value>Velika &apos;hvala&apos; razvijalcem teh projektov, ki so bili dovolj prijazni, da so jih delili
+    <value>Velika 'hvala' razvijalcem teh projektov, ki so bili dovolj prijazni, da so jih delili
 njihovo trdo delo z nami, navadnimi smrtniki. </value>
   </data>
   <data name="About_LblInfo5" xml:space="preserve">
@@ -225,19 +225,19 @@ je ustvarila in vzdržujte Home Assistant :-)</value>
 
 Če je aplikacija minimirana jo poveča.
 
-Primer: če želite v ospredje poslati VLC uporabite &apos;vlc&apos;</value>
+Primer: če želite v ospredje poslati VLC uporabite 'vlc'</value>
   </data>
   <data name="CommandsManager_CustomCommandDescription" xml:space="preserve">
     <value>Izvedite ukaz po meri.
 
-Ti ukazi se izvajajo brez posebnih pravic. Če želite zagnati z večjimi pravicami, ustvarite načrtovano opravilo in uporabite &apos;schtasks /Run /TN &quot;TaskName&quot;&apos; kot ukaz za izvedbo vaše naloge.
+Ti ukazi se izvajajo brez posebnih pravic. Če želite zagnati z večjimi pravicami, ustvarite načrtovano opravilo in uporabite 'schtasks /Run /TN "TaskName"' kot ukaz za izvedbo vaše naloge.
 
-Ali pa omogočite &apos;zaženi z nizko integriteto&apos; za še strožjo izvedbo.</value>
+Ali pa omogočite 'zaženi z nizko integriteto' za še strožjo izvedbo.</value>
   </data>
   <data name="CommandsManager_CustomExecutorCommandDescription" xml:space="preserve">
     <value>Izvede ukaz prek konfiguriranega izvajalca po meri (v Konfiguracija -&gt; Zunanja orodja).
 
-Vaš ukaz je podan kot argument &apos;tako kot je&apos;, zato morate po potrebi navesti svoje narekovaje itd.</value>
+Vaš ukaz je podan kot argument 'tako kot je', zato morate po potrebi navesti svoje narekovaje itd.</value>
   </data>
   <data name="CommandsManager_HibernateCommandDescription" xml:space="preserve">
     <value>Preklopi napravo v stanje mirovanja.</value>
@@ -245,7 +245,7 @@ Vaš ukaz je podan kot argument &apos;tako kot je&apos;, zato morate po potrebi 
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
     <value>Simulira en sam pritisk na tipko.
 
-Kliknite na &apos;keycode&apos; in pritisnite tipko, ki jo želite simulirati. Koda tipke bo avtomatično vpisana.
+Kliknite na 'keycode' in pritisnite tipko, ki jo želite simulirati. Koda tipke bo avtomatično vpisana.
 
 Če potrebujete več tipk in/ali modifikatorjev, kot je CTRL, uporabite ukaz MultipleKeys.</value>
     <comment>Fuzzy</comment>
@@ -253,9 +253,9 @@ Kliknite na &apos;keycode&apos; in pritisnite tipko, ki jo želite simulirati. K
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">
     <value>Zažene navedeni URL, privzeto v privzetem brskalniku.
 
-Če želite uporabljati &apos;brez beleženja zgodovine&apos;, navedite določen brskalnik v Konfiguracija -&gt; Zunanja orodja.
+Če želite uporabljati 'brez beleženja zgodovine', navedite določen brskalnik v Konfiguracija -&gt; Zunanja orodja.
 
-Če želite samo okno z določenim URL (ne cel brskalnik) uporabite ukaz &apos;WebView&apos;.</value>
+Če želite samo okno z določenim URL (ne cel brskalnik) uporabite ukaz 'WebView'.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="CommandsManager_LockCommandDescription" xml:space="preserve">
@@ -268,10 +268,10 @@ Kliknite na &apos;keycode&apos; in pritisnite tipko, ki jo želite simulirati. K
     <value>Simulira tipko za izklop zvoka.</value>
   </data>
   <data name="CommandsManager_MediaNextCommandDescription" xml:space="preserve">
-    <value>Simulira tipko &apos;media next&apos;.</value>
+    <value>Simulira tipko 'media next'.</value>
   </data>
   <data name="CommandsManager_MediaPlayPauseCommandDescription" xml:space="preserve">
-    <value>Simulira tipko &apos;media playpause&apos;.</value>
+    <value>Simulira tipko 'media playpause'.</value>
   </data>
   <data name="CommandsManager_MediaPreviousCommandDescription" xml:space="preserve">
     <value>Simulira tipko »prejšnji mediji«.</value>
@@ -286,7 +286,7 @@ Kliknite na &apos;keycode&apos; in pritisnite tipko, ki jo želite simulirati. K
     <value>Nastavi vse monitorje na spanje (low power).</value>
   </data>
   <data name="CommandsManager_MonitorWakeCommandDescription" xml:space="preserve">
-    <value>Poskusi zbuditi vse monitorje tako, da simulira pritisk tipke &apos;gor&apos;.</value>
+    <value>Poskusi zbuditi vse monitorje tako, da simulira pritisk tipke 'gor'.</value>
   </data>
   <data name="CommandsManager_MultipleKeysCommandDescription" xml:space="preserve">
     <value>Simulira pritiskanje več tipk.
@@ -319,7 +319,7 @@ Uporabno na primer, če želite prisiliti HASS.Agent, da posodobi vse vaše senz
   <data name="CommandsManager_RestartCommandDescription" xml:space="preserve">
     <value>Po eni minuti znova zažene napravo.
 
-Nasvet: slučajno sprožen? Zaženite &apos;shutdown /a&apos; za prekinitev.</value>
+Nasvet: slučajno sprožen? Zaženite 'shutdown /a' za prekinitev.</value>
   </data>
   <data name="CommandsManager_SetVolumeCommandDescription" xml:space="preserve">
     <value>Nastavi glasnost trenutno privzete avdio naprave na nastavljeno vrednost.</value>
@@ -327,7 +327,7 @@ Nasvet: slučajno sprožen? Zaženite &apos;shutdown /a&apos; za prekinitev.</va
   <data name="CommandsManager_ShutdownCommandDescription" xml:space="preserve">
     <value>Po eni minuti izklopi napravo.
 
-Nasvet: slučajno sprožen? Zaženite &apos;shutdown /a&apos; za prekinitev.</value>
+Nasvet: slučajno sprožen? Zaženite 'shutdown /a' za prekinitev.</value>
   </data>
   <data name="CommandsManager_SleepCommandDescription" xml:space="preserve">
     <value>Preklopi napravo v stanje spanja.
@@ -339,7 +339,7 @@ Lahko uporabite nekaj, kot je NirCmd (http://www.nirsoft.net/utils/nircmd.html),
   <data name="CommandsManager_WebViewCommandDescription" xml:space="preserve">
     <value>Prikaže okno z vpisanim URL.
 
-Tole se razlikuje od ukaza &apos;LaunchUrl&apos; tkao, da se ne naloži v polnem brskalniku, ampak samo naveden URL v svojem oknu.
+Tole se razlikuje od ukaza 'LaunchUrl' tkao, da se ne naloži v polnem brskalniku, ampak samo naveden URL v svojem oknu.
 
 To lahko uporabite npr. za hitri prikaz glavnega okna Home Assistant.
 
@@ -376,12 +376,12 @@ Ste prepričani, da želite to?</value>
     <value>Preverjanje ključev ni uspelo: {0}</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox7" xml:space="preserve">
-    <value>Če ne vnesete URL-ja, lahko to entiteto uporabite samo z vrednostjo &apos;action&apos; prek Home Assistant. Če ga zaženete kot je, ne boste naredili ničesar.
+    <value>Če ne vnesete URL-ja, lahko to entiteto uporabite samo z vrednostjo 'action' prek Home Assistant. Če ga zaženete kot je, ne boste naredili ničesar.
 
 Ste prepričani, da želite to?</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox8" xml:space="preserve">
-    <value>Če ukaza ne skonfigurirate ga lahko uporabite samo kot &apos;akcija&apos; preko Home Assistant, prikazana pa bo samo privzeta vrednost. Zagon &apos;kot je&apos; ne bo naredil ničesar.
+    <value>Če ukaza ne skonfigurirate ga lahko uporabite samo kot 'akcija' preko Home Assistant, prikazana pa bo samo privzeta vrednost. Zagon 'kot je' ne bo naredil ničesar.
 
 Ali ste prepričani, da želite to?</value>
   </data>
@@ -394,7 +394,7 @@ Prepričajte se, da je polje kode tipke v fokusu, nato pritisnite tipko, ki jo �
     <value>zagon v načinu brez beleženja zgodovine</value>
   </data>
   <data name="CommandsMod_CbRunAsLowIntegrity" xml:space="preserve">
-    <value>&amp;zaženi kot &apos;nizka integriteta&apos;</value>
+    <value>&amp;zaženi kot 'nizka integriteta'</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="CommandsMod_ClmSensorName" xml:space="preserve">
@@ -443,10 +443,10 @@ prosimo, konfigurirajte izvajalca, sicer se vaš ukaz ne bo zagnal</value>
     <value>To pomeni, da bo lahko shranil in spreminjal datoteke samo na določenih lokacijah,</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg3" xml:space="preserve">
-    <value>kot je mapa &apos;%USERPROFILE%\AppData\LocalLow&apos; oz</value>
+    <value>kot je mapa '%USERPROFILE%\AppData\LocalLow' oz</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg4" xml:space="preserve">
-    <value>registrski ključ &apos;HKEY_CURRENT_USER\Software\AppDataLow&apos;.</value>
+    <value>registrski ključ 'HKEY_CURRENT_USER\Software\AppDataLow'.</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg5" xml:space="preserve">
     <value>Preizkusite svoj ukaz, da se prepričate, da to ne vpliva nanj.</value>
@@ -496,7 +496,7 @@ prosimo, konfigurirajte izvajalca, sicer se vaš ukaz ne bo zagnal</value>
 Ste prepričani, da želite to?</value>
   </data>
   <data name="CommandsMod_MessageBox_Action2" xml:space="preserve">
-    <value>Če ne vpišete vrednosti za glasnost boste to entiteto lahko uporabljali samo kot &apos;akcijsko&apos; vrednost preko Home Assistant-a. Zagon &apos;tako, kot je&apos; ne bo naredil ničesar.
+    <value>Če ne vpišete vrednosti za glasnost boste to entiteto lahko uporabljali samo kot 'akcijsko' vrednost preko Home Assistant-a. Zagon 'tako, kot je' ne bo naredil ničesar.
 
 Ali ste prepričani v to?</value>
   </data>
@@ -657,7 +657,7 @@ Dodatno lahko nastaviš tudi argumente za zagon v privatnem načinu.</value>
   </data>
   <data name="ConfigExternalTools_LblInfo3" xml:space="preserve">
     <value>HASS.Agent lahko konfigurirate za uporabo določenega izvajalca, kot sta perl ali python.
-Za zagon tega izvajalca uporabite ukaz &apos;custom executor&apos;.</value>
+Za zagon tega izvajalca uporabite ukaz 'custom executor'.</value>
   </data>
   <data name="ConfigExternalTools_LblLaunchIncogArg" xml:space="preserve">
     <value>argumenti za privatni način</value>
@@ -735,7 +735,7 @@ Različica Home Assistant: {0}</value>
 Ali ste prepričani, da ga želite uporabiti takole?</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox6" xml:space="preserve">
-    <value>Vaš URI naslov ne izgleda v redu. Izgledati bi moral nekako takole: &apos;http://homeassistant.local:8123&apos; or &apos;http://192.168.0.1:8123&apos;.
+    <value>Vaš URI naslov ne izgleda v redu. Izgledati bi moral nekako takole: 'http://homeassistant.local:8123' or 'http://192.168.0.1:8123'.
 
 Ali ste prepričani, da ga želite uporabiti takole?</value>
   </data>
@@ -760,7 +760,7 @@ API Home Assistant.
 
 Navedite dolgotrajni žeton za dostop in naslov svojega primerka Home Assistant.
 
-Žeton lahko dobite na strani vašega profila. Pomaknite se do dna in kliknite &apos;USTVARI ŽETON&apos;.</value>
+Žeton lahko dobite na strani vašega profila. Pomaknite se do dna in kliknite 'USTVARI ŽETON'.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigHomeAssistantApi_LblServerUri" xml:space="preserve">
@@ -855,7 +855,7 @@ Opomba: za delovanje nove integracije to ni nujno. Omogočite in uporabljajte ga
     <value>Slike, prikazane v obvestilih, je treba začasno shraniti lokalno. Konfigurirate lahko koliko
 dni jih je treba hraniti, preden jih HASS.Agent izbriše. 
 
-Vnesite &apos;0&apos;, da jih obdržite za vedno.</value>
+Vnesite '0', da jih obdržite za vedno.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigLocalStorage_LblKeepAudio" xml:space="preserve">
@@ -1081,7 +1081,7 @@ Za več informacij preverite dnevnike HASS.Agent (ne storitve).</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigService_BtnStartService_MessageBox1" xml:space="preserve">
-    <value>Storitev je nastavljena na &apos;onemogočena&apos;, zato je ni mogoče zagnati.
+    <value>Storitev je nastavljena na 'onemogočena', zato je ni mogoče zagnati.
 
 Najprej omogočite storitev, nato poskusite znova.</value>
   </data>
@@ -1107,7 +1107,7 @@ Za več informacij preverite dnevnike HASS.Agent (ne storitve).</value>
   </data>
   <data name="ConfigService_LblInfo1" xml:space="preserve">
     <value>Satelitski servis omogoča izvajanje senzorjev in komand tudi, ko ni nihče prijavljen.
-Uporabi gumb &apos;Satelitski servis&apos; v glavnem meniju za upravljanje.</value>
+Uporabi gumb 'Satelitski servis' v glavnem meniju za upravljanje.</value>
   </data>
   <data name="ConfigService_LblInfo2" xml:space="preserve">
     <value>Če servisa ne nastaviš, ne bo naredil ničesar. Če želiš, ga lahko še vedno samo onemogočiš.
@@ -1122,7 +1122,7 @@ Konfiguracija in entitete ne bodo odstranjene.</value>
     <value>Če storitev po ponovni namestitvi še vedno ne uspe, odprite vstopnico in pošljite vsebino najnovejšega dnevnika.</value>
   </data>
   <data name="ConfigService_LblInfo5" xml:space="preserve">
-    <value>Če želite upravljati storitev (dodajanje ukazov, senzorjev, spremembe) lahko to storite tukaj, ali pa z uporabo gumba &apos;satelitska storitev&apos; v glavnem oknu.</value>
+    <value>Če želite upravljati storitev (dodajanje ukazov, senzorjev, spremembe) lahko to storite tukaj, ali pa z uporabo gumba 'satelitska storitev' v glavnem oknu.</value>
   </data>
   <data name="ConfigService_LblServiceStatusInfo" xml:space="preserve">
     <value>stanje servisa:</value>
@@ -1249,12 +1249,12 @@ Vsebovati mora tri sekcije (ločene s pikami).
 Ali ste prepričani, da ga želite uporabiti takole?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox2" xml:space="preserve">
-    <value>Vaša povezava do Home Assistant-a ne izgleda v redu. Morala bi biti nekako takole: &apos;http://homeassistant.local:8123&apos; ali &apos;https://192.168.0.1:8123&apos;.
+    <value>Vaša povezava do Home Assistant-a ne izgleda v redu. Morala bi biti nekako takole: 'http://homeassistant.local:8123' ali 'https://192.168.0.1:8123'.
 
 Ali ste prepričani, da jo želite uporabiti takole?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox3" xml:space="preserve">
-    <value>Vaša povezava do MQTT strežnika ne izgleda v redu. Morala bi biti nekako takole: &apos;homeassistant.local&apos; ali &apos;192.168.0.1&apos;.
+    <value>Vaša povezava do MQTT strežnika ne izgleda v redu. Morala bi biti nekako takole: 'homeassistant.local' ali '192.168.0.1'.
 
 Ali ste prepričani, da jo želite uporabiti takole?</value>
   </data>
@@ -1270,7 +1270,7 @@ se bo nato znova zagnal, da jih bo znova objavil.
 
 Ne skrbite, ohranili bodo svoja trenutna imena, tako da bodo vaše avtomatizacije ali skripti normalno delovali.
 
-Opomba: ime se bo &apos;očistilo&apos;, kar pomeni, da bo vse, razen črk, številk in presledkov nadomeščeno s podčrtajem. To je zahteva Home Assistant.</value>
+Opomba: ime se bo 'očistilo', kar pomeni, da bo vse, razen črk, številk in presledkov nadomeščeno s podčrtajem. To je zahteva Home Assistant.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="Configuration_ProcessChanges_MessageBox2" xml:space="preserve">
@@ -1511,10 +1511,10 @@ Obstaja nekaj kanalov, preko katerih nas lahko dosežete:</value>
     <value>Pomoč</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg1" xml:space="preserve">
-    <value>Vaš vhodni jezik &apos;{0}&apos; je znan, da je v konfliktu s privzeto bližnjivo CTRL-ALT-Q. Prosim, nastavite svojo.</value>
+    <value>Vaš vhodni jezik '{0}' je znan, da je v konfliktu s privzeto bližnjivo CTRL-ALT-Q. Prosim, nastavite svojo.</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg2" xml:space="preserve">
-    <value>Vaš vhodni jezik &apos;{0}&apos;  je neznan in je lahko v konfliktu s privzeto bližnjivo CTRL-ALT-Q. Prosim, preverite. Če je v konfliktu odprite pomoč v GitHub, da bo dodan na seznam.</value>
+    <value>Vaš vhodni jezik '{0}'  je neznan in je lahko v konfliktu s privzeto bližnjivo CTRL-ALT-Q. Prosim, preverite. Če je v konfliktu odprite pomoč v GitHub, da bo dodan na seznam.</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg1" xml:space="preserve">
     <value>Ni najdenih ključev</value>
@@ -1526,7 +1526,7 @@ Obstaja nekaj kanalov, preko katerih nas lahko dosežete:</value>
     <value>napaka pri razčlenjevanju ključev, glejte dnevnik</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg4" xml:space="preserve">
-    <value>število oklepajev &apos;[&apos; ne ustreza številu oklepajev  &apos;]&apos;  ({0} do {1})</value>
+    <value>število oklepajev '[' ne ustreza številu oklepajev  ']'  ({0} do {1})</value>
   </data>
   <data name="LocalApiManager_Initialize_MessageBox1" xml:space="preserve">
     <value>Napaka pri povezovanju API z vrati {0}.
@@ -1626,7 +1626,7 @@ Opomba: to sporočilo bo prikazano samo enkrat.</value>
   <data name="Main_Load_MessageBox1" xml:space="preserve">
     <value>Pri nalaganju nastavitev je šlo nekaj narobe.
 
-Preverite appsettings.json v podmapi &apos;Config&apos; ali jo preprosto izbrišite, da začnete znova.</value>
+Preverite appsettings.json v podmapi 'Config' ali jo preprosto izbrišite, da začnete znova.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="Main_Load_MessageBox2" xml:space="preserve">
@@ -1744,7 +1744,7 @@ Vsebovati mora tri sekcije (ločene s pikami).
 Ali ste prepričani, da ga želite uporabiti takole?</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox6" xml:space="preserve">
-    <value>Vaša povezava ne izgleda v redu. Morala bi biti nekako takole: &apos;http://homeassistant.local:8123&apos; ali &apos;https://192.168.0.1:8123&apos;.
+    <value>Vaša povezava ne izgleda v redu. Morala bi biti nekako takole: 'http://homeassistant.local:8123' ali 'https://192.168.0.1:8123'.
 
 Ali ste prepričani, da jo želite uporabiti takole?</value>
   </data>
@@ -1760,7 +1760,7 @@ Ali ste prepričani, da jo želite uporabiti takole?</value>
 API Home Assistant.
 
 Navedite dolgotrajni žeton za dostop in naslov svojega primerka Home Assistant.
-Žeton lahko dobite na strani profila. Pomaknite se do dna in kliknite &apos;USTVARI ŽETEN&apos;.</value>
+Žeton lahko dobite na strani profila. Pomaknite se do dna in kliknite 'USTVARI ŽETEN'.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="OnboardingApi_LblServerUri" xml:space="preserve">
@@ -1791,7 +1791,7 @@ Hvala, ker uporabljate HASS.Agent. Upam, da vam bo koristil :-)</value>
     <value>Razvoj in vzdrževanje tega dodatka (in vsega, kar spada zraven, kot je podpora, navodila) vzame veliko časa. Kot večina razvijalcev tudi jaz delam na kofein - zato bi bil zelo hvaležen kake skodelice kave, če jo lahko pogrešate!</value>
   </data>
   <data name="OnboardingDone_LblTip2" xml:space="preserve">
-    <value>Namig: ostale možnosti donacij so na voljo v zavihku &quot;Vizitka&quot;.</value>
+    <value>Namig: ostale možnosti donacij so na voljo v zavihku "Vizitka".</value>
   </data>
   <data name="OnboardingHotKey_BtnClear" xml:space="preserve">
     <value>počisti</value>
@@ -2016,7 +2016,7 @@ Potrdilo prenesene datoteke bo preverjeno. Še vedno boste videli stran z izdaja
   <data name="OnboardingWelcome_LblInfo1" xml:space="preserve">
     <value>Izgleda, da je to tvoj prvi zagon HASS.Agenta.
 
-Če želiš, lahko greva čez nastavitve. Če ne, samo pritisni &apos;zapri&apos;.
+Če želiš, lahko greva čez nastavitve. Če ne, samo pritisni 'zapri'.
 </value>
   </data>
   <data name="OnboardingWelcome_LblInfo2" xml:space="preserve">
@@ -2242,7 +2242,7 @@ Preverite dnevnike za več informacij in po želji obvestite razvijalce.</value>
   <data name="SensorsManager_AudioSensorsDescription" xml:space="preserve">
     <value>Zagotavlja informacije o različnih vidikih zvoka vaše naprave:
 
-Trenutna najvišja raven glasnosti (lahko se uporabi kot preprosta vrednost &apos;is something playing&apos;).
+Trenutna najvišja raven glasnosti (lahko se uporabi kot preprosta vrednost 'is something playing').
 
 Privzeta zvočna naprava: ime, stanje in glasnost.
 
@@ -2350,7 +2350,7 @@ Kategorija: Procesor
 Števec: % procesorskega časa
 Primer: _Skupaj
 
-Številke lahko raziščete z orodjem Windows &apos;perfmon.exe&apos;.</value>
+Številke lahko raziščete z orodjem Windows 'perfmon.exe'.</value>
   </data>
   <data name="SensorsManager_PowershellSensorDescription" xml:space="preserve">
     <value>Vrne rezultat Powershell ukaza ali skripta.
@@ -2367,7 +2367,7 @@ Pretvori rezultat v tekst.</value>
   <data name="SensorsManager_ServiceStateSensorDescription" xml:space="preserve">
     <value>Vrne stanje zagotovljene storitve: NotFound, Stopped, StartPending, StopPending, Running, ContinuePending, PausePending ali Paused.
 
-Prepričajte se, da ste navedli &apos;Service name&apos;, ne pa &apos;Display name&apos;.</value>
+Prepričajte se, da ste navedli 'Service name', ne pa 'Display name'.</value>
   </data>
   <data name="SensorsManager_SessionStateSensorDescription" xml:space="preserve">
     <value>Zagotavlja trenutno stanje seje:
@@ -2393,7 +2393,7 @@ Lahko se na primer uporablja za določanje, ali želite poslati obvestila ali sp
   <data name="SensorsManager_WebcamProcessSensorDescription" xml:space="preserve">
     <value>Vrne ime procesa, ki trenutno uporablja kamero.
 
-Opomba: če jo uporablja satelitska storitev, potem &apos;userspace&apos; aplikacije ne bodo zaznane.</value>
+Opomba: če jo uporablja satelitska storitev, potem 'userspace' aplikacije ne bodo zaznane.</value>
   </data>
   <data name="SensorsManager_WindowStateSensorDescription" xml:space="preserve">
     <value>Vrne trenutno stanje okna procesa:
@@ -2900,7 +2900,7 @@ Pustite prazno, da se vsi povežejo.</value>
   <data name="ServiceGeneral_LblDeviceNameInfo_MessageBox1" xml:space="preserve">
     <value>To je ime, s katerim se satelitska storitev registrira v Home Assistant.
 
-Privzeto je to ime vašega računalnika in &apos;-satellite&apos;.</value>
+Privzeto je to ime vašega računalnika in '-satellite'.</value>
   </data>
   <data name="ServiceGeneral_LblDisconGrace" xml:space="preserve">
     <value>prekinjena milostna doba</value>
@@ -2913,7 +2913,7 @@ Privzeto je to ime vašega računalnika in &apos;-satellite&apos;.</value>
     <value>Ta stran vsebuje splošne konfiguracijske elemente. Za nastavitve, senzorje in ukaze MQTT brskajte po zavihkih na vrhu.</value>
   </data>
   <data name="ServiceGeneral_LblInfo2" xml:space="preserve">
-    <value>Lahko uporabite satelitsko storitev za senzorje in ukaze brez, da ste prijavljeni. Vsi tipi niso na voljo, npr. &apos;LaunchUrl&apos; ukaz se lahko doda samo kot klasičen ukaz.</value>
+    <value>Lahko uporabite satelitsko storitev za senzorje in ukaze brez, da ste prijavljeni. Vsi tipi niso na voljo, npr. 'LaunchUrl' ukaz se lahko doda samo kot klasičen ukaz.</value>
   </data>
   <data name="ServiceGeneral_LblSeconds" xml:space="preserve">
     <value>sekundah</value>
@@ -3315,7 +3315,7 @@ Namesto tega se bo odprla stran za izdajo.</value>
 Ali želite prenesti runtime installer?</value>
   </data>
   <data name="WebView_InitializeAsync_MessageBox2" xml:space="preserve">
-    <value>Nekaj je šlo narobe pri inicializaciji WebView. Preverite dnevnike in odprite GitHub &apos;ticket&apos; za pomoč.</value>
+    <value>Nekaj je šlo narobe pri inicializaciji WebView. Preverite dnevnike in odprite GitHub 'ticket' za pomoč.</value>
   </data>
   <data name="WebView_Title" xml:space="preserve">
     <value>WebView</value>
@@ -3342,7 +3342,7 @@ Ali želite prenesti runtime installer?</value>
     <value>velikost</value>
   </data>
   <data name="WebViewCommandConfig_LblTip1" xml:space="preserve">
-    <value>namig: pritisni &apos;esc&apos; da zapreš webview</value>
+    <value>namig: pritisni 'esc' da zapreš webview</value>
   </data>
   <data name="WebViewCommandConfig_LblUrl" xml:space="preserve">
     <value>&amp;URL</value>
@@ -3367,5 +3367,20 @@ Ali želite prenesti runtime installer?</value>
   </data>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Neznano</value>
+  </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Vklopi/izklopi izbrano radijsko napravo. Razpoložljivost radijskih naprav je odvisna od naprave, na kateri je nameščen HASS.Agent.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Prosimo izberite radijsko napravo!</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Radijska naprava</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Noben</value>
   </data>
 </root>
