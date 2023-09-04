@@ -792,6 +792,9 @@ namespace HASS.Agent.MQTT
         /// <param name="command"></param>
         private static void HandleActionReceived(MqttApplicationMessage applicationMessage, AbstractCommand command)
         {
+            if (applicationMessage.Payload == null)
+                return;
+
             var payload = Encoding.UTF8.GetString(applicationMessage.Payload);
             if (string.IsNullOrWhiteSpace(payload))
                 return;

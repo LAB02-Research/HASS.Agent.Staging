@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using CliWrap;
 using Serilog;
 
 namespace HASS.Agent.Shared.Managers
@@ -17,16 +18,29 @@ namespace HASS.Agent.Shared.Managers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public static bool ExecuteCommandHeadless(string command) => ExecuteHeadless(command, false);
+        public static bool ExecuteCommandHeadless(string command) => ExecuteHeadless(command, string.Empty, false);
 
         /// <summary>
         /// Executes a Powershell script without waiting for or checking results
         /// </summary>
         /// <param name="script"></param>
+        /// <param name="parameters"></param>
         /// <returns></returns>
-        public static bool ExecuteScriptHeadless(string script) => ExecuteHeadless(script, true);
+        public static bool ExecuteScriptHeadless(string script, string parameters) => ExecuteHeadless(script, parameters, true);
 
-        private static bool ExecuteHeadless(string command, bool isScript)
+        private static string GetProcessArguments(string command, string parameters, bool isScript)
+        {
+            if (isScript)
+            {
+                return string.IsNullOrWhiteSpace(parameters) ? $"-File \"{command}\"" : $"-File \"{command}\" \"{parameters}\"";
+            }
+            else
+            {
+                return $@"& {{{command}}}"; //NOTE: place to fix any potential future issues with "command part of the command"
+            }
+        }
+
+        private static bool ExecuteHeadless(string command, string parameters, bool isScript)
         {
             var descriptor = isScript ? "script" : "command";
 
@@ -50,13 +64,9 @@ namespace HASS.Agent.Shared.Managers
                     WindowStyle = ProcessWindowStyle.Hidden,
                     CreateNoWindow = true,
                     FileName = psExec,
-                    WorkingDirectory = workingDir
+                    WorkingDirectory = workingDir,
+                    Arguments = GetProcessArguments(command, parameters, isScript)
                 };
-
-                // set the right type of arguments
-                processInfo.Arguments = isScript ?
-                    $@"& '{command}'"
-                    : $@"& {{{command}}}";
 
                 // launch
                 using var process = new Process();
@@ -85,7 +95,7 @@ namespace HASS.Agent.Shared.Managers
         /// <param name="command"></param>
         /// <param name="timeout"></param>
         /// <returns></returns>
-        public static bool ExecuteCommand(string command, TimeSpan timeout) => Execute(command, false, timeout);
+        public static bool ExecuteCommand(string command, TimeSpan timeout) => Execute(command, string.Empty, false, timeout);
 
         /// <summary>
         /// Executes a Powershell script, logs the output if it fails
@@ -93,9 +103,9 @@ namespace HASS.Agent.Shared.Managers
         /// <param name="script"></param>
         /// <param name="timeout"></param>
         /// <returns></returns>
-        public static bool ExecuteScript(string script, TimeSpan timeout) => Execute(script, true, timeout);
+        public static bool ExecuteScript(string script, string parameters, TimeSpan timeout) => Execute(script, parameters, true, timeout);
 
-        private static bool Execute(string command, bool isScript, TimeSpan timeout)
+        private static bool Execute(string command, string parameters, bool isScript, TimeSpan timeout)
         {
             var descriptor = isScript ? "script" : "command";
 
@@ -121,10 +131,7 @@ namespace HASS.Agent.Shared.Managers
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
                     WorkingDirectory = workingDir,
-                    // set the right type of arguments
-                    Arguments = isScript
-                        ? $@"& '{command}'"
-                        : $@"& {{{command}}}"
+                    Arguments = GetProcessArguments(command, parameters, isScript)
                 };
 
                 // launch
