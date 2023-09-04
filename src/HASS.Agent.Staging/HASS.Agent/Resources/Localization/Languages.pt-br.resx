@@ -239,9 +239,10 @@ Seu comando é fornecido como um argumento 'as is', então você deve fornecer s
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
     <value>Simula um único pressionamento de tecla.
 
-Você pode escolher qualquer um destes valores: https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+Clique na caixa de texto 'keycode' e pressione a tecla que deseja simular. O código-chave correspondente será inserido para você.
+Para a tecla TAB, use LCTRL+TAB.
 
-Se você precisar de mais teclas e/ou modificadores como CTRL, use o comando MultipleKeys.</value>
+Se precisar de mais teclas e/ou modificadores como CTRL, use o comando MultipleKeys.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">

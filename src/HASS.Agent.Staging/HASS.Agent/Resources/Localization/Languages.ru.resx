@@ -1292,9 +1292,10 @@ HASS.Agent для прослушивания на указанном порту.
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
     <value>Имитирует одно нажатие клавиши.
 
-Нажмите на текстовое поле 'код ключа' и нажмите клавишу, которую вы хотите смоделировать. Для вас будет введен соответствующий код ключа.
+Нажмите на текстовое поле «keycode» и нажмите клавишу, которую вы хотите имитировать. Соответствующий ключевой код будет введен для вас.
+Для клавиши TAB используйте LCTRL+TAB.
 
-Если вам нужно больше клавиш и/или модификаторов, таких как CTRL, используйте команду Multiple Keys.</value>
+Если вам нужно больше клавиш и/или модификаторов, таких как CTRL, используйте команду MultipleKeys.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">

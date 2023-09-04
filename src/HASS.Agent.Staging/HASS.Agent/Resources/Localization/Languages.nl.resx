@@ -1249,9 +1249,10 @@ Je commando wordt onveranderd toegevoegd als argument, dus je moet je eigen haak
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
     <value>Simuleert een enkele toetsaanslag.
 
-Klik op het 'keycode' veld en druk de toets in die je gesimuleerd wilt hebben. De corresponderende keycode wordt voor je ingevuld.
+Klik op het tekstvak 'sleutelcode' en druk op de sleutel die u wilt simuleren. De bijbehorende sleutelcode wordt voor u ingevoerd.
+Gebruik voor de TAB-sleutel LCTRL+TAB.
 
-Als je meer toetsen nodig hebt en/of extra opties zoals CTRL, gebruik dan de MeerdereToetsen commando.</value>
+Als u meer sleutels en/of modifiers zoals CTRL nodig heeft, gebruikt u de opdracht MultipleKeys.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">

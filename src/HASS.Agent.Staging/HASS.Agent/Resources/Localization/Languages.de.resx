@@ -1353,9 +1353,10 @@ Dein Befehl wird als Argument so wie er ist bereitgestellt, sodass du selbst Anf
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
     <value>Simuliert einen einzelnen Tastendruck.
 
-Du kannst jeden dieser werte wählen: https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes 
+Klicken Sie auf das Textfeld „Tastencode“ und drücken Sie die Taste, die Sie simulieren möchten. Der entsprechende Schlüsselcode wird für Sie eingegeben.
+Für die TAB-Taste verwenden Sie bitte LCTRL+TAB.
 
-Falls du weitere Tasten benötigst und/oder Modifizierungen wie STRG benötigst, dann benutze den MultipleTasten Befehl.</value>
+Wenn Sie weitere Tasten und/oder Modifikatoren wie STRG benötigen, verwenden Sie den Befehl MultipleKeys.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">

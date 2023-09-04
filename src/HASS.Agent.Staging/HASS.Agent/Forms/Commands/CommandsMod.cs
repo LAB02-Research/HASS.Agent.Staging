@@ -322,25 +322,24 @@ namespace HASS.Agent.Forms.Commands
 					Command.Command = script;
 					break;
 
-				case CommandType.KeyCommand:
-					var keycodeStr = TbKeyCode.Text.Trim();
-					if (string.IsNullOrEmpty(keycodeStr))
-					{
-						MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_MessageBox5, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-						ActiveControl = TbKeyCode;
+                case CommandType.KeyCommand:
+                    var keycodeStr = TbKeyCode.Text.Trim();
+                    if (string.IsNullOrEmpty(keycodeStr))
+                    {
+                        MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_MessageBox5, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ActiveControl = TbKeyCode;
+                        return;
+                    }
 
-						return;
-					}
-					var parsed = int.TryParse(keycodeStr, out var keycode);
-					if (!parsed)
-					{
-						MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_MessageBox9, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-						ActiveControl = TbKeyCode;
-
-						return;
-					}
-					Command.KeyCode = (byte)keycode;
-					break;
+                    var parsed = Enum.TryParse(keycodeStr, out VirtualKeyShort enumKeycode);
+                    if (!parsed)
+                    {
+                        MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_MessageBox9, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ActiveControl = TbKeyCode;
+                        return;
+                    }
+                    Command.KeyCode = enumKeycode;
+                    break;
 
 				case CommandType.MultipleKeysCommand:
 					var keysParsed = HelperFunctions.ParseMultipleKeys(TbSetting.Text.Trim(), out var keys, out var errorMsg);
@@ -1051,9 +1050,9 @@ namespace HASS.Agent.Forms.Commands
 			}
 		}
 
-		private void TbKeyCode_KeyDown(object sender, KeyEventArgs e)
-		{
-			TbKeyCode.Text = e.KeyValue.ToString();
-		}
-	}
+        private void TbKeyCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            TbKeyCode.Text = Enum.GetName(typeof(VirtualKeyShort), e.KeyValue);
+        }
+    }
 }

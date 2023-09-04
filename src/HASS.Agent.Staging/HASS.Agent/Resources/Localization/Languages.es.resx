@@ -1246,9 +1246,10 @@ Su comando se proporciona como un argumento 'tal cual', por lo que debe proporci
     <value>Pone la máquina en hibernación.</value>
   </data>
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
-    <value>Simula la pulsación de una sola tecla.
+    <value>Simula una sola pulsación de tecla.
 
-Haga clic en el cuadro de texto "código de teclas" y pulse la tecla que desea simular. El código de la tecla correspondiente se introducirá por usted.
+Haga clic en el cuadro de texto 'keycode' y presione la tecla que desea simular. El código clave correspondiente se ingresará por usted.
+Para la tecla TAB, utilice LCTRL+TAB.
 
 Si necesita más teclas y/o modificadores como CTRL, use el comando MultipleKeys.</value>
   </data>

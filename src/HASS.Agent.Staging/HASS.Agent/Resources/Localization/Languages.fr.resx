@@ -1269,11 +1269,12 @@ Votre commande est passée en tant qu'argument 'tel quel', vous devez donc fourn
     <value>Mettre Windows en veille prolongée</value>
   </data>
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
-    <value>Simule un appui sur une touche de clavier.
+    <value>Simule une seule pression de touche.
 
-Cliquez sur la zone de texte "Code de touche" et appuyez sur la touche que vous souhaitez simuler. Le code touche correspondant sera saisi pour vous.
+Cliquez sur la zone de texte "keycode" et appuyez sur la touche que vous souhaitez simuler. Le code clé correspondant sera saisi pour vous.
+Pour la touche TAB, veuillez utiliser LCTRL+TAB.
 
-Si vous avez besoin de plus de touches et/ou de combinaison tel que CTRL, utilisez la commande "Séries de touche et combinaisons".</value>
+Si vous avez besoin de plus de touches et/ou de modificateurs comme CTRL, utilisez la commande MultipleKeys.</value>
   </data>
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">
     <value>Ouvre l'URL fournie, par défaut dans votre navigateur par défaut.

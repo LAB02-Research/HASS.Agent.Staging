@@ -243,9 +243,10 @@ Vaš ukaz je podan kot argument 'tako kot je', zato morate po potrebi navesti sv
     <value>Preklopi napravo v stanje mirovanja.</value>
   </data>
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
-    <value>Simulira en sam pritisk na tipko.
+    <value>Simulira en sam pritisk tipke.
 
-Kliknite na 'keycode' in pritisnite tipko, ki jo želite simulirati. Koda tipke bo avtomatično vpisana.
+Kliknite besedilno polje 'keycode' in pritisnite tipko, ki jo želite simulirati. Vnesena bo ustrezna koda tipke.
+Za tipko TAB uporabite LCTRL+TAB.
 
 Če potrebujete več tipk in/ali modifikatorjev, kot je CTRL, uporabite ukaz MultipleKeys.</value>
     <comment>Fuzzy</comment>
