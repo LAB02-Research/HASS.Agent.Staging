@@ -3255,4 +3255,14 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Aucun</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Fournit des données du capteur interne de l’appareil.
+La disponibilité du capteur dépend de l'appareil ; dans certains cas, aucun capteur ne sera disponible.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Capteur interne</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>Capteur de périphérique interne</value>
+  </data>
 </root>

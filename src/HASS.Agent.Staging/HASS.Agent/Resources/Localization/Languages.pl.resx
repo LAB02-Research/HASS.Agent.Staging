@@ -3332,4 +3332,14 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Brak</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Dostarcza dane z wewnętrznego czujnika urządzenia.
+Dostępność czujnika zależy od urządzenia, w niektórych przypadkach czujniki nie będą dostępne.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Wewnętrzny czujnik</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>WewnętrznyCzujnikUrządzenia</value>
+  </data>
 </root>

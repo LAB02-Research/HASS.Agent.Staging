@@ -3346,4 +3346,14 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Keiner</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Stellt Daten vom internen Gerätesensor bereit.
+Die Verfügbarkeit des Sensors ist geräteabhängig, in manchen Fällen sind keine Sensoren verfügbar.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Interner Sensor</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>InternalDeviceSensor</value>
+  </data>
 </root>
