@@ -3368,4 +3368,21 @@ Ali želite prenesti runtime installer?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Neznano</value>
   </data>
+  <data name="CommandsManager_SetApplicationVolumeCommandDescription" xml:space="preserve">
+    <value>Nastavi glasnost in stanje utišanja dane aplikacije na dani zvočni napravi na določeno raven.
+Ukaz/tovor mora biti v formatu JSON. Primer vseh možnih možnosti:
+{
+  "playbackDevice": "Speakers (THX Spatial Audio)",
+  "applicationName": "Discord",
+  "volume": 90,
+  "mute": true
+}
+
+Če ni na voljo "playbackDevice", bo HASS.Agent uporabil privzeto.
+Če ni na voljo nobena "volume", bo HASS.Agent nastavil samo stanje utišanja.
+Če ni na voljo možnost "mute", bo HASS.Agent znova vključil zvok navedene aplikacije.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
+    <value>Vnesite veljaven niz JSON!</value>
+  </data>
 </root>

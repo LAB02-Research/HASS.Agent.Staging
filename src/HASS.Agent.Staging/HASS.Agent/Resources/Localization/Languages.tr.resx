@@ -2826,4 +2826,21 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="CommandsManager_SetApplicationVolumeCommandDescription" xml:space="preserve">
+    <value>Sağlanan ses cihazında sağlanan uygulamanın ses düzeyini ve sessiz durumunu belirtilen düzeye ayarlar.
+Komut/yükün JSON formatında olması gerekir. Tüm olası seçeneklere örnek:
+{
+  "playbackDevice": "Speakers (THX Spatial Audio)",
+  "applicationName": "Discord",
+  "volume": 90,
+  "mute": true
+}
+
+Hiçbir "playbackDevice" sağlanmazsa, HASS.Agent varsayılan olanı kullanacaktır.
+Hiçbir "volume" sağlanmazsa, HASS.Agent yalnızca sessiz durumunu ayarlayacaktır.
+Eğer "mute" sağlanmadıysa, HASS.Agent sağlanan uygulamanın sesini açacaktır.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
+    <value>Lütfen geçerli bir JSON dizesi girin!</value>
+  </data>
 </root>

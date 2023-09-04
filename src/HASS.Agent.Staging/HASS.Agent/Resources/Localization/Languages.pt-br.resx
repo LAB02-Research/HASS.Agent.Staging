@@ -3266,4 +3266,21 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Desconhecido</value>
   </data>
+  <data name="CommandsManager_SetApplicationVolumeCommandDescription" xml:space="preserve">
+    <value>Define o status de volume e mudo do aplicativo fornecido no dispositivo de áudio fornecido para o nível especificado.
+O comando/carga precisa estar no formato JSON. Exemplo de todas as opções possíveis:
+{
+  "playbackDevice": "Speakers (THX Spatial Audio)",
+  "applicationName": "Discord",
+  "volume": 90,
+  "mute": true
+}
+
+Se nenhum "playbackDevice" for fornecido, o HASS.Agent usará o padrão.
+Se nenhum "volume" for fornecido, o HASS.Agent definirá apenas o status mudo.
+Se nenhum "mute" for fornecido, o HASS.Agent ativará o som do aplicativo fornecido.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
+    <value>Insira uma string JSON válida!</value>
+  </data>
 </root>

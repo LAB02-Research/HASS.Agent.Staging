@@ -3219,4 +3219,21 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="CommandsManager_SetApplicationVolumeCommandDescription" xml:space="preserve">
+    <value>Establece el volumen y el estado de silencio de la aplicación proporcionada en el dispositivo de audio proporcionado al nivel especificado.
+El comando/carga útil debe estar en formato JSON. Ejemplo de todas las opciones posibles:
+{
+  "playbackDevice": "Speakers (THX Spatial Audio)",
+  "applicationName": "Discord",
+  "volume": 90,
+  "mute": true
+}
+
+Si no se proporciona ningún "playbackDevice", HASS.Agent utilizará el predeterminado.
+Si no se proporciona ningún "volume", HASS.Agent establecerá sólo el estado de silencio.
+Si no se proporciona ningún "mute", HASS.Agent reactivará el silencio de la aplicación proporcionada.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
+    <value>¡Ingrese una cadena JSON válida!</value>
+  </data>
 </root>

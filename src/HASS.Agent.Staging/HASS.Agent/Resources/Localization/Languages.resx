@@ -3229,7 +3229,7 @@ Do you want to download the runtime installer?</value>
 	  <value>&amp;Round</value>
   </data>
   <data name="CommandsManager_SetApplicationVolumeCommandDescription" xml:space="preserve">
-    <value>Sets the volume and mute status of the provided application on provided audiodevice to the specified level.
+    <value>Sets the volume and mute status of the provided application on provided audio device to the specified level.
 Command / payload needs to be in JSON format. Example of all possible options:
 {
   "playbackDevice": "Speakers (THX Spatial Audio)",
