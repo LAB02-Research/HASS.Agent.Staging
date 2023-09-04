@@ -198,16 +198,14 @@ namespace HASS.Agent.Forms.Commands
 					TbSetting.Text = Command.Command;
 					break;
 
-
 				case CommandType.RadioCommand:
 					CbConfigDropdown.SelectedItem = new KeyValuePair<string, string>(Command.Command, Command.Command);
 					break;
-			}
+
                 case CommandType.SetVolumeCommand:
                 case CommandType.SetApplicationVolumeCommand:
                     TbSetting.Text = Command.Command;
                     break;
-
             }
 
 			CbRunAsLowIntegrity.CheckState = Command.RunAsLowIntegrity ? CheckState.Checked : CheckState.Unchecked;
@@ -595,6 +593,10 @@ namespace HASS.Agent.Forms.Commands
 
 				case CommandType.SetVolumeCommand:
 					SetVolumeUi();
+					break;
+
+				case CommandType.SetApplicationVolumeCommand:
+					SetApplicationVolumeUi();
 					break;
 
 				case CommandType.RadioCommand:
