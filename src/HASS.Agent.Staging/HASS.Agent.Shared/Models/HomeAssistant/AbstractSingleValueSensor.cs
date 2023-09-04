@@ -35,8 +35,11 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
 
         public override void ClearAutoDiscoveryConfig() => AutoDiscoveryConfigModel = null;
 
-        public abstract string GetState();
-        public abstract string GetAttributes();
+        // nullable in preparation for possible future "nullable enablement"
+        public abstract string? GetState();
+
+        // nullable in preparation for possible future "nullable enablement"
+        public abstract string? GetAttributes();
 
         public void ResetChecks()
         {
@@ -60,6 +63,9 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
 
                 // get the current state/attributes
                 var state = GetState();
+                if (state == null)
+                    return;
+
                 var attributes = GetAttributes();
 
                 // are we asked to check state changes?
@@ -82,13 +88,10 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
                 // send it
                 var published = await Variables.MqttManager.PublishAsync(message);
                 if (!published)
-                {
-                    // failed, don't store the state
-                    return;
-                }
+                    return; // failed, don't store the state
 
                 // optionally prepare and send attributes
-                if (UseAttributes)
+                if (UseAttributes && attributes != null)
                 {
                     message = new MqttApplicationMessageBuilder()
                         .WithTopic(autoDiscoConfig.Json_attributes_topic)
@@ -98,18 +101,18 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
 
                     published = await Variables.MqttManager.PublishAsync(message);
                     if (!published)
-                    {
-                        // failed, don't store the state
-                        return;
-                    }
+                        return; // failed, don't store the state
                 }
 
                 // only store the values if the checks are respected
-                // otherwise, we might stay in 'unknown' state untill the value changes
-                if (!respectChecks) return;
+                // otherwise, we might stay in 'unknown' state until the value changes
+                if (!respectChecks)
+                    return;
 
                 PreviousPublishedState = state;
-                PreviousPublishedAttributes = attributes;
+                if (attributes != null)
+                    PreviousPublishedAttributes = attributes;
+
                 LastUpdated = DateTime.Now;
             }
             catch (Exception ex)
