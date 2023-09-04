@@ -3305,4 +3305,20 @@ om te voldoen aan de vereisten van Home Assistant 2023.8</value>
 wanneer
 systeem ontwaakt uit slaap/winterslaap</value>
   </data>
+  <data name="CommandsManager_SetApplicationVolumeCommandDescription" xml:space="preserve">
+    <value>Stelt het volume en de mute-status van de meegeleverde applicatie op het meegeleverde audioapparaat in op het opgegeven niveau.
+Commando/payload moet in JSON-indeling zijn. Voorbeeld van alle mogelijke opties:
+{
+  "playbackDevice": "Speakers (THX Spatial Audio)",
+  "applicationName": "Discord",
+  "volume": 90,
+  "mute": true
+}
+Als er geen "playbackDevice" is opgegeven, zal HASS.Agent het standaardapparaat gebruiken.
+Als er geen "volume" is opgegeven, zal HASS.Agent alleen de mute-status instellen.
+Als er geen "mute" is opgegeven, zal HASS.Agent het dempen van de opgegeven applicatie opheffen.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
+    <value>Voer een geldige JSON-string in!</value>
+  </data>
 </root>

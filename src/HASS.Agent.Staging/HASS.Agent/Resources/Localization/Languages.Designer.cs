@@ -570,7 +570,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sets the volume and mute status of the provided application on provided audiodevice to the specified level.
+        ///   Looks up a localized string similar to Sets the volume and mute status of the provided application on provided audio device to the specified level.
         ///Command / payload needs to be in JSON format. Example of all possible options:
         ///{
         ///  &quot;playbackDevice&quot;: &quot;Speakers (THX Spatial Audio)&quot;,
@@ -581,7 +581,7 @@ namespace HASS.Agent.Resources.Localization {
         ///
         ///If no &quot;playbackDevice&quot; is provided, HASS.Agent will use the default one.
         ///If no &quot;volume&quot; is provided, HASS.Agent will set only mute status.
-        ///If no &quot;mute&quot; is provided, HASS.Agent will unmute the pr [rest of string was truncated]&quot;;.
+        ///If no &quot;mute&quot; is provided, HASS.Agent will unmute the p [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CommandsManager_SetApplicationVolumeCommandDescription {
             get {
