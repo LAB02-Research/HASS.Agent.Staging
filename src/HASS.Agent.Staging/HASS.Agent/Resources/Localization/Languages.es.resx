@@ -3313,4 +3313,10 @@ La disponibilidad del sensor depende del dispositivo; en algunos casos, no habr√
   <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>El nombre del dispositivo en el nombre del comando puede causar problemas con las versiones de Home Assistant a partir de 2023.8.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Proporciona el ID del escritorio virtual actualmente activo.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Activa el escritorio virtual proporcionado. Desktop ID se puede recuperar del sensor "ActiveDesktop".</value>
+  </data>
 </root>

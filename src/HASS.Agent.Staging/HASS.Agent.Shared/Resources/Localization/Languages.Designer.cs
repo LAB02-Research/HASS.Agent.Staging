@@ -1312,6 +1312,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SwitchDesktop.
+        /// </summary>
+        internal static string CommandType_SwitchDesktopCommand {
+            get {
+                return ResourceManager.GetString("CommandType_SwitchDesktopCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WebView.
         /// </summary>
         internal static string CommandType_WebViewCommand {
@@ -6444,6 +6453,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string SensorsMod_WmiTestFailed {
             get {
                 return ResourceManager.GetString("SensorsMod_WmiTestFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActiveDesktop.
+        /// </summary>
+        internal static string SensorType_ActiveDesktopSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ActiveDesktopSensor", resourceCulture);
             }
         }
         

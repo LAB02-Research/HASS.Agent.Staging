@@ -3255,4 +3255,10 @@ Do you want to download the runtime installer?</value>
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>CommandeRadio</value>
   </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>SwitchDesktop</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>ActiveDesktop</value>
+  </data>
 </root>

@@ -21,6 +21,7 @@ using HASS.Agent.Shared.Extensions;
 using HASS.Agent.Shared.Functions;
 using Serilog;
 using Syncfusion.Windows.Forms;
+using WindowsDesktop;
 using WK.Libraries.HotkeyListenerNS;
 using NativeMethods = HASS.Agent.Functions.NativeMethods;
 using QuickActionsConfig = HASS.Agent.Forms.QuickActions.QuickActionsConfig;
@@ -117,6 +118,9 @@ namespace HASS.Agent.Forms
 
                 // initialize hotkeys
                 InitializeHotkeys();
+
+                // initialize Virtual Desktop library
+                InitializeVirtualDesktopManager();
 
                 // initialize managers
                 var initTask = Task.Run(async () =>
@@ -303,6 +307,14 @@ namespace HASS.Agent.Forms
                 ShowQuickActions();
             else
                 HotKeyManager.ProcessQuickActionHotKey(e.Hotkey.ToString());
+        }
+
+        /// <summary>
+        /// Initializes the Virtual Desktop Manager
+        /// </summary>
+        private void InitializeVirtualDesktopManager()
+        {
+            VirtualDesktop.Configure();
         }
 
         /// <summary>

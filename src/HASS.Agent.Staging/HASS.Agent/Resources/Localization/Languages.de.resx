@@ -3438,4 +3438,10 @@ Die Verfügbarkeit des Sensors ist geräteabhängig, in manchen Fällen sind kei
   <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Der Gerätename im Befehlsnamen kann Probleme mit Home Assistant-Versionen ab 2023.8 verursachen.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Stellt die ID des aktuell aktiven virtuellen Desktops bereit.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Aktiviert den bereitgestellten virtuellen Desktop. Die Desktop-ID kann vom „ActiveDesktop“-Sensor abgerufen werden.</value>
+  </data>
 </root>

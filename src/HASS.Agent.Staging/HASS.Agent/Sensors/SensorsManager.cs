@@ -345,6 +345,13 @@ namespace HASS.Agent.Sensors
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 
             // =================================
+            sensorInfoCard = new SensorInfoCard(SensorType.ActiveDesktopSensor,
+                Languages.SensorsManager_ActiveDesktopSensorDescription,
+                15, false, true, false);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
 
             sensorInfoCard = new SensorInfoCard(SensorType.AudioSensors,
                 Languages.SensorsManager_AudioSensorsDescription,

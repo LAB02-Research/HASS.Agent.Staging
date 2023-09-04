@@ -3334,4 +3334,10 @@ Beschikbaarheid van de sensor is afhankelijk van het apparaat, in sommige gevall
   <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>De apparaatnaam in de opdrachtnaam kan problemen veroorzaken met Home Assistant-versies vanaf 2023.8.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Geeft de ID van het momenteel actieve virtuele bureaublad.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Activeert het meegeleverde virtuele bureaublad. Desktop-ID kan worden opgehaald van de "ActiveDesktop"-sensor.</value>
+  </data>
 </root>

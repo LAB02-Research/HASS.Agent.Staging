@@ -3290,4 +3290,10 @@ Home Assistant.
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>Радиокоманда</value>
   </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>SwitchDesktop</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>Активдесктоп</value>
+  </data>
 </root>

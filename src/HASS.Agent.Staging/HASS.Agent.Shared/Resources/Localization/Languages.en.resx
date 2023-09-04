@@ -3225,4 +3225,10 @@ Do you want to download the runtime installer?</value>
   <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
     <value>InternalDeviceSensor</value>
   </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>SwitchDesktop</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>ActiveDesktop</value>
+  </data>
 </root>

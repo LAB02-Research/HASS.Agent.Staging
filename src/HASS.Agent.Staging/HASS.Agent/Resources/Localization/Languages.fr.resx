@@ -3346,4 +3346,10 @@ La disponibilité du capteur dépend de l'appareil ; dans certains cas, aucun ca
   <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Le nom de l'appareil dans le nom de la commande peut entraîner des problèmes avec les versions de Home Assistant commençant par 2023.8.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Fournit l'ID du bureau virtuel actuellement actif.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Active le bureau virtuel fourni. L'ID du bureau peut être récupéré à partir du capteur "ActiveDesktop".</value>
+  </data>
 </root>

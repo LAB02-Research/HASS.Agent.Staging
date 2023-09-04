@@ -3269,4 +3269,10 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>Comando de rádio</value>
   </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>SwitchDesktop</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>ActiveDesktop</value>
+  </data>
 </root>

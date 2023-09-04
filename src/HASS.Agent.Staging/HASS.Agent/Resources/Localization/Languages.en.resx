@@ -3224,6 +3224,12 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
 	  <value>domain</value>
   </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Activates provided Virtual Desktop. Desktop ID can be retrieved from the "ActiveDesktop" sensor.</value>
+  </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Provides the ID of the currently active virtual desktop.</value>
+  </data>
   <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
     <value>Switches selected radio device on/off. Availability of radio devices depends on the device HASS.Agent is installed on.</value>
   </data>

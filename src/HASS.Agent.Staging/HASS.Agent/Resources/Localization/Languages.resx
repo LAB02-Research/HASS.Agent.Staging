@@ -3323,4 +3323,13 @@ to match Home Assistant 2023.8 requirements</value>
   <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
     <value>Please note that ignoring availability will cause Home Assistant to always display last value for a given sensor, even when HASS.Agent is offline.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Provides the ID of the currently active virtual desktop.</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>ActiveDesktop</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Activates provided Virtual Desktop. Desktop ID can be retrieved from the "ActiveDesktop" sensor.</value>
+  </data>
 </root>

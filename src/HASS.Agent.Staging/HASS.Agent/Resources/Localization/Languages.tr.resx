@@ -2925,4 +2925,10 @@ Sensörün kullanılabilirliği cihaza bağlıdır; bazı durumlarda sensör bul
   <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Komut adındaki cihaz adı, 2023.8'den itibaren Home Assistant sürümlerinde sorunlara neden olabilir.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Şu anda etkin olan sanal masaüstünün kimliğini sağlar.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Sağlanan Sanal Masaüstünü etkinleştirir. Masaüstü Kimliği "ActiveDesktop" sensöründen alınabilir.</value>
+  </data>
 </root>

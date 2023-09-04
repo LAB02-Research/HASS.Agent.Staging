@@ -3382,4 +3382,10 @@ Home Assistant.
   <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Имя устройства в имени команды может вызвать проблемы с версиями Home Assistant, начиная с 2023.8.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Предоставляет идентификатор текущего активного виртуального рабочего стола.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Активирует предоставленный виртуальный рабочий стол. Идентификатор рабочего стола можно получить с датчика ActiveDesktop.</value>
+  </data>
 </root>

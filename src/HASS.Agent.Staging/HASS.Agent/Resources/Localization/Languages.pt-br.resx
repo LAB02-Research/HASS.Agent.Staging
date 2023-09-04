@@ -3360,4 +3360,10 @@ A disponibilidade do sensor depende do dispositivo; em alguns casos, nenhum sens
   <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>O nome do dispositivo no nome do comando pode causar problemas nas versões do Home Assistant a partir de 2023.8.</value>
   </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Fornece a ID da área de trabalho virtual atualmente ativa.</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Ativa a área de trabalho virtual fornecida. A ID da área de trabalho pode ser recuperada do sensor "ActiveDesktop".</value>
+  </data>
 </root>

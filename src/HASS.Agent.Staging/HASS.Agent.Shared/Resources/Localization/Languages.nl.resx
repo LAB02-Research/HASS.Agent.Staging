@@ -3244,4 +3244,10 @@ Wil je de runtime installatie downloaden?</value>
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>RadioCommando</value>
   </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>SwitchDesktop</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>ActiveDesktop</value>
+  </data>
 </root>

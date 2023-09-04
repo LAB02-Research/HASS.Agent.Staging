@@ -3332,4 +3332,10 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>SterowanieRadiem</value>
   </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>ZmienPulpit</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>AktywnyPulpit</value>
+  </data>
 </root>

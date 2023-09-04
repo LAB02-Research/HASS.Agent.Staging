@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
 	<UseWPF>true</UseWPF>
@@ -70,6 +70,7 @@
     <PackageReference Include="Syncfusion.Shared.Base" Version="20.3.0.50" />
     <PackageReference Include="Syncfusion.Tools.Windows" Version="20.3.0.50" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+    <PackageReference Include="VirtualDesktop" Version="5.0.5" />
   </ItemGroup>
 
   <ItemGroup>

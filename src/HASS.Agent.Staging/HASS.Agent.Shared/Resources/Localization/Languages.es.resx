@@ -3222,4 +3222,10 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>Comando de radio</value>
   </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>CambiarEscritorio</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>EscritorioActivo</value>
+  </data>
 </root>
