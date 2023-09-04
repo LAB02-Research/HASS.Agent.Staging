@@ -241,6 +241,10 @@ namespace HASS.Agent.Forms.Commands
                 ActiveControl = TbName;
                 return;
             }
+            if (CompatHelper.HassVersionEqualOrOver("2023.8") && name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
+            {
+                MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_DeviceNameInSensorName, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             // get the friendly name
             var friendlyName = string.IsNullOrEmpty(TbName.Text.Trim()) ? null : TbName.Text.Trim();
@@ -487,7 +491,7 @@ namespace HASS.Agent.Forms.Commands
             if (setDefaultValues)
             {
                 // name
-                TbName.Text = _serviceMode ? commandCard.CommandType.GetCommandName(_serviceDeviceName) : commandCard.CommandType.GetCommandName();
+                TbName.Text = commandCard.CommandType.GetCommandName();
 
                 // entity type
                 CbEntityType.Text = CommandEntityType.Switch.ToString();

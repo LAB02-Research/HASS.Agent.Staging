@@ -34,12 +34,18 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             UpdateSensorValues();
         }
 
+        private void AddUpdateSensor(string sensorId, AbstractSingleValueSensor sensor)
+        {
+            if (!Sensors.ContainsKey(sensorId))
+                Sensors.Add(sensorId, sensor);
+            else
+                Sensors[sensorId] = sensor;
+        }
+
         public sealed override void UpdateSensorValues()
         {
-            // lowercase and safe name of the multivalue sensor
             var parentSensorSafeName = SharedHelperFunctions.GetSafeValue(Name);
 
-            // get nic info
             var nicCount = 0;
             var networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
 
@@ -47,26 +53,26 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             {
                 try
                 {
-                    if (nic == null) continue;
+                    if (nic == null)
+                        continue;
 
-                    // test if we need to show this card
-                    if (_useSpecificCard && nic.Id != NetworkCard) continue;
+                    if (_useSpecificCard && nic.Id != NetworkCard)
+                        continue;
 
-                    // id
                     var id = nic.Id.Replace("{", "").Replace("}", "").Replace("-", "").ToLower();
-                    if (string.IsNullOrWhiteSpace(id)) continue;
+                    if (string.IsNullOrWhiteSpace(id))
+                        continue;
 
-                    // prepare the info
-                    var networkInfo = new NetworkInfo();
-                    networkInfo.Name = nic.Name;
-                    networkInfo.NetworkInterfaceType = nic.NetworkInterfaceType.ToString();
-                    networkInfo.SpeedBitsPerSecond = nic.Speed;
-                    networkInfo.OperationalStatus = nic.OperationalStatus.ToString();
+                    var networkInfo = new NetworkInfo
+                    {
+                        Name = nic.Name,
+                        NetworkInterfaceType = nic.NetworkInterfaceType.ToString(),
+                        SpeedBitsPerSecond = nic.Speed,
+                        OperationalStatus = nic.OperationalStatus.ToString()
+                    };
 
-                    // get interface stats
                     var interfaceStats = nic.GetIPv4Statistics();
 
-                    // process the stats
                     networkInfo.DataReceivedMB = Math.Round(ByteSize.FromBytes(interfaceStats.BytesReceived).MegaBytes);
                     networkInfo.DataSentMB = Math.Round(ByteSize.FromBytes(interfaceStats.BytesSent).MegaBytes);
                     networkInfo.IncomingPacketsDiscarded = interfaceStats.IncomingPacketsDiscarded;
@@ -75,23 +81,24 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     networkInfo.OutgoingPacketsDiscarded = interfaceStats.OutgoingPacketsDiscarded;
                     networkInfo.OutgoingPacketsWithErrors = interfaceStats.OutgoingPacketsWithErrors;
 
-                    // get nic properties
                     var nicProperties = nic.GetIPProperties();
 
-                    // process the properties
                     foreach (var unicast in nicProperties.UnicastAddresses)
                     {
                         var ip = unicast.Address.ToString();
-                        if (!string.IsNullOrEmpty(ip) && !networkInfo.IpAddresses.Contains(ip)) networkInfo.IpAddresses.Add(ip);
+                        if (!string.IsNullOrEmpty(ip) && !networkInfo.IpAddresses.Contains(ip))
+                            networkInfo.IpAddresses.Add(ip);
 
                         var mac = nic.GetPhysicalAddress().ToString();
-                        if (!string.IsNullOrEmpty(mac) && !networkInfo.MacAddresses.Contains(mac)) networkInfo.MacAddresses.Add(mac);
+                        if (!string.IsNullOrEmpty(mac) && !networkInfo.MacAddresses.Contains(mac))
+                            networkInfo.MacAddresses.Add(mac);
                     }
 
                     foreach (var gateway in nicProperties.GatewayAddresses)
                     {
                         var gatewayAddress = gateway.Address.ToString();
-                        if (!string.IsNullOrEmpty(gatewayAddress) && !networkInfo.Gateways.Contains(gatewayAddress)) networkInfo.Gateways.Add(gatewayAddress);
+                        if (!string.IsNullOrEmpty(gatewayAddress) && !networkInfo.Gateways.Contains(gatewayAddress))
+                            networkInfo.Gateways.Add(gatewayAddress);
                     }
 
                     networkInfo.DhcpEnabled = nicProperties.GetIPv4Properties().IsDhcpEnabled;
@@ -99,7 +106,8 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     foreach (var dhcp in nicProperties.DhcpServerAddresses)
                     {
                         var dhcpAddress = dhcp.ToString();
-                        if (!string.IsNullOrEmpty(dhcpAddress) && !networkInfo.DhcpAddresses.Contains(dhcpAddress)) networkInfo.DhcpAddresses.Add(dhcpAddress);
+                        if (!string.IsNullOrEmpty(dhcpAddress) && !networkInfo.DhcpAddresses.Contains(dhcpAddress))
+                            networkInfo.DhcpAddresses.Add(dhcpAddress);
                     }
 
                     networkInfo.DnsEnabled = nicProperties.IsDnsEnabled;
@@ -108,21 +116,18 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                     foreach (var dns in nicProperties.DnsAddresses)
                     {
                         var dnsAddress = dns.ToString();
-                        if (!string.IsNullOrEmpty(dnsAddress) && !networkInfo.DnsAddresses.Contains(dnsAddress)) networkInfo.DnsAddresses.Add(dnsAddress);
+                        if (!string.IsNullOrEmpty(dnsAddress) && !networkInfo.DnsAddresses.Contains(dnsAddress))
+                            networkInfo.DnsAddresses.Add(dnsAddress);
                     }
 
-                    // process the sensor
                     var info = JsonConvert.SerializeObject(networkInfo, Formatting.Indented);
                     var networkInfoId = $"{parentSensorSafeName}_{id}";
-                    var networkInfoSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {nic.Name}", networkInfoId, string.Empty, "mdi:lan", string.Empty, Name, true);
+                    var networkInfoSensor = new DataTypeStringSensor(_updateInterval, nic.Name, networkInfoId, string.Empty, "mdi:lan", string.Empty, Name, true);
 
                     networkInfoSensor.SetState(nic.OperationalStatus.ToString());
                     networkInfoSensor.SetAttributes(info);
+                    AddUpdateSensor(networkInfoId, networkInfoSensor);
 
-                    if (!Sensors.ContainsKey(networkInfoId)) Sensors.Add(networkInfoId, networkInfoSensor);
-                    else Sensors[networkInfoId] = networkInfoSensor;
-
-                    // nic count
                     nicCount++;
                 }
                 catch (Exception ex)
@@ -131,13 +136,10 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 }
             }
 
-            // nic count
             var nicCountId = $"{parentSensorSafeName}_total_network_card_count";
-            var nicCountSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Network Card Count", nicCountId, string.Empty, "mdi:lan", string.Empty, Name);
+            var nicCountSensor = new DataTypeIntSensor(_updateInterval, "Network Card Count", nicCountId, string.Empty, "mdi:lan", string.Empty, Name);
             nicCountSensor.SetState(nicCount);
-
-            if (!Sensors.ContainsKey(nicCountId)) Sensors.Add(nicCountId, nicCountSensor);
-            else Sensors[nicCountId] = nicCountSensor;
+            AddUpdateSensor(nicCountId, nicCountSensor);
         }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig() => null;
