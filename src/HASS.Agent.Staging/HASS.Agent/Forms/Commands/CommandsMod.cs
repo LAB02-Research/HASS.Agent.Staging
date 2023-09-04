@@ -14,6 +14,7 @@ using HASS.Agent.Shared.Models.Config;
 using HASS.Agent.Shared.Models.Internal;
 using Newtonsoft.Json;
 using HASS.Agent.Managers;
+using static HASS.Agent.Shared.Functions.Inputs;
 
 namespace HASS.Agent.Forms.Commands
 {
