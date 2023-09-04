@@ -6547,6 +6547,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InternalDeviceSensor.
+        /// </summary>
+        internal static string SensorType_InternalDeviceSensor {
+            get {
+                return ResourceManager.GetString("SensorType_InternalDeviceSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LastActive.
         /// </summary>
         internal static string SensorType_LastActiveSensor {

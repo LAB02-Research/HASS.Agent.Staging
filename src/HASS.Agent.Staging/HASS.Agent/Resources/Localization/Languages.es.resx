@@ -137,7 +137,7 @@
   </data>
   <data name="ConfigExternalTools_LblInfo3" xml:space="preserve">
     <value>Puede configurar HASS.Agent para usar un ejecutor específico, como perl o python.
-Use el comando &apos;ejecutor personalizado&apos; para iniciar este ejecutor.</value>
+Use el comando 'ejecutor personalizado' para iniciar este ejecutor.</value>
   </data>
   <data name="ConfigExternalTools_LblCustomExecutorName" xml:space="preserve">
     <value>nombre del ejecutor personalizado</value>
@@ -191,7 +191,7 @@ la API de Home Assistant.
 
 Por favor, proporcione un token de acceso de larga duración, y la dirección de su instancia de Home Assistant.
 
-Puedes obtener un token a través de tu página de perfil. Desplácese hasta la parte inferior y haga clic en &apos;CREAR TOKEN&apos;.</value>
+Puedes obtener un token a través de tu página de perfil. Desplácese hasta la parte inferior y haga clic en 'CREAR TOKEN'.</value>
   </data>
   <data name="ConfigHomeAssistantApi_LblApiToken" xml:space="preserve">
     <value>&amp;api token</value>
@@ -229,7 +229,7 @@ De esta manera, hagas lo que hagas en tu máquina, siempre puedes interactuar co
     <value>Algunos elementos, como las imágenes que se muestran en las notificaciones, deben almacenarse temporalmente de forma local. Puede
 configurar la cantidad de días que deben conservarse antes de que HASS.Agent los elimine.
 
-Introduzca &apos;0&apos; para mantenerlas permanentemente.</value>
+Introduzca '0' para mantenerlas permanentemente.</value>
   </data>
   <data name="ConfigLogging_LblInfo1" xml:space="preserve">
     <value>El registro extendido proporciona un registro más detallado, en caso de que el registro predeterminado no sea
@@ -324,7 +324,7 @@ Nota: estos ajustes (excepto el id de cliente) se aplicarán también al servici
   </data>
   <data name="ConfigService_LblInfo1" xml:space="preserve">
     <value>El servicio satelital le permite ejecutar sensores y comandos incluso cuando ningún usuario ha iniciado sesión.
-Use el botón &apos;servicio satelital&apos; en la ventana principal para administrarlo.</value>
+Use el botón 'servicio satelital' en la ventana principal para administrarlo.</value>
   </data>
   <data name="ConfigService_LblServiceStatusInfo" xml:space="preserve">
     <value>estado del servicio:</value>
@@ -393,7 +393,7 @@ Recibirá una notificación (una vez por actualización) que le informará que h
   <data name="OnboardingWelcome_LblInfo1" xml:space="preserve">
     <value>Parece que esta es la primera vez que inicia HASS.Agent.
 
-Si quieres, podemos pasar por la configuración. Si no, simplemente haga clic en &apos;cerrar&apos;.</value>
+Si quieres, podemos pasar por la configuración. Si no, simplemente haga clic en 'cerrar'.</value>
   </data>
   <data name="OnboardingWelcome_LblInfo2" xml:space="preserve">
     <value>El nombre del dispositivo se usa para identificar su máquina en HA.
@@ -455,7 +455,7 @@ información.</value>
 la API de Home Assistant.
 
 Por favor, proporcione un token de acceso de larga duración, y la dirección de su instancia de Home Assistant.
-Puedes obtener un token a través de su página de perfil. Desplácese hasta la parte inferior y haga clic en &apos;CREAR TOKEN&apos;.</value>
+Puedes obtener un token a través de su página de perfil. Desplácese hasta la parte inferior y haga clic en 'CREAR TOKEN'.</value>
   </data>
   <data name="OnboardingApi_BtnTest" xml:space="preserve">
     <value>&amp;conexión de prueba</value>
@@ -809,7 +809,7 @@ probablemente puedas usar la dirección preestablecida.</value>
     <value>descripción</value>
   </data>
   <data name="CommandsMod_CbRunAsLowIntegrity" xml:space="preserve">
-    <value>&amp;ejecutar como &apos;baja integridad&apos;</value>
+    <value>&amp;ejecutar como 'baja integridad'</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo" xml:space="preserve">
     <value>¿Qué es esto?</value>
@@ -1010,7 +1010,7 @@ probablemente puedas usar la dirección preestablecida.</value>
 los componentes usados para sus licencias individuales:</value>
   </data>
   <data name="About_LblInfo4" xml:space="preserve">
-    <value>Un gran &apos;gracias&apos; a los desarrolladores de estos proyectos, que tuvieron la amabilidad de compartir
+    <value>Un gran 'gracias' a los desarrolladores de estos proyectos, que tuvieron la amabilidad de compartir
 su arduo trabajo con el resto de nosotros, meros mortales.</value>
   </data>
   <data name="About_LblInfo5" xml:space="preserve">
@@ -1232,14 +1232,14 @@ reportar errores o simplemente hablar de lo que sea.</value>
   <data name="CommandsManager_CustomCommandDescription" xml:space="preserve">
     <value>Ejecute un comando personalizado.
 
-Estos comandos se ejecutan sin elevación especial. Para ejecutar elevado, cree una tarea programada y use &apos;schtasks /Run /TN &quot;TaskName&quot;&apos; como comando para ejecutar su tarea.
+Estos comandos se ejecutan sin elevación especial. Para ejecutar elevado, cree una tarea programada y use 'schtasks /Run /TN "TaskName"' como comando para ejecutar su tarea.
 
-O habilite &apos;ejecutar como baja integridad&apos; para una ejecución aún más estricta.</value>
+O habilite 'ejecutar como baja integridad' para una ejecución aún más estricta.</value>
   </data>
   <data name="CommandsManager_CustomExecutorCommandDescription" xml:space="preserve">
     <value>Ejecuta el comando a través del ejecutor personalizado configurado (en Configuración -&gt; Herramientas externas).
 
-Su comando se proporciona como un argumento &apos;tal cual&apos;, por lo que debe proporcionar sus propias comillas, etc., si es necesario.</value>
+Su comando se proporciona como un argumento 'tal cual', por lo que debe proporcionar sus propias comillas, etc., si es necesario.</value>
   </data>
   <data name="CommandsManager_HibernateCommandDescription" xml:space="preserve">
     <value>Pone la máquina en hibernación.</value>
@@ -1247,16 +1247,16 @@ Su comando se proporciona como un argumento &apos;tal cual&apos;, por lo que deb
   <data name="CommandsManager_KeyCommandDescription" xml:space="preserve">
     <value>Simula la pulsación de una sola tecla.
 
-Haga clic en el cuadro de texto &quot;código de teclas&quot; y pulse la tecla que desea simular. El código de la tecla correspondiente se introducirá por usted.
+Haga clic en el cuadro de texto "código de teclas" y pulse la tecla que desea simular. El código de la tecla correspondiente se introducirá por usted.
 
 Si necesita más teclas y/o modificadores como CTRL, use el comando MultipleKeys.</value>
   </data>
   <data name="CommandsManager_LaunchUrlCommandDescription" xml:space="preserve">
     <value>Lanza la URL proporcionada, por defecto en su navegador predeterminado.
 
-Para usar &apos;incógnito&apos;, proporcione un navegador específico en Configuración -&gt; Herramientas externas.
+Para usar 'incógnito', proporcione un navegador específico en Configuración -&gt; Herramientas externas.
 
-Si sólo quiere una ventana con una URL específica (no un navegador completo), use un comando &apos;WebView&apos;.</value>
+Si sólo quiere una ventana con una URL específica (no un navegador completo), use un comando 'WebView'.</value>
   </data>
   <data name="CommandsManager_LockCommandDescription" xml:space="preserve">
     <value>Bloquea la sesión actual.</value>
@@ -1265,22 +1265,22 @@ Si sólo quiere una ventana con una URL específica (no un navegador completo), 
     <value>Cierra la sesión actual.</value>
   </data>
   <data name="CommandsManager_MediaMuteCommandDescription" xml:space="preserve">
-    <value>Simula la tecla &apos;silencio&apos;.</value>
+    <value>Simula la tecla 'silencio'.</value>
   </data>
   <data name="CommandsManager_MediaNextCommandDescription" xml:space="preserve">
-    <value>Simula la tecla &apos;media next&apos;.</value>
+    <value>Simula la tecla 'media next'.</value>
   </data>
   <data name="CommandsManager_MediaPlayPauseCommandDescription" xml:space="preserve">
-    <value>Simula la tecla &apos;pausa de reproducción multimedia&apos;.</value>
+    <value>Simula la tecla 'pausa de reproducción multimedia'.</value>
   </data>
   <data name="CommandsManager_MediaPreviousCommandDescription" xml:space="preserve">
-    <value>Simula la tecla &apos;media anterior&apos;.</value>
+    <value>Simula la tecla 'media anterior'.</value>
   </data>
   <data name="CommandsManager_MediaVolumeDownCommandDescription" xml:space="preserve">
-    <value>Simula la tecla de &apos;bajar volumen&apos;.</value>
+    <value>Simula la tecla de 'bajar volumen'.</value>
   </data>
   <data name="CommandsManager_MediaVolumeUpCommandDescription" xml:space="preserve">
-    <value>Simula la tecla &apos;subir volumen&apos;.</value>
+    <value>Simula la tecla 'subir volumen'.</value>
   </data>
   <data name="CommandsManager_MultipleKeysCommandDescription" xml:space="preserve">
     <value>Simula la pulsación de varias teclas.
@@ -1314,12 +1314,12 @@ Esto se ejecutará sin elevación especial.</value>
   <data name="CommandsManager_RestartCommandDescription" xml:space="preserve">
     <value>Reinicia la máquina después de un minuto.
 
-Consejo: ¿activado accidentalmente? Ejecute &apos;shutdown /a&apos; para cancelar.</value>
+Consejo: ¿activado accidentalmente? Ejecute 'shutdown /a' para cancelar.</value>
   </data>
   <data name="CommandsManager_ShutdownCommandDescription" xml:space="preserve">
     <value>Apaga la máquina después de un minuto.
 
-Consejo: ¿activado accidentalmente? Ejecute &apos;shutdown /a&apos; para cancelar.</value>
+Consejo: ¿activado accidentalmente? Ejecute 'shutdown /a' para cancelar.</value>
   </data>
   <data name="CommandsManager_SleepCommandDescription" xml:space="preserve">
     <value>Pone la máquina a dormir.
@@ -1408,7 +1408,7 @@ Recuerde cambiar también el puerto de su regla de firewall.</value>
 Consulte los registros de HASS.Agent (no el servicio) para obtener más información.</value>
   </data>
   <data name="ConfigService_BtnStartService_MessageBox1" xml:space="preserve">
-    <value>El servicio está configurado como &apos;deshabilitado&apos;, por lo que no se puede iniciar.
+    <value>El servicio está configurado como 'deshabilitado', por lo que no se puede iniciar.
 
 Habilite primero el servicio y luego inténtelo de nuevo.</value>
   </data>
@@ -1583,7 +1583,7 @@ Deje vacío para permitir que todos se conecten.</value>
   <data name="ServiceGeneral_LblDeviceNameInfo_MessageBox1" xml:space="preserve">
     <value>Este es el nombre con el que el servicio satelital se registra en Home Assistant.
 
-De manera predeterminada, es el nombre de su PC más &apos;-satélite&apos;.</value>
+De manera predeterminada, es el nombre de su PC más '-satélite'.</value>
   </data>
   <data name="ServiceGeneral_LblDisconGraceInfo_MessageBox1" xml:space="preserve">
     <value>La cantidad de tiempo que esperará el servicio satelital antes de informar una conexión perdida al intermediario MQTT.</value>
@@ -1665,12 +1665,12 @@ Por favor, consulte los registros para obtener más información.</value>
     <value>Ya hay un comando con ese nombre. Estás seguro de que quieres continuar?</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox4" xml:space="preserve">
-    <value>Si no ingresa un comando, solo puede usar esta entidad con un valor de &apos;acción&apos; a través de Home Assistant. Ejecutarlo como está no hará nada.
+    <value>Si no ingresa un comando, solo puede usar esta entidad con un valor de 'acción' a través de Home Assistant. Ejecutarlo como está no hará nada.
 
 ¿Estás seguro de que quieres esto?</value>
   </data>
   <data name="CommandsMod_MessageBox_Action" xml:space="preserve">
-    <value>Si no ingresa un comando o secuencia de comandos, solo puede usar esta entidad con un valor de &apos;acción&apos; a través de Home Assistant. Ejecutarlo como está no hará nada.
+    <value>Si no ingresa un comando o secuencia de comandos, solo puede usar esta entidad con un valor de 'acción' a través de Home Assistant. Ejecutarlo como está no hará nada.
 
 ¿Estás seguro de que quieres esto?</value>
   </data>
@@ -1681,7 +1681,7 @@ Por favor, consulte los registros para obtener más información.</value>
     <value>No se han podido comprobar las claves: {0}</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox7" xml:space="preserve">
-    <value>Si no ingresa una URL, solo puede usar esta entidad con un valor de &apos;acción&apos; a través de Home Assistant. Ejecutarlo como está no hará nada.
+    <value>Si no ingresa una URL, solo puede usar esta entidad con un valor de 'acción' a través de Home Assistant. Ejecutarlo como está no hará nada.
 
 ¿Estás seguro de que quieres esto?</value>
   </data>
@@ -1726,10 +1726,10 @@ configure un ejecutor o su comando no se ejecutará</value>
     <value>Eso significa que solo podrá guardar y modificar archivos en ciertas ubicaciones,</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg3" xml:space="preserve">
-    <value>como la carpeta &apos;%USERPROFILE%\AppData\LocalLow&apos; o</value>
+    <value>como la carpeta '%USERPROFILE%\AppData\LocalLow' o</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg4" xml:space="preserve">
-    <value>la clave de registro &apos;HKEY_CURRENT_USER\Software\AppDataLow&apos;.</value>
+    <value>la clave de registro 'HKEY_CURRENT_USER\Software\AppDataLow'.</value>
   </data>
   <data name="CommandsMod_LblIntegrityInfo_InfoMsg5" xml:space="preserve">
     <value>Debe probar su comando para asegurarse de que no esté influenciado por esto.</value>
@@ -1846,7 +1846,7 @@ Todos sus sensores y comandos serán ahora despublicados, y HASS.Agent se reinic
 
 No se preocupe, mantendrán sus nombres actuales, por lo que sus automatizaciones o scripts seguirán funcionando.
 
-Nota: el nombre será &apos;saneado&apos;, lo que significa que todo, excepto las letras, los dígitos y los espacios en blanco, será reemplazado por un guión bajo. Esto es requerido por HA.</value>
+Nota: el nombre será 'saneado', lo que significa que todo, excepto las letras, los dígitos y los espacios en blanco, será reemplazado por un guión bajo. Esto es requerido por HA.</value>
   </data>
   <data name="Configuration_ProcessChanges_MessageBox2" xml:space="preserve">
     <value>Ha cambiado el puerto de la API local. Este nuevo puerto necesita ser reservado.
@@ -1876,7 +1876,7 @@ Reinicie manualmente.</value>
   <data name="Main_Load_MessageBox1" xml:space="preserve">
     <value>Algo ha ido mal al cargar la configuración.
 
-Compruebe el archivo appsettings.json en la subcarpeta &quot;config&quot; o elimínelo para empezar de cero.</value>
+Compruebe el archivo appsettings.json en la subcarpeta "config" o elimínelo para empezar de cero.</value>
   </data>
   <data name="Main_Load_MessageBox2" xml:space="preserve">
     <value>Se ha producido un error al lanzar HASS.Agent.
@@ -2029,7 +2029,7 @@ Asegúrese de que no se esté ejecutando ninguna otra instancia de HASS.Agent y 
   <data name="SensorsManager_AudioSensorsDescription" xml:space="preserve">
     <value>Brinda información sobre varios aspectos del audio de su dispositivo:
 
-Nivel de volumen máximo actual (se puede usar como un simple valor de &quot;se está reproduciendo algo&quot;).
+Nivel de volumen máximo actual (se puede usar como un simple valor de "se está reproduciendo algo").
 
 Dispositivo de audio predeterminado: nombre, estado y volumen.
 
@@ -2067,7 +2067,7 @@ Actualmente toma el volumen de su dispositivo predeterminado.</value>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Proporciona un valor de fecha y hora que contiene el último momento en que el sistema (re)arrancó.
 
-Importante: la opción FastBoot de Windows puede descartar este valor, porque es una forma de hibernación. Puede deshabilitarlo a través de Opciones de energía -&gt; &apos;Elegir lo que hacen los botones de encendido&apos; -&gt; desmarque &apos;Activar inicio rápido&apos;. No hace mucha diferencia para las máquinas modernas con SSD, pero la desactivación asegura que obtenga un estado limpio después de reiniciar.</value>
+Importante: la opción FastBoot de Windows puede descartar este valor, porque es una forma de hibernación. Puede deshabilitarlo a través de Opciones de energía -&gt; 'Elegir lo que hacen los botones de encendido' -&gt; desmarque 'Activar inicio rápido'. No hace mucha diferencia para las máquinas modernas con SSD, pero la desactivación asegura que obtenga un estado limpio después de reiniciar.</value>
   </data>
   <data name="SensorsManager_LastSystemStateChangeSensorDescription" xml:space="preserve">
     <value>Proporciona el último cambio de estado del sistema:
@@ -2107,7 +2107,7 @@ Categoría: Procesador
 Contador: % de tiempo de procesador
 Instancia: _Total
 
-Puede explorar los contadores a través de la herramienta &apos;perfmon.exe&apos; de Windows.</value>
+Puede explorar los contadores a través de la herramienta 'perfmon.exe' de Windows.</value>
   </data>
   <data name="SensorsManager_ProcessActiveSensorDescription" xml:space="preserve">
     <value>Proporciona el número de instancias activas del proceso.</value>
@@ -2116,7 +2116,7 @@ Puede explorar los contadores a través de la herramienta &apos;perfmon.exe&apos
   <data name="SensorsManager_ServiceStateSensorDescription" xml:space="preserve">
     <value>Devuelve el estado del servicio proporcionado: NotFound, Stopped, StartPending, StopPending, Running, ContinuePending, PausePending o Paused.
 
-Asegúrese de proporcionar el &apos;Nombre del servicio&apos;, no el &apos;Nombre para mostrar&apos;.</value>
+Asegúrese de proporcionar el 'Nombre del servicio', no el 'Nombre para mostrar'.</value>
   </data>
   <data name="SensorsManager_SessionStateSensorDescription" xml:space="preserve">
     <value>Proporciona el estado actual de la sesión:
@@ -2594,7 +2594,7 @@ Sugerencia: asegúrese de no haber cambiado el alcance y los campos de consulta.
     <value>Aplicación iniciada</value>
   </data>
   <data name="ServiceGeneral_LblInfo2" xml:space="preserve">
-    <value>Puede usar el servicio satelital para ejecutar sensores y comandos sin tener que iniciar sesión. No todos los tipos están disponibles, por ejemplo, el comando &apos;LaunchUrl&apos; solo se puede agregar como un comando normal.</value>
+    <value>Puede usar el servicio satelital para ejecutar sensores y comandos sin tener que iniciar sesión. No todos los tipos están disponibles, por ejemplo, el comando 'LaunchUrl' solo se puede agregar como un comando normal.</value>
   </data>
   <data name="SensorsConfig_ClmValue" xml:space="preserve">
     <value>último valor conocido</value>
@@ -2613,7 +2613,7 @@ Asegúrese de que no se esté ejecutando ninguna otra instancia de HASS.Agent y 
   <data name="CommandsManager_WebViewCommandDescription" xml:space="preserve">
     <value>Muestra una ventana con la URL proporcionada.
 
-Esto difiere del comando &apos;LaunchUrl&apos; en que no carga un navegador completo, solo la URL provista en su propia ventana.
+Esto difiere del comando 'LaunchUrl' en que no carga un navegador completo, solo la URL provista en su propia ventana.
 
 Puede usar esto para, por ejemplo, mostrar rápidamente el panel de Home Assistant.
 
@@ -2627,10 +2627,10 @@ De forma predeterminada, almacena cookies de forma indefinida, por lo que solo t
 
 Si la aplicación está minimizada, se restaurará.
 
-Ejemplo: si desea enviar VLC al primer plano, use &apos;vlc&apos;.</value>
+Ejemplo: si desea enviar VLC al primer plano, use 'vlc'.</value>
   </data>
   <data name="CommandsMod_BtnStore_MessageBox8" xml:space="preserve">
-    <value>Si no configura el comando, solo puede usar esta entidad con un valor de &apos;acción&apos; a través de Home Assistant y se mostrará con la configuración predeterminada. Ejecutarlo como está no hará nada.
+    <value>Si no configura el comando, solo puede usar esta entidad con un valor de 'acción' a través de Home Assistant y se mostrará con la configuración predeterminada. Ejecutarlo como está no hará nada.
 
 ¿Estás seguro de que quieres esto? </value>
   </data>
@@ -2764,10 +2764,10 @@ Nota: esto no es necesario para que la nueva integración funcione. Sólo actív
     <value>Icono de bandeja</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg1" xml:space="preserve">
-    <value>Se sabe que su idioma de entrada &apos;{0}&apos; colisiona con la tecla de acceso directo predeterminada CTRL-ALT-Q. Establezca el suyo propio.</value>
+    <value>Se sabe que su idioma de entrada '{0}' colisiona con la tecla de acceso directo predeterminada CTRL-ALT-Q. Establezca el suyo propio.</value>
   </data>
   <data name="HelperFunctions_InputLanguageCheckDiffers_ErrorMsg2" xml:space="preserve">
-    <value>Su idioma de entrada &apos;{0}&apos; es desconocido y podría colisionar con la tecla de acceso directo predeterminada CTRL-ALT-Q. Por favor verifique para estar seguro. Si es así, considere abrir un ticket en GitHub para que pueda agregarse a la lista.</value>
+    <value>Su idioma de entrada '{0}' es desconocido y podría colisionar con la tecla de acceso directo predeterminada CTRL-ALT-Q. Por favor verifique para estar seguro. Si es así, considere abrir un ticket en GitHub para que pueda agregarse a la lista.</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg1" xml:space="preserve">
     <value>no se encontraron llaves</value>
@@ -2779,7 +2779,7 @@ Nota: esto no es necesario para que la nueva integración funcione. Sólo actív
     <value>error al analizar las claves, verifique el registro para obtener más información</value>
   </data>
   <data name="HelperFunctions_ParseMultipleKeys_ErrorMsg4" xml:space="preserve">
-    <value>el número de corchetes &apos;[&apos; no corresponde a los &apos;]&apos; ({0} a {1})</value>
+    <value>el número de corchetes '[' no corresponde a los ']' ({0} a {1})</value>
   </data>
   <data name="Help_LblDocumentation" xml:space="preserve">
     <value>Documentación</value>
@@ -2881,7 +2881,7 @@ El nombre final es: {0}
     <value>Talla</value>
   </data>
   <data name="WebViewCommandConfig_LblTip1" xml:space="preserve">
-    <value>consejo: presione &apos;esc&apos; para cerrar una vista web</value>
+    <value>consejo: presione 'esc' para cerrar una vista web</value>
   </data>
   <data name="WebViewCommandConfig_LblUrl" xml:space="preserve">
     <value>&amp;URL</value>
@@ -2988,7 +2988,7 @@ Nota: deshabilitó el saneamiento, así que asegúrese de que Home Assistant ace
     <value>Comando</value>
   </data>
   <data name="CommandsMod_MessageBox_Action2" xml:space="preserve">
-    <value>Si no introduce un valor de volumen, sólo podrá usar esta entidad con un valor de &quot;acción&quot; a través del Asistente de Inicio. Ejecutarlo tal cual no hará nada.
+    <value>Si no introduce un valor de volumen, sólo podrá usar esta entidad con un valor de "acción" a través del Asistente de Inicio. Ejecutarlo tal cual no hará nada.
 
 ¿Está seguro de que quiere esto?</value>
   </data>
@@ -3006,7 +3006,7 @@ Debería contener tres secciones (separadas por dos puntos).
 ¿Está seguro de que quiere usarlo así?</value>
   </data>
   <data name="ConfigHomeAssistantApi_BtnTestApi_MessageBox6" xml:space="preserve">
-    <value>Su URI no parece correcta. Debería ser algo como &apos;http://homeassistant.local:8123&apos; o &apos;http://192.168.0.1:8123&apos;.
+    <value>Su URI no parece correcta. Debería ser algo como 'http://homeassistant.local:8123' o 'http://192.168.0.1:8123'.
 
 ¿Está seguro de que quiere usarlo así?</value>
   </data>
@@ -3034,7 +3034,7 @@ Debería contener tres secciones (separadas por dos puntos).
 Asegúrese primero de tenerlo en funcionamiento.</value>
   </data>
   <data name="ConfigService_LblInfo5" xml:space="preserve">
-    <value>Si quiere gestionar el servicio (añadir comandos y sensores, cambiar la configuración) puede hacerlo aquí, o usando el botón &quot;servicio de satélite&quot; en la ventana principal.</value>
+    <value>Si quiere gestionar el servicio (añadir comandos y sensores, cambiar la configuración) puede hacerlo aquí, o usando el botón "servicio de satélite" en la ventana principal.</value>
   </data>
   <data name="ConfigTrayIcon_CbWebViewShowMenuOnLeftClick" xml:space="preserve">
     <value>mostrar el menú predeterminado al hacer clic con el botón izquierdo del ratón</value>
@@ -3046,12 +3046,12 @@ Debería contener tres secciones (separadas por dos puntos).
 ¿Está seguro de que quiere usarlo así?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox2" xml:space="preserve">
-    <value>Su URI del Asistente de Inicio no se ve bien. Debería ser algo como &apos;http://homeassistant.local:8123&apos; o &apos;https://192.168.0.1:8123&apos;.
+    <value>Su URI del Asistente de Inicio no se ve bien. Debería ser algo como 'http://homeassistant.local:8123' o 'https://192.168.0.1:8123'.
 
 ¿Está seguro de que quiere usarlo así?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox3" xml:space="preserve">
-    <value>Su URI del broker MQTT no parece correcta. Debería ser algo como &apos;homeassistant.local&apos; o &apos;192.168.0.1&apos;.
+    <value>Su URI del broker MQTT no parece correcta. Debería ser algo como 'homeassistant.local' o '192.168.0.1'.
 
 ¿Está seguro de que quiere usarlo así?</value>
   </data>
@@ -3084,7 +3084,7 @@ Debería contener tres secciones (separadas por dos puntos).
 ¿Está seguro de que quiere usarlo así?</value>
   </data>
   <data name="OnboardingApi_BtnTest_MessageBox6" xml:space="preserve">
-    <value>Su URI no parece correcto. Debería ser algo como &apos;http://homeassistant.local:8123&apos; o &apos;http://192.168.0.1:8123&apos;.
+    <value>Su URI no parece correcto. Debería ser algo como 'http://homeassistant.local:8123' o 'http://192.168.0.1:8123'.
 
 ¿Está seguro de que quiere usarlo así?</value>
   </data>
@@ -3123,7 +3123,7 @@ Sólo muestra los dispositivos que fueron vistos desde el último informe, es de
 
 Asegúrese de que los servicios de localización de Windows están activados.
 
-Dependiendo de su versión de Windows, esto se puede encontrar en el nuevo panel de control -&gt; &apos;privacidad y seguridad&apos; -&gt; &apos;ubicación&apos;.</value>
+Dependiendo de su versión de Windows, esto se puede encontrar en el nuevo panel de control -&gt; 'privacidad y seguridad' -&gt; 'ubicación'.</value>
   </data>
   <data name="SensorsManager_MicrophoneProcessSensorDescription" xml:space="preserve">
     <value>Proporciona el nombre del proceso que está usando actualmente el micrófono.
@@ -3218,5 +3218,18 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   </data>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
+  </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Proporciona datos del sensor interno del dispositivo.
+La disponibilidad del sensor depende del dispositivo; en algunos casos, no habrá sensores disponibles.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Sensor interno</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>Sensor de dispositivo interno</value>
   </data>
 </root>

@@ -4444,7 +4444,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -5641,6 +5641,16 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provides data from the internal device sensor.
+        ///Availability of the sensor depends on the device, in some cases no sensors will be available..
+        /// </summary>
+        internal static string SensorsManager_InternalDeviceSensorDescription {
+            get {
+                return ResourceManager.GetString("SensorsManager_InternalDeviceSensorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provides a datetime value containing the last moment the user provided any input..
         /// </summary>
         internal static string SensorsManager_LastActiveSensorDescription {
@@ -6155,6 +6165,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Internal Sensor.
+        /// </summary>
+        internal static string SensorsMod_LblSetting1_InternalSensor {
+            get {
+                return ResourceManager.GetString("SensorsMod_LblSetting1_InternalSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Network Card.
         /// </summary>
         internal static string SensorsMod_LblSetting1_Network {
@@ -6290,6 +6309,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_MessageBox_Sanitize {
             get {
                 return ResourceManager.GetString("SensorsMod_MessageBox_Sanitize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string SensorsMod_None {
+            get {
+                return ResourceManager.GetString("SensorsMod_None", resourceCulture);
             }
         }
         
@@ -6570,6 +6598,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorType_GpuTemperatureSensor {
             get {
                 return ResourceManager.GetString("SensorType_GpuTemperatureSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InternalDeviceSensor.
+        /// </summary>
+        internal static string SensorType_InternalDeviceSensor {
+            get {
+                return ResourceManager.GetString("SensorType_InternalDeviceSensor", resourceCulture);
             }
         }
         
