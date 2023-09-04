@@ -5810,7 +5810,7 @@ namespace HASS.Agent.Resources.Localization {
         
         /// <summary>
         ///   Looks up a localized string similar to Provides data from the internal device sensor.
-        ///Availbaility of the sensor depends on the device, in some cases no sensors will be available..
+        ///Availability of the sensor depends on the device, in some cases no sensors will be available..
         /// </summary>
         internal static string SensorsManager_InternalDeviceSensorDescription {
             get {

@@ -3321,4 +3321,14 @@ Als er geen "mute" is opgegeven, zal HASS.Agent het dempen van de opgegeven appl
   <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
     <value>Voer een geldige JSON-string in!</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Levert gegevens van de interne apparaatsensor.
+Beschikbaarheid van de sensor is afhankelijk van het apparaat, in sommige gevallen zullen er geen sensoren beschikbaar zijn.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Interne sensor</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>Interne apparaatsensor</value>
+  </data>
 </root>

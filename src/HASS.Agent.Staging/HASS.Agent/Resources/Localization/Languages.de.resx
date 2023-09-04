@@ -3425,4 +3425,14 @@ Wenn keine „mute“ bereitgestellt wird, hebt HASS.Agent die Stummschaltung de
   <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
     <value>Bitte geben Sie einen gültigen JSON-String ein!</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Stellt Daten vom internen Gerätesensor bereit.
+Die Verfügbarkeit des Sensors ist geräteabhängig, in manchen Fällen sind keine Sensoren verfügbar.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Interner Sensor</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>InternalDeviceSensor</value>
+  </data>
 </root>

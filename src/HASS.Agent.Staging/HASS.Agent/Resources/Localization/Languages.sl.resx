@@ -3449,4 +3449,14 @@ Ukaz/tovor mora biti v formatu JSON. Primer vseh možnih možnosti:
   <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
     <value>Vnesite veljaven niz JSON!</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Zagotavlja podatke iz notranjega senzorja naprave.
+Razpoložljivost senzorja je odvisna od naprave, v nekaterih primerih senzorji ne bodo na voljo.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Notranji senzor</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>Notranji senzor naprave</value>
+  </data>
 </root>

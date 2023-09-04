@@ -3410,4 +3410,14 @@ Jeśli nie podano opcji „mute”, HASS.Agent wyłączy wyciszenie dostarczonej
   <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
     <value>Proszę wprowadzić prawidłowy ciąg JSON!</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Dostarcza dane z wewnętrznego czujnika urządzenia.
+Dostępność czujnika zależy od urządzenia, w niektórych przypadkach czujniki nie będą dostępne.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Wewnętrzny czujnik</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>WewnętrznyCzujnikUrządzenia</value>
+  </data>
 </root>

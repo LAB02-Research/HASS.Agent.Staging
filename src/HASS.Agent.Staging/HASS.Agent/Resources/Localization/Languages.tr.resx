@@ -2912,4 +2912,14 @@ Eğer "mute" sağlanmadıysa, HASS.Agent sağlanan uygulamanın sesini açacakt�
   <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
     <value>Lütfen geçerli bir JSON dizesi girin!</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Dahili cihaz sensöründen veri sağlar.
+Sensörün kullanılabilirliği cihaza bağlıdır; bazı durumlarda sensör bulunmayabilir.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Dahili Sensör</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>DahiliCihazSensörü</value>
+  </data>
 </root>

@@ -3347,4 +3347,14 @@ Se nenhum "mute" for fornecido, o HASS.Agent ativará o som do aplicativo fornec
   <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
     <value>Insira uma string JSON válida!</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Fornece dados do sensor interno do dispositivo.
+A disponibilidade do sensor depende do dispositivo; em alguns casos, nenhum sensor estará disponível.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Sensor Interno</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>Sensor de dispositivo interno</value>
+  </data>
 </root>
