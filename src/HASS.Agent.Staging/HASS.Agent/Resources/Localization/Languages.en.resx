@@ -2060,7 +2060,9 @@ Currently takes the volume of your default device.</value>
     <value>Provides the current temperature of the first GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Provides a datetime value containing the last moment the user provided any input.</value>
+    <value>Provides a datetime value containing the last moment the user provided input.
+
+Optionally updates the sensor with current date, when system has been woken from sleep/hibernation in configuerd time window and no user activity was performed.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
 	  <value>Provides a datetime value containing the last moment the system (re)booted.
@@ -3289,5 +3291,10 @@ to match Home Assistant 2023.8 requirements</value>
   </data>
   <data name="Compat_NameTask_Error_MultiValueSensors" xml:space="preserve">
     <value>Error converting multi value sensors!</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Force action
+when system
+wakes from sleep/hibernation</value>
   </data>
 </root>

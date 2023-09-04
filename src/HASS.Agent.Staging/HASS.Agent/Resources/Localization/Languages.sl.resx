@@ -2297,7 +2297,9 @@ Glede na verzijo Windows-ov se to lahko nahaja v Nadzorna plošča --&gt; Sistem
     <value>Zagotavlja trenutno temperaturo prvega GPU-ja.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Zagotavlja vrednost datuma in časa, ki vsebuje zadnji trenutek, ko je uporabnik vnesel kakršen koli vnos.</value>
+    <value>Zagotavlja vrednost datuma in časa, ki vsebuje čas zadnjega vnosa uporabnika.
+
+Izbirno posodobi senzor s trenutnim datumom, ko se sistem prebudi iz spanja/hibernacije v konfiguriranem časovnem oknu in ni bila izvedena nobena uporabniška dejavnost.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Zagotavlja vrednost datuma in časa, ki vsebuje zadnji trenutek, ko se je sistem (ponovno) zagnal.
@@ -3424,5 +3426,10 @@ da ustreza zahtevam Home Assistant 2023.8</value>
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Ime naprave v imenu senzorja lahko povzroči težave z različicami Home Assistant, ki se začnejo z 2023.8.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Delovanje
+sile ko sistem
+se zbudi iz spanja/hibernacije</value>
   </data>
 </root>

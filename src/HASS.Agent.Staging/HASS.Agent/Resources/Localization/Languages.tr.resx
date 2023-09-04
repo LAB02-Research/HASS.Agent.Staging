@@ -1856,7 +1856,9 @@ Daha fazla tuşa ve/veya CTRL gibi değiştiricilere ihtiyacınız varsa, Multip
     <value>İlk GPU'nun mevcut sıcaklığını sağlar.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Kullanıcının herhangi bir girdi sağladığı son anı içeren bir tarih saat değeri sağlar.</value>
+    <value>Kullanıcının en son ne zaman giriş yaptığını içeren bir tarih saat değeri sağlar.
+
+İsteğe bağlı olarak, sistem yapılandırılmış zaman penceresinde uyku/hazırda bekletme durumundan uyandırıldığında ve hiçbir kullanıcı etkinliği gerçekleştirilmediğinde sensörü geçerli tarihle günceller.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Sistemin (yeniden) başlatıldığı son anı içeren bir tarih saat değeri sağlar. Önemli: Windows'un FastBoot seçeneği bu değeri atabilir, çünkü bu bir hazırda bekletme modudur. Güç Seçenekleri -&gt; 'Güç düğmelerinin ne yapacağını seçin' -&gt; 'Hızlı başlatmayı aç' seçeneğinin işaretini kaldırarak devre dışı bırakabilirsiniz. SSD'li modern makineler için pek bir fark yaratmaz, ancak devre dışı bırakmak, yeniden başlattıktan sonra temiz bir durum almanızı sağlar.</value>
@@ -2887,5 +2889,10 @@ Home Assistant 2023.8 gereksinimlerini karşılamak için</value>
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Sensör adındaki cihaz adı, 2023.8'den itibaren Ev Asistanı sürümlerinde sorunlara neden olabilir.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Eylemi zorla
+ne zaman 
+sistem uykudan/hazırda bekletme modundan uyanır</value>
   </data>
 </root>

@@ -2220,7 +2220,9 @@ Dependendo da sua versão do Windows, isso pode ser encontrado no novo painel de
     <value>Fornece a temperatura atual da GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Fornece um valor de data e hora contendo o último momento em que o usuário forneceu qualquer entrada.</value>
+    <value>Fornece um valor de data e hora que contém a última vez que o usuário fez uma entrada.
+
+Opcionalmente, atualiza o sensor com a data atual quando o sistema é despertado da suspensão/hibernação na janela de tempo configurada e nenhuma atividade do usuário foi executada.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Fornece um valor de data e hora contendo o último momento em que o sistema (re)inicializou.
@@ -3322,5 +3324,10 @@ para atender aos requisitos do Home Assistant 2023.8</value>
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>O nome do dispositivo no nome do sensor pode causar problemas com as versões do Home Assistant a partir de 2023.8.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Forçar ação
+quando
+sistema acorda do modo de suspensão/hibernação</value>
   </data>
 </root>

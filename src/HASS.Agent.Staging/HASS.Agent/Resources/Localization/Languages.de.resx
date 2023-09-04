@@ -2179,7 +2179,9 @@ Nimmt derzeit die Lautstärke deines Standardgeräts.</value>
     <value>Liefert die aktuelle Temperatur der ersten GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Stellt einen datetime-Wert bereit, der den letzten Moment enthält, in dem der Benutzer eine Eingabe gemacht hat.</value>
+    <value>Stellt einen Datums-/Uhrzeitwert bereit, der den letzten Zeitpunkt enthält, zu dem der Benutzer eine Eingabe vorgenommen hat.
+
+Aktualisiert den Sensor optional mit dem aktuellen Datum, wenn das System im konfigurierten Zeitfenster aus dem Ruhezustand/Ruhezustand erwacht und keine Benutzeraktivität durchgeführt wurde.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Stellt einen datetime-Wert bereit, der den letzten Moment enthält, in dem das System (neu) gestartet wurde.
@@ -3344,6 +3346,12 @@ Willst Du den Runtime Installer herunterladen?</value>
   </data>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Aktion
+erzwingen
+wenn System
+erwacht aus dem Schlaf/Winterschlaf</value>
   </data>
   <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
     <value>Schaltet das ausgewählte Funkgerät ein/aus. Die Verfügbarkeit von Funkgeräten hängt vom Gerät ab, auf dem HASS.Agent installiert ist.</value>

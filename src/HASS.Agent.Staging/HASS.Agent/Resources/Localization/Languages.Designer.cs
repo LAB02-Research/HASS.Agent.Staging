@@ -392,6 +392,7 @@ namespace HASS.Agent.Resources.Localization {
         ///   Looks up a localized string similar to Simulates a single keypress.
         ///
         ///Click on the &apos;keycode&apos; textbox and press the key you want simulated. The corresponding keycode will be entered for you.
+        ///For TAB key please use LCTRL+TAB.
         ///
         ///If you need more keys and/or modifiers like CTRL, use the MultipleKeys command..
         /// </summary>
@@ -655,20 +656,20 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a valid JSON string!.
-        /// </summary>
-        internal static string CommandsMod_BtnStore_InvalidJson {
-            get {
-                return ResourceManager.GetString("CommandsMod_BtnStore_InvalidJson", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Device name in the command name might cause issues with Home Assistant versions starting with 2023.8..
         /// </summary>
         internal static string CommandsMod_BtnStore_DeviceNameInSensorName {
             get {
                 return ResourceManager.GetString("CommandsMod_BtnStore_DeviceNameInSensorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid JSON string!.
+        /// </summary>
+        internal static string CommandsMod_BtnStore_InvalidJson {
+            get {
+                return ResourceManager.GetString("CommandsMod_BtnStore_InvalidJson", resourceCulture);
             }
         }
         
@@ -5818,7 +5819,9 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Provides a datetime value containing the last moment the user provided any input..
+        ///   Looks up a localized string similar to Provides a datetime value containing the last moment the user provided input.
+        ///
+        ///Optionally updates the sensor with current date, when system has been woken from sleep/hibernation in configuerd time window and no user activity was performed..
         /// </summary>
         internal static string SensorsManager_LastActiveSensorDescription {
             get {
@@ -6247,6 +6250,17 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_CbApplyRounding {
             get {
                 return ResourceManager.GetString("SensorsMod_CbApplyRounding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Force action
+        ///when system
+        ///wakes from sleep/hibernation.
+        /// </summary>
+        internal static string SensorsMod_CbApplyRounding_LastActive {
+            get {
+                return ResourceManager.GetString("SensorsMod_CbApplyRounding_LastActive", resourceCulture);
             }
         }
         

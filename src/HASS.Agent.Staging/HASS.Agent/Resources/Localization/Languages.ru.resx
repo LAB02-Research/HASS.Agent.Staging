@@ -2118,7 +2118,9 @@ Home Assistant version: {0}</value>
     <value>Показывает текущую температуру первого графического процессора.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Предоставляет значение даты и времени, содержащее последний момент, когда пользователь предоставил какие-либо входные данные.</value>
+    <value>Предоставляет значение даты и времени, содержащее время последнего ввода данных пользователем.
+
+Опционально обновляет датчик текущей датой, когда система пробуждается от спящего/гибернационного режима в настроенном временном окне, и никакие действия пользователя не выполняются.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Предоставляет значение даты и времени, содержащее последний момент (повторной) загрузки системы.
@@ -3343,5 +3345,11 @@ Home Assistant.
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Имя устройства в названии датчика может вызвать проблемы с версиями Home Assistant, начиная с 2023.8.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Силовое
+действие
+когда система
+пробуждается от сна/гибернации</value>
   </data>
 </root>

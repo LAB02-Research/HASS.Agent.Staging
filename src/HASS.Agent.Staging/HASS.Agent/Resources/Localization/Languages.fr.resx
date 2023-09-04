@@ -2094,7 +2094,9 @@ Indique le volume de votre appareil par défaut.</value>
     <value>Fournit la température actuelle du premier GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Fournit la date et l'heure de la dernière utilisation d'un périphérique par l'utilisateur.</value>
+    <value>Fournit une valeur datetime qui contient la dernière fois que l'utilisateur a effectué une entrée.
+
+Met éventuellement à jour le capteur avec la date actuelle lorsque le système est sorti du mode veille/hibernation dans la fenêtre de temps configurée et qu'aucune activité de l'utilisateur n'a été effectuée.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Provides a datetime value containing the last moment the system (re)booted.
@@ -3308,5 +3310,10 @@ pour répondre aux exigences de Home Assistant 2023.8</value>
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Le nom de l'appareil dans le nom du capteur peut entraîner des problèmes avec les versions de Home Assistant à partir de 2023.8.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Action forcée
+quand le
+système se réveille du sommeil/de l'hibernation</value>
   </data>
 </root>

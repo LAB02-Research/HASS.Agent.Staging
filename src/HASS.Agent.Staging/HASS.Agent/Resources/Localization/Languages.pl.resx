@@ -2168,7 +2168,9 @@ Obecnie zwraca głośność domyślnego urządzenia.</value>
     <value>Zwraca temperaturę pierwszego GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Zwraca czas (datetime value) w którym użytkownik dokonał jakiejkolwiek czynności.</value>
+    <value>Zwraca datę/godzinę, która zawiera czas ostatniej aktywności użytkownika. (klawiatura/myszka)
+
+Opcjonalnie aktualizuje czujnik o aktualną datę, gdy system zostanie wybudzony ze stanu uśpienia/hibernacji w skonfigurowanym oknie czasowym i nie zostanie wykonana żadna aktywność użytkownika.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Zwraca czas (datetime value) w którym system był ostatnio uruchomiony. 
@@ -3385,5 +3387,10 @@ aby spełnić wymagania Home Assistant 2023.8</value>
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Nazwa urządzenia w nazwie czujnika może powodować problemy z wersjami Home Assistant zaczynającymi się od 2023.8.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Wymuś akcję
+po wybudzeniu
+ze snu/hibernacji.</value>
   </data>
 </root>

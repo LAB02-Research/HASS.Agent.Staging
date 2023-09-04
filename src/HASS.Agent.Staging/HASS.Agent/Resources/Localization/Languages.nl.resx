@@ -2075,7 +2075,9 @@ Pakt momenteel het volume van je standaardapparaat.</value>
     <value>Geeft de huidige temperatuur van de eerste GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Geeft een datetime waarde met het laatste moment dat de gebruiker invoer geleverd heeft.</value>
+    <value>Biedt een datum/tijd-waarde die de laatste keer bevat dat de gebruiker iets heeft ingevoerd.
+
+Werkt de sensor optioneel bij met de huidige datum waarop het systeem wordt gewekt uit slaap/slaapstand in het geconfigureerde tijdvenster en er geen gebruikersactiviteit is uitgevoerd.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Geeft een datetime waarde met het laatste moment dat het systeem (her)startte.
@@ -3297,5 +3299,10 @@ om te voldoen aan de vereisten van Home Assistant 2023.8</value>
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>De apparaatnaam in de sensornaam kan problemen veroorzaken met Home Assistant-versies vanaf 2023.8.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Forceer actie
+wanneer
+systeem ontwaakt uit slaap/winterslaap</value>
   </data>
 </root>

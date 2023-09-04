@@ -2064,7 +2064,9 @@ Actualmente toma el volumen de su dispositivo predeterminado.</value>
     <value>Proporciona la temperatura actual de la primera GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Proporciona un valor de fecha y hora que contiene el último momento en que el usuario proporcionó una entrada.</value>
+    <value>Proporciona un valor de fecha y hora que contiene la última vez que el usuario realizó una entrada.
+
+Opcionalmente, actualiza el sensor con la fecha actual cuando el sistema se despierta de la suspensión/hibernación en la ventana de tiempo configurada y no se ha realizado ninguna actividad del usuario.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Proporciona un valor de fecha y hora que contiene el último momento en que el sistema (re)arrancó.
@@ -3275,5 +3277,10 @@ para que coincida con los requisitos de Home Assistant 2023.8</value>
   </data>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>El nombre del dispositivo en el nombre del sensor puede causar problemas con las versiones de Home Assistant a partir de 2023.8.</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Forzar acción
+cuando el
+sistema se despierta del sueño/hibernación</value>
   </data>
 </root>

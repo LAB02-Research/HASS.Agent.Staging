@@ -1171,7 +1171,9 @@ Currently takes the volume of your default device.</value>
     <value>Provides the current temperature of the first GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Provides a datetime value containing the last moment the user provided any input.</value>
+    <value>Provides a datetime value containing the last moment the user provided input.
+
+Optionally updates the sensor with current date, when system has been woken from sleep/hibernation in configuerd time window and no user activity was performed.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Provides a datetime value containing the last moment the system (re)booted.
@@ -2090,7 +2092,7 @@ Do you want to enable it?</value>
     <value>You can choose what modules you want to enable. They require HA integrations, but don't worry, the next page will give you more info on how to set them up.</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
-	  <value>To use notifications, you need to install and configure the HASS.Agent integration in
+    <value>To use notifications, you need to install and configure the HASS.Agent integration in
 Home Assistant.
 
 This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -3226,10 +3228,15 @@ Do you want to download the runtime installer?</value>
     <value>Please provide a number between 0 and 20!</value>
   </data>
   <data name="SensorsMod_LblDigits" xml:space="preserve">
-	  <value>digits after the comma</value>
+    <value>digits after the comma</value>
   </data>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
-	  <value>&amp;Round</value>
+    <value>&amp;Round</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Force action
+when system
+wakes from sleep/hibernation</value>
   </data>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Treat URI Action elements, like Android Companion App does (open)</value>
@@ -3309,5 +3316,11 @@ to match Home Assistant 2023.8 requirements</value>
   </data>
   <data name="Compat_NameTask_Error_MultiValueSensors" xml:space="preserve">
     <value>Error converting multi value sensors!</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>&amp;Ignore availability</value>
+  </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Please note that ignoring availability will cause Home Assistant to always display last value for a given sensor, even when HASS.Agent is offline.</value>
   </data>
 </root>
