@@ -560,6 +560,26 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sets the volume and mute status of the provided application on provided audio device to the specified level.
+        ///Command / payload needs to be in JSON format. Example of all possible options:
+        ///{
+        ///  &quot;playbackDevice&quot;: &quot;Speakers (THX Spatial Audio)&quot;,
+        ///  &quot;applicationName&quot;: &quot;Discord&quot;,
+        ///  &quot;volume&quot;: 90,
+        ///  &quot;mute&quot;: true
+        ///}
+        ///
+        ///If no &quot;playbackDevice&quot; is provided, HASS.Agent will use the default one.
+        ///If no &quot;volume&quot; is provided, HASS.Agent will set only mute status.
+        ///If no &quot;mute&quot; is provided, HASS.Agent will unmute the p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CommandsManager_SetApplicationVolumeCommandDescription {
+            get {
+                return ResourceManager.GetString("CommandsManager_SetApplicationVolumeCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sets the volume of the current default audiodevice to the specified level..
         /// </summary>
         internal static string CommandsManager_SetVolumeCommandDescription {
@@ -622,6 +642,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string CommandsMod_BtnStore {
             get {
                 return ResourceManager.GetString("CommandsMod_BtnStore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid JSON string!.
+        /// </summary>
+        internal static string CommandsMod_BtnStore_InvalidJson {
+            get {
+                return ResourceManager.GetString("CommandsMod_BtnStore_InvalidJson", resourceCulture);
             }
         }
         
@@ -4444,7 +4473,7 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent-notifier integration in
+        ///   Looks up a localized string similar to To use notifications, you need to install and configure the HASS.Agent integration in
         ///Home Assistant.
         ///
         ///This is very easy using HACS, but you can also install manually. Visit the link below for more
