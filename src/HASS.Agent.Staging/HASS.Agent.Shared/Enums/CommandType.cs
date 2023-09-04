@@ -93,6 +93,10 @@ namespace HASS.Agent.Shared.Enums
         [EnumMember(Value = "SetVolumeCommand")]
         SetVolumeCommand,
 
+        [LocalizedDescription("CommandType_SetApplicationVolumeCommand", typeof(Languages))]
+        [EnumMember(Value = "SetApplicationVolumeCommand")]
+        SetApplicationVolumeCommand,
+
         [LocalizedDescription("CommandType_ShutdownCommand", typeof(Languages))]
         [EnumMember(Value = "ShutdownCommand")]
         ShutdownCommand,

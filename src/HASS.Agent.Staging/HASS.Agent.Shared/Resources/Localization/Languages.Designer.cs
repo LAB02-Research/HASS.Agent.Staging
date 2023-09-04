@@ -1267,6 +1267,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SetApplicationVolume.
+        /// </summary>
+        internal static string CommandType_SetApplicationVolumeCommand {
+            get {
+                return ResourceManager.GetString("CommandType_SetApplicationVolumeCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SetVolume.
         /// </summary>
         internal static string CommandType_SetVolumeCommand {
