@@ -91,7 +91,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             peakVolumeSensor.SetState(peakVolume.ToString(CultureInfo.CurrentCulture));
             AddUpdateSensor(peakVolumeId, peakVolumeSensor);
 
-            var sessionsId = $"{parentSensorSafeName}_audio_sessions";
+            var sessionsId = $"{parentSensorSafeName}_sessions";
             var sessionsSensor = new DataTypeIntSensor(_updateInterval, $"Audio Sessions", sessionsId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
             sessionsSensor.SetState(sessionInfos.Count);
             sessionsSensor.SetAttributes(
@@ -103,7 +103,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             AddUpdateSensor(sessionsId, sessionsSensor);
 
             var audioOutputDevices = GetAudioOutputDevices();
-            var audioOutputDevicesId = $"{parentSensorSafeName}_audio_output_devices";
+            var audioOutputDevicesId = $"{parentSensorSafeName}_output_devices";
             var audioOutputDevicesSensor = new DataTypeIntSensor(_updateInterval, $"Audio Output Devices", audioOutputDevicesId, string.Empty, "mdi:music-box-multiple-outline", string.Empty, Name, true);
             audioOutputDevicesSensor.SetState(audioOutputDevices.Count);
             audioOutputDevicesSensor.SetAttributes(
@@ -142,7 +142,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             AddUpdateSensor(defaultInputDeviceVolumeId, defaultInputDeviceVolumeSensor);
 
             var audioInputDevices = GetAudioInputDevices();
-            var audioInputDevicesId = $"{parentSensorSafeName}_audio_input_devices";
+            var audioInputDevicesId = $"{parentSensorSafeName}_input_devices";
             var audioInputDevicesSensor = new DataTypeIntSensor(_updateInterval, $"Audio Input Devices", audioInputDevicesId, string.Empty, "mdi:microphone", string.Empty, Name, true);
             audioInputDevicesSensor.SetState(audioInputDevices.Count);
             audioInputDevicesSensor.SetAttributes(
