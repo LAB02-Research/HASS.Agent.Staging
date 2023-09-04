@@ -3309,4 +3309,7 @@ Home Assistant.
   <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
     <value>Нет</value>
   </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Никто</value>
+  </data>
 </root>

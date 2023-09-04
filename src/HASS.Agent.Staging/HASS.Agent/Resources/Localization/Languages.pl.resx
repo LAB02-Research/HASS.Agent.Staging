@@ -3351,4 +3351,7 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
     <value>Nie</value>
   </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Brak</value>
+  </data>
 </root>

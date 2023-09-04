@@ -633,6 +633,14 @@ namespace HASS.Agent.Sensors
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 
             // =================================
+
+            sensorInfoCard = new SensorInfoCard(SensorType.InternalDeviceSensor,
+            Languages.SensorsManager_InternalDeviceSensorDescription,
+            10, false, true, false);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
         }
     }
 }

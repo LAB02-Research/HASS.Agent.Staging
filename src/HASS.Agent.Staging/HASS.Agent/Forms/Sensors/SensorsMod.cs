@@ -10,6 +10,7 @@ using HASS.Agent.Shared.Extensions;
 using HASS.Agent.Shared.Models.Config;
 using Serilog;
 using HASS.Agent.Shared.Functions;
+using HASS.Agent.Managers.DeviceSensors;
 
 namespace HASS.Agent.Forms.Sensors
 {
@@ -24,6 +25,7 @@ namespace HASS.Agent.Forms.Sensors
         private bool _loading = true;
 
         private readonly Dictionary<string, string> _networkCards = new();
+        private readonly Dictionary<string, string> _internalSensors = new();
 
         private SensorType _selectedSensorType = SensorType.ActiveWindowSensor;
 
@@ -95,10 +97,17 @@ namespace HASS.Agent.Forms.Sensors
             }
             LvSensors.EndUpdate();
 
-            // load network cards
             _networkCards.Add("*", Languages.SensorsMod_All);
-            foreach (var nic in NetworkInterface.GetAllNetworkInterfaces()) _networkCards.Add(nic.Id, nic.Name);
+            foreach (var nic in NetworkInterface.GetAllNetworkInterfaces())
+                _networkCards.Add(nic.Id, nic.Name);
 
+            _internalSensors.Add("none", Languages.SensorsMod_None);
+            foreach (var internalSensor in InternalDeviceSensorsManager.AvailableSensors)
+            {
+                var internalSensorType = internalSensor.Type.ToString();
+                _internalSensors.Add(internalSensorType, internalSensorType);
+            }
+            
             CbIgnoreAvailability.CheckedChanged += CbIgnoreAvailability_CheckedChanged;
 
             // load in gui
@@ -200,7 +209,13 @@ namespace HASS.Agent.Forms.Sensors
                     break;
 
                 case SensorType.NetworkSensors:
-                    if (_networkCards.ContainsKey(Sensor.Query)) CbNetworkCard.SelectedItem = new KeyValuePair<string, string>(Sensor.Query, _networkCards[Sensor.Query]);
+                    if (_networkCards.ContainsKey(Sensor.Query))
+                        CbNetworkCard.SelectedItem = new KeyValuePair<string, string>(Sensor.Query, _networkCards[Sensor.Query]);
+                    break;
+
+                case SensorType.InternalDeviceSensor:
+                    if (_internalSensors.ContainsKey(Sensor.Query))
+                        CbNetworkCard.SelectedItem = new KeyValuePair<string, string>(Sensor.Query, _internalSensors[Sensor.Query]);
                     break;
 
                 case SensorType.WindowStateSensor:
@@ -284,7 +299,13 @@ namespace HASS.Agent.Forms.Sensors
                     break;
 
                 case SensorType.NetworkSensors:
+                    CbNetworkCard.DataSource = new BindingSource(_networkCards, null);
                     SetNetworkGui();
+                    break;
+
+                case SensorType.InternalDeviceSensor:
+                    CbNetworkCard.DataSource = new BindingSource(_internalSensors, null);
+                    SetInternalSensorGui();
                     break;
 
                 case SensorType.PowershellSensor:
@@ -453,6 +474,22 @@ namespace HASS.Agent.Forms.Sensors
                 SetEmptyGui();
 
                 LblSetting1.Text = Languages.SensorsMod_LblSetting1_Network;
+                LblSetting1.Visible = true;
+
+                CbNetworkCard.Visible = true;
+            }));
+        }
+
+        /// <summary>
+        /// Change the UI to a 'internal sensor' type
+        /// </summary>
+        private void SetInternalSensorGui()
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                SetEmptyGui();
+
+                LblSetting1.Text = Languages.SensorsMod_LblSetting1_InternalSensor;
                 LblSetting1.Visible = true;
 
                 CbNetworkCard.Visible = true;
@@ -681,6 +718,21 @@ namespace HASS.Agent.Forms.Sensors
                     if (CbNetworkCard.SelectedItem != null)
                     {
                         var item = (KeyValuePair<string, string>)CbNetworkCard.SelectedItem;
+                        Sensor.Query = item.Key;
+                    }
+                    break;
+
+                case SensorType.InternalDeviceSensor:
+                    if (CbNetworkCard.SelectedItem != null)
+                    {
+                        var item = (KeyValuePair<string, string>)CbNetworkCard.SelectedItem;
+                        if(item.Value == Languages.SensorsMod_None)
+                        {
+                            MessageBoxAdv.Show(this, Languages.SensorsMod_BtnStore_MessageBox1, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ActiveControl = CbNetworkCard;
+                            return;
+                        }
+
                         Sensor.Query = item.Key;
                     }
                     break;

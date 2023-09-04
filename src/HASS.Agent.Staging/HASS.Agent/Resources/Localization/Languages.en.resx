@@ -3221,6 +3221,19 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
 	  <value>domain</value>
   </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Provides data from the internal device sensor.
+Availbaility of the sensor depends on the device, in some cases no sensors will be available.</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>InternalDeviceSensor</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Internal Sensor</value>
+  </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
     <value>&amp;Ignore availability</value>
   </data>

@@ -3390,4 +3390,7 @@ Ali želite prenesti runtime installer?</value>
   <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
     <value>ne</value>
   </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Noben</value>
+  </data>
 </root>

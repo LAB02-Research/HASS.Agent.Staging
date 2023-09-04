@@ -8,6 +8,7 @@ using HASS.Agent.Forms.Service;
 using HASS.Agent.Functions;
 using HASS.Agent.HomeAssistant;
 using HASS.Agent.Managers;
+using HASS.Agent.Managers.DeviceSensors;
 using HASS.Agent.Media;
 using HASS.Agent.Models.Internal;
 using HASS.Agent.Resources.Localization;
@@ -81,6 +82,8 @@ namespace HASS.Agent.Forms
 
                 // check for dpi scaling
                 CheckDpiScalingFactor();
+
+                await InternalDeviceSensorsManager.Initialize();
 
                 // load entities
                 var loaded = await SettingsManager.LoadEntitiesAsync();

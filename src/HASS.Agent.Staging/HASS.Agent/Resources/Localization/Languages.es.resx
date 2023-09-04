@@ -3241,4 +3241,7 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
 </root>

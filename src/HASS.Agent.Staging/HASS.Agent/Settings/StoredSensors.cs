@@ -90,7 +90,7 @@ namespace HASS.Agent.Settings
                 return false;
             }
         }
-        
+
         /// <summary>
         /// Convert a single-value 'ConfiguredSensor' (local storage, UI) to an 'AbstractSensor' (MQTT)
         /// </summary>
@@ -191,6 +191,9 @@ namespace HASS.Agent.Settings
                     break;
                 case SensorType.BluetoothLeDevicesSensor:
                     abstractSensor = new BluetoothLeDevicesSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    break;
+                case SensorType.InternalDeviceSensor:
+                    abstractSensor = new InternalDeviceSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
@@ -366,6 +369,21 @@ namespace HASS.Agent.Settings
                         Query = windowStateSensor.ProcessName
                     };
                 }
+
+                case InternalDeviceSensor internalDeviceSensor:
+                    {
+                        _ = Enum.TryParse<SensorType>(internalDeviceSensor.GetType().Name, out var type);
+                        return new ConfiguredSensor
+                        {
+                            Id = Guid.Parse(internalDeviceSensor.Id),
+                            Name = internalDeviceSensor.Name,
+                            FriendlyName = internalDeviceSensor.FriendlyName,
+                            Type = type,
+                            UpdateInterval = internalDeviceSensor.UpdateIntervalSeconds,
+							IgnoreAvailability = internalDeviceSensor.IgnoreAvailability,
+							Query = internalDeviceSensor.SensorType.ToString()
+                        };
+                    }
 
                 default:
                 {

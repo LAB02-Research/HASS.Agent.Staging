@@ -3344,6 +3344,9 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Keiner</value>
+  </data>
   <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
     <value>Bitte beachten Sie, dass das Ignorieren der Verfügbarkeit dazu führt, dass Home Assistant immer den letzten Wert für einen bestimmten Sensor anzeigt, auch wenn HASS.Agent offline ist.</value>
   </data>

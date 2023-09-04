@@ -3288,4 +3288,7 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
     <value>Não</value>
   </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>Nenhum</value>
+  </data>
 </root>

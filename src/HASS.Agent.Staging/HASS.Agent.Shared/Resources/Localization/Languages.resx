@@ -3199,6 +3199,9 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
 		<value>domain</value>
 	</data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>InternalDeviceSensor</value>
+  </data>
   <data name="CommandType_SetApplicationVolumeCommand" xml:space="preserve">
     <value>SetApplicationVolume</value>
   </data>

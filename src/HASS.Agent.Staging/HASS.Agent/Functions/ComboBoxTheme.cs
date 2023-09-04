@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.ComboBox;
 
 namespace HASS.Agent.Functions
 {
@@ -21,13 +23,15 @@ namespace HASS.Agent.Functions
         internal static void DrawItem(object sender, DrawItemEventArgs e)
         {
             // only relevant for listviews in detail mode
-            if (sender is not ComboBox comboBox) return;
+            if (sender is not ComboBox comboBox)
+                return;
 
             // only if there are items
             if (comboBox.Items.Count <= 0)
             {
                 // limit the dropdown's height
                 comboBox.DropDownHeight = 20;
+
                 return;
             }
 
@@ -45,12 +49,12 @@ namespace HASS.Agent.Functions
             {
                 // optionally set the item's background color as selected
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(241, 241, 241)), e.Bounds);
-                }
 
                 // draw the string
-                var brush = (e.State & DrawItemState.Selected) > 0 ? new SolidBrush(Color.FromArgb(63, 63, 70)) : new SolidBrush(comboBox.ForeColor);
+                var brush = (e.State & DrawItemState.Selected) > 0
+                    ? new SolidBrush(Color.FromArgb(63, 63, 70))
+                    : new SolidBrush(comboBox.ForeColor);
                 e.Graphics.DrawString(comboBox.Items[index].ToString(), Variables.DefaultFont, brush, e.Bounds, StringFormat.GenericDefault);
             }
 
@@ -66,10 +70,12 @@ namespace HASS.Agent.Functions
         internal static void DrawDictionaryIntStringItem(object sender, DrawItemEventArgs e)
         {
             // only relevant for listviews in detail mode
-            if (sender is not ComboBox comboBox) return;
+            if (sender is not ComboBox comboBox)
+                return;
 
             // only if there are items
-            if (comboBox.Items.Count <= 0) return;
+            if (comboBox.Items.Count <= 0)
+                return;
 
             // fetch the index
             var index = e.Index >= 0 ? e.Index : 0;
@@ -82,15 +88,15 @@ namespace HASS.Agent.Functions
             {
                 // optionally set the item's background color as selected
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(241, 241, 241)), e.Bounds);
-                }
 
                 // get the value
                 var value = (KeyValuePair<int, string>)comboBox.Items[index];
 
                 // draw the string
-                var brush = (e.State & DrawItemState.Selected) > 0 ? new SolidBrush(Color.FromArgb(63, 63, 70)) : new SolidBrush(comboBox.ForeColor);
+                var brush = (e.State & DrawItemState.Selected) > 0
+                    ? new SolidBrush(Color.FromArgb(63, 63, 70))
+                    : new SolidBrush(comboBox.ForeColor);
                 e.Graphics.DrawString(value.Value, Variables.DefaultFont, brush, e.Bounds, StringFormat.GenericDefault);
             }
 
@@ -106,11 +112,17 @@ namespace HASS.Agent.Functions
         internal static void DrawDictionaryStringStringItem(object sender, DrawItemEventArgs e)
         {
             // only relevant for listviews in detail mode
-            if (sender is not ComboBox comboBox) return;
+            if (sender is not ComboBox comboBox)
+                return;
 
             // only if there are items
-            if (comboBox.Items.Count <= 0) return;
+            if (comboBox.Items.Count <= 0)
+                return;
 
+            // additional check for empty dictionary
+            if (comboBox.Items[0] is IDictionary)
+                return;
+            
             // fetch the index
             var index = e.Index >= 0 ? e.Index : 0;
 
@@ -122,15 +134,15 @@ namespace HASS.Agent.Functions
             {
                 // optionally set the item's background color as selected
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(241, 241, 241)), e.Bounds);
-                }
 
                 // get the value
                 var value = (KeyValuePair<string, string>)comboBox.Items[index];
 
                 // draw the string
-                var brush = (e.State & DrawItemState.Selected) > 0 ? new SolidBrush(Color.FromArgb(63, 63, 70)) : new SolidBrush(comboBox.ForeColor);
+                var brush = (e.State & DrawItemState.Selected) > 0
+                    ? new SolidBrush(Color.FromArgb(63, 63, 70))
+                    : new SolidBrush(comboBox.ForeColor);
                 e.Graphics.DrawString(value.Value, Variables.DefaultFont, brush, e.Bounds, StringFormat.GenericDefault);
             }
 
