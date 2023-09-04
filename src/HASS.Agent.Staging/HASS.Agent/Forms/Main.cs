@@ -394,10 +394,14 @@ namespace HASS.Agent.Forms
         /// </summary>
         private async void ShowQuickActions()
         {
+
             // check if quickactions aren't already open, and if there are any actions
             if (HelperFunctions.CheckIfFormIsOpen("QuickActions"))
             {
-                await HelperFunctions.TryBringToFront("QuickActions");
+                var quickActionsForm = HelperFunctions.GetForm("QuickActions") as QuickActions.QuickActions;
+                var result = await HelperFunctions.TryBringToFront(quickActionsForm);
+                if (result)
+                    quickActionsForm.SelectNextQuickActionItem();
 
                 return;
             }
