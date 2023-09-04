@@ -3420,4 +3420,7 @@ Dostępność czujnika zależy od urządzenia, w niektórych przypadkach czujnik
   <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
     <value>WewnętrznyCzujnikUrządzenia</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Nazwa urządzenia w nazwie polecenia może powodować problemy w wersjach Home Assistant począwszy od 2023.8.</value>
+  </data>
 </root>

@@ -3459,4 +3459,7 @@ Razpoložljivost senzorja je odvisna od naprave, v nekaterih primerih senzorji n
   <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
     <value>Notranji senzor naprave</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Ime naprave v imenu ukaza lahko povzroči težave z različicami Home Assistant, ki se začnejo z 2023.8.</value>
+  </data>
 </root>

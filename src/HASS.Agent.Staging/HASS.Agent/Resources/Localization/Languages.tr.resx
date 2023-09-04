@@ -2922,4 +2922,7 @@ Sensörün kullanılabilirliği cihaza bağlıdır; bazı durumlarda sensör bul
   <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
     <value>DahiliCihazSensörü</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Komut adındaki cihaz adı, 2023.8'den itibaren Home Assistant sürümlerinde sorunlara neden olabilir.</value>
+  </data>
 </root>

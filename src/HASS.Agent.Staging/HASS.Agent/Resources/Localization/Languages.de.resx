@@ -3435,4 +3435,7 @@ Die Verfügbarkeit des Sensors ist geräteabhängig, in manchen Fällen sind kei
   <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
     <value>InternalDeviceSensor</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Der Gerätename im Befehlsnamen kann Probleme mit Home Assistant-Versionen ab 2023.8 verursachen.</value>
+  </data>
 </root>

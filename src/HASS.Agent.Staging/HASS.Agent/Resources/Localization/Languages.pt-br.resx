@@ -3357,4 +3357,7 @@ A disponibilidade do sensor depende do dispositivo; em alguns casos, nenhum sens
   <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
     <value>Sensor de dispositivo interno</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>O nome do dispositivo no nome do comando pode causar problemas nas versões do Home Assistant a partir de 2023.8.</value>
+  </data>
 </root>
