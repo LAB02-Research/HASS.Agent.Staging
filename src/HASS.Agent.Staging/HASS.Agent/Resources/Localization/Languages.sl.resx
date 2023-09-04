@@ -3387,4 +3387,7 @@ da ustreza zahtevam Home Assistant 2023.8</value>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Ime naprave v imenu senzorja lahko povzroči težave z različicami Home Assistant, ki se začnejo z 2023.8.</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Ime naprave v imenu ukaza lahko povzroči težave z različicami Home Assistant, ki se začnejo z 2023.8.</value>
+  </data>
 </root>

@@ -3306,4 +3306,7 @@ Home Assistant.
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>Имя устройства в названии датчика может вызвать проблемы с версиями Home Assistant, начиная с 2023.8.</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Имя устройства в имени команды может вызвать проблемы с версиями Home Assistant, начиная с 2023.8.</value>
+  </data>
 </root>

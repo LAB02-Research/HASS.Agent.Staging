@@ -3238,4 +3238,7 @@ para que coincida con los requisitos de Home Assistant 2023.8</value>
   <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
     <value>El nombre del dispositivo en el nombre del sensor puede causar problemas con las versiones de Home Assistant a partir de 2023.8.</value>
   </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>El nombre del dispositivo en el nombre del comando puede causar problemas con las versiones de Home Assistant a partir de 2023.8.</value>
+  </data>
 </root>
