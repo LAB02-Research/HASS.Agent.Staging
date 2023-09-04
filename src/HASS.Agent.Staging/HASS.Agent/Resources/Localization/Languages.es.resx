@@ -3220,6 +3220,12 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Tenga en cuenta que ignorar la disponibilidad hará que Home Assistant siempre muestre el último valor de un sensor determinado, incluso cuando HASS.Agent esté desconectado.</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>&amp;Ignorar disponibilidad</value>
+  </data>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Tratar elementos de acción de URI, como lo hace la aplicación Android Companion (abrir)</value>
   </data>

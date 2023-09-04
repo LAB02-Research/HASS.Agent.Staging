@@ -3288,6 +3288,12 @@ Home Assistant.
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Обратите внимание, что игнорирование доступности приведет к тому, что Home Assistant всегда будет отображать последнее значение для данного датчика, даже если HASS.Agent находится в автономном режиме.</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>&amp;Игнорировать доступность</value>
+  </data>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Обрабатывать элементы действия URI, как это делает приложение Android Companion (открыть)</value>
   </data>

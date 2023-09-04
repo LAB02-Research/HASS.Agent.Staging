@@ -3330,6 +3330,12 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Należy pamiętać, że zignorowanie dostępności spowoduje, że Home Assistant będzie zawsze wyświetlał ostatnią wartość dla danego czujnika, nawet gdy HASS.Agent będzie offline.</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>&amp;Ignoruj dostępność</value>
+  </data>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Traktuj elementy akcji URI, tak jak robi to aplikacja towarzysząca na Androida (otwórz)</value>
   </data>

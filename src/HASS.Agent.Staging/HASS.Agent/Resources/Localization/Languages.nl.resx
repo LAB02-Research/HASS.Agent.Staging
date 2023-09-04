@@ -3242,6 +3242,12 @@ Wil je de runtime installatie downloaden?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domein</value>
   </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Houd er rekening mee dat het negeren van de beschikbaarheid ervoor zorgt dat Home Assistant altijd de laatste waarde voor een bepaalde sensor weergeeft, zelfs als HASS.Agent offline is.</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>Negeer besch&amp;ikbaarheid</value>
+  </data>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>URI-ac&amp;tie-elementen behandelen, zoals Android Companion App doet (openen)</value>
   </data>

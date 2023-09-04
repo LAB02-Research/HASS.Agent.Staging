@@ -3267,6 +3267,12 @@ Deseja baixar o Microsoft WebView2 runtime?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Desconhecido</value>
   </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Observe que ignorar a disponibilidade fará com que o Home Assistant sempre exiba o último valor de um determinado sensor, mesmo quando o HASS.Agent estiver offline.</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>&amp;Ignorar disponibilidade</value>
+  </data>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>&amp;Tratar elementos de ação de URI, como faz o Android Companion App (abrir)</value>
   </data>

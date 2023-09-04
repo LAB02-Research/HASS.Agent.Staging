@@ -3369,6 +3369,12 @@ Ali želite prenesti runtime installer?</value>
   <data name="WindowState_Unknown" xml:space="preserve">
     <value>Neznano</value>
   </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Upoštevajte, da bo ignoriranje razpoložljivosti povzročilo, da bo Home Assistant vedno prikazal zadnjo vrednost za določen senzor, tudi ko je HASS.Agent brez povezave.</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>Prezr&amp;i razpoložljivost</value>
+  </data>
   <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
     <value>Obravnava elemen&amp;te URI Action, kot to počne Android Companion App (odprto)</value>
   </data>

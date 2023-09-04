@@ -64,7 +64,7 @@ namespace HASS.Agent.Commands
             foreach (var command in Variables.Commands)
             {
                 await command.UnPublishAutoDiscoveryConfigAsync();
-                await Variables.MqttManager.UnubscribeAsync(command);
+                await Variables.MqttManager.UnsubscribeAsync(command);
             }
         }
 
@@ -212,7 +212,7 @@ namespace HASS.Agent.Commands
                     {
                         // remove and unregister
                         await abstractCommand.UnPublishAutoDiscoveryConfigAsync();
-                        await Variables.MqttManager.UnubscribeAsync(abstractCommand);
+                        await Variables.MqttManager.UnsubscribeAsync(abstractCommand);
                         Variables.Commands.RemoveAt(Variables.Commands.FindIndex(x => x.Id == abstractCommand.Id));
 
                         Log.Information("[COMMANDS] Removed command: {command}", abstractCommand.Name);
@@ -242,7 +242,7 @@ namespace HASS.Agent.Commands
                         Log.Information("[COMMANDS] Command changed, re-registering as new entity: {old} to {new}", Variables.Commands[currentCommandIndex].Name, abstractCommand.Name);
 
                         await Variables.Commands[currentCommandIndex].UnPublishAutoDiscoveryConfigAsync();
-                        await Variables.MqttManager.UnubscribeAsync(Variables.Commands[currentCommandIndex]);
+                        await Variables.MqttManager.UnsubscribeAsync(Variables.Commands[currentCommandIndex]);
                         await Variables.MqttManager.SubscribeAsync(abstractCommand);
                     }
 
