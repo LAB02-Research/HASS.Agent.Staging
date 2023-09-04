@@ -16,10 +16,10 @@ namespace HASS.Agent.Shared.Extensions
         public static string GetSensorName(this SensorType sensorType)
         {
             var (_, name) = sensorType.GetLocalizedDescriptionAndKey();
-            var sensorName = name.ToLower();
-            
-            return $"{SharedHelperFunctions.GetSafeConfiguredDeviceName()}_{sensorName}";
+            return name.ToLower();
         }
+
+        //TODO: remove after tests
 
         /// <summary>
         /// Returns the name of the sensortype, based on the provided devicename
@@ -27,12 +27,12 @@ namespace HASS.Agent.Shared.Extensions
         /// <param name="sensorType"></param>
         /// <param name="deviceName"></param>
         /// <returns></returns>
-        public static string GetSensorName(this SensorType sensorType, string deviceName)
+/*        public static string GetSensorName(this SensorType sensorType, string deviceName) 
         {
             var (_, name) = sensorType.GetLocalizedDescriptionAndKey();
             var sensorName = name.ToLower();
             
             return $"{SharedHelperFunctions.GetSafeValue(deviceName)}_{sensorName}";
-        }
+        }*/
     }
 }

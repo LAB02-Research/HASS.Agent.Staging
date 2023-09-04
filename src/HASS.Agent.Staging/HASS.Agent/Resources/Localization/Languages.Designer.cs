@@ -664,6 +664,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Device name in the command name might cause issues with Home Assistant versions starting with 2023.8..
+        /// </summary>
+        internal static string CommandsMod_BtnStore_DeviceNameInSensorName {
+            get {
+                return ResourceManager.GetString("CommandsMod_BtnStore_DeviceNameInSensorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a command type!.
         /// </summary>
         internal static string CommandsMod_BtnStore_MessageBox1 {
@@ -1364,6 +1373,52 @@ namespace HASS.Agent.Resources.Localization {
         internal static string CommandType_WebViewCommand {
             get {
                 return ResourceManager.GetString("CommandType_WebViewCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error, please check logs for more information..
+        /// </summary>
+        internal static string Compat_Error_CheckLogs {
+            get {
+                return ResourceManager.GetString("Compat_Error_CheckLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error converting commands!.
+        /// </summary>
+        internal static string Compat_NameTask_Error_Commands {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Error_Commands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error converting multi value sensors!.
+        /// </summary>
+        internal static string Compat_NameTask_Error_MultiValueSensors {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Error_MultiValueSensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error converting single value sensors!.
+        /// </summary>
+        internal static string Compat_NameTask_Error_SingleValueSensors {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Error_SingleValueSensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing entity names
+        ///to match Home Assistant 2023.8 requirements.
+        /// </summary>
+        internal static string Compat_NameTask_Name {
+            get {
+                return ResourceManager.GetString("Compat_NameTask_Name", resourceCulture);
             }
         }
         
@@ -6039,6 +6094,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string SensorsMod_BtnStore {
             get {
                 return ResourceManager.GetString("SensorsMod_BtnStore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device name in the sensor name might cause issues with Home Assistant versions starting with 2023.8..
+        /// </summary>
+        internal static string SensorsMod_BtnStore_DeviceNameInSensorName {
+            get {
+                return ResourceManager.GetString("SensorsMod_BtnStore_DeviceNameInSensorName", resourceCulture);
             }
         }
         

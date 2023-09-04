@@ -119,7 +119,7 @@ namespace HASS.Agent.Controls.Configuration
             }
 
             // needs to be done elevated
-            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, "service_stop", TimeSpan.FromMinutes(2)));
+            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, Program.LaunchParamServiceStop, TimeSpan.FromMinutes(2)));
 
             // show the new state
             _ = Task.Run(DetermineServiceStatus);
@@ -146,7 +146,7 @@ namespace HASS.Agent.Controls.Configuration
             }
 
             // needs to be done elevated
-            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, "service_start", TimeSpan.FromMinutes(2)));
+            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, Program.LaunchParamServiceStart, TimeSpan.FromMinutes(2)));
 
             // show the new state
             _ = Task.Run(DetermineServiceStatus);
@@ -167,7 +167,7 @@ namespace HASS.Agent.Controls.Configuration
             }
 
             // needs to be done elevated
-            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, "service_disable", TimeSpan.FromMinutes(2)));
+            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, Program.LaunchParamServiceDisable, TimeSpan.FromMinutes(2)));
 
             // show the new state
             _ = Task.Run(DetermineServiceStatus);
@@ -188,7 +188,7 @@ namespace HASS.Agent.Controls.Configuration
             }
 
             // needs to be done elevated
-            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, "service_enabled", TimeSpan.FromMinutes(2)));
+            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, Program.LaunchParamServiceEnable, TimeSpan.FromMinutes(2)));
 
             // show the new state
             _ = Task.Run(DetermineServiceStatus);
@@ -204,7 +204,7 @@ namespace HASS.Agent.Controls.Configuration
         private async void BtnReinstallService_Click(object sender, EventArgs e)
         {
             // needs to be done elevated
-            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, "service_reinstall", TimeSpan.FromMinutes(5)));
+            var done = await Task.Run(() => CommandLineManager.ExecuteElevated(Variables.ApplicationExecutable, Program.LaunchParamServiceReinstall, TimeSpan.FromMinutes(5)));
 
             // show the new state
             _ = Task.Run(DetermineServiceStatus);

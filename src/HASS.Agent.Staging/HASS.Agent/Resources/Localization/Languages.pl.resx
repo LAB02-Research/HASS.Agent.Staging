@@ -3366,4 +3366,23 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>SterowanieRadiem</value>
   </data>
+  <data name="Compat_NameTask_Name" xml:space="preserve">
+    <value>Zmiana nazw podmiotów
+aby spełnić wymagania Home Assistant 2023.8</value>
+  </data>
+  <data name="Compat_NameTask_Error_SingleValueSensors" xml:space="preserve">
+    <value>Błąd konwersji czujników jednowartościowych!</value>
+  </data>
+  <data name="Compat_NameTask_Error_MultiValueSensors" xml:space="preserve">
+    <value>Błąd konwersji czujników wielowartościowych!</value>
+  </data>
+  <data name="Compat_NameTask_Error_Commands" xml:space="preserve">
+    <value>Błąd podczas konwertowania poleceń!</value>
+  </data>
+  <data name="Compat_Error_CheckLogs" xml:space="preserve">
+    <value>Błąd, sprawdź dzienniki, aby uzyskać więcej informacji.</value>
+  </data>
+  <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Nazwa urządzenia w nazwie czujnika może powodować problemy z wersjami Home Assistant zaczynającymi się od 2023.8.</value>
+  </data>
 </root>

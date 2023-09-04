@@ -3380,4 +3380,23 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
     <value>Nein</value>
   </data>
+  <data name="Compat_Error_CheckLogs" xml:space="preserve">
+    <value>Fehler, bitte überprüfen Sie die Protokolle auf weitere Informationen.</value>
+  </data>
+  <data name="Compat_NameTask_Error_Commands" xml:space="preserve">
+    <value>Fehler beim Konvertieren der Befehle!</value>
+  </data>
+  <data name="Compat_NameTask_Error_MultiValueSensors" xml:space="preserve">
+    <value>Fehler beim Konvertieren von Mehrwertsensoren!</value>
+  </data>
+  <data name="Compat_NameTask_Error_SingleValueSensors" xml:space="preserve">
+    <value>Fehler beim Konvertieren von Einzelwertsensoren!</value>
+  </data>
+  <data name="Compat_NameTask_Name" xml:space="preserve">
+    <value>Entitätsnamen ändern
+um den Anforderungen von Home Assistant 2023.8 zu entsprechen</value>
+  </data>
+  <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Der Gerätename im Sensornamen kann Probleme mit Home Assistant-Versionen ab 2023.8 verursachen.</value>
+  </data>
 </root>

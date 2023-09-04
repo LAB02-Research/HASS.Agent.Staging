@@ -113,6 +113,9 @@
     <Compile Update="Controls\Service\ServiceGeneral.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Forms\ChildApplications\CompatibilityTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Donate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1046,6 +1049,36 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\About.tr.resx">
       <DependentUpon>About.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.de.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.en.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.es.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.fr.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.nl.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.pl.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.pt-br.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.ru.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.sl.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ChildApplications\CompatibilityTask.tr.resx">
+      <DependentUpon>CompatibilityTask.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\ChildApplications\PortReservation.de.resx">
       <DependentUpon>PortReservation.resx</DependentUpon>

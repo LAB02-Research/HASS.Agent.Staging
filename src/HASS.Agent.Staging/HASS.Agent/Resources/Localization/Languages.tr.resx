@@ -2864,4 +2864,23 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>Radyo Komutu</value>
   </data>
+  <data name="Compat_Error_CheckLogs" xml:space="preserve">
+    <value>Hata, lütfen daha fazla bilgi için günlükleri kontrol edin.</value>
+  </data>
+  <data name="Compat_NameTask_Error_Commands" xml:space="preserve">
+    <value>Komutlar dönüştürülürken hata oluştu!</value>
+  </data>
+  <data name="Compat_NameTask_Error_MultiValueSensors" xml:space="preserve">
+    <value>Çoklu değer sensörleri dönüştürülürken hata oluştu!</value>
+  </data>
+  <data name="Compat_NameTask_Error_SingleValueSensors" xml:space="preserve">
+    <value>Tek değerli sensörler dönüştürülürken hata oluştu!</value>
+  </data>
+  <data name="Compat_NameTask_Name" xml:space="preserve">
+    <value>Varlık adlarını değiştirme
+Home Assistant 2023.8 gereksinimlerini karşılamak için</value>
+  </data>
+  <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Sensör adındaki cihaz adı, 2023.8'den itibaren Ev Asistanı sürümlerinde sorunlara neden olabilir.</value>
+  </data>
 </root>

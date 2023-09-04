@@ -248,14 +248,19 @@ namespace HASS.Agent.Forms.Commands
 			var item = (KeyValuePair<int, string>)CbEntityType.SelectedItem;
 			var entityType = (CommandEntityType)item.Key;
 
-			var name = TbName.Text.Trim();
-			if (string.IsNullOrEmpty(name))
-			{
-				MessageBoxAdv.Show(this, Languages.CommandsMod_MessageBox_Name, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				ActiveControl = TbName;
-
+            var name = TbName.Text.Trim();
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBoxAdv.Show(this, Languages.CommandsMod_MessageBox_Name, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ActiveControl = TbName;
+                
 				return;
-			}
+            }
+            
+			if (CompatHelper.HassVersionEqualOrOver("2023.8") && name.Contains(SharedHelperFunctions.GetSafeConfiguredDeviceName()))
+            {
+                MessageBoxAdv.Show(this, Languages.CommandsMod_BtnStore_DeviceNameInSensorName, Variables.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 			var friendlyName = string.IsNullOrEmpty(TbName.Text.Trim()) ? null : TbName.Text.Trim();
 
@@ -547,12 +552,12 @@ namespace HASS.Agent.Forms.Commands
 			if (_interfaceLockedWrongType)
 				UnlockWrongClient();
 
-			if (setDefaultValues)
-			{
-				TbName.Text = _serviceMode ? commandCard.CommandType.GetCommandName(_serviceDeviceName) : commandCard.CommandType.GetCommandName();
-				CbEntityType.Text = CommandEntityType.Switch.ToString();
-				LblMqttTopic.Visible = commandCard.ActionCompatible;
-			}
+            if (setDefaultValues)
+            {
+                TbName.Text = commandCard.CommandType.GetCommandName();
+                CbEntityType.Text = CommandEntityType.Switch.ToString();
+                LblMqttTopic.Visible = commandCard.ActionCompatible;
+            }
 
 			TbSelectedType.Text = commandCard.CommandType.ToString();
 			TbDescription.Text = CommandsManager.GetCommandDefaultInfo(commandCard.CommandType).Description;

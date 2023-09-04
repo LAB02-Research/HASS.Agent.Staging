@@ -3289,4 +3289,23 @@ Do you want to download the runtime installer?</value>
   <data name="CommandType_RadioCommand" xml:space="preserve">
     <value>CommandeRadio</value>
   </data>
+  <data name="Compat_NameTask_Name" xml:space="preserve">
+    <value>Modification des noms d'entité
+pour répondre aux exigences de Home Assistant 2023.8</value>
+  </data>
+  <data name="Compat_NameTask_Error_SingleValueSensors" xml:space="preserve">
+    <value>Erreur lors de la conversion des capteurs à valeur unique !</value>
+  </data>
+  <data name="Compat_NameTask_Error_MultiValueSensors" xml:space="preserve">
+    <value>Erreur lors de la conversion des capteurs multivaleurs !</value>
+  </data>
+  <data name="Compat_NameTask_Error_Commands" xml:space="preserve">
+    <value>Erreur lors de la conversion des commandes !</value>
+  </data>
+  <data name="Compat_Error_CheckLogs" xml:space="preserve">
+    <value>Erreur, veuillez vérifier les journaux pour plus d'informations.</value>
+  </data>
+  <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Le nom de l'appareil dans le nom du capteur peut entraîner des problèmes avec les versions de Home Assistant à partir de 2023.8.</value>
+  </data>
 </root>
