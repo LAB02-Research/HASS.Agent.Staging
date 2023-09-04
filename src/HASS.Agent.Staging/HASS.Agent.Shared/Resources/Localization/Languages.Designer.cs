@@ -1249,6 +1249,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RadioCommand.
+        /// </summary>
+        internal static string CommandType_RadioCommand {
+            get {
+                return ResourceManager.GetString("CommandType_RadioCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restart.
         /// </summary>
         internal static string CommandType_RestartCommand {

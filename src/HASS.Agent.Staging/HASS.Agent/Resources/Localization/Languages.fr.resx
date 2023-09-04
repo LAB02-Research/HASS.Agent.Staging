@@ -3277,4 +3277,16 @@ Do you want to download the runtime installer?</value>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Aucun</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Allume/éteint l’appareil radio sélectionné. La disponibilité des appareils radio dépend de l’appareil sur lequel HASS.Agent est installé.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Veuillez sélectionner un appareil radio !</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Appareil radio</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>CommandeRadio</value>
+  </data>
 </root>

@@ -3205,4 +3205,7 @@ Do you want to download the runtime installer?</value>
   <data name="CommandType_SetApplicationVolumeCommand" xml:space="preserve">
     <value>SetApplicationVolume</value>
   </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
 </root>

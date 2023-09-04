@@ -3244,4 +3244,16 @@ Oculta, Maximizada, Minimizada, Normal y Desconocida.</value>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Ninguno</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Enciende/apaga el dispositivo de radio seleccionado. La disponibilidad de los dispositivos de radio depende del dispositivo en el que esté instalado HASS.Agent.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>¡Seleccione el dispositivo de radio!</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Dispositivo de radio</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>Comando de radio</value>
+  </data>
 </root>

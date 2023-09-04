@@ -3344,6 +3344,18 @@ Willst Du den Runtime Installer herunterladen?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Schaltet das ausgewählte Funkgerät ein/aus. Die Verfügbarkeit von Funkgeräten hängt vom Gerät ab, auf dem HASS.Agent installiert ist.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Bitte Funkgerät auswählen!</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Funkgerät</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Keiner</value>
   </data>

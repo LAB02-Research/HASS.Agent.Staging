@@ -549,6 +549,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Switches selected radio device on/off. Availability of radio devices depends on the device HASS.Agent is installed on..
+        /// </summary>
+        internal static string CommandsManager_RadioCommandDescription {
+            get {
+                return ResourceManager.GetString("CommandsManager_RadioCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restarts the machine after one minute.
         ///
         ///Tip: Accidentally triggered? Run &apos;shutdown /a&apos; to abort shutdown..
@@ -669,6 +678,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string CommandsMod_BtnStore_MessageBox10 {
             get {
                 return ResourceManager.GetString("CommandsMod_BtnStore_MessageBox10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select radio device!.
+        /// </summary>
+        internal static string CommandsMod_BtnStore_MessageBox11 {
+            get {
+                return ResourceManager.GetString("CommandsMod_BtnStore_MessageBox11", resourceCulture);
             }
         }
         
@@ -1009,6 +1027,15 @@ namespace HASS.Agent.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Radio device.
+        /// </summary>
+        internal static string CommandsMod_LblSetting_Radio {
+            get {
+                return ResourceManager.GetString("CommandsMod_LblSetting_Radio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to URL.
         /// </summary>
         internal static string CommandsMod_LblSetting_Url {
@@ -1274,6 +1301,15 @@ namespace HASS.Agent.Resources.Localization {
         internal static string CommandType_PublishAllSensorsCommand {
             get {
                 return ResourceManager.GetString("CommandType_PublishAllSensorsCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RadioCommand.
+        /// </summary>
+        internal static string CommandType_RadioCommand {
+            get {
+                return ResourceManager.GetString("CommandType_RadioCommand", resourceCulture);
             }
         }
         

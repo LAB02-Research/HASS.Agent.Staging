@@ -3354,4 +3354,16 @@ Czy chcesz pobrać plik instalacyjny?</value>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Brak</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Włącza/wyłącza wybrane urządzenie radiowe. Dostępność urządzeń radiowych uzależniona jest od urządzenia, na którym zainstalowany jest HASS.Agent.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Proszę wybrać urządzenie radiowe!</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Urządzenie radiowe</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>SterowanieRadiem</value>
+  </data>
 </root>

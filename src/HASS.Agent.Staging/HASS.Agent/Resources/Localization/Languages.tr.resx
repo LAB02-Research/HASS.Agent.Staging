@@ -2852,4 +2852,16 @@ Lütfen aracınız için credentialları sağlayın, HA Mosquitto eklentisini ku
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Hiçbiri</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Seçilen radyo cihazını açar/kapatır. Radyo cihazlarının kullanılabilirliği HASS.Agent'ın kurulu olduğu cihaza bağlıdır.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Lütfen radyo cihazını seçin!</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Radyo cihazı</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>Radyo Komutu</value>
+  </data>
 </root>

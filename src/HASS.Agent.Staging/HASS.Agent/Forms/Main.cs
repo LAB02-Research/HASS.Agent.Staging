@@ -83,6 +83,8 @@ namespace HASS.Agent.Forms
                 // check for dpi scaling
                 CheckDpiScalingFactor();
 
+                await RadioManager.Initialize();
+
                 await InternalDeviceSensorsManager.Initialize();
 
                 // load entities

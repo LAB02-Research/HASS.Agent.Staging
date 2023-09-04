@@ -107,6 +107,10 @@ namespace HASS.Agent.Shared.Enums
 
         [LocalizedDescription("CommandType_WebViewCommand", typeof(Languages))]
         [EnumMember(Value = "WebViewCommand")]
-        WebViewCommand
+        WebViewCommand,
+
+        [LocalizedDescription("CommandType_RadioCommand", typeof(Languages))]
+        [EnumMember(Value = "RadioCommand")]
+        RadioCommand
     }
 }

@@ -3219,6 +3219,9 @@ Do you want to download the runtime installer?</value>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
 	  <value>domain</value>
   </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
   <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
     <value>InternalDeviceSensor</value>
   </data>

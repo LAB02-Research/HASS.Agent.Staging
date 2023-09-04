@@ -3393,4 +3393,16 @@ Ali želite prenesti runtime installer?</value>
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Noben</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Vklopi/izklopi izbrano radijsko napravo. Razpoložljivost radijskih naprav je odvisna od naprave, na kateri je nameščen HASS.Agent.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Prosimo izberite radijsko napravo!</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Radijska naprava</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
 </root>

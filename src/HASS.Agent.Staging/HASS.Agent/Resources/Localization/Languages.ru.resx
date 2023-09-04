@@ -3312,4 +3312,16 @@ Home Assistant.
   <data name="SensorsMod_None" xml:space="preserve">
     <value>Никто</value>
   </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Включает/выключает выбранное радиоустройство. Доступность радиоустройств зависит от устройства, на котором установлен HASS.Agent.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Пожалуйста, выберите радиоустройство!</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Радиоустройство</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>Радиокоманда</value>
+  </data>
 </root>
