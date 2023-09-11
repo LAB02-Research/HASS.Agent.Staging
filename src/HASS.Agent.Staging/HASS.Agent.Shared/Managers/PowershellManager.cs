@@ -208,7 +208,7 @@ namespace HASS.Agent.Shared.Managers
 
 				// attempt to set the right encoding
 				var encoding = CultureInfo.CurrentCulture.TextInfo.OEMCodePage == 1
-					? Encoding.Unicode
+					? Encoding.UTF8
 					: Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);
 
 				// prepare the executing process
