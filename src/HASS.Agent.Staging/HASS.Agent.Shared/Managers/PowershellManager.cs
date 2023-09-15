@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using CliWrap;
+using Newtonsoft.Json;
 using Serilog;
 
 namespace HASS.Agent.Shared.Managers
@@ -176,6 +177,49 @@ namespace HASS.Agent.Shared.Managers
 			}
 		}
 
+		private static Encoding TryParseCodePage(int codePage)
+		{
+			Encoding encoding = null;
+			try
+			{
+				encoding = Encoding.GetEncoding(codePage);
+			}
+			catch
+			{
+				// best effort
+			}
+
+			return encoding;
+		}
+
+		private static Encoding GetEncoding()
+		{
+			var encoding = TryParseCodePage(CultureInfo.InstalledUICulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			encoding = TryParseCodePage(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			encoding = TryParseCodePage(CultureInfo.CurrentUICulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			encoding = TryParseCodePage(CultureInfo.InvariantCulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			Log.Warning("[POWERSHELL] Cannot parse system text culture to encoding, returning UTF-8 as a fallback, please report this as a GitHub issue");
+
+			Log.Debug("[POWERSHELL] currentInstalledUICulture  {c}", JsonConvert.SerializeObject(CultureInfo.InstalledUICulture.TextInfo));
+			Log.Debug("[POWERSHELL] currentCulture  {c}", JsonConvert.SerializeObject(CultureInfo.CurrentCulture.TextInfo));
+			Log.Debug("[POWERSHELL] currentUICulture  {c}", JsonConvert.SerializeObject(CultureInfo.CurrentUICulture.TextInfo));
+			Log.Debug("[POWERSHELL] invariantCulture  {c}", JsonConvert.SerializeObject(CultureInfo.InvariantCulture.TextInfo));
+		
+			return Encoding.UTF8;
+		}
+
 		/// <summary>
 		/// Executes the command or script, and returns the standard and error output
 		/// </summary>
@@ -207,9 +251,7 @@ namespace HASS.Agent.Shared.Managers
 				if (string.IsNullOrEmpty(psExec)) return false;
 
 				// attempt to set the right encoding
-				var encoding = CultureInfo.CurrentCulture.TextInfo.OEMCodePage == 1
-					? Encoding.UTF8
-					: Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);
+				var encoding = GetEncoding();
 
 				// prepare the executing process
 				var processInfo = new ProcessStartInfo
