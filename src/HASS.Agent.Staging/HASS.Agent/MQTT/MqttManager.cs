@@ -37,7 +37,7 @@ namespace HASS.Agent.MQTT
 
         private bool _disconnectionNotified = false;
         private bool _connectingFailureNotified = false;
-        
+
         private MqttStatus _status = MqttStatus.Connecting;
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace HASS.Agent.MQTT
 
                 // create our device's config model
                 if (Variables.DeviceConfig == null) CreateDeviceConfigModel();
-            
+
                 // create a new mqtt client
                 _mqttClient = Variables.MqttFactory.CreateManagedMqttClient();
 
@@ -348,7 +348,7 @@ namespace HASS.Agent.MQTT
                     if (Variables.ExtendedLogging) Log.Warning("[MQTT] Not connected, message dropped (won't report again for 5 minutes)");
                     return false;
                 }
-                
+
                 // publish away
                 var published = await _mqttClient.PublishAsync(message);
                 if (published.ReasonCode == MqttClientPublishReasonCode.Success) return true;
@@ -390,12 +390,12 @@ namespace HASS.Agent.MQTT
 
                 // prepare topic
                 var topic = $"{Variables.AppSettings.MqttDiscoveryPrefix}/{domain}/{Variables.DeviceConfig.Name}/{discoverable.ObjectId}/config";
-                
+
                 // build config message
                 var messageBuilder = new MqttApplicationMessageBuilder()
                     .WithTopic(topic)
                     .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
-                
+
                 // add payload
                 if (clearConfig) messageBuilder.WithPayload(Array.Empty<byte>());
                 else messageBuilder.WithPayload(JsonSerializer.Serialize(discoverable.GetAutoDiscoveryConfig(), discoverable.GetAutoDiscoveryConfig().GetType(), JsonSerializerOptions));
@@ -420,7 +420,7 @@ namespace HASS.Agent.MQTT
         /// </summary>
         private DateTime _lastAvailableAnnouncement = DateTime.MinValue;
         private DateTime _lastAvailableAnnouncementFailedLogged = DateTime.MinValue;
-        
+
         /// <summary>
         /// JSON serializer options (camelcase, casing, ignore condition, converters)
         /// </summary>
@@ -516,7 +516,7 @@ namespace HASS.Agent.MQTT
                         .WithTopic($"{Variables.AppSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
                         .WithPayload(Array.Empty<byte>())
                         .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
-                    
+
                     // publish
                     await _mqttClient.PublishAsync(messageBuilder.Build());
                 }
@@ -600,20 +600,20 @@ namespace HASS.Agent.MQTT
         private static ManagedMqttClientOptions GetOptions()
         {
             if (string.IsNullOrEmpty(Variables.AppSettings.MqttAddress)) return null;
-            
+
             // id can be random, but we'll store it for consistency (unless user-defined)
             if (string.IsNullOrEmpty(Variables.AppSettings.MqttClientId))
             {
                 Variables.AppSettings.MqttClientId = Guid.NewGuid().ToString()[..8];
                 SettingsManager.StoreAppSettings();
             }
-            
+
             // configure last will message
             var lastWillMessageBuilder = new MqttApplicationMessageBuilder()
                 .WithTopic($"{Variables.AppSettings.MqttDiscoveryPrefix}/sensor/{Variables.DeviceConfig.Name}/availability")
                 .WithPayload("offline")
                 .WithRetainFlag(Variables.AppSettings.MqttUseRetainFlag);
-            
+
             // prepare message
             var lastWillMessage = lastWillMessageBuilder.Build();
 
@@ -687,7 +687,7 @@ namespace HASS.Agent.MQTT
                     var notification = JsonSerializer.Deserialize<Notification>(applicationMessage.Payload, JsonSerializerOptions)!;
                     _ = Task.Run(() => NotificationManager.ShowNotification(notification));
                     return;
-                } 
+                }
 
                 if (applicationMessage.Topic == $"hass.agent/media_player/{HelperFunctions.GetConfiguredDeviceName()}/cmd")
                 {
@@ -745,12 +745,12 @@ namespace HASS.Agent.MQTT
             if (payload.Contains("on")) command.TurnOn();
             else if (payload.Contains("off")) command.TurnOff();
             else switch (payload)
-            {
-                case "press":
-                case "lock":
-                    command.TurnOn();
-                    break;
-            }
+                {
+                    case "press":
+                    case "lock":
+                        command.TurnOn();
+                        break;
+                }
         }
 
         /// <summary>
@@ -760,8 +760,12 @@ namespace HASS.Agent.MQTT
         /// <param name="command"></param>
         private static void HandleActionReceived(MqttApplicationMessage applicationMessage, AbstractCommand command)
         {
+            if (applicationMessage.Payload == null)
+                return;
+
             var payload = Encoding.UTF8.GetString(applicationMessage.Payload);
-            if (string.IsNullOrWhiteSpace(payload)) return;
+            if (string.IsNullOrWhiteSpace(payload))
+                return;
 
             command.TurnOnWithAction(payload);
         }
