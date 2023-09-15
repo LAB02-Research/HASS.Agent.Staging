@@ -4,12 +4,13 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using CliWrap;
+using Newtonsoft.Json;
 using Serilog;
 
 namespace HASS.Agent.Shared.Managers
 {
 	/// <summary>
-	/// Performs powershell-related actions
+	/// Performs Powershell-related actions
 	/// </summary>
 	public static class PowershellManager
 	{
@@ -32,7 +33,9 @@ namespace HASS.Agent.Shared.Managers
 		{
 			if (isScript)
 			{
-				return string.IsNullOrWhiteSpace(parameters) ? $"-File \"{command}\"" : $"-File \"{command}\" \"{parameters}\"";
+				return string.IsNullOrWhiteSpace(parameters)
+					? $"-File \"{command}\""
+					: $"-File \"{command}\" \"{parameters}\"";
 			}
 			else
 			{
@@ -54,11 +57,10 @@ namespace HASS.Agent.Shared.Managers
 					workingDir = !string.IsNullOrEmpty(scriptDir) ? scriptDir : string.Empty;
 				}
 
-				// find the powershell executable
 				var psExec = GetPsExecutable();
-				if (string.IsNullOrEmpty(psExec)) return false;
+				if (string.IsNullOrEmpty(psExec))
+					return false;
 
-				// prepare the executing process
 				var processInfo = new ProcessStartInfo
 				{
 					WindowStyle = ProcessWindowStyle.Hidden,
@@ -68,7 +70,6 @@ namespace HASS.Agent.Shared.Managers
 					Arguments = GetProcessArguments(command, parameters, isScript)
 				};
 
-				// launch
 				using var process = new Process();
 				process.StartInfo = processInfo;
 				var start = process.Start();
@@ -76,15 +77,16 @@ namespace HASS.Agent.Shared.Managers
 				if (!start)
 				{
 					Log.Error("[POWERSHELL] Unable to start processing {descriptor}: {command}", descriptor, command);
+
 					return false;
 				}
 
-				// done
 				return true;
 			}
 			catch (Exception ex)
 			{
 				Log.Fatal(ex, "[POWERSHELL] Fatal error when executing {descriptor}: {command}", descriptor, command);
+
 				return false;
 			}
 		}
@@ -119,11 +121,9 @@ namespace HASS.Agent.Shared.Managers
 					workingDir = !string.IsNullOrEmpty(scriptDir) ? scriptDir : string.Empty;
 				}
 
-				// find the powershell executable
 				var psExec = GetPsExecutable();
 				if (string.IsNullOrEmpty(psExec)) return false;
 
-				// prepare the executing process
 				var processInfo = new ProcessStartInfo
 				{
 					FileName = psExec,
@@ -134,7 +134,6 @@ namespace HASS.Agent.Shared.Managers
 					Arguments = GetProcessArguments(command, parameters, isScript)
 				};
 
-				// launch
 				using var process = new Process();
 				process.StartInfo = processInfo;
 				var start = process.Start();
@@ -142,38 +141,83 @@ namespace HASS.Agent.Shared.Managers
 				if (!start)
 				{
 					Log.Error("[POWERSHELL] Unable to start processing {descriptor}: {script}", descriptor, command);
+
 					return false;
 				}
 
-				// execute and wait
 				process.WaitForExit(Convert.ToInt32(timeout.TotalMilliseconds));
 
 				if (process.ExitCode == 0)
-				{
-					// done, all good
 					return true;
-				}
 
 				// non-zero exitcode, process as failed
 				Log.Error("[POWERSHELL] The {descriptor} returned non-zero exitcode: {code}", descriptor, process.ExitCode);
 
 				var errors = process.StandardError.ReadToEnd().Trim();
-				if (!string.IsNullOrEmpty(errors)) Log.Error("[POWERSHELL] Error output:\r\n{output}", errors);
+				if (!string.IsNullOrEmpty(errors))
+				{
+					Log.Error("[POWERSHELL] Error output:\r\n{output}", errors);
+				}
 				else
 				{
 					var console = process.StandardOutput.ReadToEnd().Trim();
-					if (!string.IsNullOrEmpty(console)) Log.Error("[POWERSHELL] No error output, console output:\r\n{output}", errors);
-					else Log.Error("[POWERSHELL] No error and no console output");
+					if (!string.IsNullOrEmpty(console))
+						Log.Error("[POWERSHELL] No error output, console output:\r\n{output}", errors);
+					else
+						Log.Error("[POWERSHELL] No error and no console output");
 				}
 
-				// done
 				return false;
 			}
 			catch (Exception ex)
 			{
 				Log.Fatal(ex, "[POWERSHELL] Fatal error when executing {descriptor}: {command}", descriptor, command);
+
 				return false;
 			}
+		}
+
+		private static Encoding TryParseCodePage(int codePage)
+		{
+			Encoding encoding = null;
+			try
+			{
+				encoding = Encoding.GetEncoding(codePage);
+			}
+			catch
+			{
+				// best effort
+			}
+
+			return encoding;
+		}
+
+		private static Encoding GetEncoding()
+		{
+			var encoding = TryParseCodePage(CultureInfo.InstalledUICulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			encoding = TryParseCodePage(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			encoding = TryParseCodePage(CultureInfo.CurrentUICulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			encoding = TryParseCodePage(CultureInfo.InvariantCulture.TextInfo.OEMCodePage);
+			if (encoding != null)
+				return encoding;
+
+			Log.Warning("[POWERSHELL] Cannot parse system text culture to encoding, returning UTF-8 as a fallback, please report this as a GitHub issue");
+
+			Log.Debug("[POWERSHELL] currentInstalledUICulture  {c}", JsonConvert.SerializeObject(CultureInfo.InstalledUICulture.TextInfo));
+			Log.Debug("[POWERSHELL] currentCulture  {c}", JsonConvert.SerializeObject(CultureInfo.CurrentCulture.TextInfo));
+			Log.Debug("[POWERSHELL] currentUICulture  {c}", JsonConvert.SerializeObject(CultureInfo.CurrentUICulture.TextInfo));
+			Log.Debug("[POWERSHELL] invariantCulture  {c}", JsonConvert.SerializeObject(CultureInfo.InvariantCulture.TextInfo));
+
+			return Encoding.UTF8;
 		}
 
 		/// <summary>
@@ -191,7 +235,6 @@ namespace HASS.Agent.Shared.Managers
 
 			try
 			{
-				// check whether we're executing a script
 				var isScript = command.ToLower().EndsWith(".ps1");
 
 				var workingDir = string.Empty;
@@ -202,16 +245,12 @@ namespace HASS.Agent.Shared.Managers
 					workingDir = !string.IsNullOrEmpty(scriptDir) ? scriptDir : string.Empty;
 				}
 
-				// find the powershell executable
 				var psExec = GetPsExecutable();
-				if (string.IsNullOrEmpty(psExec)) return false;
+				if (string.IsNullOrEmpty(psExec))
+					return false;
 
-				// attempt to set the right encoding
-				var encoding = CultureInfo.CurrentCulture.TextInfo.OEMCodePage == 1
-					? Encoding.UTF8
-					: Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage);
+				var encoding = GetEncoding();
 
-				// prepare the executing process
 				var processInfo = new ProcessStartInfo
 				{
 					FileName = psExec,
@@ -228,7 +267,6 @@ namespace HASS.Agent.Shared.Managers
 						: $@"& {{{command}}}"
 				};
 
-				// execute and wait
 				using var process = new Process();
 				process.StartInfo = processInfo;
 
@@ -236,30 +274,28 @@ namespace HASS.Agent.Shared.Managers
 				if (!start)
 				{
 					Log.Error("[POWERSHELL] Unable to begin executing the {type}: {cmd}", isScript ? "script" : "command", command);
+
 					return false;
 				}
 
-				// wait for completion
 				var completed = process.WaitForExit(Convert.ToInt32(timeout.TotalMilliseconds));
-				if (!completed) Log.Error("[POWERSHELL] Timeout executing the {type}: {cmd}", isScript ? "script" : "command", command);
+				if (!completed)
+					Log.Error("[POWERSHELL] Timeout executing the {type}: {cmd}", isScript ? "script" : "command", command);
 
-				// read the streams
 				output = process.StandardOutput.ReadToEnd().Trim();
 				errors = process.StandardError.ReadToEnd().Trim();
 
-				// dispose of them
 				process.StandardOutput.Dispose();
 				process.StandardError.Dispose();
 
-				// make sure the process ends
 				process.Kill();
 
-				// done
 				return completed;
 			}
 			catch (Exception ex)
 			{
 				Log.Fatal(ex, ex.Message);
+
 				return false;
 			}
 		}
@@ -272,13 +308,14 @@ namespace HASS.Agent.Shared.Managers
 		{
 			// try regular location
 			var psExec = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "WindowsPowerShell\\v1.0\\powershell.exe");
-			if (File.Exists(psExec)) return psExec;
+			if (File.Exists(psExec))
+				return psExec;
 
 			// try specific
 			psExec = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.SystemX86), "WindowsPowerShell\\v1.0\\powershell.exe");
-			if (File.Exists(psExec)) return psExec;
+			if (File.Exists(psExec))
+				return psExec;
 
-			// not found
 			Log.Error("[POWERSHELL] PS executable not found, make sure you have powershell installed on your system");
 			return string.Empty;
 		}
