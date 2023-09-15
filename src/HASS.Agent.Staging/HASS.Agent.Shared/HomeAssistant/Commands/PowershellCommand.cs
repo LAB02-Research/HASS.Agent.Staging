@@ -45,7 +45,7 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
             }
 
             var executed = _isScript
-                ? PowershellManager.ExecuteScriptHeadless(Command)
+                ? PowershellManager.ExecuteScriptHeadless(Command, string.Empty)
                 : PowershellManager.ExecuteCommandHeadless(Command);
 
             if (!executed) Log.Error("[POWERSHELL] [{name}] Executing {descriptor} failed", Name, _descriptor, Name);
@@ -57,12 +57,9 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands
         {
             State = "ON";
 
-            // prepare command
-            var command = string.IsNullOrWhiteSpace(Command) ? action : $"{Command} {action}";
-
             var executed = _isScript
-                ? PowershellManager.ExecuteScriptHeadless(command)
-                : PowershellManager.ExecuteCommandHeadless(command);
+                ? PowershellManager.ExecuteScriptHeadless(Command, action)
+                : PowershellManager.ExecuteCommandHeadless(Command);
 
             if (!executed) Log.Error("[POWERSHELL] [{name}] Launching PS {descriptor} with action '{action}' failed", Name, _descriptor, action);
             

@@ -30,68 +30,68 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
             UpdateSensorValues();
         }
 
+        private void AddUpdateSensor(string sensorId, AbstractSingleValueSensor sensor)
+        {
+            if (!Sensors.ContainsKey(sensorId))
+                Sensors.Add(sensorId, sensor);
+            else
+                Sensors[sensorId] = sensor;
+        }
+
         public sealed override void UpdateSensorValues()
         {
             var driveCount = 0;
 
-            // lowercase and safe name of the multivalue sensor
             var parentSensorSafeName = SharedHelperFunctions.GetSafeValue(Name);
 
             foreach (var drive in DriveInfo.GetDrives())
             {
                 try
                 {
-                    if (!(drive is { IsReady: true, DriveType: DriveType.Fixed })) continue;
-                    if (string.IsNullOrWhiteSpace(drive.Name)) continue;
+                    if (!(drive is { IsReady: true, DriveType: DriveType.Fixed }))
+                        continue;
 
-                    // name (letter)
+                    if (string.IsNullOrWhiteSpace(drive.Name))
+                        continue;
+
                     var driveName = $"{drive.Name[..1].ToUpper()}";
                     var driveNameLower = driveName.ToLower();
 
-                    // label
                     var driveLabel = string.IsNullOrEmpty(drive.VolumeLabel) ? "-" : drive.VolumeLabel;
 
-                    // sensor value
                     var sensorValue = string.IsNullOrEmpty(drive.VolumeLabel) ? driveName : drive.VolumeLabel;
 
-                    // prepare the info
-                    var storageInfo = new StorageInfo();
-                    storageInfo.Name = driveName;
-                    storageInfo.Label = driveLabel;
-                    storageInfo.FileSystem = drive.DriveFormat;
+                    var storageInfo = new StorageInfo
+                    {
+                        Name = driveName,
+                        Label = driveLabel,
+                        FileSystem = drive.DriveFormat
+                    };
 
-                    // total size
                     var totalSizeMb = Math.Round(ByteSize.FromBytes(drive.TotalSize).MegaBytes);
                     storageInfo.TotalSizeMB = totalSizeMb;
 
-                    // available space
                     var availableSpaceMb = Math.Round(ByteSize.FromBytes(drive.AvailableFreeSpace).MegaBytes);
                     storageInfo.AvailableSpaceMB = availableSpaceMb;
 
-                    // used space
                     var usedSpaceMb = totalSizeMb - availableSpaceMb;
                     storageInfo.UsedSpaceMB = usedSpaceMb;
 
-                    // available space percentage
                     var availableSpacePercentage = (int)Math.Round((availableSpaceMb / totalSizeMb) * 100);
                     storageInfo.AvailableSpacePercentage = availableSpacePercentage;
 
-                    // used space percentage
                     var usedSpacePercentage = (int)Math.Round((usedSpaceMb / totalSizeMb) * 100);
                     storageInfo.UsedSpacePercentage = usedSpacePercentage;
 
-                    // process the sensor
                     var info = JsonConvert.SerializeObject(storageInfo, Formatting.Indented);
                     var driveInfoId = $"{parentSensorSafeName}_{driveNameLower}";
-                    var driveInfoSensor = new DataTypeStringSensor(_updateInterval, $"{Name} {driveName}", driveInfoId, string.Empty, "mdi:harddisk", string.Empty, Name, true);
+                    var driveInfoSensor = new DataTypeStringSensor(_updateInterval, driveName, driveInfoId, string.Empty, "mdi:harddisk", string.Empty, Name, true);
 
                     driveInfoSensor.SetState(sensorValue);
                     driveInfoSensor.SetAttributes(info);
 
-                    if (!Sensors.ContainsKey(driveInfoId)) Sensors.Add(driveInfoId, driveInfoSensor);
-                    else Sensors[driveInfoId] = driveInfoSensor;
+                    AddUpdateSensor(driveInfoId, driveInfoSensor);
 
-                    // increment drive count
                     driveCount++;
                 }
                 catch (Exception ex)
@@ -114,13 +114,11 @@ namespace HASS.Agent.Shared.HomeAssistant.Sensors.GeneralSensors.MultiValue
                 }
             }
 
-            // drive count
             var driveCountId = $"{parentSensorSafeName}_total_disk_count";
-            var driveCountSensor = new DataTypeIntSensor(_updateInterval, $"{Name} Total Disk Count", driveCountId, string.Empty, "mdi:harddisk", string.Empty, Name);
+            var driveCountSensor = new DataTypeIntSensor(_updateInterval, "Total Disk Count", driveCountId, string.Empty, "mdi:harddisk", string.Empty, Name);
             driveCountSensor.SetState(driveCount);
 
-            if (!Sensors.ContainsKey(driveCountId)) Sensors.Add(driveCountId, driveCountSensor);
-            else Sensors[driveCountId] = driveCountSensor;
+            AddUpdateSensor(driveCountId, driveCountSensor);
         }
 
         public override DiscoveryConfigModel GetAutoDiscoveryConfig() => null;

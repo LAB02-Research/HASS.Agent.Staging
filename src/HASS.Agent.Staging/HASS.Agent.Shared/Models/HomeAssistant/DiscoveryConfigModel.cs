@@ -11,6 +11,12 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
     public abstract class DiscoveryConfigModel
     {
         /// <summary>
+        /// (Optional) The MQTT topic subscribed to receive availability (online/offline) updates.
+        /// </summary>
+        /// <value></value>
+        public string Availability_topic { get; set; }
+
+        /// <summary>
         /// (Optional) Information about the device this entity is a part of to tie it into the device registry. Only works through MQTT discovery and when unique_id is set.
         /// </summary>
         /// <value></value>
@@ -27,7 +33,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         /// </summary>
         /// <value></value>
         public string FriendlyName { get; set; }
-        
+
         /// <summary>
         /// The MQTT topic subscribed to receive entity values.
         /// </summary>
@@ -38,12 +44,6 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class SensorDiscoveryConfigModel : DiscoveryConfigModel
     {
-        /// <summary>
-        /// (Optional) The MQTT topic subscribed to receive availability (online/offline) updates.
-        /// </summary>
-        /// <value></value>
-        public string Availability_topic { get; set; }
-
         /// <summary>
         /// (Optional) The type/class of the sensor to set the icon in the frontend. See https://www.home-assistant.io/integrations/sensor/#device-class for options.
         /// </summary>
@@ -104,6 +104,30 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         /// <value></value>
         public string Unique_id { get; set; }
 
+        private string _objectId = string.Empty;
+        /// <summary>
+        /// (Optional) An ID that will be used by Home Assistant to generate the entity ID.
+        /// If not provided, will be generated based on the sensor name and the device name.
+        /// If not provided and sensor name already includes the device name, will return the sensor name.
+        /// </summary>
+        /// <value></value>
+        public string Object_id
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_objectId))
+                    return _objectId;
+
+                // backward compatibility with HASS.Agent and HA versions below 2023.8 where device name was part of the entity ID
+                // will not mess with the "Home Assistant entity ID" if user already has their own naming convention with device ID included
+                if (Name.Contains(Device.Name))
+                    return Name;
+
+                return $"{Device.Name}_{Name}";
+            }
+            set { _objectId = value; }
+        }
+
         /// <summary>
         /// (Optional) Defines the units of measurement of the sensor, if any.
         /// </summary>
@@ -139,7 +163,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         public string Action_topic { get; set; }
 
         /// <summary>
-        /// (Optional) The type/class of the sensor to set the icon in the frontend. See https://www.home-assistant.io/integrations/sensor/#device-class for options.
+        /// (Optional) The type/class of the command to set the icon in the frontend. See https://www.home-assistant.io/integrations/sensor/#device-class for options.
         /// </summary>
         /// <value></value>
         public string Device_class { get; set; }
@@ -151,7 +175,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         public bool? Force_update { get; set; }
 
         /// <summary>
-        /// (Optional) The icon for the sensor.
+        /// (Optional) The icon for the command.
         /// </summary>
         /// <value></value>
         public string Icon { get; set; }
@@ -163,7 +187,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         public string Json_attributes_template { get; set; }
 
         /// <summary>
-        /// (Optional) The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Implies force_update of the current sensor state when a message is received on this topic.
+        /// (Optional) The MQTT topic subscribed to receive a JSON dictionary payload and then set as command attributes. Implies force_update of the current command state when a message is received on this topic.
         /// </summary>
         /// <value></value>
         public string Json_attributes_topic { get; set; }
@@ -187,10 +211,34 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         public int? Qos { get; set; }
 
         /// <summary>
-        /// (Optional) An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+        /// (Optional) An ID that uniquely identifies this command. If two sensors have the same unique ID, Home Assistant will raise an exception.
         /// </summary>
         /// <value></value>
         public string Unique_id { get; set; }
+
+        private string _objectId = string.Empty;
+        /// <summary>
+        /// (Optional) An ID that will be used by Home Assistant to generate the entity ID.
+        /// If not provided, will be generated based on the sensor name and the device name.
+        /// If not provided and sensor name already includes the device name, will return the sensor name.
+        /// </summary>
+        /// <value></value>
+        public string Object_id
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_objectId))
+                    return _objectId;
+
+                // backward compatibility with HASS.Agent and HA versions below 2023.8 where device name was part of the entity ID
+                // will not mess with the "Home Assistant entity ID" if user already has their own naming convention with device ID included
+                if (Name.Contains(Device.Name))
+                    return Name;
+
+                return $"{Device.Name}_{Name}";
+            }
+            set { _objectId = value; }
+        }
 
         /// <summary>
         /// (Optional) Defines a template to extract the value.
@@ -198,7 +246,7 @@ namespace HASS.Agent.Shared.Models.HomeAssistant
         /// <value></value>
         public string Value_template { get; set; }
     }
-    
+
     /// <summary>
     /// This information will be used when announcing this device on the mqtt topic
     /// </summary>

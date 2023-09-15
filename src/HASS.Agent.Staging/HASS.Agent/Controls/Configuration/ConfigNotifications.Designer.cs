@@ -31,151 +31,166 @@ namespace HASS.Agent.Controls.Configuration
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigNotifications));
-            this.LblInfo2 = new System.Windows.Forms.Label();
-            this.LblInfo1 = new System.Windows.Forms.Label();
-            this.BtnNotificationsReadme = new Syncfusion.WinForms.Controls.SfButton();
-            this.CbAcceptNotifications = new System.Windows.Forms.CheckBox();
-            this.BtnSendTestNotification = new Syncfusion.WinForms.Controls.SfButton();
-            this.CbNotificationsIgnoreImageCertErrors = new System.Windows.Forms.CheckBox();
-            this.LblConnectivityDisabled = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            LblInfo2 = new Label();
+            LblInfo1 = new Label();
+            BtnNotificationsReadme = new Syncfusion.WinForms.Controls.SfButton();
+            CbAcceptNotifications = new CheckBox();
+            BtnSendTestNotification = new Syncfusion.WinForms.Controls.SfButton();
+            CbNotificationsIgnoreImageCertErrors = new CheckBox();
+            LblConnectivityDisabled = new Label();
+            CbNotificationsOpenActionUri = new CheckBox();
+            SuspendLayout();
             // 
             // LblInfo2
             // 
-            this.LblInfo2.AccessibleDescription = "Debugging info in case the notifications don\'t work.";
-            this.LblInfo2.AccessibleName = "Debugging info";
-            this.LblInfo2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-            this.LblInfo2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo2.Location = new System.Drawing.Point(37, 354);
-            this.LblInfo2.Name = "LblInfo2";
-            this.LblInfo2.Size = new System.Drawing.Size(643, 153);
-            this.LblInfo2.TabIndex = 37;
-            this.LblInfo2.Text = Languages.ConfigNotifications_LblInfo2;
+            LblInfo2.AccessibleDescription = "Debugging info in case the notifications don't work.";
+            LblInfo2.AccessibleName = "Debugging info";
+            LblInfo2.AccessibleRole = AccessibleRole.StaticText;
+            LblInfo2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            LblInfo2.Location = new Point(37, 354);
+            LblInfo2.Name = "LblInfo2";
+            LblInfo2.Size = new Size(643, 153);
+            LblInfo2.TabIndex = 37;
+            LblInfo2.Text = resources.GetString("LblInfo2.Text");
             // 
             // LblInfo1
             // 
-            this.LblInfo1.AccessibleDescription = "Notifications information.";
-            this.LblInfo1.AccessibleName = "Information";
-            this.LblInfo1.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-            this.LblInfo1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfo1.Location = new System.Drawing.Point(70, 36);
-            this.LblInfo1.Name = "LblInfo1";
-            this.LblInfo1.Size = new System.Drawing.Size(575, 68);
-            this.LblInfo1.TabIndex = 36;
-            this.LblInfo1.Text = Languages.ConfigNotifications_LblInfo1;
+            LblInfo1.AccessibleDescription = "Notifications information.";
+            LblInfo1.AccessibleName = "Information";
+            LblInfo1.AccessibleRole = AccessibleRole.StaticText;
+            LblInfo1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            LblInfo1.Location = new Point(70, 36);
+            LblInfo1.Name = "LblInfo1";
+            LblInfo1.Size = new Size(575, 68);
+            LblInfo1.TabIndex = 36;
+            LblInfo1.Text = resources.GetString("LblInfo1.Text");
             // 
             // BtnNotificationsReadme
             // 
-            this.BtnNotificationsReadme.AccessibleDescription = "Launches the notifications documentation webpage.";
-            this.BtnNotificationsReadme.AccessibleName = "Open documentation";
-            this.BtnNotificationsReadme.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BtnNotificationsReadme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnNotificationsReadme.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnNotificationsReadme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnNotificationsReadme.Location = new System.Drawing.Point(452, 497);
-            this.BtnNotificationsReadme.Name = "BtnNotificationsReadme";
-            this.BtnNotificationsReadme.Size = new System.Drawing.Size(228, 31);
-            this.BtnNotificationsReadme.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnNotificationsReadme.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnNotificationsReadme.Style.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnNotificationsReadme.Style.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnNotificationsReadme.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnNotificationsReadme.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnNotificationsReadme.Style.PressedForeColor = System.Drawing.Color.Black;
-            this.BtnNotificationsReadme.TabIndex = 3;
-            this.BtnNotificationsReadme.Text = Languages.ConfigNotifications_BtnNotificationsReadme;
-            this.BtnNotificationsReadme.UseVisualStyleBackColor = false;
-            this.BtnNotificationsReadme.Click += new System.EventHandler(this.BtnNotificationsReadme_Click);
+            BtnNotificationsReadme.AccessibleDescription = "Launches the notifications documentation webpage.";
+            BtnNotificationsReadme.AccessibleName = "Open documentation";
+            BtnNotificationsReadme.AccessibleRole = AccessibleRole.PushButton;
+            BtnNotificationsReadme.BackColor = Color.FromArgb(63, 63, 70);
+            BtnNotificationsReadme.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            BtnNotificationsReadme.ForeColor = Color.FromArgb(241, 241, 241);
+            BtnNotificationsReadme.Location = new Point(452, 497);
+            BtnNotificationsReadme.Name = "BtnNotificationsReadme";
+            BtnNotificationsReadme.Size = new Size(228, 31);
+            BtnNotificationsReadme.Style.BackColor = Color.FromArgb(63, 63, 70);
+            BtnNotificationsReadme.Style.FocusedBackColor = Color.FromArgb(63, 63, 70);
+            BtnNotificationsReadme.Style.FocusedForeColor = Color.FromArgb(241, 241, 241);
+            BtnNotificationsReadme.Style.ForeColor = Color.FromArgb(241, 241, 241);
+            BtnNotificationsReadme.Style.HoverBackColor = Color.FromArgb(63, 63, 70);
+            BtnNotificationsReadme.Style.HoverForeColor = Color.FromArgb(241, 241, 241);
+            BtnNotificationsReadme.Style.PressedForeColor = Color.Black;
+            BtnNotificationsReadme.TabIndex = 3;
+            BtnNotificationsReadme.Text = Languages.ConfigNotifications_BtnNotificationsReadme;
+            BtnNotificationsReadme.UseVisualStyleBackColor = false;
+            BtnNotificationsReadme.Click += BtnNotificationsReadme_Click;
             // 
             // CbAcceptNotifications
             // 
-            this.CbAcceptNotifications.AccessibleDescription = "Enable the notifications functionality.";
-            this.CbAcceptNotifications.AccessibleName = "Enable notifications";
-            this.CbAcceptNotifications.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.CbAcceptNotifications.AutoSize = true;
-            this.CbAcceptNotifications.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbAcceptNotifications.Location = new System.Drawing.Point(232, 125);
-            this.CbAcceptNotifications.Name = "CbAcceptNotifications";
-            this.CbAcceptNotifications.Size = new System.Drawing.Size(145, 23);
-            this.CbAcceptNotifications.TabIndex = 0;
-            this.CbAcceptNotifications.Text = Languages.ConfigNotifications_CbAcceptNotifications;
-            this.CbAcceptNotifications.UseVisualStyleBackColor = true;
+            CbAcceptNotifications.AccessibleDescription = "Enable the notifications functionality.";
+            CbAcceptNotifications.AccessibleName = "Enable notifications";
+            CbAcceptNotifications.AccessibleRole = AccessibleRole.CheckButton;
+            CbAcceptNotifications.AutoSize = true;
+            CbAcceptNotifications.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            CbAcceptNotifications.Location = new Point(148, 125);
+            CbAcceptNotifications.Name = "CbAcceptNotifications";
+            CbAcceptNotifications.Size = new Size(149, 23);
+            CbAcceptNotifications.TabIndex = 0;
+            CbAcceptNotifications.Text = Languages.ConfigNotifications_CbAcceptNotifications;
+            CbAcceptNotifications.UseVisualStyleBackColor = true;
             // 
             // BtnSendTestNotification
             // 
-            this.BtnSendTestNotification.AccessibleDescription = "Show a test notification.";
-            this.BtnSendTestNotification.AccessibleName = "Test notification";
-            this.BtnSendTestNotification.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BtnSendTestNotification.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnSendTestNotification.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnSendTestNotification.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnSendTestNotification.Location = new System.Drawing.Point(220, 230);
-            this.BtnSendTestNotification.Name = "BtnSendTestNotification";
-            this.BtnSendTestNotification.Size = new System.Drawing.Size(301, 31);
-            this.BtnSendTestNotification.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnSendTestNotification.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnSendTestNotification.Style.FocusedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnSendTestNotification.Style.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnSendTestNotification.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.BtnSendTestNotification.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.BtnSendTestNotification.Style.PressedForeColor = System.Drawing.Color.Black;
-            this.BtnSendTestNotification.TabIndex = 2;
-            this.BtnSendTestNotification.Text = Languages.ConfigNotifications_BtnSendTestNotification;
-            this.BtnSendTestNotification.UseVisualStyleBackColor = false;
-            this.BtnSendTestNotification.Click += new System.EventHandler(this.BtnSendTestNotification_Click);
+            BtnSendTestNotification.AccessibleDescription = "Show a test notification.";
+            BtnSendTestNotification.AccessibleName = "Test notification";
+            BtnSendTestNotification.AccessibleRole = AccessibleRole.PushButton;
+            BtnSendTestNotification.BackColor = Color.FromArgb(63, 63, 70);
+            BtnSendTestNotification.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            BtnSendTestNotification.ForeColor = Color.FromArgb(241, 241, 241);
+            BtnSendTestNotification.Location = new Point(220, 230);
+            BtnSendTestNotification.Name = "BtnSendTestNotification";
+            BtnSendTestNotification.Size = new Size(301, 31);
+            BtnSendTestNotification.Style.BackColor = Color.FromArgb(63, 63, 70);
+            BtnSendTestNotification.Style.FocusedBackColor = Color.FromArgb(63, 63, 70);
+            BtnSendTestNotification.Style.FocusedForeColor = Color.FromArgb(241, 241, 241);
+            BtnSendTestNotification.Style.ForeColor = Color.FromArgb(241, 241, 241);
+            BtnSendTestNotification.Style.HoverBackColor = Color.FromArgb(63, 63, 70);
+            BtnSendTestNotification.Style.HoverForeColor = Color.FromArgb(241, 241, 241);
+            BtnSendTestNotification.Style.PressedForeColor = Color.Black;
+            BtnSendTestNotification.TabIndex = 2;
+            BtnSendTestNotification.Text = Languages.ConfigNotifications_BtnSendTestNotification;
+            BtnSendTestNotification.UseVisualStyleBackColor = false;
+            BtnSendTestNotification.Click += BtnSendTestNotification_Click;
             // 
             // CbNotificationsIgnoreImageCertErrors
             // 
-            this.CbNotificationsIgnoreImageCertErrors.AccessibleDescription = "Download notification images, even when there are certificate errors.";
-            this.CbNotificationsIgnoreImageCertErrors.AccessibleName = "Ignore certificate";
-            this.CbNotificationsIgnoreImageCertErrors.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.CbNotificationsIgnoreImageCertErrors.AutoSize = true;
-            this.CbNotificationsIgnoreImageCertErrors.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbNotificationsIgnoreImageCertErrors.Location = new System.Drawing.Point(232, 171);
-            this.CbNotificationsIgnoreImageCertErrors.Name = "CbNotificationsIgnoreImageCertErrors";
-            this.CbNotificationsIgnoreImageCertErrors.Size = new System.Drawing.Size(237, 23);
-            this.CbNotificationsIgnoreImageCertErrors.TabIndex = 1;
-            this.CbNotificationsIgnoreImageCertErrors.Text = Languages.ConfigNotifications_CbNotificationsIgnoreImageCertErrors;
-            this.CbNotificationsIgnoreImageCertErrors.UseVisualStyleBackColor = true;
+            CbNotificationsIgnoreImageCertErrors.AccessibleDescription = "Download notification images, even when there are certificate errors.";
+            CbNotificationsIgnoreImageCertErrors.AccessibleName = "Ignore certificate";
+            CbNotificationsIgnoreImageCertErrors.AccessibleRole = AccessibleRole.CheckButton;
+            CbNotificationsIgnoreImageCertErrors.AutoSize = true;
+            CbNotificationsIgnoreImageCertErrors.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            CbNotificationsIgnoreImageCertErrors.Location = new Point(148, 154);
+            CbNotificationsIgnoreImageCertErrors.Name = "CbNotificationsIgnoreImageCertErrors";
+            CbNotificationsIgnoreImageCertErrors.Size = new Size(238, 23);
+            CbNotificationsIgnoreImageCertErrors.TabIndex = 1;
+            CbNotificationsIgnoreImageCertErrors.Text = Languages.ConfigNotifications_CbNotificationsIgnoreImageCertErrors;
+            CbNotificationsIgnoreImageCertErrors.UseVisualStyleBackColor = true;
             // 
             // LblConnectivityDisabled
             // 
-            this.LblConnectivityDisabled.AccessibleDescription = "Warns that the local api or mqtt needs to be enabled for this to work.";
-            this.LblConnectivityDisabled.AccessibleName = "Connectivity warning";
-            this.LblConnectivityDisabled.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-            this.LblConnectivityDisabled.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblConnectivityDisabled.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblConnectivityDisabled.Location = new System.Drawing.Point(19, 293);
-            this.LblConnectivityDisabled.Name = "LblConnectivityDisabled";
-            this.LblConnectivityDisabled.Size = new System.Drawing.Size(663, 54);
-            this.LblConnectivityDisabled.TabIndex = 63;
-            this.LblConnectivityDisabled.Text = Languages.ConfigNotifications_LblConnectivityDisabled;
-            this.LblConnectivityDisabled.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LblConnectivityDisabled.Visible = false;
+            LblConnectivityDisabled.AccessibleDescription = "Warns that the local api or mqtt needs to be enabled for this to work.";
+            LblConnectivityDisabled.AccessibleName = "Connectivity warning";
+            LblConnectivityDisabled.AccessibleRole = AccessibleRole.StaticText;
+            LblConnectivityDisabled.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            LblConnectivityDisabled.ForeColor = Color.OrangeRed;
+            LblConnectivityDisabled.Location = new Point(19, 293);
+            LblConnectivityDisabled.Name = "LblConnectivityDisabled";
+            LblConnectivityDisabled.Size = new Size(663, 54);
+            LblConnectivityDisabled.TabIndex = 63;
+            LblConnectivityDisabled.Text = "both the local API and MQTT are disabled, but the integration needs at least one for it to work";
+            LblConnectivityDisabled.TextAlign = ContentAlignment.TopCenter;
+            LblConnectivityDisabled.Visible = false;
+            // 
+            // CbNotificationsOpenActionUri
+            // 
+            CbNotificationsOpenActionUri.AccessibleDescription = "Treat URI elements of notification elemtns like Android Compaion App Does (open URI)";
+            CbNotificationsOpenActionUri.AccessibleName = "Use Android Companion App logic for URI elements.";
+            CbNotificationsOpenActionUri.AccessibleRole = AccessibleRole.CheckButton;
+            CbNotificationsOpenActionUri.AutoSize = true;
+            CbNotificationsOpenActionUri.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            CbNotificationsOpenActionUri.Location = new Point(148, 183);
+            CbNotificationsOpenActionUri.Name = "CbNotificationsOpenActionUri";
+            CbNotificationsOpenActionUri.Size = new Size(446, 23);
+            CbNotificationsOpenActionUri.TabIndex = 64;
+            CbNotificationsOpenActionUri.Text = Languages.ConfigNotifications_CbNotificationsOpenActionUri;
+            CbNotificationsOpenActionUri.UseVisualStyleBackColor = true;
             // 
             // ConfigNotifications
             // 
-            this.AccessibleDescription = "Panel containing the notification integration\'s configuration.";
-            this.AccessibleName = "Notifications";
-            this.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.Controls.Add(this.LblConnectivityDisabled);
-            this.Controls.Add(this.CbNotificationsIgnoreImageCertErrors);
-            this.Controls.Add(this.BtnSendTestNotification);
-            this.Controls.Add(this.LblInfo1);
-            this.Controls.Add(this.BtnNotificationsReadme);
-            this.Controls.Add(this.CbAcceptNotifications);
-            this.Controls.Add(this.LblInfo2);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ConfigNotifications";
-            this.Size = new System.Drawing.Size(700, 544);
-            this.Load += new System.EventHandler(this.ConfigNotifications_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AccessibleDescription = "Panel containing the notification integration's configuration.";
+            AccessibleName = "Notifications";
+            AccessibleRole = AccessibleRole.Pane;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(45, 45, 48);
+            Controls.Add(CbNotificationsOpenActionUri);
+            Controls.Add(LblConnectivityDisabled);
+            Controls.Add(CbNotificationsIgnoreImageCertErrors);
+            Controls.Add(BtnSendTestNotification);
+            Controls.Add(LblInfo1);
+            Controls.Add(BtnNotificationsReadme);
+            Controls.Add(CbAcceptNotifications);
+            Controls.Add(LblInfo2);
+            ForeColor = Color.FromArgb(241, 241, 241);
+            Margin = new Padding(4);
+            Name = "ConfigNotifications";
+            Size = new Size(700, 544);
+            Load += ConfigNotifications_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -187,5 +202,6 @@ namespace HASS.Agent.Controls.Configuration
         internal Syncfusion.WinForms.Controls.SfButton BtnSendTestNotification;
         internal CheckBox CbNotificationsIgnoreImageCertErrors;
         private Label LblConnectivityDisabled;
+        internal CheckBox CbNotificationsOpenActionUri;
     }
 }

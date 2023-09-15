@@ -20,77 +20,77 @@ using SensorType = HASS.Agent.Shared.Enums.SensorType;
 
 namespace HASS.Agent.Settings
 {
-    /// <summary>
-    /// Handles loading and storing sensors
-    /// </summary>
-    internal static class StoredSensors
-    {
-        /// <summary>
-        /// Load all stored sensors
-        /// </summary>
-        /// <returns></returns>
-        internal static async Task<bool> LoadAsync()
-        {
-            try
-            {
-                // set empty lists
-                Variables.SingleValueSensors = new List<AbstractSingleValueSensor>();
-                Variables.MultiValueSensors = new List<AbstractMultiValueSensor>();
+	/// <summary>
+	/// Handles loading and storing sensors
+	/// </summary>
+	internal static class StoredSensors
+	{
+		/// <summary>
+		/// Load all stored sensors
+		/// </summary>
+		/// <returns></returns>
+		internal static async Task<bool> LoadAsync()
+		{
+			try
+			{
+				// set empty lists
+				Variables.SingleValueSensors = new List<AbstractSingleValueSensor>();
+				Variables.MultiValueSensors = new List<AbstractMultiValueSensor>();
 
-                // check for existing file
-                if (!File.Exists(Variables.SensorsFile))
-                {
-                    // none yet
-                    Log.Information("[SETTINGS_SENSORS] Config not found, no entities loaded");
-                    Variables.MainForm?.SetSensorsStatus(ComponentStatus.Stopped);
-                    return true;
-                }
+				// check for existing file
+				if (!File.Exists(Variables.SensorsFile))
+				{
+					// none yet
+					Log.Information("[SETTINGS_SENSORS] Config not found, no entities loaded");
+					Variables.MainForm?.SetSensorsStatus(ComponentStatus.Stopped);
+					return true;
+				}
 
-                // read the content
-                var sensorsRaw = await File.ReadAllTextAsync(Variables.SensorsFile);
-                if (string.IsNullOrWhiteSpace(sensorsRaw))
-                {
-                    Log.Information("[SETTINGS_SENSORS] Config is empty, no entities loaded");
-                    Variables.MainForm?.SetSensorsStatus(ComponentStatus.Stopped);
-                    return true;
-                }
+				// read the content
+				var sensorsRaw = await File.ReadAllTextAsync(Variables.SensorsFile);
+				if (string.IsNullOrWhiteSpace(sensorsRaw))
+				{
+					Log.Information("[SETTINGS_SENSORS] Config is empty, no entities loaded");
+					Variables.MainForm?.SetSensorsStatus(ComponentStatus.Stopped);
+					return true;
+				}
 
-                // deserialize
-                var configuredSensors = JsonConvert.DeserializeObject<List<ConfiguredSensor>>(sensorsRaw);
+				// deserialize
+				var configuredSensors = JsonConvert.DeserializeObject<List<ConfiguredSensor>>(sensorsRaw);
 
-                // null-check
-                if (configuredSensors == null)
-                {
-                    Log.Error("[SETTINGS_SENSORS] Error loading entities: returned null object");
-                    Variables.MainForm?.SetSensorsStatus(ComponentStatus.Failed);
-                    return false;
-                }
+				// null-check
+				if (configuredSensors == null)
+				{
+					Log.Error("[SETTINGS_SENSORS] Error loading entities: returned null object");
+					Variables.MainForm?.SetSensorsStatus(ComponentStatus.Failed);
+					return false;
+				}
 
-                // convert to abstract sensors
-                await Task.Run(delegate
-                {
-                    foreach (var sensor in configuredSensors)
-                    {
-                        if (sensor.IsSingleValue()) Variables.SingleValueSensors.Add(ConvertConfiguredToAbstractSingleValue(sensor));
-                        else Variables.MultiValueSensors.Add(ConvertConfiguredToAbstractMultiValue(sensor));
-                    }
-                });
+				// convert to abstract sensors
+				await Task.Run(delegate
+				{
+					foreach (var sensor in configuredSensors)
+					{
+						if (sensor.IsSingleValue()) Variables.SingleValueSensors.Add(ConvertConfiguredToAbstractSingleValue(sensor));
+						else Variables.MultiValueSensors.Add(ConvertConfiguredToAbstractMultiValue(sensor));
+					}
+				});
 
-                // all good
-                Log.Information("[SETTINGS_SENSORS] Loaded {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count));
-                Variables.MainForm?.SetSensorsStatus(ComponentStatus.Ok);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "[SETTINGS_SENSORS] Error loading entities: {err}", ex.Message);
-                Variables.MainForm?.ShowMessageBox(string.Format(Languages.StoredSensors_Load_MessageBox1, ex.Message), true);
+				// all good
+				Log.Information("[SETTINGS_SENSORS] Loaded {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count));
+				Variables.MainForm?.SetSensorsStatus(ComponentStatus.Ok);
+				return true;
+			}
+			catch (Exception ex)
+			{
+				Log.Fatal(ex, "[SETTINGS_SENSORS] Error loading entities: {err}", ex.Message);
+				Variables.MainForm?.ShowMessageBox(string.Format(Languages.StoredSensors_Load_MessageBox1, ex.Message), true);
 
                 Variables.MainForm?.SetSensorsStatus(ComponentStatus.Failed);
                 return false;
             }
         }
-        
+
         /// <summary>
         /// Convert a single-value 'ConfiguredSensor' (local storage, UI) to an 'AbstractSensor' (MQTT)
         /// </summary>
@@ -120,13 +120,16 @@ namespace HASS.Agent.Settings
                 case SensorType.ActiveWindowSensor:
                     abstractSensor = new ActiveWindowSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
+                case SensorType.ActiveDesktopSensor:
+                    abstractSensor = new ActiveDesktopSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    break;
                 case SensorType.NamedWindowSensor:
                     abstractSensor = new NamedWindowSensor(sensor.WindowName, sensor.Name, sensor.FriendlyName, sensor.UpdateInterval, sensor.Id.ToString());
                     break;
-                case SensorType.LastActiveSensor:
-                    abstractSensor = new LastActiveSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
-                    break;
-                case SensorType.LastSystemStateChangeSensor:
+				case SensorType.LastActiveSensor:
+					abstractSensor = new LastActiveSensor(sensor.ApplyRounding, sensor.Round, sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+					break;
+				case SensorType.LastSystemStateChangeSensor:
                     abstractSensor = new LastSystemStateChangeSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
                 case SensorType.LastBootSensor:
@@ -192,50 +195,57 @@ namespace HASS.Agent.Settings
                 case SensorType.BluetoothLeDevicesSensor:
                     abstractSensor = new BluetoothLeDevicesSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
+                case SensorType.InternalDeviceSensor:
+                    abstractSensor = new InternalDeviceSensor(sensor.Query, sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    break;
                 default:
                     Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured single-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
                     break;
             }
 
+            abstractSensor.IgnoreAvailability = sensor.IgnoreAvailability;
+
             return abstractSensor;
         }
 
-        /// <summary>
-        /// Convert a multi-value 'ConfiguredSensor' (local storage, UI) to an 'AbstractSensor' (MQTT)
-        /// </summary>
-        /// <param name="sensor"></param>
-        /// <returns></returns>
-        internal static AbstractMultiValueSensor ConvertConfiguredToAbstractMultiValue(ConfiguredSensor sensor)
-        {
-            AbstractMultiValueSensor abstractSensor = null;
+		/// <summary>
+		/// Convert a multi-value 'ConfiguredSensor' (local storage, UI) to an 'AbstractSensor' (MQTT)
+		/// </summary>
+		/// <param name="sensor"></param>
+		/// <returns></returns>
+		internal static AbstractMultiValueSensor ConvertConfiguredToAbstractMultiValue(ConfiguredSensor sensor)
+		{
+			AbstractMultiValueSensor abstractSensor = null;
 
-            switch (sensor.Type)
-            {
-                case SensorType.StorageSensors:
-                    abstractSensor = new StorageSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
-                    break;
-                case SensorType.NetworkSensors:
-                    abstractSensor = new NetworkSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Query, sensor.Id.ToString());
-                    break;
-                case SensorType.WindowsUpdatesSensors:
-                    abstractSensor = new WindowsUpdatesSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
-                    break;
-                case SensorType.BatterySensors:
-                    abstractSensor = new BatterySensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
-                    break;
-                case SensorType.DisplaySensors:
-                    abstractSensor = new DisplaySensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
-                    break;
-                case SensorType.AudioSensors:
-                    abstractSensor = new AudioSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
-                    break;
-                case SensorType.PrintersSensors:
-                    abstractSensor = new PrintersSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
-                    break;
-                default:
-                    Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured multi-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
-                    break;
-            }
+			switch (sensor.Type)
+			{
+				case SensorType.StorageSensors:
+					abstractSensor = new StorageSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+					break;
+				case SensorType.NetworkSensors:
+					abstractSensor = new NetworkSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Query, sensor.Id.ToString());
+					break;
+				case SensorType.WindowsUpdatesSensors:
+					abstractSensor = new WindowsUpdatesSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+					break;
+				case SensorType.BatterySensors:
+					abstractSensor = new BatterySensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+					break;
+				case SensorType.DisplaySensors:
+					abstractSensor = new DisplaySensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+					break;
+				case SensorType.AudioSensors:
+					abstractSensor = new AudioSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+					break;
+				case SensorType.PrintersSensors:
+					abstractSensor = new PrintersSensors(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+					break;
+				default:
+					Log.Error("[SETTINGS_SENSORS] [{name}] Unknown configured multi-value sensor type: {type}", sensor.Name, sensor.Type.ToString());
+					break;
+			}
+
+            abstractSensor.IgnoreAvailability = sensor.IgnoreAvailability;
 
             return abstractSensor;
         }
@@ -259,6 +269,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = wmiSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = wmiSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = wmiSensor.IgnoreAvailability,
                         Scope = wmiSensor.Scope,
                         Query = wmiSensor.Query,
                         ApplyRounding = wmiSensor.ApplyRounding,
@@ -276,6 +287,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = namedWindowSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = namedWindowSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = namedWindowSensor.IgnoreAvailability,
                         WindowName = namedWindowSensor.WindowName
                     };
                 }
@@ -290,6 +302,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = performanceCounterSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = performanceCounterSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = performanceCounterSensor.IgnoreAvailability,
                         Category = performanceCounterSensor.CategoryName,
                         Counter = performanceCounterSensor.CounterName,
                         Instance = performanceCounterSensor.InstanceName,
@@ -308,6 +321,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = processActiveSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = processActiveSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = processActiveSensor.IgnoreAvailability,
                         Query = processActiveSensor.ProcessName
                     };
                 }
@@ -322,6 +336,7 @@ namespace HASS.Agent.Settings
                         FriendlyName = serviceStateSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = serviceStateSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = serviceStateSensor.IgnoreAvailability,
                         Query = serviceStateSensor.ServiceName
                     };
                 }
@@ -336,13 +351,30 @@ namespace HASS.Agent.Settings
                         FriendlyName = powershellSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = powershellSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = powershellSensor.IgnoreAvailability,
                         Query = powershellSensor.Command,
                         ApplyRounding = powershellSensor.ApplyRounding,
                         Round = powershellSensor.Round
                     };
                 }
 
-                case WindowStateSensor windowStateSensor:
+				case LastActiveSensor lastActiveSensor:
+					{
+						_ = Enum.TryParse<SensorType>(lastActiveSensor.GetType().Name, out var type);
+						return new ConfiguredSensor
+						{
+							Id = Guid.Parse(lastActiveSensor.Id),
+							Name = lastActiveSensor.Name,
+							FriendlyName = lastActiveSensor.FriendlyName,
+							Type = type,
+							UpdateInterval = lastActiveSensor.UpdateIntervalSeconds,
+							IgnoreAvailability = lastActiveSensor.IgnoreAvailability,
+							ApplyRounding = lastActiveSensor.ApplyRounding,
+							Round = lastActiveSensor.Round
+						};
+					}
+
+				case WindowStateSensor windowStateSensor:
                 {
                     _ = Enum.TryParse<SensorType>(windowStateSensor.GetType().Name, out var type);
                     return new ConfiguredSensor
@@ -352,9 +384,25 @@ namespace HASS.Agent.Settings
                         FriendlyName = windowStateSensor.FriendlyName,
                         Type = type,
                         UpdateInterval = windowStateSensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = windowStateSensor.IgnoreAvailability,
                         Query = windowStateSensor.ProcessName
                     };
                 }
+
+                case InternalDeviceSensor internalDeviceSensor:
+                    {
+                        _ = Enum.TryParse<SensorType>(internalDeviceSensor.GetType().Name, out var type);
+                        return new ConfiguredSensor
+                        {
+                            Id = Guid.Parse(internalDeviceSensor.Id),
+                            Name = internalDeviceSensor.Name,
+                            FriendlyName = internalDeviceSensor.FriendlyName,
+                            Type = type,
+                            UpdateInterval = internalDeviceSensor.UpdateIntervalSeconds,
+							IgnoreAvailability = internalDeviceSensor.IgnoreAvailability,
+							Query = internalDeviceSensor.SensorType.ToString()
+                        };
+                    }
 
                 default:
                 {
@@ -365,7 +413,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type, 
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
             }
@@ -389,7 +438,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -403,7 +453,8 @@ namespace HASS.Agent.Settings
                         FriendlyName = sensor.FriendlyName,
                         Query = networkSensors.NetworkCard,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -416,7 +467,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -429,7 +481,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -442,7 +495,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -455,7 +509,8 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
 
@@ -468,53 +523,54 @@ namespace HASS.Agent.Settings
                         Name = sensor.Name,
                         FriendlyName = sensor.FriendlyName,
                         Type = type,
-                        UpdateInterval = sensor.UpdateIntervalSeconds
+                        UpdateInterval = sensor.UpdateIntervalSeconds,
+                        IgnoreAvailability = sensor.IgnoreAvailability
                     };
                 }
             }
 
-            return null;
-        }
+			return null;
+		}
 
-        /// <summary>
-        /// Store all current sensors
-        /// </summary>
-        /// <returns></returns>
-        internal static bool Store()
-        {
-            try
-            {
-                // check config dir
-                if (!Directory.Exists(Variables.ConfigPath))
-                {
-                    // create
-                    Directory.CreateDirectory(Variables.ConfigPath);
-                }
+		/// <summary>
+		/// Store all current sensors
+		/// </summary>
+		/// <returns></returns>
+		internal static bool Store()
+		{
+			try
+			{
+				// check config dir
+				if (!Directory.Exists(Variables.ConfigPath))
+				{
+					// create
+					Directory.CreateDirectory(Variables.ConfigPath);
+				}
 
-                // convert single-value sensors
-                var configuredSensors = Variables.SingleValueSensors.Select(ConvertAbstractSingleValueToConfigured).Where(configuredSensor => configuredSensor != null).ToList();
+				// convert single-value sensors
+				var configuredSensors = Variables.SingleValueSensors.Select(ConvertAbstractSingleValueToConfigured).Where(configuredSensor => configuredSensor != null).ToList();
 
-                // convert multi-value sensors
-                var configuredMultiValueSensors = Variables.MultiValueSensors.Select(ConvertAbstractMultiValueToConfigured).Where(configuredSensor => configuredSensor != null).ToList();
-                configuredSensors = configuredSensors.Concat(configuredMultiValueSensors).ToList();
+				// convert multi-value sensors
+				var configuredMultiValueSensors = Variables.MultiValueSensors.Select(ConvertAbstractMultiValueToConfigured).Where(configuredSensor => configuredSensor != null).ToList();
+				configuredSensors = configuredSensors.Concat(configuredMultiValueSensors).ToList();
 
-                // serialize to file
-                var sensors = JsonConvert.SerializeObject(configuredSensors, Formatting.Indented);
-                File.WriteAllText(Variables.SensorsFile, sensors);
+				// serialize to file
+				var sensors = JsonConvert.SerializeObject(configuredSensors, Formatting.Indented);
+				File.WriteAllText(Variables.SensorsFile, sensors);
 
-                // done
-                Log.Information("[SETTINGS_SENSORS] Stored {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count));
-                Variables.MainForm?.SetSensorsStatus(ComponentStatus.Ok);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "[SETTINGS_SENSORS] Error storing entities: {err}", ex.Message);
-                Variables.MainForm?.ShowMessageBox(string.Format(Languages.StoredSensors_Store_MessageBox1, ex.Message), true);
+				// done
+				Log.Information("[SETTINGS_SENSORS] Stored {count} entities", (Variables.SingleValueSensors.Count + Variables.MultiValueSensors.Count));
+				Variables.MainForm?.SetSensorsStatus(ComponentStatus.Ok);
+				return true;
+			}
+			catch (Exception ex)
+			{
+				Log.Fatal(ex, "[SETTINGS_SENSORS] Error storing entities: {err}", ex.Message);
+				Variables.MainForm?.ShowMessageBox(string.Format(Languages.StoredSensors_Store_MessageBox1, ex.Message), true);
 
-                Variables.MainForm?.SetSensorsStatus(ComponentStatus.Failed);
-                return false;
-            }
-        }
-    }
+				Variables.MainForm?.SetSensorsStatus(ComponentStatus.Failed);
+				return false;
+			}
+		}
+	}
 }

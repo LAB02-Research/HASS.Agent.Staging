@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using HASS.Agent.Shared.Enums;
 using Microsoft.Win32;
@@ -22,6 +23,11 @@ namespace HASS.Agent.Shared.Managers
         /// Contains the last event that happened to the system, ie. user logged on, session locked, etc
         /// </summary>
         public static SystemStateEvent LastSystemStateEvent { get; private set; } = SystemStateEvent.ApplicationStarted;
+
+		/// <summary>
+		/// Contains the key value pair with SystemStateEvent and the last time it occurred
+		/// </summary>
+		public static Dictionary<SystemStateEvent, DateTime> LastEventOccurrence = new Dictionary<SystemStateEvent, DateTime>();
 
         /// <summary>
         /// Sets the provided system state event
@@ -90,6 +96,8 @@ namespace HASS.Agent.Shared.Managers
                 SessionSwitchReason.SessionUnlock => SystemStateEvent.SessionUnlock,
                 _ => LastSystemStateEvent
             };
+
+            LastEventOccurrence[LastSystemStateEvent] = DateTime.Now;
         }
 
         private static void SystemEventsOnPowerModeChanged(object sender, PowerModeChangedEventArgs e)
@@ -102,7 +110,9 @@ namespace HASS.Agent.Shared.Managers
                 PowerModes.Suspend => SystemStateEvent.Suspend,
                 _ => LastSystemStateEvent
             };
-        }
+
+			LastEventOccurrence[LastSystemStateEvent] = DateTime.Now;
+		}
 
         private static void SystemEventsOnSessionEnding(object sender, SessionEndingEventArgs e)
         {
@@ -112,7 +122,9 @@ namespace HASS.Agent.Shared.Managers
                 SessionEndReasons.SystemShutdown => SystemStateEvent.SystemShutdown,
                 _ => LastSystemStateEvent
             };
-        }
+
+			LastEventOccurrence[LastSystemStateEvent] = DateTime.Now;
+		}
 
         private static void SystemEventsOnSessionEnded(object sender, SessionEndedEventArgs e)
         {
@@ -122,6 +134,8 @@ namespace HASS.Agent.Shared.Managers
                 SessionEndReasons.SystemShutdown => SystemStateEvent.SystemShutdown,
                 _ => LastSystemStateEvent
             };
-        }
+
+			LastEventOccurrence[LastSystemStateEvent] = DateTime.Now;
+		}
     }
 }

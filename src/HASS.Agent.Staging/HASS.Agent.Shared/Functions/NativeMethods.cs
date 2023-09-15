@@ -5,13 +5,14 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using HASS.Agent.Shared.Enums;
+using static HASS.Agent.Shared.Functions.Inputs;
 
 namespace HASS.Agent.Shared.Functions
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    internal static class NativeMethods
+    public static class NativeMethods
     {
-        internal static WINDOWPLACEMENT GetPlacement(IntPtr hwnd)
+        public static WINDOWPLACEMENT GetPlacement(IntPtr hwnd)
         {
             var placement = new WINDOWPLACEMENT();
             placement.length = Marshal.SizeOf(placement);
@@ -21,11 +22,11 @@ namespace HASS.Agent.Shared.Functions
 
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
+        public static extern bool GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
 
         [Serializable]
         [StructLayout(LayoutKind.Sequential)]
-        internal struct WINDOWPLACEMENT
+        public struct WINDOWPLACEMENT
         {
             public int length;
             public int flags;
@@ -40,33 +41,36 @@ namespace HASS.Agent.Shared.Functions
         internal const uint SC_MONITORPOWER = 0xF170;
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        internal static extern bool OpenProcessToken(IntPtr processHandle, uint desiredAccess, out IntPtr tokenHandle);
+        public static extern bool OpenProcessToken(IntPtr processHandle, uint desiredAccess, out IntPtr tokenHandle);
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool CloseHandle(IntPtr hObject);
+        public static extern bool CloseHandle(IntPtr hObject);
 
-        internal delegate bool EnumWindowsProc(IntPtr hWnd, int lParam);
-
-        [DllImport("USER32.DLL")]
-        internal static extern bool EnumWindows(EnumWindowsProc enumFunc, int lParam);
+        public delegate bool EnumWindowsProc(IntPtr hWnd, int lParam);
 
         [DllImport("USER32.DLL")]
-        internal static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+        public static extern bool EnumWindows(EnumWindowsProc enumFunc, int lParam);
 
         [DllImport("USER32.DLL")]
-        internal static extern int GetWindowTextLength(IntPtr hWnd);
+        public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
         [DllImport("USER32.DLL")]
-        internal static extern bool IsWindowVisible(IntPtr hWnd);
+        public static extern int GetWindowTextLength(IntPtr hWnd);
 
         [DllImport("USER32.DLL")]
-        internal static extern IntPtr GetShellWindow();
+        public static extern bool IsWindowVisible(IntPtr hWnd);
+
+        [DllImport("USER32.DLL")]
+        public static extern IntPtr GetShellWindow();
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, [Out] IntPtr lParam);
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, [Out] IntPtr lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern IntPtr PostMessage(IntPtr hWnd, uint msg, IntPtr wParam, [Out] IntPtr lParam);
+        public static extern IntPtr PostMessage(IntPtr hWnd, uint msg, IntPtr wParam, [Out] IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        public static extern uint SendInput(uint nInputs, INPUT[] pInputs, int cbSize);
     }
 }

@@ -2732,7 +2732,7 @@ Stelle sicher, dass keine andere Instanz von HASS.Agent läuft und der Port verf
 
 Dies unterscheidet sich von dem „ÖffneUrl“ Befehl, da er keinen vollständigen Browser lädt, sondern nur die bereitgestellte URL in einem eigenen Fenster.
 
-Du kannst dies benutzen, um zum Beispiel schnell Home Assistant&apos;s Dashboard anzuzeigen.
+Du kannst dies benutzen, um zum Beispiel schnell Home Assistant's Dashboard anzuzeigen.
 
 Standardmäßig werden alle Cookies für unbegrenzte Zeit gespeichert, sodass du dich nur einmal einloggen musst.</value>
   </data>
@@ -2793,7 +2793,7 @@ Hinweis: Diese Meldung wird nur einmal angezeigt.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigLocalApi_LblInfo2" xml:space="preserve">
-    <value>Um auf Anfragen reagieren zu können, muss HASS.Agent&apos;s Port in deiner Firewall reserviert und geöffnet werden. Du kannst diese Schaltfläche verwenden, um dies für dich zu erledigen.</value>
+    <value>Um auf Anfragen reagieren zu können, muss HASS.Agent's Port in deiner Firewall reserviert und geöffnet werden. Du kannst diese Schaltfläche verwenden, um dies für dich zu erledigen.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="ConfigLocalApi_LblPort" xml:space="preserve">
@@ -3170,13 +3170,13 @@ Es sollte drei Abschnitte enthalten (getrennt durch zwei Punkte).
 Sind Sie sicher, dass Sie es so verwenden wollen?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox2" xml:space="preserve">
-    <value>Die URI Ihres Home-Assistenten sieht nicht richtig aus. Sie sollte etwa so aussehen: &quot;http://homeassistant.local:8123&quot; oder &quot;https://192.168.0.1:8123&quot;.
+    <value>Die URI Ihres Home-Assistenten sieht nicht richtig aus. Sie sollte etwa so aussehen: "http://homeassistant.local:8123" oder "https://192.168.0.1:8123".
 
 Sind Sie sicher, dass Sie ihn so verwenden wollen?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox3" xml:space="preserve">
     <value>Deine MQTT Broker URI sieht nicht richtig aus. So sollte es aussehen
-&quot;homeassistant.local&quot; oder &quot;192.168.0.1&quot;
+"homeassistant.local" oder "192.168.0.1"
 
 Bist Du sicher, es so zu verwenden?</value>
   </data>
@@ -3333,7 +3333,7 @@ Möchtest Du den Protokollordner öffnen?</value>
     <value>Fehler beim Einstellen des Startmodus, überprüfe die Protokolle</value>
   </data>
   <data name="WebView_InitializeAsync_MessageBox1" xml:space="preserve">
-    <value>Microsoft&apos;s WebView2 Runtime wurde nicht auf diesem Gerät gefunden. Normalerweise wird dies vom Installer ausgeführt, Du kannst es auch manuell installieren.
+    <value>Microsoft's WebView2 Runtime wurde nicht auf diesem Gerät gefunden. Normalerweise wird dies vom Installer ausgeführt, Du kannst es auch manuell installieren.
 
 Willst Du den Runtime Installer herunterladen?</value>
   </data>
@@ -3342,5 +3342,14 @@ Willst Du den Runtime Installer herunterladen?</value>
   </data>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>SwitchDesktop</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>AktiverDesktop</value>
   </data>
 </root>

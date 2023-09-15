@@ -1,4 +1,5 @@
 ﻿using HASS.Agent.Shared.Enums;
+using static HASS.Agent.Shared.Functions.Inputs;
 
 namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
 {
@@ -10,6 +11,6 @@ namespace HASS.Agent.Shared.HomeAssistant.Commands.KeyCommands
     {
         private const string DefaultName = "monitorwake";
 
-        public MonitorWakeCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(KEY_UP, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
+        public MonitorWakeCommand(string name = DefaultName, string friendlyName = DefaultName, CommandEntityType entityType = CommandEntityType.Button, string id = default) : base(VirtualKeyShort.UP, name ?? DefaultName, friendlyName ?? null, entityType, id) { }
     }
 }

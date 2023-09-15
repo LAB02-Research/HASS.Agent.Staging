@@ -239,7 +239,7 @@ W ten sposób, cokolwiek robisz na swoim komputerze, zawsze możesz wchodzić w 
     <value>Niektóre elementy, takie jak obrazy wyświetlane w powiadomieniach, muszą być tymczasowo przechowywane lokalnie. Możesz
 skonfigurować, przez ile dni mają być przechowywane, zanim HASS.Agent je usunie.
 
-Aby zachować je na stałe, wpisz &quot;0&quot;.</value>
+Aby zachować je na stałe, wpisz "0".</value>
   </data>
   <data name="ConfigLogging_LblInfo1" xml:space="preserve">
     <value>Rozszerzone rejestrowanie logów zapewnia bardziej szczegółowe i wnikliwe informacje w przypadku, gdy domyślne rejestrowanie nie jest wystarczające.
@@ -775,7 +775,7 @@ HASS.Agent do nasłuchiwania na określonym porcie.</value>
     <value>HASS.Agent Aktualizacja</value>
   </data>
   <data name="Restart_LblInfo1" xml:space="preserve">
-    <value>Poczekaj na ponowne uruchomienie HASS.Agent&apos;a..</value>
+    <value>Poczekaj na ponowne uruchomienie HASS.Agent'a..</value>
   </data>
   <data name="Restart_LblTask1" xml:space="preserve">
     <value>Czakam na zamkniecie poprzedniej instancji..</value>
@@ -1199,7 +1199,7 @@ zgłaszaj błędy lub po prostu rozmawiaj o czymkolwiek.</value>
     <value>Pomoc</value>
   </data>
   <data name="Main_TsShow" xml:space="preserve">
-    <value>pokaż HASS.Agent&apos;a</value>
+    <value>pokaż HASS.Agent'a</value>
   </data>
   <data name="Main_TsShowQuickActions" xml:space="preserve">
     <value>pokaż szybkie akcje</value>
@@ -1277,7 +1277,7 @@ k&amp;onfiguracja</value>
     <value>szybkie akcje:</value>
   </data>
   <data name="Main_LblHomeAssistantApi" xml:space="preserve">
-    <value>api home assistant&apos;a:</value>
+    <value>api home assistant'a:</value>
   </data>
   <data name="Main_LblNotificationApi" xml:space="preserve">
     <value>api powiadomień</value>
@@ -1319,7 +1319,7 @@ k&amp;onfiguracja</value>
   <data name="CommandsManager_CustomCommandDescription" xml:space="preserve">
     <value>Wykonaj niestandardowe polecenie.
 
-Te polecenia działają bez podwyższonych uprawnień. Aby uruchomić z podwyższonym poziomem uprawnień, utwórz Zaplanowane zadanie i użyj &apos;schtasks /Run /TN &quot;NazwaZadania&quot;&apos; jako polecenia do wykonania zadania.
+Te polecenia działają bez podwyższonych uprawnień. Aby uruchomić z podwyższonym poziomem uprawnień, utwórz Zaplanowane zadanie i użyj 'schtasks /Run /TN "NazwaZadania"' jako polecenia do wykonania zadania.
 
 Lub włącz opcję „uruchom jako niską integralność”, aby uzyskać jeszcze bardziej rygorystyczne wykonanie.</value>
   </data>
@@ -1402,12 +1402,12 @@ Przydatne na przykład, jeśli chcesz zmusić HASS.Agent do aktualizacji wszystk
   <data name="CommandsManager_RestartCommandDescription" xml:space="preserve">
     <value>Ponowne uruchomi maszynę po jednej minucie.
 
-Wskazówka: włączono przypadkowo? Uruchom &apos;shutdown /a&apos;, aby przerwać.</value>
+Wskazówka: włączono przypadkowo? Uruchom 'shutdown /a', aby przerwać.</value>
   </data>
   <data name="CommandsManager_ShutdownCommandDescription" xml:space="preserve">
     <value>Wyłączy maszynę po jednej minucie.
 
-Wskazówka: włączono przypadkowo? Uruchom &apos;shutdown /a&apos;, aby przerwać.</value>
+Wskazówka: włączono przypadkowo? Uruchom 'shutdown /a', aby przerwać.</value>
   </data>
   <data name="CommandsManager_SleepCommandDescription" xml:space="preserve">
     <value>Usypia maszynę.
@@ -1555,7 +1555,7 @@ Sprawdź logi, aby uzyskać więcej informacji.</value>
     <value>Aktywowanie Uruchomienie-przy-logowaniu..</value>
   </data>
   <data name="OnboardingStartup_Failed" xml:space="preserve">
-    <value>Coś poszło nie tak. Możesz spróbować ponownie, lub przejść do następnej strony i spróbować ponownie po ponownym uruchomieniu HASS.Agent&apos;a.</value>
+    <value>Coś poszło nie tak. Możesz spróbować ponownie, lub przejść do następnej strony i spróbować ponownie po ponownym uruchomieniu HASS.Agent'a.</value>
   </data>
   <data name="OnboardingStartup_BtnSetLaunchOnLogin_2" xml:space="preserve">
     <value>Włącz Uruchomienie-przy-logowaniu</value>
@@ -1663,7 +1663,7 @@ Czy jesteś pewien?</value>
     <value>Wybrane środowisko wykonania nie zostało znalezione. Wybierz nowe.</value>
   </data>
   <data name="ServiceGeneral_LblAuthIdInfo_MessageBox1" xml:space="preserve">
-    <value>Ustawia klucz autoryzacji, jeżeli chcesz aby tylko jedna instancja HASS.Agent&apos;a na tym komputerze łączyła się z usługą usługą Satellite.
+    <value>Ustawia klucz autoryzacji, jeżeli chcesz aby tylko jedna instancja HASS.Agent'a na tym komputerze łączyła się z usługą usługą Satellite.
 
 Tylko instancja z odpowiednim kluczem autoryzacji może się połączyć. 
 
@@ -1673,7 +1673,7 @@ Pozostaw puste aby pozwolić łączyć się wszystkim.</value>
   <data name="ServiceGeneral_LblDeviceNameInfo_MessageBox1" xml:space="preserve">
     <value>Nazwa pod którą usługa  Satellite zostanie zarejestrowana w Home Assistant.
 
-Domyślnie jest to nazwa twojego komputera oraz &apos;-satellite&apos;.</value>
+Domyślnie jest to nazwa twojego komputera oraz '-satellite'.</value>
   </data>
   <data name="ServiceGeneral_LblDisconGraceInfo_MessageBox1" xml:space="preserve">
     <value>Czas po jakim usługa Satellite wyśle informacje o utracie połączenia przez MQTT.</value>
@@ -2132,7 +2132,7 @@ Upewnij się, że żadne inna instancja HASS.Agent nie jest uruchomiona, a port 
   <data name="SensorsManager_AudioSensorsDescription" xml:space="preserve">
     <value>Zwraca informacje na temat urządzenia audio: 
 
-Aktualny maksymalny poziom głośności (może być używany jako prosta wartość &apos;czy coś aktualnie gra&apos;).
+Aktualny maksymalny poziom głośności (może być używany jako prosta wartość 'czy coś aktualnie gra').
 
 Domyślne urządzenie audio: nazwa, stan, głośność.
 
@@ -2212,7 +2212,7 @@ Category: Processor
 Counter: % Processor Time
 Instance: _Total
 
-Możesz odnaleźć liczniki wydajności przez narzędzie Windows &apos;perfmon.exe&apos;.</value>
+Możesz odnaleźć liczniki wydajności przez narzędzie Windows 'perfmon.exe'.</value>
   </data>
   <data name="SensorsManager_ProcessActiveSensorDescription" xml:space="preserve">
     <value>Zwraca ilość instancji danego procesu.</value>
@@ -2221,7 +2221,7 @@ Możesz odnaleźć liczniki wydajności przez narzędzie Windows &apos;perfmon.e
   <data name="SensorsManager_ServiceStateSensorDescription" xml:space="preserve">
     <value>Zwraca stan usługi: NotFound, Stopped, StartPending, StopPending, Running, ContinuePending, PausePending or Paused.
 
-Upewnij się że wpisujesz &apos;Service name&apos;, nie &apos;Dispaly name&apos;.</value>
+Upewnij się że wpisujesz 'Service name', nie 'Dispaly name'.</value>
     <comment>Fuzzy</comment>
   </data>
   <data name="SensorsManager_SessionStateSensorDescription" xml:space="preserve">
@@ -2702,7 +2702,7 @@ Czy chcesz użyć obecnej ścieżki?</value>
     <value>ApplicationStarted</value>
   </data>
   <data name="ServiceGeneral_LblInfo2" xml:space="preserve">
-    <value>Możesz użyć usługi Satellite aby przesyłać czujniki i komendy bez potrzeby bycia zalogowanym. Nie wszystkie typy działają, na przykład komenda &apos;UruchomUrl&apos; może zostać dodana tylko jako normalna komenda.</value>
+    <value>Możesz użyć usługi Satellite aby przesyłać czujniki i komendy bez potrzeby bycia zalogowanym. Nie wszystkie typy działają, na przykład komenda 'UruchomUrl' może zostać dodana tylko jako normalna komenda.</value>
   </data>
   <data name="SensorsConfig_ClmValue" xml:space="preserve">
     <value>Ostatnie Znana Wartość</value>
@@ -2978,7 +2978,7 @@ Czy akceptujesz taką nazwę?</value>
     <value>Pokazuje nazwe okna</value>
   </data>
   <data name="WebViewCommandConfig_CbTopMost" xml:space="preserve">
-    <value>Ustawia okno jako &apos;&amp;Zawsze na wierzchu&apos;</value>
+    <value>Ustawia okno jako '&amp;Zawsze na wierzchu'</value>
   </data>
   <data name="WebViewCommandConfig_LblInfo1" xml:space="preserve">
     <value>Złap i przeciągnij okno aby ustalić rozmiar i miejsce komendy WebView</value>
@@ -3085,7 +3085,7 @@ Uwaga: wyłączyłeś czyszczenie nazw, więc upewnij się, że nazwa Twojego ur
     <value>Usypia wszystkie monitory (niski zużycie energii).</value>
   </data>
   <data name="CommandsManager_MonitorWakeCommandDescription" xml:space="preserve">
-    <value>Stara się wybudzić wszystkie monitory poprzez symulowanie wciśnięcia przycisku &quot;do góry&quot;.</value>
+    <value>Stara się wybudzić wszystkie monitory poprzez symulowanie wciśnięcia przycisku "do góry".</value>
   </data>
   <data name="CommandsManager_SetVolumeCommandDescription" xml:space="preserve">
     <value>Ustawia poziom głośności domyślnego urządzenia na podaną wartość. </value>
@@ -3097,7 +3097,7 @@ Uwaga: wyłączyłeś czyszczenie nazw, więc upewnij się, że nazwa Twojego ur
     <value>komenda</value>
   </data>
   <data name="CommandsMod_MessageBox_Action2" xml:space="preserve">
-    <value>Nie podając żadnej wartości głośności musisz używać encji z &apos;akcją&apos; w Home Assistant. Uruchomienie jej tak jak teraz nie przyniesie żadnego efektu. 
+    <value>Nie podając żadnej wartości głośności musisz używać encji z 'akcją' w Home Assistant. Uruchomienie jej tak jak teraz nie przyniesie żadnego efektu. 
 
 Czy jesteś pewien?</value>
   </data>
@@ -3155,12 +3155,12 @@ Proszę włącz usługę aby ją skonfigurować.</value>
 Czy jesteś pewien, że chcesz użyć tego tokenu?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox2" xml:space="preserve">
-    <value>Twój adres Home Assistant wygląda na błędny. Powinien wyglądać mniej więcej tak &apos;http://homeassistant.local:8123&apos; lub tak &apos;https://192.168.0.1:8123&apos;.
+    <value>Twój adres Home Assistant wygląda na błędny. Powinien wyglądać mniej więcej tak 'http://homeassistant.local:8123' lub tak 'https://192.168.0.1:8123'.
 
 Jesteś pewien że chcesz używać takiego?</value>
   </data>
   <data name="Configuration_CheckValues_MessageBox3" xml:space="preserve">
-    <value>Twój adres brokera MQTT wygląda na błędny. Powinien wyglądać mniej więcej tak &apos;homeassistant.local&apos; lub tak &apos;192.168.0.1&apos;.
+    <value>Twój adres brokera MQTT wygląda na błędny. Powinien wyglądać mniej więcej tak 'homeassistant.local' lub tak '192.168.0.1'.
 
 Jesteś pewien że chcesz używać takiego?</value>
   </data>
@@ -3233,7 +3233,7 @@ Pokazuje tylko te urządzenia które zgłaszały się w okresie od ostatniego ra
 
 Upewnij się że lokalizacja jest włączona w systemie Windows!
 
-W zalezności od Twojej wersji Windows&apos;a opcje te możesz znaleźć w Ustawienia -&gt; Prywatność i Zabezpieczenia -&gt; Lokalizacja</value>
+W zalezności od Twojej wersji Windows'a opcje te możesz znaleźć w Ustawienia -&gt; Prywatność i Zabezpieczenia -&gt; Lokalizacja</value>
   </data>
   <data name="SensorsManager_MicrophoneProcessSensorDescription" xml:space="preserve">
     <value>Zwraca nazwę procesu który obecnie używa mikrofonu. 
@@ -3319,7 +3319,7 @@ Czy chcesz otworzyć plik log?</value>
     <value>Błąd podczas ustawiania trybu uruchamiania. Sprawdź logi, aby uzyskać więcej informacji.</value>
   </data>
   <data name="WebView_InitializeAsync_MessageBox1" xml:space="preserve">
-    <value>Na twoim komputerze nie ma zainstalowanego Microsoft&apos;s WebView2 runtime. Zazwyczaj jest on instalowany automatycznie, ale możesz to zrobić też ręcznie. 
+    <value>Na twoim komputerze nie ma zainstalowanego Microsoft's WebView2 runtime. Zazwyczaj jest on instalowany automatycznie, ale możesz to zrobić też ręcznie. 
 
 Czy chcesz pobrać plik instalacyjny?</value>
   </data>
@@ -3328,5 +3328,14 @@ Czy chcesz pobrać plik instalacyjny?</value>
   </data>
   <data name="QuickActionsMod_ClmDomain" xml:space="preserve">
     <value>domain</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>SterowanieRadiem</value>
+  </data>
+  <data name="CommandType_SwitchDesktopCommand" xml:space="preserve">
+    <value>ZmienPulpit</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>AktywnyPulpit</value>
   </data>
 </root>

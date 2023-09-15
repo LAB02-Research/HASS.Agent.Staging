@@ -15,6 +15,10 @@ namespace HASS.Agent.Shared.Enums
         [EnumMember(Value = "ActiveWindowSensor")]
         ActiveWindowSensor,
 
+        [LocalizedDescription("SensorType_ActiveDesktopSensor", typeof(Languages))]
+        [EnumMember(Value = "ActiveDesktopSensor")]
+        ActiveDesktopSensor,
+
         [LocalizedDescription("SensorType_AudioSensors", typeof(Languages))]
         [EnumMember(Value = "AudioSensors")]
         AudioSensors,
@@ -157,6 +161,10 @@ namespace HASS.Agent.Shared.Enums
 
         [LocalizedDescription("SensorType_WmiQuerySensor", typeof(Languages))]
         [EnumMember(Value = "WmiQuerySensor")]
-        WmiQuerySensor
+        WmiQuerySensor,
+
+        [LocalizedDescription("SensorType_InternalDeviceSensor", typeof(Languages))]
+        [EnumMember(Value = "InternalDeviceSensor")]
+        InternalDeviceSensor
     }
 }

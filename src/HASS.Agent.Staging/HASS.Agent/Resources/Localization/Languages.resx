@@ -363,6 +363,7 @@ Your command is provided as an argument 'as is', so you have to supply your own 
     <value>Simulates a single keypress.
 
 Click on the 'keycode' textbox and press the key you want simulated. The corresponding keycode will be entered for you.
+For TAB key please use LCTRL+TAB.
 
 If you need more keys and/or modifiers like CTRL, use the MultipleKeys command.</value>
   </data>
@@ -1170,7 +1171,9 @@ Currently takes the volume of your default device.</value>
     <value>Provides the current temperature of the first GPU.</value>
   </data>
   <data name="SensorsManager_LastActiveSensorDescription" xml:space="preserve">
-    <value>Provides a datetime value containing the last moment the user provided any input.</value>
+    <value>Provides a datetime value containing the last moment the user provided input.
+
+Optionally updates the sensor with current date, when system has been woken from sleep/hibernation in configuerd time window and no user activity was performed.</value>
   </data>
   <data name="SensorsManager_LastBootSensorDescription" xml:space="preserve">
     <value>Provides a datetime value containing the last moment the system (re)booted.
@@ -2089,7 +2092,7 @@ Do you want to enable it?</value>
     <value>You can choose what modules you want to enable. They require HA integrations, but don't worry, the next page will give you more info on how to set them up.</value>
   </data>
   <data name="OnboardingIntegrations_LblInfo1" xml:space="preserve">
-	  <value>To use notifications, you need to install and configure the HASS.Agent integration in
+    <value>To use notifications, you need to install and configure the HASS.Agent integration in
 Home Assistant.
 
 This is very easy using HACS, but you can also install manually. Visit the link below for more
@@ -2995,7 +2998,9 @@ Home Assistant's API.
 
 Please provide a long-lived access token and the address of your Home Assistant instance.
 You can get a token in Home Assistant by clicking your profile picture at the bottom-left
-and navigating to the bottom of the page until you see the 'CREATE TOKEN' button.</value>
+and navigating to the bottom of the page until you see the 'CREATE TOKEN' button.
+
+Please note, that for actionable notification functionality you need to provide admin account token.</value>
   </data>
   <data name="ConfigLocalApi_LblInfo1" xml:space="preserve">
     <value>HASS.Agent has its own local API, so Home Assistant can send requests (for instance to send a notification). You can configure it globally here, and afterwards you can configure the dependent sections (currently notifications and mediaplayer).
@@ -3223,9 +3228,108 @@ Do you want to download the runtime installer?</value>
     <value>Please provide a number between 0 and 20!</value>
   </data>
   <data name="SensorsMod_LblDigits" xml:space="preserve">
-	  <value>digits after the comma</value>
+    <value>digits after the comma</value>
   </data>
   <data name="SensorsMod_CbApplyRounding" xml:space="preserve">
-	  <value>&amp;Round</value>
+    <value>&amp;Round</value>
+  </data>
+  <data name="SensorsMod_CbApplyRounding_LastActive" xml:space="preserve">
+    <value>Force action
+when system
+wakes from sleep/hibernation</value>
+  </data>
+  <data name="ConfigNotifications_CbNotificationsOpenActionUri" xml:space="preserve">
+    <value>&amp;Treat URI Action elements, like Android Companion App does (open)</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputTitle" xml:space="preserve">
+    <value>Notification Input Title</value>
+  </data>
+  <data name="ConfigNotifications_TestNotification_InputText" xml:space="preserve">
+    <value>Notification Input Text</value>
+  </data>
+  <data name="CommandsManager_SetApplicationVolumeCommandDescription" xml:space="preserve">
+    <value>Sets the volume and mute status of the provided application on provided audio device to the specified level.
+Command / payload needs to be in JSON format. Example of all possible options:
+{
+  "playbackDevice": "Speakers (THX Spatial Audio)",
+  "applicationName": "Discord",
+  "volume": 90,
+  "mute": true
+}
+
+If no "playbackDevice" is provided, HASS.Agent will use the default one.
+If no "volume" is provided, HASS.Agent will set only mute status.
+If no "mute" is provided, HASS.Agent will unmute the provided application.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_InvalidJson" xml:space="preserve">
+    <value>Please enter a valid JSON string!</value>
+  </data>
+  <data name="SensorType_InternalDeviceSensor" xml:space="preserve">
+    <value>InternalDeviceSensor</value>
+  </data>
+  <data name="SensorsManager_InternalDeviceSensorDescription" xml:space="preserve">
+    <value>Provides data from the internal device sensor.
+Availability of the sensor depends on the device, in some cases no sensors will be available.</value>
+  </data>
+  <data name="SensorsMod_LblSetting1_InternalSensor" xml:space="preserve">
+    <value>Internal Sensor</value>
+  </data>
+  <data name="SensorsMod_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="CommandsManager_RadioCommandDescription" xml:space="preserve">
+    <value>Switches selected radio device on/off. Availability of radio devices depends on the device HASS.Agent is installed on.</value>
+  </data>
+  <data name="CommandType_RadioCommand" xml:space="preserve">
+    <value>RadioCommand</value>
+  </data>
+  <data name="CommandsMod_LblSetting_Radio" xml:space="preserve">
+    <value>Radio device</value>
+  </data>
+  <data name="CommandsMod_BtnStore_MessageBox11" xml:space="preserve">
+    <value>Please select radio device!</value>
+  </data>
+  <data name="SensorsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Device name in the sensor name might cause issues with Home Assistant versions starting with 2023.8.</value>
+  </data>
+  <data name="CommandsMod_BtnStore_DeviceNameInSensorName" xml:space="preserve">
+    <value>Device name in the command name might cause issues with Home Assistant versions starting with 2023.8.</value>
+  </data>
+  <data name="Compat_NameTask_Name" xml:space="preserve">
+    <value>Changing entity names
+to match Home Assistant 2023.8 requirements</value>
+  </data>
+  <data name="Compat_Error_CheckLogs" xml:space="preserve">
+    <value>Error, please check logs for more information.</value>
+  </data>
+  <data name="Compat_NameTask_Error_SingleValueSensors" xml:space="preserve">
+    <value>Error converting single value sensors!</value>
+  </data>
+  <data name="Compat_NameTask_Error_Commands" xml:space="preserve">
+    <value>Error converting commands!</value>
+  </data>
+  <data name="Compat_NameTask_Error_MultiValueSensors" xml:space="preserve">
+    <value>Error converting multi value sensors!</value>
+  </data>
+  <data name="SensorsMod_CbIgnoreAvailability" xml:space="preserve">
+    <value>&amp;Ignore availability</value>
+  </data>
+  <data name="SensorsMod_IgnoreAvailability_Info" xml:space="preserve">
+    <value>Please note that ignoring availability will cause Home Assistant to always display last value for a given sensor, even when HASS.Agent is offline.</value>
+  </data>
+  <data name="SensorsManager_ActiveDesktopSensorDescription" xml:space="preserve">
+    <value>Provides the ID of the currently active virtual desktop.</value>
+  </data>
+  <data name="SensorType_ActiveDesktopSensor" xml:space="preserve">
+    <value>ActiveDesktop</value>
+  </data>
+  <data name="CommandsManager_SwitchDesktopCommandDescription" xml:space="preserve">
+    <value>Activates provided Virtual Desktop. Desktop ID can be retrieved from the "ActiveDesktop" sensor.</value>
   </data>
 </root>

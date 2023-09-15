@@ -345,6 +345,13 @@ namespace HASS.Agent.Sensors
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 
             // =================================
+            sensorInfoCard = new SensorInfoCard(SensorType.ActiveDesktopSensor,
+                Languages.SensorsManager_ActiveDesktopSensorDescription,
+                15, false, true, false);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
 
             sensorInfoCard = new SensorInfoCard(SensorType.AudioSensors,
                 Languages.SensorsManager_AudioSensorsDescription,
@@ -629,6 +636,14 @@ namespace HASS.Agent.Sensors
             sensorInfoCard = new SensorInfoCard(SensorType.WmiQuerySensor,
                 Languages.SensorsManager_WmiQuerySensorDescription,
                 10, false, true, true);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
+            sensorInfoCard = new SensorInfoCard(SensorType.InternalDeviceSensor,
+            Languages.SensorsManager_InternalDeviceSensorDescription,
+            10, false, true, false);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
 

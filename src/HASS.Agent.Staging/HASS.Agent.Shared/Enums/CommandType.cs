@@ -89,9 +89,17 @@ namespace HASS.Agent.Shared.Enums
         [EnumMember(Value = "SendWindowToFrontCommand")]
         SendWindowToFrontCommand,
 
+        [LocalizedDescription("CommandType_SwitchDesktopCommand", typeof(Languages))]
+        [EnumMember(Value = "SwitchDesktopCommand")]
+        SwitchDesktopCommand,
+
         [LocalizedDescription("CommandType_SetVolumeCommand", typeof(Languages))]
         [EnumMember(Value = "SetVolumeCommand")]
         SetVolumeCommand,
+
+        [LocalizedDescription("CommandType_SetApplicationVolumeCommand", typeof(Languages))]
+        [EnumMember(Value = "SetApplicationVolumeCommand")]
+        SetApplicationVolumeCommand,
 
         [LocalizedDescription("CommandType_ShutdownCommand", typeof(Languages))]
         [EnumMember(Value = "ShutdownCommand")]
@@ -103,6 +111,10 @@ namespace HASS.Agent.Shared.Enums
 
         [LocalizedDescription("CommandType_WebViewCommand", typeof(Languages))]
         [EnumMember(Value = "WebViewCommand")]
-        WebViewCommand
+        WebViewCommand,
+
+        [LocalizedDescription("CommandType_RadioCommand", typeof(Languages))]
+        [EnumMember(Value = "RadioCommand")]
+        RadioCommand
     }
 }

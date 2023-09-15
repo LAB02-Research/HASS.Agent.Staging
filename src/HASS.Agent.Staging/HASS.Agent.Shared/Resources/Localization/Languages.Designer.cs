@@ -1249,6 +1249,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RadioCommand.
+        /// </summary>
+        internal static string CommandType_RadioCommand {
+            get {
+                return ResourceManager.GetString("CommandType_RadioCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restart.
         /// </summary>
         internal static string CommandType_RestartCommand {
@@ -1263,6 +1272,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string CommandType_SendWindowToFrontCommand {
             get {
                 return ResourceManager.GetString("CommandType_SendWindowToFrontCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SetApplicationVolume.
+        /// </summary>
+        internal static string CommandType_SetApplicationVolumeCommand {
+            get {
+                return ResourceManager.GetString("CommandType_SetApplicationVolumeCommand", resourceCulture);
             }
         }
         
@@ -1290,6 +1308,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string CommandType_SleepCommand {
             get {
                 return ResourceManager.GetString("CommandType_SleepCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SwitchDesktop.
+        /// </summary>
+        internal static string CommandType_SwitchDesktopCommand {
+            get {
+                return ResourceManager.GetString("CommandType_SwitchDesktopCommand", resourceCulture);
             }
         }
         
@@ -6430,6 +6457,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ActiveDesktop.
+        /// </summary>
+        internal static string SensorType_ActiveDesktopSensor {
+            get {
+                return ResourceManager.GetString("SensorType_ActiveDesktopSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ActiveWindow.
         /// </summary>
         internal static string SensorType_ActiveWindowSensor {
@@ -6543,6 +6579,15 @@ namespace HASS.Agent.Shared.Resources.Localization {
         internal static string SensorType_GpuTemperatureSensor {
             get {
                 return ResourceManager.GetString("SensorType_GpuTemperatureSensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InternalDeviceSensor.
+        /// </summary>
+        internal static string SensorType_InternalDeviceSensor {
+            get {
+                return ResourceManager.GetString("SensorType_InternalDeviceSensor", resourceCulture);
             }
         }
         

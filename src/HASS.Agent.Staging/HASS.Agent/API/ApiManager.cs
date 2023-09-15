@@ -141,7 +141,7 @@ namespace HASS.Agent.API
                 p.StartInfo.Verb = "runas";
                 p.StartInfo.UseShellExecute = true;
                 p.StartInfo.FileName = Variables.ApplicationExecutable;
-                p.StartInfo.Arguments = "portreservation";
+                p.StartInfo.Arguments = Program.LaunchPortReservation;
 
                 var success = p.Start();
                 if (!success)
