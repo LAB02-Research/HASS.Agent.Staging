@@ -157,6 +157,15 @@ namespace HASS.Agent.Shared.Enums
 
         [LocalizedDescription("SensorType_WmiQuerySensor", typeof(Languages))]
         [EnumMember(Value = "WmiQuerySensor")]
-        WmiQuerySensor
+        WmiQuerySensor,
+
+        [LocalizedDescription("SensorType_CpuTotalPowerSensor", typeof(Languages))]
+        [EnumMember(Value = "CpuTotalPowerSensor")]
+        CpuTotalPowerSensor,
+
+        [LocalizedDescription("SensorType_GpuTotalPowerSensor", typeof(Languages))]
+        [EnumMember(Value = "GpuTotalPowerSensor")]
+        GpuTotalPowerSensor,
+
     }
 }

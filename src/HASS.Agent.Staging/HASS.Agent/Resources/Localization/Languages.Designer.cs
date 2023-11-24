@@ -23,7 +23,7 @@ namespace HASS.Agent.Resources.Localization {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Languages {
-        
+        internal static string SensorsManager_GpuTotalPowerSensorDescription;
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -31,7 +31,9 @@ namespace HASS.Agent.Resources.Localization {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Languages() {
         }
-        
+
+        public static string SensorsManager_CpuTotalPowerSensorDescription { get; internal set; }
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>

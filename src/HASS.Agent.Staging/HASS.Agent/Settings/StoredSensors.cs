@@ -114,6 +114,9 @@ namespace HASS.Agent.Settings
                 case SensorType.CpuLoadSensor:
                     abstractSensor = new CpuLoadSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
+                case SensorType.CpuTotalPowerSensor:
+                    abstractSensor = new CpuTotalPowerSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    break;
                 case SensorType.MemoryUsageSensor:
                     abstractSensor = new MemoryUsageSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
@@ -149,6 +152,9 @@ namespace HASS.Agent.Settings
                     break;
                 case SensorType.GpuTemperatureSensor:
                     abstractSensor = new GpuTemperatureSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
+                    break;
+                case SensorType.GpuTotalPowerSensor:
+                    abstractSensor = new GpuTotalPowerSensor(sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
                     break;
                 case SensorType.WmiQuerySensor:
                     abstractSensor = new WmiQuerySensor(sensor.Query, sensor.Scope, sensor.ApplyRounding, sensor.Round, sensor.UpdateInterval, sensor.Name, sensor.FriendlyName, sensor.Id.ToString());
