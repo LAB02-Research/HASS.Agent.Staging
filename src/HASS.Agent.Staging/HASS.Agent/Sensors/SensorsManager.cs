@@ -386,6 +386,14 @@ namespace HASS.Agent.Sensors
 
             // =================================
 
+            sensorInfoCard = new SensorInfoCard(SensorType.CpuTotalPowerSensor,
+                Languages.SensorsManager_CpuTotalPowerSensorDescription,
+                30, false, true, true);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
             sensorInfoCard = new SensorInfoCard(SensorType.CurrentClockSpeedSensor,
                 Languages.SensorsManager_CurrentClockSpeedSensorDescription,
                 300, false, true, true);
@@ -428,6 +436,14 @@ namespace HASS.Agent.Sensors
 
             sensorInfoCard = new SensorInfoCard(SensorType.GpuLoadSensor,
                 Languages.SensorsManager_GpuLoadSensorDescription,
+                30, false, true, true);
+
+            SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
+
+            // =================================
+
+            sensorInfoCard = new SensorInfoCard(SensorType.GpuTotalPowerSensor,
+                Languages.SensorsManager_GpuTotalPowerSensorDescription,
                 30, false, true, true);
 
             SensorInfoCards.Add(sensorInfoCard.SensorType, sensorInfoCard);
